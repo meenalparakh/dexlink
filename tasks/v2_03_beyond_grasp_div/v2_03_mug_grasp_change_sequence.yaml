@@ -1,0 +1,105 @@
+experiment_id: v2_03_mug_grasp_change_sequence
+section: V2_03
+task_family: grasp_change_sequence
+category: mug
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+keyframes:
+- id: top_grasp
+  source_target:
+    category: mug
+    source_index: 3
+    target_index: 1
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: mug_lifted
+  derive_from: top_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: mug_translated
+  derive_from: mug_lifted
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.12
+    - 0.0
+    - 0.0
+- id: side_grasp
+  source_target:
+    category: mug
+    source_index: 2
+    target_index: 1
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+  - type: translate_pair
+    delta:
+    - 0.12
+    - 0.0
+    - 0.12
+trajectory:
+  id: mug_grasp_change
+  output_motion_path: outputs/v2_03_pipeline/v2_03_mug_grasp_change_sequence/exports/mug_grasp_change.npz
+  exported_rl_path: outputs/v2_03_pipeline/v2_03_mug_grasp_change_sequence/exports/mug_grasp_change_oakink_sequence.npy
+  phases:
+  - name: reach_top
+    type: reach_to_keyframe
+    target: top_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: top_grasp
+    type: hold_keyframe
+    keyframe: top_grasp
+    frames: 4
+  - name: lift_mug
+    type: interpolate_keyframes
+    start: top_grasp
+    end: mug_lifted
+    frames: 12
+  - name: translate_mug
+    type: interpolate_keyframes
+    start: mug_lifted
+    end: mug_translated
+    frames: 12
+  - name: change_to_side
+    type: interpolate_keyframes
+    start: mug_translated
+    end: side_grasp
+    frames: 25
+  - name: side_grasp
+    type: hold_keyframe
+    keyframe: side_grasp
+    frames: 12
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_120_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

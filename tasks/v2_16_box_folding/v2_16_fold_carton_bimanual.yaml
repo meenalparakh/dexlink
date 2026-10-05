@@ -1,0 +1,1424 @@
+experiment_id: v2_16_fold_carton_bimanual
+section: V2_16
+task_family: bimanual_articulated_box_folding
+category: folding_carton
+robot_model: xhand
+hands:
+- left
+- right
+hand_config_source_by_side:
+  left: right
+  right: right
+object_static: false
+scene:
+  table_height: 0.0
+  table_margin: 0.0
+  table_size:
+  - 1.2
+  - 1.2
+scene_objects:
+- id: box
+  source_target:
+    category: folding_carton
+    source_index: 1
+    target_index: 2
+  role: dynamic articulated cardboard net folded by both xHands
+  lowest_z_above_table: 0.04
+keyframes:
+- id: deploy_receivers_ready
+  label: 'Ready: Deploy open-mouth receivers'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 1
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: deploy_receivers_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 2
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: deploy_receivers_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - bottom_socket_keeper
+    right:
+    - top_socket_keeper
+- id: deploy_receivers_done
+  label: Deploy open-mouth receivers
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 3
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: deploy_receivers_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 4
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: deploy_receivers_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - bottom_socket_keeper
+    right:
+    - top_socket_keeper
+- id: raise_left_wall_ready
+  label: 'Ready: Raise left wall'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 5
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_left_wall_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 6
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_left_wall_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - left_wall
+    right:
+    - back_wall
+- id: raise_left_wall_done
+  label: Raise left wall
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 7
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_left_wall_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 8
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_left_wall_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - left_wall
+    right:
+    - back_wall
+- id: raise_right_wall_ready
+  label: 'Ready: Raise right wall'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 9
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_right_wall_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 10
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_right_wall_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - back_wall
+    right:
+    - right_wall
+- id: raise_right_wall_done
+  label: Raise right wall
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 11
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_right_wall_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 12
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_right_wall_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - back_wall
+    right:
+    - right_wall
+- id: close_front_wall_ready
+  label: 'Ready: Close front wall'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 13
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: close_front_wall_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 14
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: close_front_wall_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - front_wall
+    right:
+    - right_wall
+- id: close_front_wall_done
+  label: Close front wall
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 15
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: close_front_wall_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 16
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: close_front_wall_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - front_wall
+    right:
+    - right_wall
+- id: fold_glue_seam_ready
+  label: 'Ready: Fold offset glue seam'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 17
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_glue_seam_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 18
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_glue_seam_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - glue_flap
+    right:
+    - front_wall
+- id: fold_glue_seam_done
+  label: Fold offset glue seam
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 19
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_glue_seam_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 20
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_glue_seam_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - glue_flap
+    right:
+    - front_wall
+- id: fold_bottom_dust_ready
+  label: 'Ready: Fold bottom dust flaps'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 21
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_bottom_dust_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 22
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_bottom_dust_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - bottom_left_dust
+    right:
+    - bottom_right_dust
+- id: fold_bottom_dust_done
+  label: Fold bottom dust flaps
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 23
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_bottom_dust_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 24
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_bottom_dust_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - bottom_left_dust
+    right:
+    - bottom_right_dust
+- id: approach_bottom_receiver_ready
+  label: 'Ready: Approach bottom receiver'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 25
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: approach_bottom_receiver_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 26
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: approach_bottom_receiver_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - bottom_lid
+    right:
+    - back_wall
+- id: approach_bottom_receiver_done
+  label: Approach bottom receiver
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 27
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: approach_bottom_receiver_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 28
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: approach_bottom_receiver_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - bottom_lid
+    right:
+    - back_wall
+- id: align_bottom_tab_ready
+  label: 'Ready: Align bottom tuck tab'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 29
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: align_bottom_tab_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 30
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: align_bottom_tab_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - bottom_tuck_tab
+    right:
+    - bottom_lid
+- id: align_bottom_tab_done
+  label: Align bottom tuck tab
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 31
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: align_bottom_tab_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 32
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: align_bottom_tab_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - bottom_tuck_tab
+    right:
+    - bottom_lid
+- id: insert_bottom_tab_ready
+  label: 'Ready: Insert bottom tab'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 33
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_bottom_tab_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 34
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_bottom_tab_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - bottom_tuck_tab
+    right:
+    - bottom_socket_keeper
+- id: insert_bottom_tab_done
+  label: Insert bottom tab
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 35
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_bottom_tab_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 36
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_bottom_tab_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - bottom_tuck_tab
+    right:
+    - bottom_socket_keeper
+- id: fold_top_dust_ready
+  label: 'Ready: Fold top dust flaps'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 37
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_top_dust_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 38
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_top_dust_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - top_left_dust
+    right:
+    - top_right_dust
+- id: fold_top_dust_done
+  label: Fold top dust flaps
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 39
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_top_dust_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 40
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_top_dust_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - top_left_dust
+    right:
+    - top_right_dust
+- id: approach_top_receiver_ready
+  label: 'Ready: Approach top receiver'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 41
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: approach_top_receiver_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 42
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: approach_top_receiver_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - top_lid
+    right:
+    - back_wall
+- id: approach_top_receiver_done
+  label: Approach top receiver
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 43
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: approach_top_receiver_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 44
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: approach_top_receiver_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - top_lid
+    right:
+    - back_wall
+- id: align_top_tab_ready
+  label: 'Ready: Align top tuck tab'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 45
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: align_top_tab_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 46
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: align_top_tab_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - top_tuck_tab
+    right:
+    - top_lid
+- id: align_top_tab_done
+  label: Align top tuck tab
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 47
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: align_top_tab_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 48
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: align_top_tab_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - top_tuck_tab
+    right:
+    - top_lid
+- id: insert_top_tab_ready
+  label: 'Ready: Insert top tab'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 49
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_top_tab_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 50
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_top_tab_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - top_tuck_tab
+    right:
+    - top_socket_keeper
+- id: insert_top_tab_done
+  label: Insert top tab
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 51
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_top_tab_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_carton
+        source_index: 1
+        target_index: 52
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_top_tab_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.041
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - top_tuck_tab
+    right:
+    - top_socket_keeper
+- id: assembled_carton
+  label: Assembled carton
+  object_id: box
+  derive_from: insert_top_tab_done
+trajectory:
+  id: folding_carton_bimanual_sequence
+  output_motion_path: outputs/v2_16_box_folding/v2_16_fold_carton_bimanual/exports/folding_carton_bimanual_sequence.npz
+  exported_rl_path: outputs/v2_16_box_folding/v2_16_fold_carton_bimanual/exports/folding_carton_bimanual_sequence_oakink_sequence.npy
+  object_switch_transition_frames: 0
+  phases:
+  - name: reach_flat_supported_net
+    type: reach_to_keyframe
+    target: deploy_receivers_ready
+    active_object: box
+    frames: 20
+    backoff_translation:
+    - 0.0
+    - 0.0
+    - 0.08
+  - name: hold_first_contacts
+    type: hold_keyframe
+    keyframe: deploy_receivers_ready
+    active_object: box
+    frames: 3
+  - name: deploy_receivers
+    type: interpolate_keyframes
+    start: deploy_receivers_ready
+    end: deploy_receivers_done
+    active_object: box
+    frames: 54
+  - name: hold_deploy_receivers
+    type: hold_keyframe
+    keyframe: deploy_receivers_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_raise_left_wall
+    type: interpolate_keyframes
+    start: deploy_receivers_done
+    end: raise_left_wall_ready
+    active_object: box
+    frames: 15
+  - name: raise_left_wall
+    type: interpolate_keyframes
+    start: raise_left_wall_ready
+    end: raise_left_wall_done
+    active_object: box
+    frames: 45
+  - name: hold_raise_left_wall
+    type: hold_keyframe
+    keyframe: raise_left_wall_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_raise_right_wall
+    type: interpolate_keyframes
+    start: raise_left_wall_done
+    end: raise_right_wall_ready
+    active_object: box
+    frames: 15
+  - name: raise_right_wall
+    type: interpolate_keyframes
+    start: raise_right_wall_ready
+    end: raise_right_wall_done
+    active_object: box
+    frames: 45
+  - name: hold_raise_right_wall
+    type: hold_keyframe
+    keyframe: raise_right_wall_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_close_front_wall
+    type: interpolate_keyframes
+    start: raise_right_wall_done
+    end: close_front_wall_ready
+    active_object: box
+    frames: 15
+  - name: close_front_wall
+    type: interpolate_keyframes
+    start: close_front_wall_ready
+    end: close_front_wall_done
+    active_object: box
+    frames: 51
+  - name: hold_close_front_wall
+    type: hold_keyframe
+    keyframe: close_front_wall_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_fold_glue_seam
+    type: interpolate_keyframes
+    start: close_front_wall_done
+    end: fold_glue_seam_ready
+    active_object: box
+    frames: 15
+  - name: fold_glue_seam
+    type: interpolate_keyframes
+    start: fold_glue_seam_ready
+    end: fold_glue_seam_done
+    active_object: box
+    frames: 45
+  - name: hold_fold_glue_seam
+    type: hold_keyframe
+    keyframe: fold_glue_seam_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_fold_bottom_dust
+    type: interpolate_keyframes
+    start: fold_glue_seam_done
+    end: fold_bottom_dust_ready
+    active_object: box
+    frames: 15
+  - name: fold_bottom_dust
+    type: interpolate_keyframes
+    start: fold_bottom_dust_ready
+    end: fold_bottom_dust_done
+    active_object: box
+    frames: 45
+  - name: hold_fold_bottom_dust
+    type: hold_keyframe
+    keyframe: fold_bottom_dust_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_approach_bottom_receiver
+    type: interpolate_keyframes
+    start: fold_bottom_dust_done
+    end: approach_bottom_receiver_ready
+    active_object: box
+    frames: 15
+  - name: approach_bottom_receiver
+    type: interpolate_keyframes
+    start: approach_bottom_receiver_ready
+    end: approach_bottom_receiver_done
+    active_object: box
+    frames: 45
+  - name: hold_approach_bottom_receiver
+    type: hold_keyframe
+    keyframe: approach_bottom_receiver_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_align_bottom_tab
+    type: interpolate_keyframes
+    start: approach_bottom_receiver_done
+    end: align_bottom_tab_ready
+    active_object: box
+    frames: 15
+  - name: align_bottom_tab
+    type: interpolate_keyframes
+    start: align_bottom_tab_ready
+    end: align_bottom_tab_done
+    active_object: box
+    frames: 45
+  - name: hold_align_bottom_tab
+    type: hold_keyframe
+    keyframe: align_bottom_tab_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_insert_bottom_tab
+    type: interpolate_keyframes
+    start: align_bottom_tab_done
+    end: insert_bottom_tab_ready
+    active_object: box
+    frames: 15
+  - name: insert_bottom_tab
+    type: interpolate_keyframes
+    start: insert_bottom_tab_ready
+    end: insert_bottom_tab_done
+    active_object: box
+    frames: 72
+  - name: hold_insert_bottom_tab
+    type: hold_keyframe
+    keyframe: insert_bottom_tab_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_fold_top_dust
+    type: interpolate_keyframes
+    start: insert_bottom_tab_done
+    end: fold_top_dust_ready
+    active_object: box
+    frames: 15
+  - name: fold_top_dust
+    type: interpolate_keyframes
+    start: fold_top_dust_ready
+    end: fold_top_dust_done
+    active_object: box
+    frames: 45
+  - name: hold_fold_top_dust
+    type: hold_keyframe
+    keyframe: fold_top_dust_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_approach_top_receiver
+    type: interpolate_keyframes
+    start: fold_top_dust_done
+    end: approach_top_receiver_ready
+    active_object: box
+    frames: 15
+  - name: approach_top_receiver
+    type: interpolate_keyframes
+    start: approach_top_receiver_ready
+    end: approach_top_receiver_done
+    active_object: box
+    frames: 45
+  - name: hold_approach_top_receiver
+    type: hold_keyframe
+    keyframe: approach_top_receiver_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_align_top_tab
+    type: interpolate_keyframes
+    start: approach_top_receiver_done
+    end: align_top_tab_ready
+    active_object: box
+    frames: 15
+  - name: align_top_tab
+    type: interpolate_keyframes
+    start: align_top_tab_ready
+    end: align_top_tab_done
+    active_object: box
+    frames: 45
+  - name: hold_align_top_tab
+    type: hold_keyframe
+    keyframe: align_top_tab_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_insert_top_tab
+    type: interpolate_keyframes
+    start: align_top_tab_done
+    end: insert_top_tab_ready
+    active_object: box
+    frames: 15
+  - name: insert_top_tab
+    type: interpolate_keyframes
+    start: insert_top_tab_ready
+    end: insert_top_tab_done
+    active_object: box
+    frames: 72
+  - name: hold_insert_top_tab
+    type: hold_keyframe
+    keyframe: insert_top_tab_done
+    active_object: box
+    frames: 3
+  - name: hold_assembled_carton
+    type: hold_keyframe
+    keyframe: assembled_carton
+    active_object: box
+    frames: 15
+support_scene_objects:
+- id: platform
+  urdf_path: assets/procedural_mailer_folding/support/platform.urdf
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: support_block
+  urdf_path: assets/procedural_mailer_folding/support/support_block.urdf
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.08
+    - 0.14
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+note: Each ready/done pair uses independent left/right hammer-style holding retargetings. BPS target geometry
+  is restricted to the one or two cardboard links listed in retargeted_cardboard_links; the complete articulated
+  URDF remains the simulated object. The platform top is z=0 and the 40 mm support block holds the initially
+  flat root panel.

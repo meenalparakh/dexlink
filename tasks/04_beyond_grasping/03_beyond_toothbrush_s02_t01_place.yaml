@@ -1,0 +1,88 @@
+experiment_id: 03_beyond_toothbrush_s02_t01_place
+section: III
+task_family: place_toothbrush_in_cup
+category: toothbrush
+robot_model: xhand
+hand_side: right
+source_target:
+  category: toothbrush
+  source_index: 2
+  target_index: 1
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: lifted
+  derive_from: grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: place_hover
+  derive_from: lifted
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.14
+    - 0.0
+    - 0.0
+- id: placed
+  derive_from: place_hover
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - -0.12
+- id: released
+  derive_from: placed
+  transforms:
+  - type: open_hand
+trajectory:
+  id: reach_grasp_move_place
+  output_motion_path: outputs/trajectory_templates/03_beyond_toothbrush_s02_t01_place/reach_grasp_move_place.npz
+  exported_rl_path: outputs/trajectory_templates/03_beyond_toothbrush_s02_t01_place/reach_grasp_move_place_oakink_sequence_exported.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 5
+  - name: lift
+    type: interpolate_keyframes
+    start: grasp
+    end: lifted
+    frames: 12
+  - name: move
+    type: interpolate_keyframes
+    start: lifted
+    end: place_hover
+    frames: 20
+  - name: put_down
+    type: interpolate_keyframes
+    start: place_hover
+    end: placed
+    frames: 12
+  - name: hold_place
+    type: hold_keyframe
+    keyframe: placed
+    frames: 5
+  - name: release
+    type: interpolate_keyframes
+    start: placed
+    end: released
+    frames: 8
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.3

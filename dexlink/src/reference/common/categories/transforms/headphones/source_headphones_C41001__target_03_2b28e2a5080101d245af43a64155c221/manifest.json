@@ -1,0 +1,18 @@
+{
+  "category": "headphones",
+  "source_index": 1,
+  "source_template_id": "top",
+  "source_demo_path": "external_data/oakink/shape/oakink_shape_v2/headphones/C41001/27f7172256/hand_param.pkl",
+  "target_index": 3,
+  "target_id": "2b28e2a5080101d245af43a64155c221",
+  "target_mesh_path": "external_data/shapenet/headphone/2b28e2a5080101d245af43a64155c221/models/model_normalized_solid_mesh.ply",
+  "target_demo_path": null,
+  "rotation_path": "dexlink/src/reference/common/categories/transforms/headphones/source_headphones_C41001__target_03_2b28e2a5080101d245af43a64155c221/rotation.json",
+  "scale_path": "dexlink/src/reference/common/categories/transforms/headphones/source_headphones_C41001__target_03_2b28e2a5080101d245af43a64155c221/scale.txt",
+  "target_transform_info": "dexlink/src/reference/common/categories/transforms/headphones/source_headphones_C41001__target_03_2b28e2a5080101d245af43a64155c221/rotation.json",
+  "target_scale": 0.2,
+  "rotation_semantics": "For mesh targets, rotation is applied to target vertices before retargeting. For URDF targets, rotation is a root/base rotation to use at placement time; the saved scaled_urdf_path only materializes mesh/origin scale.",
+  "scaled_urdf_path": null,
+  "urdfpy_compatible_urdf_path": null,
+  "target_visualization_obj_path": null
+}

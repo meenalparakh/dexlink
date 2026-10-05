@@ -1,0 +1,18 @@
+{
+  "category": "hammer",
+  "source_index": 1,
+  "source_template_id": "handle_grasp",
+  "source_demo_path": "external_data/oakink/shape/oakink_shape_v2/hammer/C22001/109708ca1a/hand_param.pkl",
+  "target_index": 1,
+  "target_id": "hammer",
+  "target_mesh_path": "assets/hammer/hammer.urdf",
+  "target_demo_path": null,
+  "rotation_path": "dexlink/src/reference/common/categories/transforms/hammer/source_hammer_C22001__target_01_hammer/rotation.json",
+  "scale_path": "dexlink/src/reference/common/categories/transforms/hammer/source_hammer_C22001__target_01_hammer/scale.txt",
+  "target_transform_info": "dexlink/src/reference/common/categories/transforms/hammer/source_hammer_C22001__target_01_hammer/rotation.json",
+  "target_scale": 1.0,
+  "rotation_semantics": "For mesh targets, rotation is applied to target vertices before retargeting. For URDF targets, rotation is a root/base rotation to use at placement time; the saved scaled_urdf_path only materializes mesh/origin scale.",
+  "scaled_urdf_path": "dexlink/src/reference/common/categories/transforms/hammer/source_hammer_C22001__target_01_hammer/hammer_scaled.urdf",
+  "urdfpy_compatible_urdf_path": "assets/hammer/hammer.urdf",
+  "target_visualization_obj_path": "dexlink/src/reference/common/categories/transforms/hammer/source_hammer_C22001__target_01_hammer/hammer_default_visual.obj"
+}

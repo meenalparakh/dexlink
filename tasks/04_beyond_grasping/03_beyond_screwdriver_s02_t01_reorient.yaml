@@ -1,0 +1,64 @@
+experiment_id: 03_beyond_screwdriver_s02_t01_reorient
+section: III
+task_family: post_grasp_reorientation
+category: screwdriver
+robot_model: xhand
+hand_side: right
+source_target:
+  category: screwdriver
+  source_index: 2
+  target_index: 1
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: lifted
+  derive_from: grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: reoriented
+  derive_from: lifted
+  transforms:
+  - type: rotate_pair
+    axis:
+    - 0.0
+    - 0.0
+    - 1.0
+    degrees: 90.0
+    pivot: object_origin
+trajectory:
+  id: lift_reorient
+  output_motion_path: outputs/trajectory_templates/03_beyond_screwdriver_s02_t01_reorient/lift_reorient.npz
+  exported_rl_path: outputs/trajectory_templates/03_beyond_screwdriver_s02_t01_reorient/lift_reorient_oakink_sequence_exported.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: grasp
+    frames: 20
+    backoff_translation:
+    - -0.07
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 5
+  - name: lift
+    type: interpolate_keyframes
+    start: grasp
+    end: lifted
+    frames: 12
+  - name: reorient
+    type: interpolate_keyframes
+    start: lifted
+    end: reoriented
+    frames: 20
+  - name: hold_reoriented
+    type: hold_keyframe
+    keyframe: reoriented
+    frames: 5

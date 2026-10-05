@@ -1,0 +1,27 @@
+experiment_id: v2_06_trigger_sprayer_s02_t04_grasp_refinement
+section: V2_06
+task_family: grasp_refinement
+category: trigger_sprayer
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+object_static: false
+source_target:
+  category: trigger_sprayer
+  source_index: 2
+  target_index: 4
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+trajectory:
+  id: grasp_refinement
+  output_motion_path: outputs/v2_06_pipeline/v2_06_trigger_sprayer_s02_t04_grasp_refinement/exports/grasp_refinement.npz
+  exported_rl_path: outputs/v2_06_pipeline/v2_06_trigger_sprayer_s02_t04_grasp_refinement/exports/grasp_refinement_oakink_sequence.npy
+  phases:
+  - name: grasp_refinement
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 20

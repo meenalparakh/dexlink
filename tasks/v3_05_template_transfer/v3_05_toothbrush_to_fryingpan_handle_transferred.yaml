@@ -1,0 +1,112 @@
+experiment_id: v3_05_toothbrush_to_fryingpan_handle_transferred
+section: V3_05
+task_family: paired_template_transfer
+category: template_transfer
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+source_target:
+  category: template_transfer
+  source_index: 8
+  target_index: 6
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 0.7071067811865476
+    - 0.7071067811865476
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.052000000000000005
+- id: lifted
+  derive_from: grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.2
+trajectory:
+  id: reach_grasp_lift
+  output_motion_path: outputs/v3_05_template_transfer_pipeline/v3_05_toothbrush_to_fryingpan_handle_transferred/exports/reach_grasp_lift.npz
+  exported_rl_path: outputs/v3_05_template_transfer_pipeline/v3_05_toothbrush_to_fryingpan_handle_transferred/exports/reach_grasp_lift_oakink_sequence.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 5
+  - name: lift
+    type: interpolate_keyframes
+    start: grasp
+    end: lifted
+    frames: 20
+  - name: hold_lift
+    type: hold_keyframe
+    keyframe: lifted
+    frames: 5
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_070_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: pan_support_block
+  mesh_path: assets/support/pan_support_017_016_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - -0.045
+    - 0.05
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+transfer_condition:
+  pair_id: toothbrush_to_fryingpan_handle
+  scope: cross_category
+  interaction: handle
+  semantic_name: handle grasp
+  condition: transferred
+  artifact_revision: null
+  source_index: 8
+  source_category: toothbrush
+  target_object_category: frying pan
+  source_object_id: C25001
+  source_demo_id: 7c163ff232
+  target_index: 6
+  target_id: fryingpan_c26001_handle
+  target_demo_path: external_data/oakink/shape/oakink_shape_v2/fryingpan/C26001/3a99a57b64/hand_param.pkl
+  target_mesh_path: null
+  has_exact_target_control: true

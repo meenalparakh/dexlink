@@ -1,0 +1,64 @@
+experiment_id: 01_sparse_mug_s05_t01_lift_tilt
+section: I
+task_family: grasp_lift_tilt
+category: mug
+robot_model: xhand
+hand_side: right
+source_target:
+  category: mug
+  source_index: 5
+  target_index: 1
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: lifted
+  derive_from: grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.18
+- id: tilted
+  derive_from: lifted
+  transforms:
+  - type: rotate_pair
+    axis:
+    - 0.0
+    - 1.0
+    - 0.0
+    degrees: 90.0
+    pivot: object_origin
+trajectory:
+  id: reach_grasp_lift_tilt
+  output_motion_path: outputs/trajectory_templates/01_sparse_mug_s05_t01_lift_tilt/reach_grasp_lift_tilt.npz
+  exported_rl_path: outputs/trajectory_templates/01_sparse_mug_s05_t01_lift_tilt/reach_grasp_lift_tilt_oakink_sequence_exported.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 5
+  - name: lift
+    type: interpolate_keyframes
+    start: grasp
+    end: lifted
+    frames: 18
+  - name: tilt
+    type: interpolate_keyframes
+    start: lifted
+    end: tilted
+    frames: 15
+  - name: hold_tilt
+    type: hold_keyframe
+    keyframe: tilted
+    frames: 5

@@ -1,0 +1,49 @@
+experiment_id: 03_trajectory_trigger_sprayer_transition
+section: III
+task_family: grasp_transition
+category: trigger_sprayer
+robot_model: xhand
+hand_side: right
+keyframes:
+- id: neck_grasp
+  source_target:
+    category: trigger_sprayer
+    source_index: 3
+    target_index: 1
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: spraying_configuration
+  source_target:
+    category: trigger_sprayer
+    source_index: 2
+    target_index: 1
+  from_retarget:
+    motion_path: auto
+    frame: last
+trajectory:
+  id: sprayer_reach_transition
+  output_motion_path: outputs/trajectory_templates/03_trajectory_trigger_sprayer_transition/sprayer_reach_transition.npz
+  exported_rl_path: outputs/trajectory_templates/03_trajectory_trigger_sprayer_transition/sprayer_reach_transition_oakink_sequence_exported.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: neck_grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: neck_grasp
+    type: hold_keyframe
+    keyframe: neck_grasp
+    frames: 6
+  - name: transition_to_trigger
+    type: interpolate_keyframes
+    start: neck_grasp
+    end: spraying_configuration
+    frames: 22
+  - name: hold_spraying_configuration
+    type: hold_keyframe
+    keyframe: spraying_configuration
+    frames: 6

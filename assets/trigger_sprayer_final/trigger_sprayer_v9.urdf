@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<robot name="trigger_sprayer_v9">
+
+  <material name="body_white"><color rgba="0.92 0.92 0.88 1"/></material>
+  <material name="neck_light_grey"><color rgba="0.65 0.65 0.65 1"/></material>
+  <material name="head_blue"><color rgba="0.08 0.18 0.85 1"/></material>
+  <material name="trigger_red"><color rgba="0.85 0.08 0.04 1"/></material>
+  <material name="nozzle_dark_grey"><color rgba="0.08 0.08 0.08 1"/></material>
+
+
+  <link name="base_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.160000"/><inertia ixx="0.000214333" ixy="0" ixz="0" iyy="0.000214333" iyz="0" izz="0.000162000"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.045000" length="0.100000"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.045000" length="0.100000"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_01_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000003403" ixy="0" ixz="0" iyy="0.000003403" iyz="0" izz="0.000006795"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.044062" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.044062" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_02_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000003120" ixy="0" ixz="0" iyy="0.000003120" iyz="0" izz="0.000006229"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.042187" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.042187" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_03_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000002850" ixy="0" ixz="0" iyy="0.000002850" iyz="0" izz="0.000005688"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.040312" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.040312" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_04_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000002591" ixy="0" ixz="0" iyy="0.000002591" iyz="0" izz="0.000005171"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.038437" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.038437" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_05_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000002345" ixy="0" ixz="0" iyy="0.000002345" iyz="0" izz="0.000004679"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.036562" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.036562" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_06_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000002111" ixy="0" ixz="0" iyy="0.000002111" iyz="0" izz="0.000004211"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.034687" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.034687" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_07_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000001890" ixy="0" ixz="0" iyy="0.000001890" iyz="0" izz="0.000003768"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.032813" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.032813" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_08_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000001681" ixy="0" ixz="0" iyy="0.000001681" iyz="0" izz="0.000003350"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.030937" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.030937" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_09_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000001484" ixy="0" ixz="0" iyy="0.000001484" iyz="0" izz="0.000002956"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.029062" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.029062" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_10_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000001299" ixy="0" ixz="0" iyy="0.000001299" iyz="0" izz="0.000002587"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.027187" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.027187" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_11_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000001127" ixy="0" ixz="0" iyy="0.000001127" iyz="0" izz="0.000002243"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.025313" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.025313" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_12_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000000967" ixy="0" ixz="0" iyy="0.000000967" iyz="0" izz="0.000001923"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.023438" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.023438" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_13_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000000819" ixy="0" ixz="0" iyy="0.000000819" iyz="0" izz="0.000001627"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.021562" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.021562" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_14_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000000684" ixy="0" ixz="0" iyy="0.000000684" iyz="0" izz="0.000001357"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.019687" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.019687" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_15_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000000561" ixy="0" ixz="0" iyy="0.000000561" iyz="0" izz="0.000001110"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.017813" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.017813" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="transition_disc_16_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.007000"/><inertia ixx="0.000000450" ixy="0" ixz="0" iyy="0.000000450" iyz="0" izz="0.000000889"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.015938" length="0.003125"/></geometry><material name="body_white"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.015938" length="0.003125"/></geometry></collision>
+  </link>
+
+  <link name="neck_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.040000"/><inertia ixx="0.000005250" ixy="0" ixz="0" iyy="0.000005250" iyz="0" izz="0.000004500"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.015000" length="0.030000"/></geometry><material name="neck_light_grey"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.015000" length="0.030000"/></geometry></collision>
+  </link>
+
+  <link name="head_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.080000"/><inertia ixx="0.000018667" ixy="0" ixz="0" iyy="0.000018667" iyz="0" izz="0.000016000"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.020000" length="0.040000"/></geometry><material name="head_blue"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 0 0"/><geometry><cylinder radius="0.020000" length="0.040000"/></geometry></collision>
+  </link>
+
+  <link name="nozzle_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.006000"/><inertia ixx="0.000000048" ixy="0" ixz="0" iyy="0.000001036" iyz="0" izz="0.000001036"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 1.57079632679 0"/><geometry><cylinder radius="0.004000" length="0.045000"/></geometry><material name="nozzle_dark_grey"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 1.57079632679 0"/><geometry><cylinder radius="0.004000" length="0.045000"/></geometry></collision>
+  </link>
+
+  <link name="nozzle_tip_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.003000"/><inertia ixx="0.000000018" ixy="0" ixz="0" iyy="0.000000090" iyz="0" izz="0.000000090"/></inertial>
+    <visual><origin xyz="0 0 0" rpy="0 1.57079632679 0"/><geometry><cylinder radius="0.003500" length="0.018000"/></geometry><material name="nozzle_dark_grey"/></visual>
+    <collision><origin xyz="0 0 0" rpy="0 1.57079632679 0"/><geometry><cylinder radius="0.003500" length="0.018000"/></geometry></collision>
+  </link>
+
+  <link name="trigger_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.022000"/><inertia ixx="0.000000405" ixy="0" ixz="0" iyy="0.000007792" iyz="0" izz="0.000008105"/></inertial>
+    <visual><origin xyz="-0.024896 0 -0.020891" rpy="0 2.443460952792 0"/><geometry><box size="0.065000 0.014000 0.005000"/></geometry><material name="trigger_red"/></visual>
+    <collision><origin xyz="-0.024896 0 -0.020891" rpy="0 2.443460952792 0"/><geometry><box size="0.065000 0.014000 0.005000"/></geometry></collision>
+  </link>
+
+  <link name="trigger_stopper_link">
+    <inertial><origin xyz="0 0 0" rpy="0 0 0"/><mass value="0.009000"/><inertia ixx="0.000000654" ixy="0" ixz="0" iyy="0.000000526" iyz="0" izz="0.000000166"/></inertial>
+    <visual><origin xyz="-0.001250 0 0.002165" rpy="0 -1.047197551197 0"/><geometry><box size="0.005000 0.014000 0.026000"/></geometry><material name="trigger_red"/></visual>
+    <collision><origin xyz="-0.001250 0 0.002165" rpy="0 -1.047197551197 0"/><geometry><box size="0.005000 0.014000 0.026000"/></geometry></collision>
+  </link>
+
+<joint name="base_link_to_transition_disc_01_link" type="fixed"><parent link="base_link"/><child link="transition_disc_01_link"/><origin xyz="0 0 0.051562500" rpy="0 0 0"/></joint><joint name="transition_disc_01_link_to_transition_disc_02_link" type="fixed"><parent link="transition_disc_01_link"/><child link="transition_disc_02_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_02_link_to_transition_disc_03_link" type="fixed"><parent link="transition_disc_02_link"/><child link="transition_disc_03_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_03_link_to_transition_disc_04_link" type="fixed"><parent link="transition_disc_03_link"/><child link="transition_disc_04_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_04_link_to_transition_disc_05_link" type="fixed"><parent link="transition_disc_04_link"/><child link="transition_disc_05_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_05_link_to_transition_disc_06_link" type="fixed"><parent link="transition_disc_05_link"/><child link="transition_disc_06_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_06_link_to_transition_disc_07_link" type="fixed"><parent link="transition_disc_06_link"/><child link="transition_disc_07_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_07_link_to_transition_disc_08_link" type="fixed"><parent link="transition_disc_07_link"/><child link="transition_disc_08_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_08_link_to_transition_disc_09_link" type="fixed"><parent link="transition_disc_08_link"/><child link="transition_disc_09_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_09_link_to_transition_disc_10_link" type="fixed"><parent link="transition_disc_09_link"/><child link="transition_disc_10_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_10_link_to_transition_disc_11_link" type="fixed"><parent link="transition_disc_10_link"/><child link="transition_disc_11_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_11_link_to_transition_disc_12_link" type="fixed"><parent link="transition_disc_11_link"/><child link="transition_disc_12_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_12_link_to_transition_disc_13_link" type="fixed"><parent link="transition_disc_12_link"/><child link="transition_disc_13_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_13_link_to_transition_disc_14_link" type="fixed"><parent link="transition_disc_13_link"/><child link="transition_disc_14_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_14_link_to_transition_disc_15_link" type="fixed"><parent link="transition_disc_14_link"/><child link="transition_disc_15_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_15_link_to_transition_disc_16_link" type="fixed"><parent link="transition_disc_15_link"/><child link="transition_disc_16_link"/><origin xyz="0 0 0.003125000" rpy="0 0 0"/></joint><joint name="transition_disc_16_link_to_neck_link" type="fixed"><parent link="transition_disc_16_link"/><child link="neck_link"/><origin xyz="0 0 0.016562500" rpy="0 0 0"/></joint><joint name="neck_to_head_fixed" type="fixed"><parent link="neck_link"/><child link="head_link"/><origin xyz="0 0 0.035000000" rpy="0 0 0"/></joint><joint name="head_to_nozzle_fixed" type="fixed"><parent link="head_link"/><child link="nozzle_link"/><origin xyz="-0.042500 0 0" rpy="0 0 0"/></joint>
+  <joint name="nozzle_to_tip_fixed" type="fixed">
+    <parent link="nozzle_link"/>
+    <child link="nozzle_tip_link"/>
+    <origin xyz="-0.029872 0 -0.005162" rpy="0 -0.610865238 0"/>
+  </joint>
+
+  <joint name="trigger_joint" type="revolute">
+    <parent link="neck_link"/>
+    <child link="trigger_link"/>
+    <origin xyz="-0.015000 0 0.015000" rpy="0 0 0"/>
+    <axis xyz="0 -1 0"/>
+    <limit lower="0.000000000" upper="0.523598776" effort="20.0" velocity="4.0"/>
+  </joint>
+
+  <joint name="trigger_to_stopper_fixed" type="fixed">
+    <parent link="trigger_link"/>
+    <child link="trigger_stopper_link"/>
+    <origin xyz="-0.049793 0 -0.041781" rpy="0 0 0"/>
+  </joint>
+
+</robot>

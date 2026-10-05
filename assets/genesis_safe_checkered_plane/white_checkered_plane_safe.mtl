@@ -1,0 +1,13 @@
+newmtl white
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+d 1.0
+illum 1
+
+newmtl light_gray
+Ka 0.86 0.86 0.86
+Kd 0.86 0.86 0.86
+Ks 0.0 0.0 0.0
+d 1.0
+illum 1

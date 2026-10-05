@@ -1,0 +1,24 @@
+experiment_id: 02_reuse_marker_s02_t04_grasp
+section: II
+task_family: template_reuse_grasp_refinement
+category: marker
+robot_model: xhand
+hand_side: right
+source_target:
+  category: marker
+  source_index: 2
+  target_index: 4
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+trajectory:
+  id: grasp_refinement
+  output_motion_path: outputs/trajectory_templates/02_reuse_marker_s02_t04_grasp/grasp_refinement.npz
+  exported_rl_path: outputs/trajectory_templates/02_reuse_marker_s02_t04_grasp/grasp_refinement_oakink_sequence_exported.npy
+  phases:
+  - name: grasp_refinement
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 20

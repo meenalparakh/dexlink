@@ -1,0 +1,6 @@
+# Preserve imported robot assets byte-for-byte and avoid noisy geometry diffs.
+assets/robots/xhand/** -text -diff
+*.obj -diff
+*.stl binary
+*.glb binary
+*.ply binary

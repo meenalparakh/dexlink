@@ -1,0 +1,296 @@
+experiment_id: v3_06_apples_in_bowl
+section: V3_06
+task_family: sequential_collection
+category: fruit
+robot_model: xhand
+hand_side: right
+scene:
+  table_height: 0.0
+  table_margin: 0.002
+scene_objects:
+- id: apple_1
+  source_target:
+    category: fruit
+    source_index: 1
+    target_index: 1
+  role: apple 1 of 2, collected into the bowl
+- id: apple_2
+  source_target:
+    category: fruit
+    source_index: 1
+    target_index: 1
+  role: apple 2 of 2, collected into the bowl
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_100_160_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: bowl
+  mesh_path: external_data/ycb/bowl/textured.obj
+  scale: 2.0
+  static: true
+  support_asset: true
+  friction: 1.1
+  role: static collection bowl at twice its catalog size
+  template_pose:
+    object_pos:
+    - 0.029501
+    - 0.087345
+    - 0.003028
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+keyframes:
+- id: apple_1_grasp
+  object_id: apple_1
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.2355
+    - 0.1405
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: apple_1_lifted
+  object_id: apple_1
+  derive_from: apple_1_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.2
+- id: apple_1_bowl_hover
+  object_id: apple_1
+  derive_from: apple_1_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.055
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.17204
+- id: apple_1_bowl_release
+  object_id: apple_1
+  derive_from: apple_1_bowl_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.055
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.11204
+- id: apple_1_settled
+  object_id: apple_1
+  derive_from: apple_1_bowl_release
+  transforms:
+  - type: open_hand
+  - type: set_object_pose
+    object_pos:
+    - -0.055
+    - 0.0
+    - 0.056548
+- id: apple_1_retreated
+  object_id: apple_1
+  derive_from: apple_1_settled
+  transforms:
+  - type: translate_pair
+    delta:
+    - -0.035
+    - 0.0
+    - 0.13
+  - type: set_object_pose
+    object_pos:
+    - -0.055
+    - 0.0
+    - 0.056548
+- id: apple_2_grasp
+  object_id: apple_2
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0934
+    - -0.2798
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: apple_2_lifted
+  object_id: apple_2
+  derive_from: apple_2_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.2
+- id: apple_2_bowl_hover
+  object_id: apple_2
+  derive_from: apple_2_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.055
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.17204
+- id: apple_2_bowl_release
+  object_id: apple_2
+  derive_from: apple_2_bowl_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.055
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.11204
+- id: apple_2_settled
+  object_id: apple_2
+  derive_from: apple_2_bowl_release
+  transforms:
+  - type: open_hand
+  - type: set_object_pose
+    object_pos:
+    - 0.055
+    - 0.0
+    - 0.055777
+- id: apple_2_retreated
+  object_id: apple_2
+  derive_from: apple_2_settled
+  transforms:
+  - type: translate_pair
+    delta:
+    - -0.035
+    - 0.0
+    - 0.13
+  - type: set_object_pose
+    object_pos:
+    - 0.055
+    - 0.0
+    - 0.055777
+trajectory:
+  id: apples_in_bowl
+  output_motion_path: outputs/trajectory_templates_v2/v3_06_apples_in_bowl/apples_in_bowl.npz
+  exported_rl_path: outputs/trajectory_templates_v2/v3_06_apples_in_bowl/apples_in_bowl_oakink_sequence_exported_refined.npy
+  object_switch_transition_frames: 12
+  phases:
+  - name: reach_apple_1
+    active_object: apple_1
+    type: reach_to_keyframe
+    target: apple_1_grasp
+    frames: 18
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_apple_1
+    active_object: apple_1
+    type: hold_keyframe
+    keyframe: apple_1_grasp
+    frames: 5
+  - name: lift_apple_1
+    active_object: apple_1
+    type: interpolate_keyframes
+    start: apple_1_grasp
+    end: apple_1_lifted
+    frames: 12
+  - name: carry_apple_1_over_bowl
+    active_object: apple_1
+    type: interpolate_keyframes
+    start: apple_1_lifted
+    end: apple_1_bowl_hover
+    frames: 12
+  - name: lower_apple_1_to_rim
+    active_object: apple_1
+    type: interpolate_keyframes
+    start: apple_1_bowl_hover
+    end: apple_1_bowl_release
+    frames: 8
+  - name: hold_apple_1_at_rim
+    active_object: apple_1
+    type: hold_keyframe
+    keyframe: apple_1_bowl_release
+    frames: 4
+  - name: release_apple_1
+    active_object: apple_1
+    type: interpolate_keyframes
+    start: apple_1_bowl_release
+    end: apple_1_settled
+    frames: 10
+  - name: retreat_from_apple_1
+    active_object: apple_1
+    type: interpolate_keyframes
+    start: apple_1_settled
+    end: apple_1_retreated
+    frames: 10
+  - name: reach_apple_2
+    active_object: apple_2
+    type: reach_to_keyframe
+    target: apple_2_grasp
+    frames: 18
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_apple_2
+    active_object: apple_2
+    type: hold_keyframe
+    keyframe: apple_2_grasp
+    frames: 5
+  - name: lift_apple_2
+    active_object: apple_2
+    type: interpolate_keyframes
+    start: apple_2_grasp
+    end: apple_2_lifted
+    frames: 12
+  - name: carry_apple_2_over_bowl
+    active_object: apple_2
+    type: interpolate_keyframes
+    start: apple_2_lifted
+    end: apple_2_bowl_hover
+    frames: 12
+  - name: lower_apple_2_to_rim
+    active_object: apple_2
+    type: interpolate_keyframes
+    start: apple_2_bowl_hover
+    end: apple_2_bowl_release
+    frames: 8
+  - name: hold_apple_2_at_rim
+    active_object: apple_2
+    type: hold_keyframe
+    keyframe: apple_2_bowl_release
+    frames: 4
+  - name: release_apple_2
+    active_object: apple_2
+    type: interpolate_keyframes
+    start: apple_2_bowl_release
+    end: apple_2_settled
+    frames: 10
+  - name: retreat_from_apple_2
+    active_object: apple_2
+    type: interpolate_keyframes
+    start: apple_2_settled
+    end: apple_2_retreated
+    frames: 10

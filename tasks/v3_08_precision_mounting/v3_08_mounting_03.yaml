@@ -1,0 +1,154 @@
+experiment_id: v3_08_mounting_03
+section: V3_08
+task_family: precision_mounting
+category: bottle
+robot_model: xhand
+hand_side: right
+scene:
+  table_height: 0.0
+  table_margin: 0.002
+scene_objects:
+- id: cylinder
+  source_target:
+    category: bottle
+    source_index: 4
+    target_index: 21
+  role: hollow cylinder mounted on the rod, 3 mm bore clearance
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_070_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: post
+  mesh_path: assets/mounting/mounting_post.obj
+  static: true
+  support_asset: true
+  friction: 1.1
+  role: rod on a disc base that the cylinder is mounted on
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.002
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+precision:
+  factor: mounting_clearance
+  clearance_m: 0.003
+  rod_radius_m: 0.008
+  bore_radius_m: 0.011
+keyframes:
+- id: cylinder_grasp
+  object_id: cylinder
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - -0.12
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: cylinder_lifted
+  object_id: cylinder
+  derive_from: cylinder_grasp
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - -0.12
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.15
+- id: cylinder_over_rod
+  object_id: cylinder
+  derive_from: cylinder_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.15
+- id: cylinder_mounted
+  object_id: cylinder
+  derive_from: cylinder_over_rod
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.01
+- id: cylinder_released
+  object_id: cylinder
+  derive_from: cylinder_mounted
+  transforms:
+  - type: open_hand
+trajectory:
+  id: mount_cylinder_clearance_03
+  output_motion_path: outputs/v3_08_precision_mounting_pipeline/v3_08_mounting_03/exports/mount_cylinder_clearance_03.npz
+  exported_rl_path: outputs/v3_08_precision_mounting_pipeline/v3_08_mounting_03/exports/mount_cylinder_clearance_03_oakink_sequence.npy
+  object_switch_transition_frames: 0
+  phases:
+  - name: reach_cylinder
+    type: reach_to_keyframe
+    active_object: cylinder
+    target: cylinder_grasp
+    frames: 18
+  - name: grasp_cylinder
+    type: hold_keyframe
+    active_object: cylinder
+    keyframe: cylinder_grasp
+    frames: 5
+  - name: lift_cylinder
+    type: interpolate_keyframes
+    active_object: cylinder
+    start: cylinder_grasp
+    end: cylinder_lifted
+    frames: 12
+  - name: move_cylinder_over_rod
+    type: interpolate_keyframes
+    active_object: cylinder
+    start: cylinder_lifted
+    end: cylinder_over_rod
+    frames: 12
+  - name: lower_cylinder_onto_rod
+    type: interpolate_keyframes
+    active_object: cylinder
+    start: cylinder_over_rod
+    end: cylinder_mounted
+    frames: 16
+  - name: hold_cylinder_mounted
+    type: hold_keyframe
+    active_object: cylinder
+    keyframe: cylinder_mounted
+    frames: 4
+  - name: release_cylinder
+    type: release_or_open
+    active_object: cylinder
+    start: cylinder_mounted
+    end: cylinder_released
+    frames: 10
+    clearance_translation:
+    - -0.04
+    - 0.0
+    - 0.12

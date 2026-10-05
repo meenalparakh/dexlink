@@ -1,0 +1,36 @@
+experiment_id: 04_robustness_trigger_sprayer_s01_t01_grasp
+section: IV
+task_family: robustness_grasp_refinement
+category: trigger_sprayer
+robot_model: xhand
+hand_side: right
+source_target:
+  category: trigger_sprayer
+  source_index: 1
+  target_index: 1
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+trajectory:
+  id: grasp_refinement
+  output_motion_path: outputs/trajectory_templates/04_robustness_trigger_sprayer_s01_t01_grasp/grasp_refinement.npz
+  exported_rl_path: outputs/trajectory_templates/04_robustness_trigger_sprayer_s01_t01_grasp/grasp_refinement_oakink_sequence_exported.npy
+  phases:
+  - name: grasp_refinement
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 20
+robustness_sweep:
+  pose_noise_levels:
+  - 0.0
+  - 0.01
+  - 0.03
+  mesh_noise_levels:
+  - 0.0
+  - 0.005
+  - 0.015
+  comparisons:
+  - raw_retargeted
+  - rl_refined

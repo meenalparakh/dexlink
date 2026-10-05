@@ -1,0 +1,69 @@
+experiment_id: 03_trajectory_marker_reorient
+section: III
+task_family: post_grasp_reorientation
+category: marker
+robot_model: xhand
+hand_side: right
+source_target:
+  category: marker
+  source_index: 2
+  target_index: 1
+keyframes:
+- id: writing_grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+  template_pose:
+    euler_xyz_degrees:
+    - 180.0
+    - 0.0
+    - 0.0
+- id: lifted
+  derive_from: writing_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: reoriented
+  derive_from: lifted
+  transforms:
+  - type: rotate_pair
+    axis:
+    - 0.0
+    - 0.0
+    - 1.0
+    degrees: 90.0
+    pivot: object_origin
+trajectory:
+  id: marker_lift_reorient
+  output_motion_path: outputs/trajectory_templates/03_trajectory_marker_reorient/marker_lift_reorient.npz
+  exported_rl_path: outputs/trajectory_templates/03_trajectory_marker_reorient/marker_lift_reorient_oakink_sequence_exported.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: writing_grasp
+    frames: 20
+    backoff_translation:
+    - -0.07
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    keyframe: writing_grasp
+    frames: 5
+  - name: lift
+    type: interpolate_keyframes
+    start: writing_grasp
+    end: lifted
+    frames: 12
+  - name: reorient
+    type: interpolate_keyframes
+    start: lifted
+    end: reoriented
+    frames: 20
+  - name: hold_reoriented
+    type: hold_keyframe
+    keyframe: reoriented
+    frames: 5

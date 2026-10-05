@@ -1,0 +1,18 @@
+{
+  "category": "v2_15_lift_asset",
+  "source_index": 1,
+  "source_template_id": "top_round",
+  "source_demo_path": "external_data/oakink/shape/oakink_shape_v2/apple/C90001/4f267b3fba/hand_param.pkl",
+  "target_index": 2,
+  "target_id": "proc_cube_05",
+  "target_mesh_path": "assets/v2_15_asset_diversity/procedural/proc_cube_05/object.obj",
+  "target_demo_path": null,
+  "rotation_path": "dexlink/src/reference/common/categories/transforms/v2_15_lift_asset/source_apple_C90001__target_02_proc_cube_05/rotation.json",
+  "scale_path": "dexlink/src/reference/common/categories/transforms/v2_15_lift_asset/source_apple_C90001__target_02_proc_cube_05/scale.txt",
+  "target_transform_info": "dexlink/src/reference/common/categories/transforms/v2_15_lift_asset/source_apple_C90001__target_02_proc_cube_05/rotation.json",
+  "target_scale": 1.732495203614235,
+  "rotation_semantics": "For mesh targets, rotation is applied to target vertices before retargeting. For URDF targets, rotation is a root/base rotation to use at placement time; the saved scaled_urdf_path only materializes mesh/origin scale.",
+  "scaled_urdf_path": null,
+  "urdfpy_compatible_urdf_path": null,
+  "target_visualization_obj_path": null
+}

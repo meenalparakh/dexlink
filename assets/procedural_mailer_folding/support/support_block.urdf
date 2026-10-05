@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot name="folding_support_block">
+  <!-- The root frame lies at the center of the bottom surface. -->
+  <material name="support_blue">
+    <color rgba="0.27 0.48 0.68 1"/>
+  </material>
+  <link name="support_block">
+    <inertial>
+      <origin xyz="0 0 0.02" rpy="0 0 0"/>
+      <mass value="1.92"/>
+      <inertia ixx="0.006656" iyy="0.00256" izz="0.008704" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.02" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.12 0.20 0.04"/>
+      </geometry>
+      <material name="support_blue"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.02" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.12 0.20 0.04"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>

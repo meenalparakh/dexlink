@@ -1,0 +1,209 @@
+experiment_id: v3_08_lid_on_container
+section: V3_08
+task_family: multi_object_lid_on_container
+category: lid_on_container
+robot_model: xhand
+hands:
+- left
+- right
+hand_config_source_by_side:
+  left: right
+  right: right
+scene:
+  table_height: 0.0
+  table_margin: 0.002
+scene_objects:
+- id: lid
+  source_target:
+    category: top_lid
+    source_index: 1
+    target_index: 1
+  role: lid lifted by the free hand and placed on the container
+  template_pose:
+    object_pos:
+    - -0.28
+    - 0.0
+    - 0.0
+  lowest_z_above_table: 0.0
+- id: container
+  source_target:
+    category: bottle
+    source_index: 4
+    target_index: 20
+  role: container side-grasped off the table and held up for the lid
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  lowest_z_above_table: 0.0
+keyframes:
+- id: container_grasp
+  object_id: container
+  from_retarget:
+    motion_path: auto
+    frame: last
+  source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: container_lifted
+  object_id: container
+  derive_from: container_grasp
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.2
+- id: lid_grasp
+  object_id: lid
+  allow_mixed_objects: true
+  active_side: right
+  bimanual_from_retarget:
+    left:
+      object_id: container
+      from_template: container_lifted
+      source_hand_side: right
+    right:
+      object_id: lid
+      source_target:
+        category: top_lid
+        source_index: 1
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.28
+    - 0.0
+    - 0.0
+  - type: rotate_pair
+    axis:
+    - 0.0
+    - 1.0
+    - 0.0
+    degrees: 90.0
+    pivot: object_origin
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: lid_lifted
+  object_id: lid
+  derive_from: lid_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.18
+- id: lid_over_container
+  object_id: lid
+  derive_from: lid_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z_from_template_top: container_lifted
+    target_lowest_z_offset: 0.06
+- id: lid_placed
+  object_id: lid
+  derive_from: lid_over_container
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z_from_template_top: container_lifted
+    target_lowest_z_offset: 0.0
+- id: lid_released
+  object_id: lid
+  derive_from: lid_placed
+  transforms:
+  - type: open_hand
+trajectory:
+  id: lid_on_container_both_from_table
+  output_motion_path: outputs/v3_08_lid_on_container_pipeline/v3_08_lid_on_container/exports/lid_on_container_both_from_table.npz
+  exported_rl_path: outputs/v3_08_lid_on_container_pipeline/v3_08_lid_on_container/exports/lid_on_container_both_from_table_oakink_sequence.npy
+  object_switch_transition_frames: 0
+  phases:
+  - name: reach_container
+    active_object: container
+    type: reach_to_keyframe
+    target: container_grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_container
+    active_object: container
+    type: hold_keyframe
+    keyframe: container_grasp
+    frames: 5
+  - name: lift_container
+    active_object: container
+    type: interpolate_keyframes
+    start: container_grasp
+    end: container_lifted
+    frames: 14
+  - name: reach_lid
+    active_object: lid
+    type: reach_to_keyframe
+    target: lid_grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+    frozen_sides:
+    - left
+  - name: grasp_lid
+    active_object: lid
+    type: hold_keyframe
+    keyframe: lid_grasp
+    frames: 5
+  - name: lift_lid
+    active_object: lid
+    type: interpolate_keyframes
+    start: lid_grasp
+    end: lid_lifted
+    frames: 12
+  - name: move_lid_over_container
+    active_object: lid
+    type: interpolate_keyframes
+    start: lid_lifted
+    end: lid_over_container
+    frames: 10
+  - name: place_lid_on_container
+    active_object: lid
+    type: interpolate_keyframes
+    start: lid_over_container
+    end: lid_placed
+    frames: 5
+  - name: hold_lid_on_container
+    active_object: lid
+    type: hold_keyframe
+    keyframe: lid_placed
+    frames: 6
+  - name: release_lid
+    active_object: lid
+    type: interpolate_keyframes
+    start: lid_placed
+    end: lid_released
+    frames: 5
+note: The container hand is labeled left for the RL interface, but it uses the right-hand retargeting
+  and right-hand robot config. Both objects start on the table and are lifted one after the other.

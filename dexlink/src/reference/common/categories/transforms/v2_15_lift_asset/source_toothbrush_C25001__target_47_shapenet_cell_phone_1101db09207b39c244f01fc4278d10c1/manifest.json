@@ -1,0 +1,18 @@
+{
+  "category": "v2_15_lift_asset",
+  "source_index": 10,
+  "source_template_id": "flat_side",
+  "source_demo_path": "external_data/oakink/shape/oakink_shape_v2/toothbrush/C25001/3154da882c/hand_param.pkl",
+  "target_index": 47,
+  "target_id": "shapenet_cell_phone_1101db09207b39c244f01fc4278d10c1",
+  "target_mesh_path": "external_data/shapenet/cell_phone/1101db09207b39c244f01fc4278d10c1/models/model_normalized_solid_mesh.ply",
+  "target_demo_path": null,
+  "rotation_path": "dexlink/src/reference/common/categories/transforms/v2_15_lift_asset/source_toothbrush_C25001__target_47_shapenet_cell_phone_1101db09207b39c244f01fc4278d10c1/rotation.json",
+  "scale_path": "dexlink/src/reference/common/categories/transforms/v2_15_lift_asset/source_toothbrush_C25001__target_47_shapenet_cell_phone_1101db09207b39c244f01fc4278d10c1/scale.txt",
+  "target_transform_info": "dexlink/src/reference/common/categories/transforms/v2_15_lift_asset/source_toothbrush_C25001__target_47_shapenet_cell_phone_1101db09207b39c244f01fc4278d10c1/rotation.json",
+  "target_scale": 0.055762315186214745,
+  "rotation_semantics": "For mesh targets, rotation is applied to target vertices before retargeting. For URDF targets, rotation is a root/base rotation to use at placement time; the saved scaled_urdf_path only materializes mesh/origin scale.",
+  "scaled_urdf_path": null,
+  "urdfpy_compatible_urdf_path": null,
+  "target_visualization_obj_path": null
+}

@@ -1,0 +1,49 @@
+experiment_id: 01_sparse_bowl_s01_t01_lift
+section: I
+task_family: grasp_lift
+category: bowl
+robot_model: xhand
+hand_side: right
+source_target:
+  category: bowl
+  source_index: 1
+  target_index: 1
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: lifted
+  derive_from: grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.2
+trajectory:
+  id: reach_grasp_lift
+  output_motion_path: outputs/trajectory_templates/01_sparse_bowl_s01_t01_lift/reach_grasp_lift.npz
+  exported_rl_path: outputs/trajectory_templates/01_sparse_bowl_s01_t01_lift/reach_grasp_lift_oakink_sequence_exported.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 5
+  - name: lift
+    type: interpolate_keyframes
+    start: grasp
+    end: lifted
+    frames: 20
+  - name: hold_lift
+    type: hold_keyframe
+    keyframe: lifted
+    frames: 5

@@ -1,0 +1,202 @@
+experiment_id: v2_03_banana_handover_template_stride_6
+section: V2_03
+task_family: handover_sequence
+category: banana_handover
+robot_model: xhand
+hands:
+- left
+- right
+object_static: false
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+scene_objects:
+- id: banana
+  source_target:
+    category: banana_handover
+    source_index: 1
+    target_index: 1
+  lowest_z_above_table: 0.5
+keyframes:
+- id: banana_handover_t215
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 31
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 1
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t221
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 37
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 7
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t227
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 43
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 13
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t233
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 49
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 19
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t239
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 55
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 25
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t244
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 60
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 30
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+trajectory:
+  id: banana_handover_template_stride_6
+  output_motion_path: outputs/v2_03_pipeline/v2_03_banana_handover_template_stride_6/exports/banana_handover_template_stride_6.npz
+  exported_rl_path: outputs/v2_03_pipeline/v2_03_banana_handover_template_stride_6/exports/banana_handover_template_stride_6_oakink_sequence.npy
+  phases:
+  - name: banana_handover_t215_to_banana_handover_t221
+    type: interpolate_keyframes
+    start: banana_handover_t215
+    end: banana_handover_t221
+    active_object: banana
+    frames: 6
+  - name: banana_handover_t221_to_banana_handover_t227
+    type: interpolate_keyframes
+    start: banana_handover_t221
+    end: banana_handover_t227
+    active_object: banana
+    frames: 6
+  - name: banana_handover_t227_to_banana_handover_t233
+    type: interpolate_keyframes
+    start: banana_handover_t227
+    end: banana_handover_t233
+    active_object: banana
+    frames: 6
+  - name: banana_handover_t233_to_banana_handover_t239
+    type: interpolate_keyframes
+    start: banana_handover_t233
+    end: banana_handover_t239
+    active_object: banana
+    frames: 6
+  - name: banana_handover_t239_to_banana_handover_t244
+    type: interpolate_keyframes
+    start: banana_handover_t239
+    end: banana_handover_t244
+    active_object: banana
+    frames: 5
+  - name: hold_banana_handover
+    type: hold_keyframe
+    keyframe: banana_handover_t244
+    active_object: banana
+    frames: 8
+note: Bimanual banana handover stride-6 stitches synchronized left/right ARCTIC ketchup_use_01 frames
+  215-244. The banana follows the ARCTIC source object transform sequence; selected retargeted waypoints
+  are interpolated by ARCTIC timestep gaps so sparsity variants keep the same duration.
+retarget_reuse:
+  pipeline_root: outputs/v2_03_pipeline
+  experiment_id: v2_03_banana_handover
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_120_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

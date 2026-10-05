@@ -1,0 +1,149 @@
+experiment_id: v2_15_stack_two_procedural_cubes
+section: V2_15
+task_family: controlled_block_placement
+category: controlled_block_placement
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+scene_objects:
+- id: object
+  source_target:
+    category: v2_15_lift_asset
+    source_index: 1
+    target_index: 1
+  role: manipulated object
+support_scene_objects:
+- id: table
+  mesh_path: assets/v2_15_asset_diversity/support/v2_15_stack_two_procedural_cubes/table.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: base_cube
+  mesh_path: assets/v2_15_asset_diversity/support/v2_15_stack_two_procedural_cubes/base_cube.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.02
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+keyframes:
+- id: object_grasp
+  object_id: object
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.22
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: object_lifted
+  object_id: object
+  derive_from: object_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.16
+- id: object_hover
+  object_id: object
+  derive_from: object_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.046
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.096
+- id: object_placed
+  object_id: object
+  derive_from: object_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.046
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.046
+- id: object_released
+  object_id: object
+  derive_from: object_placed
+  transforms:
+  - type: open_hand
+trajectory:
+  id: stack_two_cubes
+  output_motion_path: outputs/v2_15_pipeline/v2_15_stack_two_procedural_cubes/exports/stack_two_cubes.npz
+  exported_rl_path: outputs/v2_15_pipeline/v2_15_stack_two_procedural_cubes/exports/stack_two_cubes_oakink_sequence.npy
+  phases:
+  - name: reach_object
+    active_object: object
+    type: reach_to_keyframe
+    target: object_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_object
+    active_object: object
+    type: hold_keyframe
+    keyframe: object_grasp
+    frames: 4
+  - name: lift_object
+    active_object: object
+    type: interpolate_keyframes
+    start: object_grasp
+    end: object_lifted
+    frames: 10
+  - name: move_object
+    active_object: object
+    type: interpolate_keyframes
+    start: object_lifted
+    end: object_hover
+    frames: 10
+  - name: place_object
+    active_object: object
+    type: interpolate_keyframes
+    start: object_hover
+    end: object_placed
+    frames: 6
+  - name: hold_object_placed
+    active_object: object
+    type: hold_keyframe
+    keyframe: object_placed
+    frames: 3
+  - name: release_object
+    active_object: object
+    type: interpolate_keyframes
+    start: object_placed
+    end: object_released
+    frames: 5
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.08

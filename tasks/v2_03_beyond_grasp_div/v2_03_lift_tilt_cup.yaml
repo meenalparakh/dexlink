@@ -1,0 +1,90 @@
+experiment_id: v2_03_lift_tilt_cup
+section: V2_03
+task_family: lift_tilt
+category: cup
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+source_target:
+  category: cup
+  source_index: 1
+  target_index: 1
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: lifted
+  derive_from: grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.2
+- id: tilted
+  derive_from: lifted
+  transforms:
+  - type: rotate_pair
+    axis:
+    - 0.0
+    - 1.0
+    - 0.0
+    degrees: -90.0
+    pivot: object_origin
+trajectory:
+  id: reach_grasp_lift_tilt
+  output_motion_path: outputs/v2_03_pipeline/v2_03_lift_tilt_cup/exports/reach_grasp_lift_tilt.npz
+  exported_rl_path: outputs/v2_03_pipeline/v2_03_lift_tilt_cup/exports/reach_grasp_lift_tilt_oakink_sequence.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 4
+  - name: lift
+    type: interpolate_keyframes
+    start: grasp
+    end: lifted
+    frames: 20
+  - name: hold_lift
+    type: hold_keyframe
+    keyframe: lifted
+    frames: 5
+  - name: tilt
+    type: interpolate_keyframes
+    start: lifted
+    end: tilted
+    frames: 15
+  - name: hold_tilt
+    type: hold_keyframe
+    keyframe: tilted
+    frames: 5
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_120_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

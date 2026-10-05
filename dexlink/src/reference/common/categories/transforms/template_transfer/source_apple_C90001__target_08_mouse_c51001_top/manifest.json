@@ -1,0 +1,18 @@
+{
+  "category": "template_transfer",
+  "source_index": 6,
+  "source_template_id": "top",
+  "source_demo_path": "external_data/oakink/shape/oakink_shape_v2/apple/C90001/4f267b3fba/hand_param.pkl",
+  "target_index": 8,
+  "target_id": "mouse_c51001_top",
+  "target_mesh_path": null,
+  "target_demo_path": "external_data/oakink/shape/oakink_shape_v2/mouse/C51001/453c469466/hand_param.pkl",
+  "rotation_path": "dexlink/src/reference/common/categories/transforms/template_transfer/source_apple_C90001__target_08_mouse_c51001_top/rotation.json",
+  "scale_path": "dexlink/src/reference/common/categories/transforms/template_transfer/source_apple_C90001__target_08_mouse_c51001_top/scale.txt",
+  "target_transform_info": "dexlink/src/reference/common/categories/transforms/template_transfer/source_apple_C90001__target_08_mouse_c51001_top/rotation.json",
+  "target_scale": 1.0,
+  "rotation_semantics": "The original +90-degree X target alignment is retained, then an external +90-degree world-Z rotation is applied: R = Rz(90 deg) @ Rx(90 deg). Only target-mouse vertices are transformed; the apple source template and its hand pose remain unchanged.",
+  "scaled_urdf_path": null,
+  "urdfpy_compatible_urdf_path": null,
+  "target_visualization_obj_path": null
+}

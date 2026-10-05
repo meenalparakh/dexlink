@@ -1,0 +1,338 @@
+experiment_id: 03_multi_object_breakfast_place
+section: III
+task_family: multi_object_table_setting
+category: breakfast_place_setting
+robot_model: xhand
+hand_side: right
+scene_objects:
+- id: bowl
+  source_target:
+    category: bowl
+    source_index: 2
+    target_index: 6
+  role: place bowl at the center of the setting
+- id: spoon
+  source_target:
+    category: spoon
+    source_index: 1
+    target_index: 1
+  role: place spoon inside the bowl
+- id: fruit
+  source_target:
+    category: fruit
+    source_index: 1
+    target_index: 1
+  role: place fruit beside the bowl
+- id: cup
+  source_target:
+    category: cup
+    source_index: 1
+    target_index: 1
+  role: place cup beside the bowl
+keyframes:
+- id: bowl_grasp
+  object_id: bowl
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: bowl_lifted
+  object_id: bowl
+  derive_from: bowl_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: bowl_placed
+  object_id: bowl
+  derive_from: bowl_lifted
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - -0.12
+- id: bowl_released
+  object_id: bowl
+  derive_from: bowl_placed
+  transforms:
+  - type: open_hand
+- id: spoon_grasp
+  object_id: spoon
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: spoon_lifted
+  object_id: spoon
+  derive_from: spoon_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.1
+- id: spoon_bowl_hover
+  object_id: spoon
+  derive_from: spoon_lifted
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.14
+    - 0.0
+    - 0.0
+- id: spoon_in_bowl
+  object_id: spoon
+  derive_from: spoon_bowl_hover
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - -0.1
+- id: spoon_released
+  object_id: spoon
+  derive_from: spoon_in_bowl
+  transforms:
+  - type: open_hand
+- id: fruit_grasp
+  object_id: fruit
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: fruit_lifted
+  object_id: fruit
+  derive_from: fruit_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.1
+- id: fruit_place_hover
+  object_id: fruit
+  derive_from: fruit_lifted
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.2
+    - 0.1
+    - 0.0
+- id: fruit_placed
+  object_id: fruit
+  derive_from: fruit_place_hover
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - -0.1
+- id: fruit_released
+  object_id: fruit
+  derive_from: fruit_placed
+  transforms:
+  - type: open_hand
+- id: cup_grasp
+  object_id: cup
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: cup_lifted
+  object_id: cup
+  derive_from: cup_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: cup_place_hover
+  object_id: cup
+  derive_from: cup_lifted
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.22
+    - -0.12
+    - 0.0
+- id: cup_placed
+  object_id: cup
+  derive_from: cup_place_hover
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - -0.12
+- id: cup_released
+  object_id: cup
+  derive_from: cup_placed
+  transforms:
+  - type: open_hand
+trajectory:
+  id: breakfast_place_setting
+  output_motion_path: outputs/trajectory_templates/03_multi_object_breakfast_place/breakfast_place_setting.npz
+  exported_rl_path: outputs/trajectory_templates/03_multi_object_breakfast_place/breakfast_place_setting_oakink_sequence_exported.npy
+  phases:
+  - name: reach_bowl
+    active_object: bowl
+    type: reach_to_keyframe
+    target: bowl_grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_bowl
+    active_object: bowl
+    type: hold_keyframe
+    keyframe: bowl_grasp
+    frames: 5
+  - name: lift_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_grasp
+    end: bowl_lifted
+    frames: 12
+  - name: put_down_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_lifted
+    end: bowl_placed
+    frames: 12
+  - name: release_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_placed
+    end: bowl_released
+    frames: 8
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.3
+  - name: reach_spoon
+    active_object: spoon
+    type: reach_to_keyframe
+    target: spoon_grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_spoon
+    active_object: spoon
+    type: hold_keyframe
+    keyframe: spoon_grasp
+    frames: 5
+  - name: lift_spoon
+    active_object: spoon
+    type: interpolate_keyframes
+    start: spoon_grasp
+    end: spoon_lifted
+    frames: 10
+  - name: move_spoon_to_bowl
+    active_object: spoon
+    type: interpolate_keyframes
+    start: spoon_lifted
+    end: spoon_bowl_hover
+    frames: 16
+  - name: put_down_spoon_in_bowl
+    active_object: spoon
+    type: interpolate_keyframes
+    start: spoon_bowl_hover
+    end: spoon_in_bowl
+    frames: 10
+  - name: release_spoon
+    active_object: spoon
+    type: interpolate_keyframes
+    start: spoon_in_bowl
+    end: spoon_released
+    frames: 8
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.3
+  - name: reach_fruit
+    active_object: fruit
+    type: reach_to_keyframe
+    target: fruit_grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_fruit
+    active_object: fruit
+    type: hold_keyframe
+    keyframe: fruit_grasp
+    frames: 5
+  - name: lift_fruit
+    active_object: fruit
+    type: interpolate_keyframes
+    start: fruit_grasp
+    end: fruit_lifted
+    frames: 10
+  - name: move_fruit_side
+    active_object: fruit
+    type: interpolate_keyframes
+    start: fruit_lifted
+    end: fruit_place_hover
+    frames: 14
+  - name: put_down_fruit_side
+    active_object: fruit
+    type: interpolate_keyframes
+    start: fruit_place_hover
+    end: fruit_placed
+    frames: 10
+  - name: release_fruit
+    active_object: fruit
+    type: interpolate_keyframes
+    start: fruit_placed
+    end: fruit_released
+    frames: 8
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.3
+  - name: reach_cup
+    active_object: cup
+    type: reach_to_keyframe
+    target: cup_grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_cup
+    active_object: cup
+    type: hold_keyframe
+    keyframe: cup_grasp
+    frames: 5
+  - name: lift_cup
+    active_object: cup
+    type: interpolate_keyframes
+    start: cup_grasp
+    end: cup_lifted
+    frames: 12
+  - name: move_cup_side
+    active_object: cup
+    type: interpolate_keyframes
+    start: cup_lifted
+    end: cup_place_hover
+    frames: 16
+  - name: put_down_cup_side
+    active_object: cup
+    type: interpolate_keyframes
+    start: cup_place_hover
+    end: cup_placed
+    frames: 10
+  - name: release_cup
+    active_object: cup
+    type: interpolate_keyframes
+    start: cup_placed
+    end: cup_released
+    frames: 8
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.3

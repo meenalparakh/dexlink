@@ -1,0 +1,156 @@
+experiment_id: 03_multi_object_drawer_bowl_available
+section: III
+task_family: multi_object_available_template_check
+category: drawer_bowl_scene
+robot_model: xhand
+hand_side: right
+scene_objects:
+- id: drawer
+  static: true
+  source_target:
+    category: drawer
+    source_index: 1
+    target_index: 1
+  template_pose:
+    euler_xyz_degrees:
+    - 90.0
+    - 0.0
+    - 0.0
+  role: open the drawer using the handle template
+- id: bowl
+  source_target:
+    category: bowl
+    source_index: 1
+    target_index: 1
+  template_pose:
+    translation:
+    - -0.45
+    - -0.22
+    - 0.0
+  role: pick up and place the bowl using the available pinch template
+keyframes:
+- id: drawer_contact
+  object_id: drawer
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: drawer_open
+  object_id: drawer
+  derive_from: drawer_contact
+  transforms:
+  - type: set_articulation
+    values:
+    - 0.23
+    articulation_link_name: handle_front
+- id: bowl_grasp
+  object_id: bowl
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: bowl_lifted
+  object_id: bowl
+  derive_from: bowl_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: bowl_place_hover
+  object_id: bowl
+  derive_from: bowl_lifted
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.2
+    - 0.2
+    - 0.0
+- id: bowl_placed
+  object_id: bowl
+  derive_from: bowl_place_hover
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - -0.12
+- id: bowl_released
+  object_id: bowl
+  derive_from: bowl_placed
+  transforms:
+  - type: open_hand
+trajectory:
+  id: drawer_open_then_bowl_place
+  output_motion_path: outputs/trajectory_templates/03_multi_object_drawer_bowl_available/drawer_open_then_bowl_place.npz
+  exported_rl_path: outputs/trajectory_templates/03_multi_object_drawer_bowl_available/drawer_open_then_bowl_place_oakink_sequence_exported.npy
+  object_switch_transition_frames: 14
+  object_switch_clearance_translation:
+  - 0.0
+  - 0.0
+  - 0.12
+  object_switch_open_fraction: 0.8
+  phases:
+  - name: reach_drawer
+    active_object: drawer
+    type: reach_to_keyframe
+    target: drawer_contact
+    frames: 20
+    backoff_distance: 0.08
+    height_offset: 0.06
+  - name: hold_drawer_contact
+    active_object: drawer
+    type: hold_keyframe
+    keyframe: drawer_contact
+    frames: 5
+  - name: open_drawer
+    active_object: drawer
+    type: interpolate_keyframes
+    start: drawer_contact
+    end: drawer_open
+    frames: 25
+    articulation_link_name: handle_front
+  - name: hold_drawer_open
+    active_object: drawer
+    type: hold_keyframe
+    keyframe: drawer_open
+    frames: 5
+  - name: reach_bowl
+    active_object: bowl
+    type: reach_to_keyframe
+    target: bowl_grasp
+    frames: 20
+    backoff_distance: 0.08
+    height_offset: 0.06
+  - name: hold_bowl_grasp
+    active_object: bowl
+    type: hold_keyframe
+    keyframe: bowl_grasp
+    frames: 5
+  - name: lift_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_grasp
+    end: bowl_lifted
+    frames: 12
+  - name: move_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_lifted
+    end: bowl_place_hover
+    frames: 18
+  - name: put_down_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_place_hover
+    end: bowl_placed
+    frames: 12
+  - name: release_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_placed
+    end: bowl_released
+    frames: 8
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.3

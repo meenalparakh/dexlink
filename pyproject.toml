@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dexlink"
+version = "0.1.0"
+description = "Interaction-centric reference trajectories for dexterous policy learning"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = [
+    "numpy>=1.24,<2",
+    "PyYAML>=6",
+    "scipy>=1.10",
+    "tqdm>=4.65",
+    "trimesh>=4",
+]
+
+[project.optional-dependencies]
+rl = [
+    "dtw-python>=1.5",
+    "einops>=0.7",
+    "genesis-world>=0.3.3,<0.4",
+    "gymnasium>=0.29",
+    "pandas>=2",
+    "seaborn>=0.13",
+    "torch>=2.2",
+    "urdfpy>=0.0.22",
+    "wandb>=0.17",
+]
+retargeting = [
+    "drake>=1.51,<2",
+    "smplx>=0.1.28",
+    "torch>=2.2",
+    "urdfpy>=0.0.22",
+]
+visualization = [
+    "imageio[ffmpeg]>=2.34",
+    "matplotlib>=3.8",
+    "meshcat>=0.3",
+    "opencv-python>=4.9",
+    "pillow>=10",
+    "pyrender>=0.1.45",
+    "seaborn>=0.13",
+    "urdfpy>=0.0.22",
+]
+real = [
+    "open3d>=0.19",
+    "opencv-contrib-python>=4.9",
+]
+test = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[project.scripts]
+dexlink-reference = "dexlink.scripts.reference.run_task_pipeline:main"
+dexlink-validate-task = "dexlink.scripts.reference.validate_task_inputs:main"
+dexlink-retarget = "dexlink.scripts.retargeting.run_trajopt_oakink:main"
+dexlink-retarget-task = "dexlink.scripts.retargeting.run_task_category_retargetings:main"
+dexlink-train = "dexlink.scripts.rl.train_rl:main"
+dexlink-eval = "dexlink.scripts.rl.eval_sim:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["dexlink*"]
+namespaces = true
+
+[tool.setuptools]
+license-files = ["LICENSE", "third_party_licenses/*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integration: requires locally installed external datasets or simulation assets",
+    "gpu: requires a CUDA-capable GPU",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint.per-file-ignores]
+# These modules must configure EGL or NumPy/trimesh compatibility before
+# importing packages that initialize the corresponding backend.
+"dexlink/scripts/rl/eval_sim.py" = ["E402"]
+"dexlink/scripts/rl/train_rl.py" = ["E402"]
+"dexlink/src/retargeting/optimization/oakink_processor.py" = ["E402"]

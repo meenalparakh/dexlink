@@ -1,0 +1,18 @@
+{
+  "category": "spoon",
+  "source_index": 1,
+  "source_template_id": "top_proxy",
+  "source_demo_path": "external_data/oakink/shape/oakink_shape_v2/toothbrush/C25001/94a15def16/hand_param.pkl",
+  "target_index": 1,
+  "target_id": "spoon",
+  "target_mesh_path": "external_data/sam3d/spoon/spoon/model.obj",
+  "target_demo_path": null,
+  "rotation_path": "dexlink/src/reference/common/categories/transforms/spoon/source_toothbrush_C25001__target_01_spoon/rotation.json",
+  "scale_path": "dexlink/src/reference/common/categories/transforms/spoon/source_toothbrush_C25001__target_01_spoon/scale.txt",
+  "target_transform_info": "dexlink/src/reference/common/categories/transforms/spoon/source_toothbrush_C25001__target_01_spoon/rotation.json",
+  "target_scale": 0.2,
+  "rotation_semantics": "For mesh targets, rotation is applied to target vertices before retargeting. For URDF targets, rotation is a root/base rotation to use at placement time; the saved scaled_urdf_path only materializes mesh/origin scale.",
+  "scaled_urdf_path": null,
+  "urdfpy_compatible_urdf_path": null,
+  "target_visualization_obj_path": null
+}

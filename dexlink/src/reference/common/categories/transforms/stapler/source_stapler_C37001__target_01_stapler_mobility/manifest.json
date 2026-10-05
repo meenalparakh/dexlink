@@ -1,0 +1,18 @@
+{
+  "category": "stapler",
+  "source_index": 1,
+  "source_template_id": "stapling",
+  "source_demo_path": "external_data/oakink/shape/oakink_shape_v2/stapler/C37001/84c7c88b70/hand_param.pkl",
+  "target_index": 1,
+  "target_id": "stapler_mobility",
+  "target_mesh_path": "external_data/partnet/stapler/mobility.urdf",
+  "target_demo_path": null,
+  "rotation_path": "dexlink/src/reference/common/categories/transforms/stapler/source_stapler_C37001__target_01_stapler_mobility/rotation.json",
+  "scale_path": "dexlink/src/reference/common/categories/transforms/stapler/source_stapler_C37001__target_01_stapler_mobility/scale.txt",
+  "target_transform_info": "dexlink/src/reference/common/categories/transforms/stapler/source_stapler_C37001__target_01_stapler_mobility/rotation.json",
+  "target_scale": 0.07,
+  "rotation_semantics": "For mesh targets, rotation is applied to target vertices before retargeting. For URDF targets, rotation is a root/base rotation to use at placement time; the saved scaled_urdf_path only materializes mesh/origin scale.",
+  "scaled_urdf_path": "dexlink/src/reference/common/categories/transforms/stapler/source_stapler_C37001__target_01_stapler_mobility/stapler_mobility_scaled.urdf",
+  "urdfpy_compatible_urdf_path": "dexlink/src/reference/common/categories/transforms/stapler/source_stapler_C37001__target_01_stapler_mobility/stapler_mobility_urdfpy.urdf",
+  "target_visualization_obj_path": "dexlink/src/reference/common/categories/transforms/stapler/source_stapler_C37001__target_01_stapler_mobility/stapler_mobility_default_visual.obj"
+}

@@ -1,0 +1,407 @@
+experiment_id: v3_09_sort_red_green_blocks
+section: V3_09
+task_family: policy_composition
+category: color_block_sorting
+robot_model: xhand
+hand_side: right
+scene:
+  table_height: 0.0
+  table_margin: 0.002
+scene_objects:
+- id: red
+  source_target:
+    category: block
+    source_index: 1
+    target_index: 4
+  role: red block sorted into the red bin
+  friction: 1.2
+- id: green
+  source_target:
+    category: block
+    source_index: 1
+    target_index: 5
+  role: green block sorted into the green bin
+  friction: 1.2
+support_scene_objects:
+- id: table
+  mesh_path: assets/composition_examples/v3_09_sort_red_green_blocks/table.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: red_bin_floor
+  mesh_path: assets/composition_examples/v3_09_sort_red_green_blocks/red_bin_floor.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.14
+    - -0.2
+    - 0.005
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: red_bin_wall_x_pos
+  mesh_path: assets/composition_examples/v3_09_sort_red_green_blocks/red_bin_wall_x_pos.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.22400000000000003
+    - -0.2
+    - 0.0475
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: red_bin_wall_x_neg
+  mesh_path: assets/composition_examples/v3_09_sort_red_green_blocks/red_bin_wall_x_neg.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.05600000000000001
+    - -0.2
+    - 0.0475
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: red_bin_wall_y_pos
+  mesh_path: assets/composition_examples/v3_09_sort_red_green_blocks/red_bin_wall_y_pos.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.14
+    - -0.116
+    - 0.0475
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: red_bin_wall_y_neg
+  mesh_path: assets/composition_examples/v3_09_sort_red_green_blocks/red_bin_wall_y_neg.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.14
+    - -0.28400000000000003
+    - 0.0475
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: green_bin_floor
+  mesh_path: assets/composition_examples/v3_09_sort_red_green_blocks/green_bin_floor.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.14
+    - 0.2
+    - 0.005
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: green_bin_wall_x_pos
+  mesh_path: assets/composition_examples/v3_09_sort_red_green_blocks/green_bin_wall_x_pos.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.22400000000000003
+    - 0.2
+    - 0.0475
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: green_bin_wall_x_neg
+  mesh_path: assets/composition_examples/v3_09_sort_red_green_blocks/green_bin_wall_x_neg.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.05600000000000001
+    - 0.2
+    - 0.0475
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: green_bin_wall_y_pos
+  mesh_path: assets/composition_examples/v3_09_sort_red_green_blocks/green_bin_wall_y_pos.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.14
+    - 0.28400000000000003
+    - 0.0475
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: green_bin_wall_y_neg
+  mesh_path: assets/composition_examples/v3_09_sort_red_green_blocks/green_bin_wall_y_neg.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.14
+    - 0.116
+    - 0.0475
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+composition_condition:
+  kind: sequential_policy_composition
+  object_order:
+  - red
+  - green
+  red_bin_center_xy_m:
+  - 0.14
+  - -0.2
+  green_bin_center_xy_m:
+  - 0.14
+  - 0.2
+  bin_inner_xy_m: 0.16
+  success_definition: all red block centers lie inside the red bin and all green block centers lie inside
+    the green bin at episode end
+keyframes:
+- id: red_grasp
+  object_id: red
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.25
+    - -0.12
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: red_lifted
+  object_id: red
+  derive_from: red_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.18
+- id: red_bin_hover
+  object_id: red
+  derive_from: red_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.14
+    - -0.2
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.135
+- id: red_placed
+  object_id: red
+  derive_from: red_bin_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.14
+    - -0.2
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.012
+- id: red_released
+  object_id: red
+  derive_from: red_placed
+  transforms:
+  - type: open_hand
+- id: green_grasp
+  object_id: green
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.25
+    - 0.12
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: green_lifted
+  object_id: green
+  derive_from: green_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.18
+- id: green_bin_hover
+  object_id: green
+  derive_from: green_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.14
+    - 0.2
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.135
+- id: green_placed
+  object_id: green
+  derive_from: green_bin_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.14
+    - 0.2
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.012
+- id: green_released
+  object_id: green
+  derive_from: green_placed
+  transforms:
+  - type: open_hand
+trajectory:
+  id: sort_red_green_blocks
+  output_motion_path: outputs/v3_09_policy_composition_pipeline/v3_09_sort_red_green_blocks/exports/sort_red_green_blocks.npz
+  exported_rl_path: outputs/v3_09_policy_composition_pipeline/v3_09_sort_red_green_blocks/exports/sort_red_green_blocks_oakink_sequence.npy
+  object_switch_transition_frames: 10
+  object_switch_clearance_translation:
+  - 0.0
+  - 0.0
+  - 0.12
+  phases:
+  - name: reach_red
+    active_object: red
+    type: reach_to_keyframe
+    target: red_grasp
+    frames: 14
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_red
+    active_object: red
+    type: hold_keyframe
+    keyframe: red_grasp
+    frames: 5
+  - name: lift_red
+    active_object: red
+    type: interpolate_keyframes
+    start: red_grasp
+    end: red_lifted
+    frames: 10
+  - name: move_red_to_bin
+    active_object: red
+    type: interpolate_keyframes
+    start: red_lifted
+    end: red_bin_hover
+    frames: 12
+  - name: place_red_in_bin
+    active_object: red
+    type: interpolate_keyframes
+    start: red_bin_hover
+    end: red_placed
+    frames: 8
+  - name: hold_red_placed
+    active_object: red
+    type: hold_keyframe
+    keyframe: red_placed
+    frames: 4
+  - name: release_red
+    active_object: red
+    type: interpolate_keyframes
+    start: red_placed
+    end: red_released
+    frames: 5
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.1
+  - name: reach_green
+    active_object: green
+    type: reach_to_keyframe
+    target: green_grasp
+    frames: 14
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_green
+    active_object: green
+    type: hold_keyframe
+    keyframe: green_grasp
+    frames: 5
+  - name: lift_green
+    active_object: green
+    type: interpolate_keyframes
+    start: green_grasp
+    end: green_lifted
+    frames: 10
+  - name: move_green_to_bin
+    active_object: green
+    type: interpolate_keyframes
+    start: green_lifted
+    end: green_bin_hover
+    frames: 12
+  - name: place_green_in_bin
+    active_object: green
+    type: interpolate_keyframes
+    start: green_bin_hover
+    end: green_placed
+    frames: 8
+  - name: hold_green_placed
+    active_object: green
+    type: hold_keyframe
+    keyframe: green_placed
+    frames: 4
+  - name: release_green
+    active_object: green
+    type: interpolate_keyframes
+    start: green_placed
+    end: green_released
+    frames: 5
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.1

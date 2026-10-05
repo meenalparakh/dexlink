@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<robot name="dispenser_variation_prismatic_v5">
+
+  <material name="bottle_body"><color rgba="0.92 0.92 0.88 1"/></material>
+  <material name="neck_grey"><color rgba="0.62 0.62 0.62 1"/></material>
+  <material name="head_dark"><color rgba="0.08 0.08 0.08 1"/></material>
+  <material name="nozzle_dark"><color rgba="0.05 0.05 0.05 1"/></material>
+
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.140000"/>
+      <inertia ixx="0.000159542" ixy="0" ixz="0" iyy="0.000159542" iyz="0" izz="0.000085750"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.035000" length="0.100000"/></geometry>
+      <material name="bottle_body"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.035000" length="0.100000"/></geometry>
+    </collision>
+  </link>
+
+  <link name="transition_disc_01_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.005000"/>
+      <inertia ixx="0.000001426" ixy="0" ixz="0" iyy="0.000001426" iyz="0" izz="0.000002848"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.033750" length="0.002500"/></geometry>
+      <material name="bottle_body"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.033750" length="0.002500"/></geometry>
+    </collision>
+  </link>
+
+  <link name="transition_disc_02_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.005000"/>
+      <inertia ixx="0.000001223" ixy="0" ixz="0" iyy="0.000001223" iyz="0" izz="0.000002441"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.031250" length="0.002500"/></geometry>
+      <material name="bottle_body"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.031250" length="0.002500"/></geometry>
+    </collision>
+  </link>
+
+  <link name="transition_disc_03_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.005000"/>
+      <inertia ixx="0.000001036" ixy="0" ixz="0" iyy="0.000001036" iyz="0" izz="0.000002066"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.028750" length="0.002500"/></geometry>
+      <material name="bottle_body"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.028750" length="0.002500"/></geometry>
+    </collision>
+  </link>
+
+  <link name="transition_disc_04_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.005000"/>
+      <inertia ixx="0.000000864" ixy="0" ixz="0" iyy="0.000000864" iyz="0" izz="0.000001723"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.026250" length="0.002500"/></geometry>
+      <material name="bottle_body"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.026250" length="0.002500"/></geometry>
+    </collision>
+  </link>
+
+  <link name="transition_disc_05_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.005000"/>
+      <inertia ixx="0.000000708" ixy="0" ixz="0" iyy="0.000000708" iyz="0" izz="0.000001410"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.023750" length="0.002500"/></geometry>
+      <material name="bottle_body"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.023750" length="0.002500"/></geometry>
+    </collision>
+  </link>
+
+  <link name="transition_disc_06_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.005000"/>
+      <inertia ixx="0.000000567" ixy="0" ixz="0" iyy="0.000000567" iyz="0" izz="0.000001129"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.021250" length="0.002500"/></geometry>
+      <material name="bottle_body"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.021250" length="0.002500"/></geometry>
+    </collision>
+  </link>
+
+  <link name="transition_disc_07_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.005000"/>
+      <inertia ixx="0.000000442" ixy="0" ixz="0" iyy="0.000000442" iyz="0" izz="0.000000879"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.018750" length="0.002500"/></geometry>
+      <material name="bottle_body"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.018750" length="0.002500"/></geometry>
+    </collision>
+  </link>
+
+  <link name="transition_disc_08_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.005000"/>
+      <inertia ixx="0.000000333" ixy="0" ixz="0" iyy="0.000000333" iyz="0" izz="0.000000660"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.016250" length="0.002500"/></geometry>
+      <material name="bottle_body"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.016250" length="0.002500"/></geometry>
+    </collision>
+  </link>
+
+  <link name="neck_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.040000"/>
+      <inertia ixx="0.000005250" ixy="0" ixz="0" iyy="0.000005250" iyz="0" izz="0.000004500"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.015000" length="0.030000"/></geometry>
+      <material name="neck_grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.015000" length="0.030000"/></geometry>
+    </collision>
+  </link>
+
+  <link name="head_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.060000"/>
+      <inertia ixx="0.000011265" ixy="0" ixz="0" iyy="0.000011265" iyz="0" izz="0.000020280"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.026000" length="0.015000"/></geometry>
+      <material name="head_dark"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.026000" length="0.015000"/></geometry>
+    </collision>
+  </link>
+
+  <link name="nozzle_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.004000"/>
+      <inertia ixx="0.000000025" ixy="0" ixz="0" iyy="0.000000421" iyz="0" izz="0.000000421"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.57079632679 0"/>
+      <geometry><cylinder radius="0.003500" length="0.035000"/></geometry>
+      <material name="nozzle_dark"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.57079632679 0"/>
+      <geometry><cylinder radius="0.003500" length="0.035000"/></geometry>
+    </collision>
+  </link>
+
+  <link name="nozzle_tip_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.002000"/>
+      <inertia ixx="0.000000009" ixy="0" ixz="0" iyy="0.000000021" iyz="0" izz="0.000000021"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.57079632679 0"/>
+      <geometry><cylinder radius="0.003000" length="0.010000"/></geometry>
+      <material name="nozzle_dark"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.57079632679 0"/>
+      <geometry><cylinder radius="0.003000" length="0.010000"/></geometry>
+    </collision>
+  </link>
+
+
+  <joint name="base_link_to_transition_disc_01_link" type="fixed">
+    <parent link="base_link"/>
+    <child link="transition_disc_01_link"/>
+    <origin xyz="0 0 0.051250000" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="transition_disc_01_link_to_transition_disc_02_link" type="fixed">
+    <parent link="transition_disc_01_link"/>
+    <child link="transition_disc_02_link"/>
+    <origin xyz="0 0 0.002500000" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="transition_disc_02_link_to_transition_disc_03_link" type="fixed">
+    <parent link="transition_disc_02_link"/>
+    <child link="transition_disc_03_link"/>
+    <origin xyz="0 0 0.002500000" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="transition_disc_03_link_to_transition_disc_04_link" type="fixed">
+    <parent link="transition_disc_03_link"/>
+    <child link="transition_disc_04_link"/>
+    <origin xyz="0 0 0.002500000" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="transition_disc_04_link_to_transition_disc_05_link" type="fixed">
+    <parent link="transition_disc_04_link"/>
+    <child link="transition_disc_05_link"/>
+    <origin xyz="0 0 0.002500000" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="transition_disc_05_link_to_transition_disc_06_link" type="fixed">
+    <parent link="transition_disc_05_link"/>
+    <child link="transition_disc_06_link"/>
+    <origin xyz="0 0 0.002500000" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="transition_disc_06_link_to_transition_disc_07_link" type="fixed">
+    <parent link="transition_disc_06_link"/>
+    <child link="transition_disc_07_link"/>
+    <origin xyz="0 0 0.002500000" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="transition_disc_07_link_to_transition_disc_08_link" type="fixed">
+    <parent link="transition_disc_07_link"/>
+    <child link="transition_disc_08_link"/>
+    <origin xyz="0 0 0.002500000" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="transition_disc_08_link_to_neck_link" type="fixed">
+    <parent link="transition_disc_08_link"/>
+    <child link="neck_link"/>
+    <origin xyz="0 0 0.016250000" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="neck_to_head_prismatic" type="prismatic">
+    <parent link="neck_link"/>
+    <child link="head_link"/>
+    <origin xyz="0 0 0.022500000" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.010000" upper="0.000000" effort="25.0" velocity="0.25"/>
+  </joint>
+
+  <joint name="head_to_nozzle_fixed" type="fixed">
+    <parent link="head_link"/>
+    <child link="nozzle_link"/>
+    <origin xyz="-0.043500 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="nozzle_to_tip_fixed" type="fixed">
+    <parent link="nozzle_link"/>
+    <child link="nozzle_tip_link"/>
+    <origin xyz="-0.021830 0 -0.002500" rpy="0 -0.523598776 0"/>
+  </joint>
+
+</robot>

@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<robot name="mugstand">
+  <material name="dark_metal">
+    <color rgba="0.08 0.09 0.10 1.0"/>
+  </material>
+  <material name="kpt_green">
+    <color rgba="0.15 0.75 0.25 1.0"/>
+  </material>
+
+  <link name="root">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+  <joint name="base_fixed" type="fixed">
+    <parent link="root"/>
+    <child link="base"/>
+    <origin xyz="0 0 0.006" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.35"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.055" length="0.012"/>
+      </geometry>
+      <material name="dark_metal"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.055" length="0.012"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="stand_fixed" type="fixed">
+    <parent link="root"/>
+    <child link="stand"/>
+    <origin xyz="0 0 0.123" rpy="0 0 0"/>
+  </joint>
+
+  <link name="stand">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.20"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.234"/>
+      </geometry>
+      <material name="dark_metal"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.006" length="0.234"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="junction_fixed" type="fixed">
+    <parent link="root"/>
+    <child link="junction"/>
+    <origin xyz="0 0 0.18" rpy="0 0 0"/>
+  </joint>
+
+  <link name="junction">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.001"/>
+      <inertia ixx="1e-7" ixy="0" ixz="0" iyy="1e-7" iyz="0" izz="1e-7"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+      <material name="kpt_green"/>
+    </visual>
+  </link>
+
+  <joint name="branch_fixed" type="fixed">
+    <parent link="junction"/>
+    <child link="branch"/>
+    <origin xyz="0 0 0" rpy="0 1.234121507 0"/>
+  </joint>
+
+  <link name="branch">
+    <inertial>
+      <origin xyz="0 0 0.035" rpy="0 0 0"/>
+      <mass value="0.08"/>
+      <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.035" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.07"/>
+      </geometry>
+      <material name="dark_metal"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.035" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.07"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="corner_fixed" type="fixed">
+    <parent link="branch"/>
+    <child link="corner"/>
+    <origin xyz="0 0 0.07" rpy="0 0 0"/>
+  </joint>
+
+  <link name="corner">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.001"/>
+      <inertia ixx="1e-7" ixy="0" ixz="0" iyy="1e-7" iyz="0" izz="1e-7"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.008"/>
+      </geometry>
+      <material name="kpt_green"/>
+    </visual>
+  </link>
+</robot>

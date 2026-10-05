@@ -1,0 +1,230 @@
+experiment_id: v3_controllability_hammer2_fast
+section: V3_07
+task_family: contact_rich_hammering
+category: hammer
+robot_model: xhand
+hand_side: right
+scene:
+  table_height: 0.0
+  table_margin: 0.002
+scene_objects:
+- id: hammer
+  source_target:
+    category: hammer
+    source_index: 1
+    target_index: 1
+  lowest_z_above_table: 0.06045
+  role: hammer picked off the block and swung onto the peg
+- id: peg
+  mesh_path: assets/peg/peg_r025.obj
+  static: true
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.01
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  role: static peg at the strike point, 2.5x the original footprint
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_070_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: block
+  mesh_path: assets/support/block_020_014_008.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  role: block the hammer starts on, with the handle over its corner
+  template_pose:
+    object_pos:
+    - -0.1
+    - 0.3
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+controllability:
+  factor: hammer_swing_timing
+  condition: fast
+  swing_frames: 15
+  arc_frames:
+  - 6
+  - 4
+  - 3
+  - 2
+keyframes:
+- id: hammer_on_block
+  object_id: hammer
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.022174
+    - 0.207826
+    - 0.087641
+    object_quat_wxyz:
+    - -0.68457665
+    - 0.6204097
+    - 0.25698211
+    - -0.28356093
+- id: hammer_lifted
+  object_id: hammer
+  derive_from: hammer_on_block
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.15
+- id: hammer_ready
+  object_id: hammer
+  derive_from: hammer_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.207846
+    - 0.0
+    - 0.325
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: hammer_arc_01
+  object_id: hammer
+  derive_from: hammer_ready
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.150346
+    - 0.0
+    - 0.254067
+    object_quat_wxyz:
+    - 0.96592583
+    - 0.0
+    - 0.25881905
+    - 0.0
+- id: hammer_arc_02
+  object_id: hammer
+  derive_from: hammer_ready
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.108253
+    - 0.0
+    - 0.202811
+    object_quat_wxyz:
+    - 0.8660254
+    - 0.0
+    - 0.5
+    - 0.0
+- id: hammer_arc_03
+  object_id: hammer
+  derive_from: hammer_ready
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.092846
+    - 0.0
+    - 0.1575
+    object_quat_wxyz:
+    - 0.70710678
+    - 0.0
+    - 0.70710678
+    - 0.0
+- id: hammer_strike
+  object_id: hammer
+  derive_from: hammer_ready
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.108253
+    - 0.0
+    - 0.122811
+    object_quat_wxyz:
+    - 0.5
+    - 0.0
+    - 0.8660254
+    - 0.0
+trajectory:
+  id: hammer2_pick_and_strike_fast
+  output_motion_path: outputs/v3_07_controllability_hammer2_pipeline/v3_controllability_hammer2_fast/exports/hammer2_pick_and_strike_fast.npz
+  exported_rl_path: outputs/v3_07_controllability_hammer2_pipeline/v3_controllability_hammer2_fast/exports/hammer2_pick_and_strike_fast_oakink_sequence.npy
+  object_switch_transition_frames: 0
+  phases:
+  - name: reach_hammer
+    type: reach_to_keyframe
+    active_object: hammer
+    target: hammer_on_block
+    frames: 18
+  - name: grasp_hammer
+    type: hold_keyframe
+    active_object: hammer
+    keyframe: hammer_on_block
+    frames: 5
+  - name: lift_hammer
+    type: interpolate_keyframes
+    active_object: hammer
+    start: hammer_on_block
+    end: hammer_lifted
+    frames: 12
+  - name: carry_hammer_to_ready
+    type: interpolate_keyframes
+    active_object: hammer
+    start: hammer_lifted
+    end: hammer_ready
+    frames: 15
+  - name: hold_ready
+    type: hold_keyframe
+    active_object: hammer
+    keyframe: hammer_ready
+    frames: 8
+  - name: swing_01
+    type: interpolate_keyframes
+    active_object: hammer
+    start: hammer_ready
+    end: hammer_arc_01
+    frames: 6
+  - name: swing_02
+    type: interpolate_keyframes
+    active_object: hammer
+    start: hammer_arc_01
+    end: hammer_arc_02
+    frames: 4
+  - name: swing_03
+    type: interpolate_keyframes
+    active_object: hammer
+    start: hammer_arc_02
+    end: hammer_arc_03
+    frames: 3
+  - name: strike
+    type: interpolate_keyframes
+    active_object: hammer
+    start: hammer_arc_03
+    end: hammer_strike
+    frames: 2
+  - name: hold_impact
+    type: hold_keyframe
+    active_object: hammer
+    keyframe: hammer_strike
+    frames: 5

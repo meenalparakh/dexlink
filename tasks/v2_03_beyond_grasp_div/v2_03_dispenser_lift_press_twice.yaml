@@ -1,0 +1,293 @@
+experiment_id: v2_03_dispenser_lift_press_twice
+section: V2_03
+task_family: lift_then_articulation_sequence
+category: dispenser
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+source_target:
+  category: dispenser
+  source_index: 1
+  target_index: 2
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: pump_up
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: pump_up
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: pump_up
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: pump_interp_01
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: pump_interp_01
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: pump_interp_02
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: pump_interp_02
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: pump_interp_03
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: pump_interp_03
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: pump_interp_04
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: pump_interp_04
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: pump_interp_05
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: pump_interp_05
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: pump_down
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: pump_down
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+trajectory:
+  id: dispenser_reach_grasp_lift_press_twice
+  output_motion_path: outputs/v2_03_pipeline/v2_03_dispenser_lift_press_twice/exports/dispenser_reach_grasp_lift_press_twice.npz
+  exported_rl_path: outputs/v2_03_pipeline/v2_03_dispenser_lift_press_twice/exports/dispenser_reach_grasp_lift_press_twice_oakink_sequence.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 4
+  - name: lift
+    type: interpolate_keyframes
+    start: grasp
+    end: pump_up
+    frames: 20
+  - name: press_1_pump_interp_01
+    type: hold_keyframe
+    keyframe: pump_interp_01
+    frames: 3
+  - name: press_1_pump_interp_02
+    type: hold_keyframe
+    keyframe: pump_interp_02
+    frames: 3
+  - name: press_1_pump_interp_03
+    type: hold_keyframe
+    keyframe: pump_interp_03
+    frames: 3
+  - name: press_1_pump_interp_04
+    type: hold_keyframe
+    keyframe: pump_interp_04
+    frames: 3
+  - name: press_1_pump_interp_05
+    type: hold_keyframe
+    keyframe: pump_interp_05
+    frames: 3
+  - name: press_1_pump_down
+    type: hold_keyframe
+    keyframe: pump_down
+    frames: 1
+  - name: release_1
+    type: interpolate_keyframes
+    start: pump_down
+    end: pump_up
+    frames: 5
+  - name: press_2_pump_interp_01
+    type: hold_keyframe
+    keyframe: pump_interp_01
+    frames: 3
+  - name: press_2_pump_interp_02
+    type: hold_keyframe
+    keyframe: pump_interp_02
+    frames: 3
+  - name: press_2_pump_interp_03
+    type: hold_keyframe
+    keyframe: pump_interp_03
+    frames: 3
+  - name: press_2_pump_interp_04
+    type: hold_keyframe
+    keyframe: pump_interp_04
+    frames: 3
+  - name: press_2_pump_interp_05
+    type: hold_keyframe
+    keyframe: pump_interp_05
+    frames: 3
+  - name: press_2_pump_down
+    type: hold_keyframe
+    keyframe: pump_down
+    frames: 1
+  - name: release_2
+    type: interpolate_keyframes
+    start: pump_down
+    end: pump_up
+    frames: 5
+  - name: hold_final_up
+    type: hold_keyframe
+    keyframe: pump_up
+    frames: 5
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_120_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

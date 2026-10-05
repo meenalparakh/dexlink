@@ -1,0 +1,47 @@
+experiment_id: 03_trajectory_stapler_articulate
+section: III
+task_family: articulation
+category: stapler
+robot_model: xhand
+hand_side: right
+source_target:
+  category: stapler
+  source_index: 1
+  target_index: 1
+keyframes:
+- id: staple_contact
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: stapler_pressed
+  derive_from: staple_contact
+  transforms:
+  - type: set_articulation
+    values:
+    - 0.45
+trajectory:
+  id: stapler_reach_press
+  output_motion_path: outputs/trajectory_templates/03_trajectory_stapler_articulate/stapler_reach_press.npz
+  exported_rl_path: outputs/trajectory_templates/03_trajectory_stapler_articulate/stapler_reach_press_oakink_sequence_exported.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: staple_contact
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: contact
+    type: hold_keyframe
+    keyframe: staple_contact
+    frames: 5
+  - name: press
+    type: interpolate_keyframes
+    start: staple_contact
+    end: stapler_pressed
+    frames: 18
+  - name: hold_pressed
+    type: hold_keyframe
+    keyframe: stapler_pressed
+    frames: 5

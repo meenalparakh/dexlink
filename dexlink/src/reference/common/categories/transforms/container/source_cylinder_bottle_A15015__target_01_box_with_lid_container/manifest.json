@@ -1,0 +1,18 @@
+{
+  "category": "container",
+  "source_index": 1,
+  "source_template_id": "bottom_support",
+  "source_demo_path": "external_data/oakink/shape/oakink_shape_v2/cylinder_bottle/A15015/3541fe8b0e/hand_param.pkl",
+  "target_index": 1,
+  "target_id": "box_with_lid_container",
+  "target_mesh_path": "assets/box_with_lid/container.obj",
+  "target_demo_path": null,
+  "rotation_path": "dexlink/src/reference/common/categories/transforms/container/source_cylinder_bottle_A15015__target_01_box_with_lid_container/rotation.json",
+  "scale_path": "dexlink/src/reference/common/categories/transforms/container/source_cylinder_bottle_A15015__target_01_box_with_lid_container/scale.txt",
+  "target_transform_info": "dexlink/src/reference/common/categories/transforms/container/source_cylinder_bottle_A15015__target_01_box_with_lid_container/rotation.json",
+  "target_scale": 1.0,
+  "rotation_semantics": "For mesh targets, rotation is applied to target vertices before retargeting. For URDF targets, rotation is a root/base rotation to use at placement time; the saved scaled_urdf_path only materializes mesh/origin scale.",
+  "scaled_urdf_path": null,
+  "urdfpy_compatible_urdf_path": null,
+  "target_visualization_obj_path": null
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot name="folding_platform">
+  <!-- The root frame lies at the center of the top surface. -->
+  <material name="platform_gray">
+    <color rgba="0.48 0.53 0.58 1"/>
+  </material>
+  <link name="platform">
+    <inertial>
+      <origin xyz="0 0 -0.04" rpy="0 0 0"/>
+      <mass value="64.0"/>
+      <inertia ixx="7.765333344" iyy="7.765333344" izz="15.36" ixy="0" ixz="0" iyz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.04" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.2 1.2 0.08"/>
+      </geometry>
+      <material name="platform_gray"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.04" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.2 1.2 0.08"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>

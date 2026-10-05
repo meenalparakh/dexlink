@@ -1,0 +1,18 @@
+{
+  "category": "banana_handover",
+  "source_index": 1,
+  "source_template_id": "ketchup_use_01_t219",
+  "source_demo_path": "external_data/arctic/seqs/s01/ketchup_use_01.npy",
+  "target_index": 1,
+  "target_id": "banana_handover",
+  "target_mesh_path": "assets/banana/banana.obj",
+  "target_demo_path": null,
+  "rotation_path": "dexlink/src/reference/common/categories/transforms/banana_handover/source_banana_handover_ketchup_use_01__target_01_banana_handover/rotation.json",
+  "scale_path": "dexlink/src/reference/common/categories/transforms/banana_handover/source_banana_handover_ketchup_use_01__target_01_banana_handover/scale.txt",
+  "target_transform_info": "dexlink/src/reference/common/categories/transforms/banana_handover/source_banana_handover_ketchup_use_01__target_01_banana_handover/rotation.json",
+  "target_scale": 1.0,
+  "rotation_semantics": "For mesh targets, rotation is applied to target vertices before retargeting. For URDF targets, rotation is a root/base rotation to use at placement time; the saved scaled_urdf_path only materializes mesh/origin scale.",
+  "scaled_urdf_path": null,
+  "urdfpy_compatible_urdf_path": null,
+  "target_visualization_obj_path": null
+}

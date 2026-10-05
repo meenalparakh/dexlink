@@ -1,0 +1,185 @@
+experiment_id: v2_14_bottle_in_hand_reorientation
+section: V2_14
+task_family: additional_tasks
+category: bottle_in_hand_reorientation
+robot_model: xhand
+hand_side: right
+object_static: false
+scene:
+  table_size:
+  - 0.55
+  - 0.55
+  table_margin: 0.002
+  table_height: 0.0
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_070_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+scene_objects:
+- id: bottle
+  source_target:
+    category: bottle
+    source_index: 1
+    target_index: 12
+  role: bottle remains at one fixed world position while its orientation rotates through hand configurations
+    solved for rotated bottle targets
+keyframes:
+- id: bottle_reorient_z000
+  object_id: bottle
+  source_target:
+    category: bottle
+    source_index: 1
+    target_index: 12
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.18
+  - type: set_object_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.18
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  role: retargeted bottle side-grasp hand configuration for 0 degree target z rotation; task placement
+    rotates only the bottle by the inverse angle
+- id: bottle_reorient_z060
+  object_id: bottle
+  source_target:
+    category: bottle
+    source_index: 1
+    target_index: 13
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.18
+  - type: set_object_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.18
+    object_quat_wxyz:
+    - 0.8660254037844387
+    - 0.0
+    - 0.0
+    - -0.49999999999999994
+  role: retargeted bottle side-grasp hand configuration for 60 degree target z rotation; task placement
+    rotates only the bottle by the inverse angle
+- id: bottle_reorient_z120
+  object_id: bottle
+  source_target:
+    category: bottle
+    source_index: 1
+    target_index: 14
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.18
+  - type: set_object_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.18
+    object_quat_wxyz:
+    - 0.5000000000000001
+    - 0.0
+    - 0.0
+    - -0.8660254037844386
+  role: retargeted bottle side-grasp hand configuration for 120 degree target z rotation; task placement
+    rotates only the bottle by the inverse angle
+- id: bottle_reorient_z180
+  object_id: bottle
+  source_target:
+    category: bottle
+    source_index: 1
+    target_index: 15
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.18
+  - type: set_object_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.18
+    object_quat_wxyz:
+    - 6.123233995736766e-17
+    - 0.0
+    - 0.0
+    - -1.0
+  role: retargeted bottle side-grasp hand configuration for 180 degree target z rotation; task placement
+    rotates only the bottle by the inverse angle
+trajectory:
+  id: bottle_in_hand_reorientation
+  output_motion_path: outputs/v2_14_pipeline/v2_14_bottle_in_hand_reorientation/exports/bottle_in_hand_reorientation.npz
+  exported_rl_path: outputs/v2_14_pipeline/v2_14_bottle_in_hand_reorientation/exports/bottle_in_hand_reorientation_oakink_sequence.npy
+  object_switch_transition_frames: 0
+  phases:
+  - name: hold_initial_reorientation_grasp
+    type: hold_keyframe
+    active_object: bottle
+    keyframe: bottle_reorient_z000
+    frames: 6
+  - name: bottle_reorient_z000_to_bottle_reorient_z060
+    type: interpolate_keyframes
+    active_object: bottle
+    start: bottle_reorient_z000
+    end: bottle_reorient_z060
+    frames: 16
+  - name: bottle_reorient_z060_to_bottle_reorient_z120
+    type: interpolate_keyframes
+    active_object: bottle
+    start: bottle_reorient_z060
+    end: bottle_reorient_z120
+    frames: 16
+  - name: bottle_reorient_z120_to_bottle_reorient_z180
+    type: interpolate_keyframes
+    active_object: bottle
+    start: bottle_reorient_z120
+    end: bottle_reorient_z180
+    frames: 16
+  - name: hold_final_reorientation_grasp
+    type: hold_keyframe
+    active_object: bottle
+    keyframe: bottle_reorient_z180
+    frames: 8
+note: The four keyframes use separate bottle side-grasp target variants with 0, 60, 120, and 180 degree
+  z-axis target transforms. Each keyframe translates the retargeted hand-object pair to the same world
+  position, then uses set_object_pose to rotate only the bottle by the inverse z angle. This keeps the
+  wrist/root placement roughly stable while preserving angle-specific finger and minor wrist adjustments
+  from retargeting.

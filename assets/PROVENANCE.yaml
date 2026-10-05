@@ -1,0 +1,60 @@
+schema_version: 1
+asset_groups:
+  - path: blocks
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: box_with_lid
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: composition_examples
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: dispenser_final
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: eraser
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: genesis_safe_checkered_plane
+    origin: DexLink project-authored generated scene fixture
+    license: MIT
+  - path: hammer
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: lego_blocks
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: marker_pen
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: mounting
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: mugstand
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: peg
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: procedural_mailer_folding
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: robots/xhand
+    origin: DexMachina XHand asset directory
+    source: https://github.com/MandiZhao/dexmachina/tree/adae5bf620c57723d185b2757ee3ce9656927c20/dexmachina/assets/xhand
+    source_commit: adae5bf620c57723d185b2757ee3ce9656927c20
+    license: MIT
+    license_file: robots/xhand/LICENSE
+    notice_file: robots/xhand/NOTICE.md
+  - path: support
+    origin: DexLink project-authored procedural scene fixtures
+    license: MIT
+  - path: trigger_sprayer_final
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: v2_15_asset_diversity
+    origin: DexLink project-authored procedural task assets
+    license: MIT
+  - path: writing_board
+    origin: DexLink project-authored procedural task assets
+    license: MIT

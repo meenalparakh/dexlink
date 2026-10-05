@@ -1,0 +1,45 @@
+experiment_id: 02_trajectory_reuse_mug_lift
+section: II
+task_family: template_reuse_grasp_lift
+category: mug
+robot_model: xhand
+hand_side: right
+source_target:
+  category: mug
+  source_index: 1
+  target_index: 2
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: lifted
+  derive_from: grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.2
+trajectory:
+  id: reuse_reach_grasp_lift
+  output_motion_path: outputs/trajectory_templates/02_trajectory_reuse_mug_lift/reuse_reach_grasp_lift.npz
+  exported_rl_path: outputs/trajectory_templates/02_trajectory_reuse_mug_lift/reuse_reach_grasp_lift_oakink_sequence_exported.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 5
+  - name: lift
+    type: interpolate_keyframes
+    start: grasp
+    end: lifted
+    frames: 20

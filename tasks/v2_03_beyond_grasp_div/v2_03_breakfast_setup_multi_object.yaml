@@ -1,0 +1,408 @@
+experiment_id: v2_03_breakfast_setup_multi_object
+section: V2_03
+task_family: multi_object_breakfast_setup
+category: breakfast_setup
+robot_model: xhand
+hand_side: right
+scene_objects:
+- id: bowl
+  source_target:
+    category: bowl
+    source_index: 2
+    target_index: 7
+  role: place bowl at the center of the setting
+- id: spoon
+  source_target:
+    category: spoon
+    source_index: 1
+    target_index: 1
+  role: place spoon inside the bowl
+- id: fruit
+  source_target:
+    category: fruit
+    source_index: 1
+    target_index: 1
+  role: place fruit beside the bowl
+- id: cup
+  source_target:
+    category: cup
+    source_index: 1
+    target_index: 1
+  role: place cup beside the bowl
+keyframes:
+- id: bowl_grasp
+  object_id: bowl
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.38
+    - -0.36
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.0
+- id: bowl_lifted
+  object_id: bowl
+  derive_from: bowl_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.22
+- id: bowl_placed
+  object_id: bowl
+  derive_from: bowl_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.02
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.0
+- id: bowl_released
+  object_id: bowl
+  derive_from: bowl_placed
+  transforms:
+  - type: open_hand
+- id: spoon_grasp
+  object_id: spoon
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.38
+    - -0.12
+    - 0.0
+  - type: rotate_pair
+    axis:
+    - 1.0
+    - 0.0
+    - 0.0
+    degrees: 90.0
+    pivot: object_origin
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.0
+- id: spoon_lifted
+  object_id: spoon
+  derive_from: spoon_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.2
+- id: spoon_bowl_hover
+  object_id: spoon
+  derive_from: spoon_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.05
+    - 0.0
+    - 0.22
+- id: spoon_in_bowl
+  object_id: spoon
+  derive_from: spoon_bowl_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.05
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z_from_template_top: bowl_placed
+- id: spoon_released
+  object_id: spoon
+  derive_from: spoon_in_bowl
+  transforms:
+  - type: open_hand
+- id: fruit_grasp
+  object_id: fruit
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.38
+    - 0.12
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.0
+- id: fruit_lifted
+  object_id: fruit
+  derive_from: fruit_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.2
+- id: fruit_place_hover
+  object_id: fruit
+  derive_from: fruit_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.14
+    - 0.16
+    - 0.2
+- id: fruit_placed
+  object_id: fruit
+  derive_from: fruit_place_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.14
+    - 0.16
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.0
+- id: fruit_released
+  object_id: fruit
+  derive_from: fruit_placed
+  transforms:
+  - type: open_hand
+- id: cup_grasp
+  object_id: cup
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.38
+    - 0.36
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.0
+- id: cup_lifted
+  object_id: cup
+  derive_from: cup_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.22
+- id: cup_place_hover
+  object_id: cup
+  derive_from: cup_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.14
+    - -0.16
+    - 0.22
+- id: cup_placed
+  object_id: cup
+  derive_from: cup_place_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.14
+    - -0.16
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.0
+- id: cup_released
+  object_id: cup
+  derive_from: cup_placed
+  transforms:
+  - type: open_hand
+trajectory:
+  id: breakfast_setup
+  output_motion_path: outputs/v2_03_pipeline/v2_03_breakfast_setup_multi_object/exports/breakfast_setup.npz
+  exported_rl_path: outputs/v2_03_pipeline/v2_03_breakfast_setup_multi_object/exports/breakfast_setup_oakink_sequence.npy
+  phases:
+  - name: reach_bowl
+    active_object: bowl
+    type: reach_to_keyframe
+    target: bowl_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_bowl
+    active_object: bowl
+    type: hold_keyframe
+    keyframe: bowl_grasp
+    frames: 4
+  - name: lift_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_grasp
+    end: bowl_lifted
+    frames: 12
+  - name: put_down_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_lifted
+    end: bowl_placed
+    frames: 6
+  - name: release_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_placed
+    end: bowl_released
+    frames: 8
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.3
+  - name: reach_spoon
+    active_object: spoon
+    type: reach_to_keyframe
+    target: spoon_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_spoon
+    active_object: spoon
+    type: hold_keyframe
+    keyframe: spoon_grasp
+    frames: 4
+  - name: lift_spoon
+    active_object: spoon
+    type: interpolate_keyframes
+    start: spoon_grasp
+    end: spoon_lifted
+    frames: 10
+  - name: move_spoon_to_bowl
+    active_object: spoon
+    type: interpolate_keyframes
+    start: spoon_lifted
+    end: spoon_bowl_hover
+    frames: 8
+  - name: put_down_spoon_in_bowl
+    active_object: spoon
+    type: interpolate_keyframes
+    start: spoon_bowl_hover
+    end: spoon_in_bowl
+    frames: 5
+  - name: release_spoon
+    active_object: spoon
+    type: interpolate_keyframes
+    start: spoon_in_bowl
+    end: spoon_released
+    frames: 8
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.3
+  - name: reach_fruit
+    active_object: fruit
+    type: reach_to_keyframe
+    target: fruit_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_fruit
+    active_object: fruit
+    type: hold_keyframe
+    keyframe: fruit_grasp
+    frames: 4
+  - name: lift_fruit
+    active_object: fruit
+    type: interpolate_keyframes
+    start: fruit_grasp
+    end: fruit_lifted
+    frames: 10
+  - name: move_fruit_side
+    active_object: fruit
+    type: interpolate_keyframes
+    start: fruit_lifted
+    end: fruit_place_hover
+    frames: 7
+  - name: put_down_fruit_side
+    active_object: fruit
+    type: interpolate_keyframes
+    start: fruit_place_hover
+    end: fruit_placed
+    frames: 5
+  - name: release_fruit
+    active_object: fruit
+    type: interpolate_keyframes
+    start: fruit_placed
+    end: fruit_released
+    frames: 8
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.3
+  - name: reach_cup
+    active_object: cup
+    type: reach_to_keyframe
+    target: cup_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_cup
+    active_object: cup
+    type: hold_keyframe
+    keyframe: cup_grasp
+    frames: 4
+  - name: lift_cup
+    active_object: cup
+    type: interpolate_keyframes
+    start: cup_grasp
+    end: cup_lifted
+    frames: 12
+  - name: move_cup_side
+    active_object: cup
+    type: interpolate_keyframes
+    start: cup_lifted
+    end: cup_place_hover
+    frames: 8
+  - name: put_down_cup_side
+    active_object: cup
+    type: interpolate_keyframes
+    start: cup_place_hover
+    end: cup_placed
+    frames: 5
+  - name: release_cup
+    active_object: cup
+    type: interpolate_keyframes
+    start: cup_placed
+    end: cup_released
+    frames: 8
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.3
+scene:
+  table_size:
+  - 0.75
+  - 1.2
+  table_placement_margin: 0.1
+  table_margin: 0.002
+  table_height: 0.0
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_075_120_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - -0.16499999999999998
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

@@ -1,0 +1,18 @@
+{
+  "category": "trigger_sprayer",
+  "source_index": 1,
+  "source_template_id": "base_cylinder",
+  "source_demo_path": "external_data/oakink/shape/oakink_shape_v2/trigger_sprayer/A01008/d4cec13792/hand_param.pkl",
+  "target_index": 11,
+  "target_id": "primitive_trigger_sprayer_final",
+  "target_mesh_path": "assets/trigger_sprayer_final/trigger_sprayer_v9.urdf",
+  "target_demo_path": null,
+  "rotation_path": "dexlink/src/reference/common/categories/transforms/trigger_sprayer/source_trigger_sprayer_A01008__target_11_primitive_trigger_sprayer_final/rotation.json",
+  "scale_path": "dexlink/src/reference/common/categories/transforms/trigger_sprayer/source_trigger_sprayer_A01008__target_11_primitive_trigger_sprayer_final/scale.txt",
+  "target_transform_info": "dexlink/src/reference/common/categories/transforms/trigger_sprayer/source_trigger_sprayer_A01008__target_11_primitive_trigger_sprayer_final/rotation.json",
+  "target_scale": 1.0,
+  "rotation_semantics": "For mesh targets, rotation is applied to target vertices before retargeting. For URDF targets, rotation is a root/base rotation to use at placement time; the saved scaled_urdf_path only materializes mesh/origin scale.",
+  "scaled_urdf_path": "dexlink/src/reference/common/categories/transforms/trigger_sprayer/source_trigger_sprayer_A01008__target_11_primitive_trigger_sprayer_final/primitive_trigger_sprayer_final_scaled.urdf",
+  "urdfpy_compatible_urdf_path": "assets/trigger_sprayer_final/trigger_sprayer_v9.urdf",
+  "target_visualization_obj_path": "dexlink/src/reference/common/categories/transforms/trigger_sprayer/source_trigger_sprayer_A01008__target_11_primitive_trigger_sprayer_final/primitive_trigger_sprayer_final_default_visual.obj"
+}

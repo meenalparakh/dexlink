@@ -1,0 +1,71 @@
+experiment_id: v2_03_open_faucet
+section: V2_03
+task_family: articulation
+category: faucet
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+source_target:
+  category: faucet
+  source_index: 1
+  target_index: 1
+keyframes:
+- id: contact
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: articulated
+  derive_from: contact
+  transforms:
+  - type: set_articulation
+    values:
+    - 1.5707963267948966
+trajectory:
+  id: faucet_reach_contact_articulate
+  output_motion_path: outputs/v2_03_pipeline/v2_03_open_faucet/exports/faucet_reach_contact_articulate.npz
+  exported_rl_path: outputs/v2_03_pipeline/v2_03_open_faucet/exports/faucet_reach_contact_articulate_oakink_sequence.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: contact
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: contact
+    type: hold_keyframe
+    keyframe: contact
+    frames: 4
+  - name: articulate
+    type: interpolate_keyframes
+    start: contact
+    end: articulated
+    frames: 25
+    articulation_link_name: link_0
+  - name: hold_articulated
+    type: hold_keyframe
+    keyframe: articulated
+    frames: 5
+object_static: true
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_120_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

@@ -1,0 +1,328 @@
+experiment_id: v2_11_stack_lego_blocks
+section: V2_11
+task_family: block_stacking
+category: lego_block_stacking
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+scene_objects:
+- id: red
+  source_target:
+    category: lego_block
+    source_index: 1
+    target_index: 1
+  role: red base block
+- id: green
+  source_target:
+    category: lego_block
+    source_index: 1
+    target_index: 2
+  role: green middle block
+- id: blue
+  source_target:
+    category: lego_block
+    source_index: 1
+    target_index: 3
+  role: blue top block
+keyframes:
+- id: red_grasp
+  object_id: red
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.18
+    - -0.18
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: red_lifted
+  object_id: red
+  derive_from: red_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.24
+- id: red_place_hover
+  object_id: red
+  derive_from: red_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.082
+- id: red_placed
+  object_id: red
+  derive_from: red_place_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: red_released
+  object_id: red
+  derive_from: red_placed
+  transforms:
+  - type: open_hand
+- id: green_grasp
+  object_id: green
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.18
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: green_lifted
+  object_id: green
+  derive_from: green_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.24
+- id: green_place_hover
+  object_id: green
+  derive_from: green_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z_from_template_top: red_placed
+    target_lowest_z_offset: 0.08
+- id: green_placed
+  object_id: green
+  derive_from: green_place_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z_from_template_top: red_placed
+    target_lowest_z_offset: 0.0
+- id: green_released
+  object_id: green
+  derive_from: green_placed
+  transforms:
+  - type: open_hand
+- id: blue_grasp
+  object_id: blue
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.18
+    - 0.18
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: blue_lifted
+  object_id: blue
+  derive_from: blue_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.24
+- id: blue_place_hover
+  object_id: blue
+  derive_from: blue_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z_from_template_top: green_placed
+    target_lowest_z_offset: 0.08
+- id: blue_placed
+  object_id: blue
+  derive_from: blue_place_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z_from_template_top: green_placed
+    target_lowest_z_offset: 0.0
+- id: blue_released
+  object_id: blue
+  derive_from: blue_placed
+  transforms:
+  - type: open_hand
+trajectory:
+  id: stack_lego_blocks
+  output_motion_path: outputs/v2_11_pipeline/v2_11_stack_lego_blocks/exports/stack_lego_blocks.npz
+  exported_rl_path: outputs/v2_11_pipeline/v2_11_stack_lego_blocks/exports/stack_lego_blocks_oakink_sequence.npy
+  object_switch_transition_frames: 6
+  phases:
+  - name: reach_red
+    active_object: red
+    type: reach_to_keyframe
+    target: red_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_red
+    active_object: red
+    type: hold_keyframe
+    keyframe: red_grasp
+    frames: 4
+  - name: lift_red
+    active_object: red
+    type: interpolate_keyframes
+    start: red_grasp
+    end: red_lifted
+    frames: 10
+  - name: move_red_over_place
+    active_object: red
+    type: interpolate_keyframes
+    start: red_lifted
+    end: red_place_hover
+    frames: 10
+  - name: place_red
+    active_object: red
+    type: interpolate_keyframes
+    start: red_place_hover
+    end: red_placed
+    frames: 6
+  - name: release_red
+    active_object: red
+    type: interpolate_keyframes
+    start: red_placed
+    end: red_released
+    frames: 5
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.08
+  - name: reach_green
+    active_object: green
+    type: reach_to_keyframe
+    target: green_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_green
+    active_object: green
+    type: hold_keyframe
+    keyframe: green_grasp
+    frames: 4
+  - name: lift_green
+    active_object: green
+    type: interpolate_keyframes
+    start: green_grasp
+    end: green_lifted
+    frames: 10
+  - name: move_green_over_place
+    active_object: green
+    type: interpolate_keyframes
+    start: green_lifted
+    end: green_place_hover
+    frames: 10
+  - name: place_green
+    active_object: green
+    type: interpolate_keyframes
+    start: green_place_hover
+    end: green_placed
+    frames: 6
+  - name: release_green
+    active_object: green
+    type: interpolate_keyframes
+    start: green_placed
+    end: green_released
+    frames: 5
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.08
+  - name: reach_blue
+    active_object: blue
+    type: reach_to_keyframe
+    target: blue_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_blue
+    active_object: blue
+    type: hold_keyframe
+    keyframe: blue_grasp
+    frames: 4
+  - name: lift_blue
+    active_object: blue
+    type: interpolate_keyframes
+    start: blue_grasp
+    end: blue_lifted
+    frames: 10
+  - name: move_blue_over_place
+    active_object: blue
+    type: interpolate_keyframes
+    start: blue_lifted
+    end: blue_place_hover
+    frames: 10
+  - name: place_blue
+    active_object: blue
+    type: interpolate_keyframes
+    start: blue_place_hover
+    end: blue_placed
+    frames: 6
+  - name: release_blue
+    active_object: blue
+    type: interpolate_keyframes
+    start: blue_placed
+    end: blue_released
+    frames: 5
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.08
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_120_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - -0.09
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

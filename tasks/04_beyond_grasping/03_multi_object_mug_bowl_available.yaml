@@ -1,0 +1,195 @@
+experiment_id: 03_multi_object_mug_bowl_available
+section: III
+task_family: multi_object_available_template_check
+category: mug_bowl_scene
+robot_model: xhand
+hand_side: right
+scene_objects:
+- id: bowl
+  source_target:
+    category: bowl
+    source_index: 1
+    target_index: 1
+  template_pose:
+    translation:
+    - -0.22
+    - -0.18
+    - 0.0
+  role: pick and place the bowl using the available rim pinch template
+- id: mug
+  source_target:
+    category: mug
+    source_index: 2
+    target_index: 1
+  template_pose:
+    translation:
+    - 0.28
+    - 0.16
+    - 0.0
+  role: pick and place the mug next to the bowl using the available side grasp template
+keyframes:
+- id: bowl_grasp
+  object_id: bowl
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: bowl_lifted
+  object_id: bowl
+  derive_from: bowl_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: bowl_place_hover
+  object_id: bowl
+  derive_from: bowl_lifted
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.18
+    - 0.26
+    - 0.0
+- id: bowl_placed
+  object_id: bowl
+  derive_from: bowl_place_hover
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - -0.12
+- id: bowl_released
+  object_id: bowl
+  derive_from: bowl_placed
+  transforms:
+  - type: open_hand
+- id: mug_grasp
+  object_id: mug
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: mug_lifted
+  object_id: mug
+  derive_from: mug_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: mug_place_hover
+  object_id: mug
+  derive_from: mug_lifted
+  transforms:
+  - type: translate_pair
+    delta:
+    - -0.2
+    - -0.18
+    - 0.0
+- id: mug_placed
+  object_id: mug
+  derive_from: mug_place_hover
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - -0.12
+- id: mug_released
+  object_id: mug
+  derive_from: mug_placed
+  transforms:
+  - type: open_hand
+trajectory:
+  id: bowl_then_mug_place
+  output_motion_path: outputs/trajectory_templates/03_multi_object_mug_bowl_available/bowl_then_mug_place.npz
+  exported_rl_path: outputs/trajectory_templates/03_multi_object_mug_bowl_available/bowl_then_mug_place_oakink_sequence_exported.npy
+  object_switch_transition_frames: 14
+  object_switch_clearance_translation:
+  - 0.0
+  - 0.0
+  - 0.12
+  object_switch_open_fraction: 0.8
+  phases:
+  - name: reach_bowl
+    active_object: bowl
+    type: reach_to_keyframe
+    target: bowl_grasp
+    frames: 20
+    backoff_distance: 0.08
+    height_offset: 0.06
+  - name: hold_bowl_grasp
+    active_object: bowl
+    type: hold_keyframe
+    keyframe: bowl_grasp
+    frames: 5
+  - name: lift_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_grasp
+    end: bowl_lifted
+    frames: 12
+  - name: move_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_lifted
+    end: bowl_place_hover
+    frames: 18
+  - name: put_down_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_place_hover
+    end: bowl_placed
+    frames: 12
+  - name: release_bowl
+    active_object: bowl
+    type: interpolate_keyframes
+    start: bowl_placed
+    end: bowl_released
+    frames: 8
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.3
+  - name: reach_mug
+    active_object: mug
+    type: reach_to_keyframe
+    target: mug_grasp
+    frames: 20
+    backoff_distance: 0.08
+    height_offset: 0.06
+  - name: hold_mug_grasp
+    active_object: mug
+    type: hold_keyframe
+    keyframe: mug_grasp
+    frames: 5
+  - name: lift_mug
+    active_object: mug
+    type: interpolate_keyframes
+    start: mug_grasp
+    end: mug_lifted
+    frames: 12
+  - name: move_mug
+    active_object: mug
+    type: interpolate_keyframes
+    start: mug_lifted
+    end: mug_place_hover
+    frames: 18
+  - name: put_down_mug
+    active_object: mug
+    type: interpolate_keyframes
+    start: mug_place_hover
+    end: mug_placed
+    frames: 12
+  - name: release_mug
+    active_object: mug
+    type: interpolate_keyframes
+    start: mug_placed
+    end: mug_released
+    frames: 8
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.3

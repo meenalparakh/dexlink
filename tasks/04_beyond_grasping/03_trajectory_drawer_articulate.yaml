@@ -1,0 +1,53 @@
+experiment_id: 03_trajectory_drawer_articulate
+section: III
+task_family: articulation
+category: drawer
+robot_model: xhand
+hand_side: right
+object_static: true
+source_target:
+  category: drawer
+  source_index: 1
+  target_index: 1
+template_pose:
+  euler_xyz_degrees:
+  - 90.0
+  - 0.0
+  - 0.0
+keyframes:
+- id: handle_grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: drawer_open
+  derive_from: handle_grasp
+  transforms:
+  - type: set_articulation
+    values:
+    - 0.18
+trajectory:
+  id: drawer_reach_grasp_open
+  output_motion_path: outputs/trajectory_templates/03_trajectory_drawer_articulate/drawer_reach_grasp_open.npz
+  exported_rl_path: outputs/trajectory_templates/03_trajectory_drawer_articulate/drawer_reach_grasp_open_oakink_sequence_exported.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: handle_grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    keyframe: handle_grasp
+    frames: 5
+  - name: open_drawer
+    type: interpolate_keyframes
+    start: handle_grasp
+    end: drawer_open
+    frames: 25
+  - name: hold_open
+    type: hold_keyframe
+    keyframe: drawer_open
+    frames: 5

@@ -1,0 +1,53 @@
+experiment_id: 03_beyond_drawer_s01_t01_articulate
+section: III
+task_family: articulation
+category: drawer
+robot_model: xhand
+hand_side: right
+object_static: true
+source_target:
+  category: drawer
+  source_index: 1
+  target_index: 1
+template_pose:
+  euler_xyz_degrees:
+  - 90.0
+  - 0.0
+  - 0.0
+keyframes:
+- id: contact
+  from_retarget:
+    motion_path: auto
+    frame: last
+- id: articulated
+  derive_from: contact
+  transforms:
+  - type: set_articulation
+    values:
+    - 0.18
+trajectory:
+  id: reach_contact_articulate
+  output_motion_path: outputs/trajectory_templates/03_beyond_drawer_s01_t01_articulate/reach_contact_articulate.npz
+  exported_rl_path: outputs/trajectory_templates/03_beyond_drawer_s01_t01_articulate/reach_contact_articulate_oakink_sequence_exported.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: contact
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: contact
+    type: hold_keyframe
+    keyframe: contact
+    frames: 5
+  - name: articulate
+    type: interpolate_keyframes
+    start: contact
+    end: articulated
+    frames: 25
+  - name: hold_articulated
+    type: hold_keyframe
+    keyframe: articulated
+    frames: 5

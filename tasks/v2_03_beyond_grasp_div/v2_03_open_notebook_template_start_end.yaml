@@ -1,0 +1,118 @@
+experiment_id: v2_03_open_notebook_template_start_end
+section: V2_03
+task_family: articulation_sequence
+category: notebook
+robot_model: xhand
+hand_side: right
+object_static: true
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+keyframes:
+- id: notebook_t077
+  source_target:
+    category: notebook
+    source_index: 1
+    target_index: 1
+  from_retarget:
+    motion_path: auto
+    frame: last
+  arctic_timestep: 77
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.052
+- id: notebook_t113
+  source_target:
+    category: notebook
+    source_index: 37
+    target_index: 1
+  from_retarget:
+    motion_path: auto
+    frame: last
+  arctic_timestep: 113
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.052
+trajectory:
+  id: open_notebook_template_start_end
+  output_motion_path: outputs/v2_03_pipeline/v2_03_open_notebook_template_start_end/exports/open_notebook_template_start_end.npz
+  exported_rl_path: outputs/v2_03_pipeline/v2_03_open_notebook_template_start_end/exports/open_notebook_template_start_end_oakink_sequence.npy
+  phases:
+  - name: reach_notebook
+    type: reach_to_keyframe
+    target: notebook_t077
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: contact_notebook
+    type: hold_keyframe
+    keyframe: notebook_t077
+    frames: 4
+  - name: notebook_t077_to_notebook_t113
+    type: interpolate_keyframes
+    start: notebook_t077
+    end: notebook_t113
+    frames: 36
+  - name: hold_open_notebook
+    type: hold_keyframe
+    keyframe: notebook_t113
+    frames: 8
+note: Notebook start/end uses ARCTIC notebook_use_01 frames 77-113; selected retargeted waypoints are
+  stitched with interpolation lengths equal to ARCTIC timestep gaps, so sparsity variants keep the same
+  duration.
+retarget_reuse:
+  pipeline_root: outputs/v2_03_pipeline
+  experiment_id: v2_03_open_notebook
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_120_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: notebook_support
+  mesh_path: assets/support/notebook_support_005_005_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

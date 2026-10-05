@@ -1,0 +1,79 @@
+experiment_id: v3_03_reuse_bottle_top_scale_085
+section: V3_03
+task_family: fixed_template_scale_reuse
+category: bottle
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+source_target:
+  category: bottle
+  source_index: 2
+  target_index: 17
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: lifted
+  derive_from: grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.2
+trajectory:
+  id: reach_grasp_lift
+  output_motion_path: outputs/v3_03_reusability_pipeline/v3_03_reuse_bottle_top_scale_085/exports/reach_grasp_lift.npz
+  exported_rl_path: outputs/v3_03_reusability_pipeline/v3_03_reuse_bottle_top_scale_085/exports/reach_grasp_lift_oakink_sequence.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: grasp
+    frames: 20
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 5
+  - name: lift
+    type: interpolate_keyframes
+    start: grasp
+    end: lifted
+    frames: 20
+  - name: hold_lift
+    type: hold_keyframe
+    keyframe: lifted
+    frames: 5
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_070_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+reuse_condition:
+  pilot: true
+  template: bottle_top
+  scale_ratio: 0.85
+  source_index: 2
+  target_index: 17
+  source_template_category: bottle
+  target_object_category: bottle
+  semantic_name: top grasp

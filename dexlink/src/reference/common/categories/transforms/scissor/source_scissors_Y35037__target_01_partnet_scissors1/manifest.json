@@ -1,0 +1,18 @@
+{
+  "category": "scissor",
+  "source_index": 5,
+  "source_template_id": "outside_other_instance",
+  "source_demo_path": "external_data/oakink/shape/oakink_shape_v2/scissors/Y35037/c9065998f7/hand_param.pkl",
+  "target_index": 1,
+  "target_id": "partnet_scissors1",
+  "target_mesh_path": "external_data/partnet/scissors1/mobility.urdf",
+  "target_demo_path": null,
+  "rotation_path": "dexlink/src/reference/common/categories/transforms/scissor/source_scissors_Y35037__target_01_partnet_scissors1/rotation.json",
+  "scale_path": "dexlink/src/reference/common/categories/transforms/scissor/source_scissors_Y35037__target_01_partnet_scissors1/scale.txt",
+  "target_transform_info": "dexlink/src/reference/common/categories/transforms/scissor/source_scissors_Y35037__target_01_partnet_scissors1/rotation.json",
+  "target_scale": 0.15,
+  "rotation_semantics": "For mesh targets, rotation is applied to target vertices before retargeting. For URDF targets, rotation is a root/base rotation to use at placement time; the saved scaled_urdf_path only materializes mesh/origin scale.",
+  "scaled_urdf_path": "dexlink/src/reference/common/categories/transforms/scissor/source_scissors_Y35037__target_01_partnet_scissors1/partnet_scissors1_scaled.urdf",
+  "urdfpy_compatible_urdf_path": "dexlink/src/reference/common/categories/transforms/scissor/source_scissors_Y35037__target_01_partnet_scissors1/partnet_scissors1_urdfpy.urdf",
+  "target_visualization_obj_path": "dexlink/src/reference/common/categories/transforms/scissor/source_scissors_Y35037__target_01_partnet_scissors1/partnet_scissors1_default_visual.obj"
+}

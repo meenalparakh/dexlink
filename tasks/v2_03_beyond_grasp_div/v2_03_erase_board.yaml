@@ -1,0 +1,232 @@
+experiment_id: v2_03_erase_board
+section: V2_03
+task_family: board_erasing
+category: eraser
+robot_model: xhand
+hand_side: right
+scene_objects:
+- id: eraser
+  source_target:
+    category: eraser
+    source_index: 1
+    target_index: 1
+- id: board
+  mesh_path: assets/writing_board/writing_board.obj
+  static: true
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+keyframes:
+- id: eraser_grasp
+  object_id: eraser
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.42
+    - 0.0
+    - 0.0
+  - type: rotate_pair
+    axis:
+    - 1.0
+    - 0.0
+    - 0.0
+    degrees: 90.0
+    pivot: object_origin
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: eraser_lifted
+  derive_from: eraser_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.12
+- id: erase_a0
+  derive_from: eraser_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.14
+    - -0.07
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.018
+- id: erase_a1
+  derive_from: eraser_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.14
+    - -0.07
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.018
+- id: erase_b1
+  derive_from: eraser_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.14
+    - -0.025
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.018
+- id: erase_b0
+  derive_from: eraser_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.14
+    - -0.025
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.018
+- id: erase_c0
+  derive_from: eraser_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.14
+    - 0.02
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.018
+- id: erase_c1
+  derive_from: eraser_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.14
+    - 0.02
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.018
+- id: erase_d1
+  derive_from: eraser_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.14
+    - 0.065
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.018
+- id: erase_d0
+  derive_from: eraser_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.14
+    - 0.065
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.018
+trajectory:
+  id: erase_board
+  output_motion_path: outputs/v2_03_pipeline/v2_03_erase_board/exports/erase_board.npz
+  exported_rl_path: outputs/v2_03_pipeline/v2_03_erase_board/exports/erase_board_oakink_sequence.npy
+  object_switch_transition_frames: 0
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    active_object: eraser
+    target: eraser_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    active_object: eraser
+    keyframe: eraser_grasp
+    frames: 4
+  - name: lift
+    type: interpolate_keyframes
+    active_object: eraser
+    start: eraser_grasp
+    end: eraser_lifted
+    frames: 12
+  - name: move_to_board
+    type: interpolate_keyframes
+    active_object: eraser
+    start: eraser_lifted
+    end: erase_a0
+    frames: 16
+  - name: erase_1
+    type: interpolate_keyframes
+    active_object: eraser
+    start: erase_a0
+    end: erase_a1
+    frames: 10
+  - name: erase_2
+    type: interpolate_keyframes
+    active_object: eraser
+    start: erase_a1
+    end: erase_b1
+    frames: 10
+  - name: erase_3
+    type: interpolate_keyframes
+    active_object: eraser
+    start: erase_b1
+    end: erase_b0
+    frames: 10
+  - name: erase_4
+    type: interpolate_keyframes
+    active_object: eraser
+    start: erase_b0
+    end: erase_c0
+    frames: 10
+  - name: erase_5
+    type: interpolate_keyframes
+    active_object: eraser
+    start: erase_c0
+    end: erase_c1
+    frames: 10
+  - name: erase_6
+    type: interpolate_keyframes
+    active_object: eraser
+    start: erase_c1
+    end: erase_d1
+    frames: 10
+  - name: erase_7
+    type: interpolate_keyframes
+    active_object: eraser
+    start: erase_d1
+    end: erase_d0
+    frames: 10
+  - name: hold_on_board
+    type: hold_keyframe
+    active_object: eraser
+    keyframe: erase_d0
+    frames: 8
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_096_120_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - -0.13999999999999999
+    - -0.0025000000000000022
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

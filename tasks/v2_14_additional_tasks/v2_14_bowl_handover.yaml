@@ -1,0 +1,212 @@
+experiment_id: v2_14_bowl_handover
+section: V2_14
+task_family: additional_tasks
+category: bowl_handover
+robot_model: xhand
+hands:
+- left
+- right
+active_sides:
+- left
+- right
+object_static: false
+scene:
+  table_size:
+  - 0.8
+  - 0.7
+  table_margin: 0.002
+  table_height: 0.0
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_070_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+scene_objects:
+- id: bowl
+  source_target:
+    category: bowl
+    source_index: 2
+    target_index: 6
+  role: bowl starts on one table side, is carried to the midpoint for handover, then is placed on the
+    other side
+keyframes:
+- id: bowl_grasp_right
+  object_id: bowl
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.24
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: bowl_lift_right
+  object_id: bowl
+  derive_from: bowl_grasp_right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.24
+    - 0.0
+    - 0.12
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: bowl_handoff_right
+  object_id: bowl
+  derive_from: bowl_grasp_right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.12
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: bowl_handoff_left
+  object_id: bowl
+  mirror_from_template: bowl_handoff_right
+  source_side: right
+  target_side: left
+  mirror_axis: x
+  mirror_frame: object
+- id: bowl_handoff_bimanual_left_active
+  object_id: bowl
+  active_side: left
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      from_template: bowl_handoff_left
+    right:
+      from_template: bowl_handoff_right
+- id: bowl_handoff_bimanual_right_active
+  object_id: bowl
+  active_side: right
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      from_template: bowl_handoff_left
+    right:
+      from_template: bowl_handoff_right
+- id: bowl_after_right_release
+  object_id: bowl
+  derive_from: bowl_handoff_bimanual_right_active
+  transforms:
+  - type: open_hand
+- id: bowl_left_holding_after_transfer
+  object_id: bowl
+  derive_from: bowl_after_right_release
+  active_side: left
+- id: bowl_placed_left
+  object_id: bowl
+  derive_from: bowl_left_holding_after_transfer
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.24
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+  active_side: left
+trajectory:
+  id: bowl_handover
+  output_motion_path: outputs/v2_14_pipeline/v2_14_bowl_handover/exports/bowl_handover.npz
+  exported_rl_path: outputs/v2_14_pipeline/v2_14_bowl_handover/exports/bowl_handover_oakink_sequence.npy
+  object_switch_transition_frames: 0
+  phases:
+  - name: right_reach_bowl
+    type: reach_to_keyframe
+    active_object: bowl
+    target: bowl_grasp_right
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: right_grasp_bowl
+    type: hold_keyframe
+    active_object: bowl
+    keyframe: bowl_grasp_right
+    frames: 4
+  - name: right_lift_bowl
+    type: interpolate_keyframes
+    active_object: bowl
+    start: bowl_grasp_right
+    end: bowl_lift_right
+    frames: 12
+  - name: right_move_to_handoff
+    type: interpolate_keyframes
+    active_object: bowl
+    start: bowl_lift_right
+    end: bowl_handoff_right
+    frames: 16
+  - name: left_reach_bowl_at_handoff
+    type: reach_to_keyframe
+    active_object: bowl
+    target: bowl_handoff_bimanual_left_active
+    frames: 10
+    backoff_translation:
+    - 0.08
+    - 0.0
+    - 0.0
+    frozen_sides:
+    - right
+  - name: bimanual_hold_before_transfer
+    type: hold_keyframe
+    active_object: bowl
+    keyframe: bowl_handoff_bimanual_left_active
+    frames: 4
+  - name: right_release_bowl
+    type: interpolate_keyframes
+    active_object: bowl
+    start: bowl_handoff_bimanual_right_active
+    end: bowl_after_right_release
+    frames: 8
+  - name: left_place_bowl
+    type: interpolate_keyframes
+    active_object: bowl
+    start: bowl_left_holding_after_transfer
+    end: bowl_placed_left
+    frames: 18
+  - name: left_release_bowl
+    type: release_or_open
+    active_object: bowl
+    start: bowl_placed_left
+    frames: 8
+    clearance_translation:
+    - -0.04
+    - 0.0
+    - 0.06
+note: Right hand uses the existing bowl support-grasp retargeting. The left handover grasp is generated
+  by mirroring the right grasp in the bowl object frame, then the active hand switches to the left hand
+  after the right hand opens.

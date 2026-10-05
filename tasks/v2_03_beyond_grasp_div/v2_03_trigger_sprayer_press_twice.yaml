@@ -1,0 +1,183 @@
+experiment_id: v2_03_trigger_sprayer_press_twice
+section: V2_03
+task_family: articulation_sequence
+category: trigger_sprayer
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+object_static: true
+source_target:
+  category: trigger_sprayer
+  source_index: 2
+  target_index: 11
+keyframes:
+- id: trigger_open
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: trigger_open
+- id: trigger_interp_01
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: trigger_interp_01
+- id: trigger_interp_02
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: trigger_interp_02
+- id: trigger_interp_03
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: trigger_interp_03
+- id: trigger_interp_04
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: trigger_interp_04
+- id: trigger_interp_05
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: trigger_interp_05
+- id: trigger_pressed
+  from_retarget:
+    motion_path: auto
+    frame: last
+    articulation_sample_id: trigger_pressed
+trajectory:
+  id: trigger_sprayer_press_twice
+  output_motion_path: outputs/v2_03_pipeline/v2_03_trigger_sprayer_press_twice/exports/trigger_sprayer_press_twice.npz
+  exported_rl_path: outputs/v2_03_pipeline/v2_03_trigger_sprayer_press_twice/exports/trigger_sprayer_press_twice_oakink_sequence.npy
+  phases:
+  - name: start_open
+    type: hold_keyframe
+    keyframe: trigger_open
+    frames: 5
+  - name: press_1_trigger_open
+    type: hold_keyframe
+    keyframe: trigger_open
+    frames: 1
+  - name: press_1_trigger_interp_01
+    type: hold_keyframe
+    keyframe: trigger_interp_01
+    frames: 1
+  - name: press_1_trigger_interp_02
+    type: hold_keyframe
+    keyframe: trigger_interp_02
+    frames: 1
+  - name: press_1_trigger_interp_03
+    type: hold_keyframe
+    keyframe: trigger_interp_03
+    frames: 1
+  - name: press_1_trigger_interp_04
+    type: hold_keyframe
+    keyframe: trigger_interp_04
+    frames: 1
+  - name: press_1_trigger_interp_05
+    type: hold_keyframe
+    keyframe: trigger_interp_05
+    frames: 1
+  - name: press_1_trigger_pressed
+    type: hold_keyframe
+    keyframe: trigger_pressed
+    frames: 1
+  - name: release_1_trigger_interp_05
+    type: hold_keyframe
+    keyframe: trigger_interp_05
+    frames: 1
+  - name: release_1_trigger_interp_04
+    type: hold_keyframe
+    keyframe: trigger_interp_04
+    frames: 1
+  - name: release_1_trigger_interp_03
+    type: hold_keyframe
+    keyframe: trigger_interp_03
+    frames: 1
+  - name: release_1_trigger_interp_02
+    type: hold_keyframe
+    keyframe: trigger_interp_02
+    frames: 1
+  - name: release_1_trigger_interp_01
+    type: hold_keyframe
+    keyframe: trigger_interp_01
+    frames: 1
+  - name: release_1_trigger_open
+    type: hold_keyframe
+    keyframe: trigger_open
+    frames: 1
+  - name: press_2_trigger_open
+    type: hold_keyframe
+    keyframe: trigger_open
+    frames: 1
+  - name: press_2_trigger_interp_01
+    type: hold_keyframe
+    keyframe: trigger_interp_01
+    frames: 1
+  - name: press_2_trigger_interp_02
+    type: hold_keyframe
+    keyframe: trigger_interp_02
+    frames: 1
+  - name: press_2_trigger_interp_03
+    type: hold_keyframe
+    keyframe: trigger_interp_03
+    frames: 1
+  - name: press_2_trigger_interp_04
+    type: hold_keyframe
+    keyframe: trigger_interp_04
+    frames: 1
+  - name: press_2_trigger_interp_05
+    type: hold_keyframe
+    keyframe: trigger_interp_05
+    frames: 1
+  - name: press_2_trigger_pressed
+    type: hold_keyframe
+    keyframe: trigger_pressed
+    frames: 1
+  - name: release_2_trigger_interp_05
+    type: hold_keyframe
+    keyframe: trigger_interp_05
+    frames: 1
+  - name: release_2_trigger_interp_04
+    type: hold_keyframe
+    keyframe: trigger_interp_04
+    frames: 1
+  - name: release_2_trigger_interp_03
+    type: hold_keyframe
+    keyframe: trigger_interp_03
+    frames: 1
+  - name: release_2_trigger_interp_02
+    type: hold_keyframe
+    keyframe: trigger_interp_02
+    frames: 1
+  - name: release_2_trigger_interp_01
+    type: hold_keyframe
+    keyframe: trigger_interp_01
+    frames: 1
+  - name: release_2_trigger_open
+    type: hold_keyframe
+    keyframe: trigger_open
+    frames: 1
+  - name: hold_final_open
+    type: hold_keyframe
+    keyframe: trigger_open
+    frames: 5
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_120_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

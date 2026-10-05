@@ -1,0 +1,161 @@
+experiment_id: v2_14_hang_mug_on_stand
+section: V2_14
+task_family: additional_tasks
+category: mug_on_stand
+robot_model: xhand
+hand_side: right
+scene:
+  table_size:
+  - 0.75
+  - 0.75
+  table_margin: 0.002
+  table_height: 0.0
+scene_objects:
+- id: mug
+  source_target:
+    category: mug
+    source_index: 8
+    target_index: 1
+  role: mug grasped from the side and moved to the stand branch
+- id: mugstand
+  urdf_path: assets/mugstand/mugstand.urdf
+  static: true
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.002
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  role: fixed mug stand; links `junction` and `corner` define the branch direction used for the hanging
+    waypoint
+keyframes:
+- id: mug_grasp
+  object_id: mug
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.22
+    - -0.12
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: mug_lifted
+  object_id: mug
+  derive_from: mug_grasp
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.22
+    - -0.12
+    - 0.1
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: mug_near_stand
+  object_id: mug
+  derive_from: mug_grasp
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.08023855571899549
+    - -0.05380204208712391
+    - 0.21004949511363188
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: mug_hanging
+  object_id: mug
+  derive_from: mug_grasp
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.033039405296056965
+    - -0.05380204208712391
+    - 0.19354979210561313
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+trajectory:
+  id: hang_mug_on_stand
+  output_motion_path: outputs/v2_14_pipeline/v2_14_hang_mug_on_stand/exports/hang_mug_on_stand.npz
+  exported_rl_path: outputs/v2_14_pipeline/v2_14_hang_mug_on_stand/exports/hang_mug_on_stand_oakink_sequence.npy
+  object_switch_transition_frames: 0
+  phases:
+  - name: reach_mug
+    type: reach_to_keyframe
+    active_object: mug
+    target: mug_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_mug
+    type: hold_keyframe
+    active_object: mug
+    keyframe: mug_grasp
+    frames: 4
+  - name: lift_mug
+    type: interpolate_keyframes
+    active_object: mug
+    start: mug_grasp
+    end: mug_lifted
+    frames: 12
+  - name: move_to_stand
+    type: interpolate_keyframes
+    active_object: mug
+    start: mug_lifted
+    end: mug_near_stand
+    frames: 20
+  - name: hang_on_branch
+    type: interpolate_keyframes
+    active_object: mug
+    start: mug_near_stand
+    end: mug_hanging
+    frames: 10
+  - name: release_mug
+    type: release_or_open
+    active_object: mug
+    start: mug_hanging
+    frames: 8
+    clearance_translation:
+    - -0.06
+    - -0.04
+    - 0.04
+note: The hanging waypoint aligns the computed mug handle-gap midpoint between the curved mug surface
+  and the handle to the midpoint of the fixed mugstand branch link. The preceding waypoint keeps the same
+  mug local point 5 cm farther along the branch direction away from the junction.
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_075_075_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.1265197026480285
+    - -0.08690102104356195
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

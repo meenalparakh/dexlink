@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<robot name="two_link_hammer">
+
+  <material name="handle_brown">
+    <color rgba="0.45 0.22 0.08 1.0"/>
+  </material>
+
+  <material name="head_dark_grey">
+    <color rgba="0.08 0.08 0.08 1.0"/>
+  </material>
+
+  <link name="handle_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.100000"/>
+      <inertia
+        ixx="0.000526458"
+        ixy="0"
+        ixz="0"
+        iyy="0.000526458"
+        iyz="0"
+        izz="0.000011250"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.015000" length="0.250000"/>
+      </geometry>
+      <material name="handle_brown"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.015000" length="0.250000"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="head_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.500000"/>
+      <inertia
+        ixx="0.000100000"
+        ixy="0"
+        ixz="0"
+        iyy="0.000254167"
+        iyz="0"
+        izz="0.000254167"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.57079632679 0"/>
+      <geometry>
+        <cylinder radius="0.020000" length="0.070000"/>
+      </geometry>
+      <material name="head_dark_grey"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.57079632679 0"/>
+      <geometry>
+        <cylinder radius="0.020000" length="0.070000"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="handle_to_head_fixed" type="fixed">
+    <parent link="handle_link"/>
+    <child link="head_link"/>
+    <origin xyz="0 0 0.125000" rpy="0 0 0"/>
+  </joint>
+
+</robot>

@@ -1,0 +1,151 @@
+experiment_id: v2_11_stack_ycb_cups
+section: V2_11
+task_family: stack_cups
+category: ycb_cup_stacking
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+scene_objects:
+- id: large_cup
+  source_target:
+    category: ycb_cup
+    source_index: 1
+    target_index: 2
+  role: large base cup
+- id: small_cup
+  source_target:
+    category: ycb_cup
+    source_index: 1
+    target_index: 1
+  role: small cup stacked into the large cup
+keyframes:
+- id: large_cup_placed
+  object_id: large_cup
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: small_cup_grasp
+  object_id: small_cup
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.16
+    - 0.14
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: small_cup_lifted
+  object_id: small_cup
+  derive_from: small_cup_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.26
+- id: small_cup_place_hover
+  object_id: small_cup
+  derive_from: small_cup_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z_from_template_top: large_cup_placed
+    target_lowest_z_offset: 0.05
+- id: small_cup_placed
+  object_id: small_cup
+  derive_from: small_cup_place_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z_from_template_top: large_cup_placed
+    target_lowest_z_offset: -0.05
+- id: small_cup_released
+  object_id: small_cup
+  derive_from: small_cup_placed
+  transforms:
+  - type: open_hand
+trajectory:
+  id: stack_ycb_cups
+  output_motion_path: outputs/v2_11_pipeline/v2_11_stack_ycb_cups/exports/stack_ycb_cups.npz
+  exported_rl_path: outputs/v2_11_pipeline/v2_11_stack_ycb_cups/exports/stack_ycb_cups_oakink_sequence.npy
+  object_switch_transition_frames: 6
+  phases:
+  - name: reach_small_cup
+    active_object: small_cup
+    type: reach_to_keyframe
+    target: small_cup_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_small_cup
+    active_object: small_cup
+    type: hold_keyframe
+    keyframe: small_cup_grasp
+    frames: 4
+  - name: lift_small_cup
+    active_object: small_cup
+    type: interpolate_keyframes
+    start: small_cup_grasp
+    end: small_cup_lifted
+    frames: 10
+  - name: move_small_cup_over_place
+    active_object: small_cup
+    type: interpolate_keyframes
+    start: small_cup_lifted
+    end: small_cup_place_hover
+    frames: 10
+  - name: place_small_cup
+    active_object: small_cup
+    type: interpolate_keyframes
+    start: small_cup_place_hover
+    end: small_cup_placed
+    frames: 6
+  - name: release_small_cup
+    active_object: small_cup
+    type: interpolate_keyframes
+    start: small_cup_placed
+    end: small_cup_released
+    frames: 5
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.08
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_120_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - -0.07999999999999999
+    - 0.07
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

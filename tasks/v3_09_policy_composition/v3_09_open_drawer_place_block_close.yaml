@@ -1,0 +1,260 @@
+experiment_id: v3_09_open_drawer_place_block_close
+section: V3_09
+task_family: policy_composition
+category: drawer_block_composition
+robot_model: xhand
+hand_side: right
+scene:
+  table_height: 0.0
+  table_margin: 0.002
+scene_objects:
+- id: drawer
+  source_target:
+    category: drawer
+    source_index: 1
+    target_index: 1
+  role: fixed-base articulated drawer
+  static: true
+  friction: 1.2
+  lowest_z_above_table: 0.08
+- id: block
+  source_target:
+    category: block
+    source_index: 1
+    target_index: 4
+  role: block placed into the open drawer before closing
+  friction: 1.2
+support_scene_objects:
+- id: table
+  mesh_path: assets/composition_examples/v3_09_open_drawer_place_block_close/table.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: drawer_support_block
+  mesh_path: assets/composition_examples/v3_09_open_drawer_place_block_close/drawer_support_block.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.04
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+composition_condition:
+  kind: sequential_policy_composition
+  subtasks:
+  - open_drawer
+  - place_block
+  - close_drawer
+  drawer_open_joint_m: 0.18
+  close_motion: exact reverse interpolation of the opening keyframes
+  success_definition: drawer_slide is closed and the block center remains inside the drawer interior at
+    episode end
+keyframes:
+- id: drawer_closed_contact
+  object_id: drawer
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: rotate_pair
+    axis:
+    - 1.0
+    - 0.0
+    - 0.0
+    degrees: 90.0
+    pivot: object_origin
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.082
+- id: drawer_open_contact
+  object_id: drawer
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: rotate_pair
+    axis:
+    - 1.0
+    - 0.0
+    - 0.0
+    degrees: 90.0
+    pivot: object_origin
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.082
+  - type: set_articulation
+    joint_values:
+      drawer_slide: 0.18
+    articulation_link_name: handle_front
+- id: block_grasp
+  object_id: block
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.24
+    - 0.22
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: block_lifted
+  object_id: block
+  derive_from: block_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.18
+- id: block_drawer_hover
+  object_id: block
+  derive_from: block_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.157
+    - -0.079
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.28
+- id: block_in_drawer
+  object_id: block
+  derive_from: block_drawer_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.157
+    - -0.079
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.104
+- id: block_released
+  object_id: block
+  derive_from: block_in_drawer
+  transforms:
+  - type: open_hand
+trajectory:
+  id: open_drawer_place_block_close
+  output_motion_path: outputs/v3_09_policy_composition_pipeline/v3_09_open_drawer_place_block_close/exports/open_drawer_place_block_close.npz
+  exported_rl_path: outputs/v3_09_policy_composition_pipeline/v3_09_open_drawer_place_block_close/exports/open_drawer_place_block_close_oakink_sequence.npy
+  object_switch_transition_frames: 10
+  object_switch_clearance_translation:
+  - 0.0
+  - 0.0
+  - 0.12
+  phases:
+  - name: reach_closed_drawer
+    active_object: drawer
+    type: reach_to_keyframe
+    target: drawer_closed_contact
+    frames: 14
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: contact_closed_drawer
+    active_object: drawer
+    type: hold_keyframe
+    keyframe: drawer_closed_contact
+    frames: 5
+  - name: open_drawer
+    active_object: drawer
+    type: interpolate_keyframes
+    start: drawer_closed_contact
+    end: drawer_open_contact
+    frames: 25
+    articulation_link_name: handle_front
+  - name: hold_drawer_open
+    active_object: drawer
+    type: hold_keyframe
+    keyframe: drawer_open_contact
+    frames: 5
+  - name: reach_block
+    active_object: block
+    type: reach_to_keyframe
+    target: block_grasp
+    frames: 16
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_block
+    active_object: block
+    type: hold_keyframe
+    keyframe: block_grasp
+    frames: 5
+  - name: lift_block
+    active_object: block
+    type: interpolate_keyframes
+    start: block_grasp
+    end: block_lifted
+    frames: 10
+  - name: move_block_over_drawer
+    active_object: block
+    type: interpolate_keyframes
+    start: block_lifted
+    end: block_drawer_hover
+    frames: 14
+  - name: place_block_in_drawer
+    active_object: block
+    type: interpolate_keyframes
+    start: block_drawer_hover
+    end: block_in_drawer
+    frames: 10
+  - name: hold_block_in_drawer
+    active_object: block
+    type: hold_keyframe
+    keyframe: block_in_drawer
+    frames: 4
+  - name: release_block_in_drawer
+    active_object: block
+    type: interpolate_keyframes
+    start: block_in_drawer
+    end: block_released
+    frames: 5
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.1
+  - name: reach_open_drawer
+    active_object: drawer
+    type: reach_to_keyframe
+    target: drawer_open_contact
+    frames: 16
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: contact_open_drawer
+    active_object: drawer
+    type: hold_keyframe
+    keyframe: drawer_open_contact
+    frames: 5
+  - name: close_drawer_reverse_open
+    active_object: drawer
+    type: interpolate_keyframes
+    start: drawer_open_contact
+    end: drawer_closed_contact
+    frames: 25
+    articulation_link_name: handle_front
+  - name: hold_drawer_closed
+    active_object: drawer
+    type: hold_keyframe
+    keyframe: drawer_closed_contact
+    frames: 5

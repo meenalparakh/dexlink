@@ -1,0 +1,823 @@
+experiment_id: v2_03_banana_handover
+section: V2_03
+task_family: handover_sequence
+category: banana_handover
+robot_model: xhand
+hands:
+- left
+- right
+object_static: false
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+scene_objects:
+- id: banana
+  source_target:
+    category: banana_handover
+    source_index: 1
+    target_index: 1
+  lowest_z_above_table: 0.5
+keyframes:
+- id: banana_handover_t215
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 31
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 1
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t216
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 32
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 2
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t217
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 33
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 3
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t218
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 34
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 4
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t219
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 35
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 5
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t220
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 36
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 6
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t221
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 37
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 7
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t222
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 38
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 8
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t223
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 39
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 9
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t224
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 40
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 10
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t225
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 41
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 11
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t226
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 42
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 12
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t227
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 43
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 13
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t228
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 44
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 14
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t229
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 45
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 15
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t230
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 46
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 16
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t231
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 47
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 17
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t232
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 48
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 18
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t233
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 49
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 19
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t234
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 50
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 20
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t235
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 51
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 21
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t236
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 52
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 22
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t237
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 53
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 23
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t238
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 54
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 24
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t239
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 55
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 25
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t240
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 56
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 26
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t241
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 57
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 27
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t242
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 58
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 28
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t243
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 59
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 29
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+- id: banana_handover_t244
+  object_id: banana
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: banana_handover
+        source_index: 60
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+    right:
+      source_target:
+        category: banana_handover
+        source_index: 30
+        target_index: 1
+      from_retarget:
+        motion_path: auto
+        frame: last
+trajectory:
+  id: banana_handover
+  output_motion_path: outputs/v2_03_pipeline/v2_03_banana_handover/exports/banana_handover.npz
+  exported_rl_path: outputs/v2_03_pipeline/v2_03_banana_handover/exports/banana_handover_oakink_sequence.npy
+  phases:
+  - name: banana_handover_t215_to_banana_handover_t216
+    type: interpolate_keyframes
+    start: banana_handover_t215
+    end: banana_handover_t216
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t216_to_banana_handover_t217
+    type: interpolate_keyframes
+    start: banana_handover_t216
+    end: banana_handover_t217
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t217_to_banana_handover_t218
+    type: interpolate_keyframes
+    start: banana_handover_t217
+    end: banana_handover_t218
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t218_to_banana_handover_t219
+    type: interpolate_keyframes
+    start: banana_handover_t218
+    end: banana_handover_t219
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t219_to_banana_handover_t220
+    type: interpolate_keyframes
+    start: banana_handover_t219
+    end: banana_handover_t220
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t220_to_banana_handover_t221
+    type: interpolate_keyframes
+    start: banana_handover_t220
+    end: banana_handover_t221
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t221_to_banana_handover_t222
+    type: interpolate_keyframes
+    start: banana_handover_t221
+    end: banana_handover_t222
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t222_to_banana_handover_t223
+    type: interpolate_keyframes
+    start: banana_handover_t222
+    end: banana_handover_t223
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t223_to_banana_handover_t224
+    type: interpolate_keyframes
+    start: banana_handover_t223
+    end: banana_handover_t224
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t224_to_banana_handover_t225
+    type: interpolate_keyframes
+    start: banana_handover_t224
+    end: banana_handover_t225
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t225_to_banana_handover_t226
+    type: interpolate_keyframes
+    start: banana_handover_t225
+    end: banana_handover_t226
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t226_to_banana_handover_t227
+    type: interpolate_keyframes
+    start: banana_handover_t226
+    end: banana_handover_t227
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t227_to_banana_handover_t228
+    type: interpolate_keyframes
+    start: banana_handover_t227
+    end: banana_handover_t228
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t228_to_banana_handover_t229
+    type: interpolate_keyframes
+    start: banana_handover_t228
+    end: banana_handover_t229
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t229_to_banana_handover_t230
+    type: interpolate_keyframes
+    start: banana_handover_t229
+    end: banana_handover_t230
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t230_to_banana_handover_t231
+    type: interpolate_keyframes
+    start: banana_handover_t230
+    end: banana_handover_t231
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t231_to_banana_handover_t232
+    type: interpolate_keyframes
+    start: banana_handover_t231
+    end: banana_handover_t232
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t232_to_banana_handover_t233
+    type: interpolate_keyframes
+    start: banana_handover_t232
+    end: banana_handover_t233
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t233_to_banana_handover_t234
+    type: interpolate_keyframes
+    start: banana_handover_t233
+    end: banana_handover_t234
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t234_to_banana_handover_t235
+    type: interpolate_keyframes
+    start: banana_handover_t234
+    end: banana_handover_t235
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t235_to_banana_handover_t236
+    type: interpolate_keyframes
+    start: banana_handover_t235
+    end: banana_handover_t236
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t236_to_banana_handover_t237
+    type: interpolate_keyframes
+    start: banana_handover_t236
+    end: banana_handover_t237
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t237_to_banana_handover_t238
+    type: interpolate_keyframes
+    start: banana_handover_t237
+    end: banana_handover_t238
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t238_to_banana_handover_t239
+    type: interpolate_keyframes
+    start: banana_handover_t238
+    end: banana_handover_t239
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t239_to_banana_handover_t240
+    type: interpolate_keyframes
+    start: banana_handover_t239
+    end: banana_handover_t240
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t240_to_banana_handover_t241
+    type: interpolate_keyframes
+    start: banana_handover_t240
+    end: banana_handover_t241
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t241_to_banana_handover_t242
+    type: interpolate_keyframes
+    start: banana_handover_t241
+    end: banana_handover_t242
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t242_to_banana_handover_t243
+    type: interpolate_keyframes
+    start: banana_handover_t242
+    end: banana_handover_t243
+    active_object: banana
+    frames: 1
+  - name: banana_handover_t243_to_banana_handover_t244
+    type: interpolate_keyframes
+    start: banana_handover_t243
+    end: banana_handover_t244
+    active_object: banana
+    frames: 1
+  - name: hold_banana_handover
+    type: hold_keyframe
+    keyframe: banana_handover_t244
+    active_object: banana
+    frames: 8
+note: Bimanual banana handover stride-1 stitches synchronized left/right ARCTIC ketchup_use_01 frames
+  215-244. The banana follows the ARCTIC source object transform sequence; selected retargeted waypoints
+  are interpolated by ARCTIC timestep gaps so sparsity variants keep the same duration.
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_120_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

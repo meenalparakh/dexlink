@@ -1,0 +1,199 @@
+experiment_id: v2_03_hammer_strike_peg_alt_grasp
+section: V2_03
+task_family: contact_rich_hammering
+category: hammer
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+scene_objects:
+- id: hammer
+  source_target:
+    category: hammer
+    source_index: 2
+    target_index: 1
+  lowest_z_above_table: 0.2
+  role: hammer held in hand and swung along a 2*pi/3 arc
+- id: peg
+  mesh_path: assets/peg/peg.obj
+  static: true
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  role: static peg centered at the hammer strike point
+keyframes:
+- id: hammer_ready
+  object_id: hammer
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.207846
+    - 0.0
+    - 0.325
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: hammer_arc_01
+  object_id: hammer
+  derive_from: hammer_ready
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.150346
+    - 0.0
+    - 0.254067
+    object_quat_wxyz:
+    - 0.96592583
+    - 0.0
+    - 0.25881905
+    - 0.0
+- id: hammer_arc_02
+  object_id: hammer
+  derive_from: hammer_ready
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.108253
+    - 0.0
+    - 0.202811
+    object_quat_wxyz:
+    - 0.8660254
+    - 0.0
+    - 0.5
+    - 0.0
+- id: hammer_arc_03
+  object_id: hammer
+  derive_from: hammer_ready
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.092846
+    - 0.0
+    - 0.1575
+    object_quat_wxyz:
+    - 0.70710678
+    - 0.0
+    - 0.70710678
+    - 0.0
+- id: hammer_strike
+  object_id: hammer
+  derive_from: hammer_ready
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.108253
+    - 0.0
+    - 0.122811
+    object_quat_wxyz:
+    - 0.5
+    - 0.0
+    - 0.8660254
+    - 0.0
+- id: hammer_lifted_for_second_strike
+  object_id: hammer
+  derive_from: hammer_ready
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.108253
+    - 0.0
+    - 0.27549
+    object_quat_wxyz:
+    - 0.8660254
+    - 0.0
+    - 0.5
+    - 0.0
+trajectory:
+  id: hammer_two_thirds_pi_strike_peg
+  output_motion_path: outputs/v2_03_pipeline/v2_03_hammer_strike_peg_alt_grasp/exports/hammer_two_thirds_pi_strike_peg.npz
+  exported_rl_path: outputs/v2_03_pipeline/v2_03_hammer_strike_peg_alt_grasp/exports/hammer_two_thirds_pi_strike_peg_oakink_sequence.npy
+  object_switch_transition_frames: 0
+  phases:
+  - name: hold_ready
+    type: hold_keyframe
+    active_object: hammer
+    keyframe: hammer_ready
+    frames: 8
+  - name: swing_01
+    type: interpolate_keyframes
+    active_object: hammer
+    start: hammer_ready
+    end: hammer_arc_01
+    frames: 8
+  - name: swing_02
+    type: interpolate_keyframes
+    active_object: hammer
+    start: hammer_arc_01
+    end: hammer_arc_02
+    frames: 6
+  - name: swing_03
+    type: interpolate_keyframes
+    active_object: hammer
+    start: hammer_arc_02
+    end: hammer_arc_03
+    frames: 5
+  - name: strike
+    type: interpolate_keyframes
+    active_object: hammer
+    start: hammer_arc_03
+    end: hammer_strike
+    frames: 3
+  - name: hold_impact
+    type: hold_keyframe
+    active_object: hammer
+    keyframe: hammer_strike
+    frames: 3
+  - name: lift_back
+    type: interpolate_keyframes
+    active_object: hammer
+    start: hammer_strike
+    end: hammer_lifted_for_second_strike
+    frames: 15
+  - name: strike_again
+    type: interpolate_keyframes
+    active_object: hammer
+    start: hammer_lifted_for_second_strike
+    end: hammer_strike
+    frames: 3
+  - name: hold_second_impact
+    type: hold_keyframe
+    active_object: hammer
+    keyframe: hammer_strike
+    frames: 3
+  - name: swing_back_after_second_strike
+    type: interpolate_keyframes
+    active_object: hammer
+    start: hammer_strike
+    end: hammer_lifted_for_second_strike
+    frames: 15
+note: The hammer starts in hand with its standing-pose base 20 cm above the table. At the 120 degree impact
+  pose, the hammer head lower surface matches the peg top z.
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_120_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - -0.150346
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

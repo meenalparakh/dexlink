@@ -1,0 +1,1436 @@
+experiment_id: v2_16_fold_mailer_bimanual
+section: V2_16
+task_family: bimanual_articulated_box_folding
+category: folding_mailer
+robot_model: xhand
+hands:
+- left
+- right
+hand_config_source_by_side:
+  left: right
+  right: right
+object_static: false
+scene:
+  table_height: 0.0
+  table_margin: 0.0
+  table_size:
+  - 1.2
+  - 1.2
+scene_objects:
+- id: box
+  source_target:
+    category: folding_mailer
+    source_index: 1
+    target_index: 2
+  role: dynamic articulated cardboard net folded by both xHands
+  lowest_z_above_table: 0.04
+keyframes:
+- id: raise_end_walls_ready
+  label: 'Ready: Raise front wall and rear lid spine'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 1
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_end_walls_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 2
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_end_walls_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - rear_wall
+    right:
+    - front_wall
+- id: raise_end_walls_done
+  label: Raise front wall and rear lid spine
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 3
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_end_walls_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 4
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_end_walls_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - rear_wall
+    right:
+    - front_wall
+- id: fold_corner_ears_ready
+  label: 'Ready: Fold four corner ears inward'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 5
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_corner_ears_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 6
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_corner_ears_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - rear_corner_a
+    - rear_corner_b
+    right:
+    - front_corner_a
+    - front_corner_b
+- id: fold_corner_ears_done
+  label: Fold four corner ears inward
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 7
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_corner_ears_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 8
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_corner_ears_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - rear_corner_a
+    - rear_corner_b
+    right:
+    - front_corner_a
+    - front_corner_b
+- id: raise_side_walls_ready
+  label: 'Ready: Raise tray side walls'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 9
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_side_walls_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 10
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_side_walls_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - left_outer
+    right:
+    - right_outer
+- id: raise_side_walls_done
+  label: Raise tray side walls
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 11
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_side_walls_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 12
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: raise_side_walls_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - left_outer
+    right:
+    - right_outer
+- id: fold_rollover_strips_ready
+  label: 'Ready: Fold rollover clearance strips'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 13
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_rollover_strips_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 14
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_rollover_strips_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - left_roll_margin
+    right:
+    - right_roll_margin
+- id: fold_rollover_strips_done
+  label: Fold rollover clearance strips
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 15
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_rollover_strips_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 16
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_rollover_strips_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - left_roll_margin
+    right:
+    - right_roll_margin
+- id: prebend_locking_strips_ready
+  label: 'Ready: Pre-bend lower locking strips'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 17
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: prebend_locking_strips_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 18
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: prebend_locking_strips_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - left_lock_0
+    - left_lock_1
+    right:
+    - right_lock_0
+    - right_lock_1
+- id: prebend_locking_strips_done
+  label: Pre-bend lower locking strips
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 19
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: prebend_locking_strips_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 20
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: prebend_locking_strips_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - left_lock_0
+    - left_lock_1
+    right:
+    - right_lock_0
+    - right_lock_1
+- id: align_floor_tabs_ready
+  label: 'Ready: Roll liners down and align floor tabs'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 21
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: align_floor_tabs_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 22
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: align_floor_tabs_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - left_liner
+    right:
+    - right_liner
+- id: align_floor_tabs_done
+  label: Roll liners down and align floor tabs
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 23
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: align_floor_tabs_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 24
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: align_floor_tabs_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - left_liner
+    right:
+    - right_liner
+- id: insert_floor_tabs_ready
+  label: 'Ready: Insert four locking tabs into base slots'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 25
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_floor_tabs_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 26
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_floor_tabs_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - left_lock_0
+    - left_lock_1
+    right:
+    - right_lock_0
+    - right_lock_1
+- id: insert_floor_tabs_done
+  label: Insert four locking tabs into base slots
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 27
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_floor_tabs_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 28
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_floor_tabs_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - left_lock_0
+    - left_lock_1
+    right:
+    - right_lock_0
+    - right_lock_1
+- id: deploy_front_receiver_ready
+  label: 'Ready: Deploy front receiver spacing ears'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 29
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: deploy_front_receiver_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 30
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: deploy_front_receiver_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - front_socket_margin
+    right:
+    - front_wall
+- id: deploy_front_receiver_done
+  label: Deploy front receiver spacing ears
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 31
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: deploy_front_receiver_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 32
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: deploy_front_receiver_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - front_socket_margin
+    right:
+    - front_wall
+- id: return_front_keeper_ready
+  label: 'Ready: Return front keeper into tray'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 33
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: return_front_keeper_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 34
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: return_front_keeper_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - front_keeper
+    right:
+    - front_wall
+- id: return_front_keeper_done
+  label: Return front keeper into tray
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 35
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: return_front_keeper_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 36
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: return_front_keeper_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - front_keeper
+    right:
+    - front_wall
+- id: fold_lid_wings_ready
+  label: 'Ready: Fold lid side wings'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 37
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_lid_wings_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 38
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_lid_wings_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - lid_left_wing
+    right:
+    - lid_right_wing
+- id: fold_lid_wings_done
+  label: Fold lid side wings
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 39
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_lid_wings_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 40
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: fold_lid_wings_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - lid_left_wing
+    right:
+    - lid_right_wing
+- id: prefold_front_tuck_ready
+  label: 'Ready: Pre-fold front tuck margin and flap'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 41
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: prefold_front_tuck_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 42
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: prefold_front_tuck_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - lid_front_tab
+    right:
+    - lid
+- id: prefold_front_tuck_done
+  label: Pre-fold front tuck margin and flap
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 43
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: prefold_front_tuck_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 44
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: prefold_front_tuck_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - lid_front_tab
+    right:
+    - lid
+- id: lower_lid_ready
+  label: 'Ready: Lower lid into side channels'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 45
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: lower_lid_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 46
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: lower_lid_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - lid_left_wing
+    right:
+    - lid_right_wing
+- id: lower_lid_done
+  label: Lower lid into side channels
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 47
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: lower_lid_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 48
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: lower_lid_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - lid_left_wing
+    right:
+    - lid_right_wing
+- id: insert_front_flap_ready
+  label: 'Ready: Insert front flap into receiver'
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 49
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_front_flap_ready
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 50
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_front_flap_ready
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - lid_front_tab
+    right:
+    - front_keeper
+- id: insert_front_flap_done
+  label: Insert front flap into receiver
+  object_id: box
+  canonical_object_side: right
+  bimanual_from_retarget:
+    left:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 51
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_front_flap_done
+      source_hand_side: right
+    right:
+      source_target:
+        category: folding_mailer
+        source_index: 1
+        target_index: 52
+        target_pose_frame: visual
+      from_retarget:
+        motion_path: auto
+        frame: last
+        articulation_sample_id: insert_front_flap_done
+      source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0415
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  retargeted_cardboard_links:
+    left:
+    - lid_front_tab
+    right:
+    - front_keeper
+- id: closed_mailer
+  label: Closed hinged-lid mailer
+  object_id: box
+  derive_from: insert_front_flap_done
+trajectory:
+  id: folding_mailer_bimanual_sequence
+  output_motion_path: outputs/v2_16_box_folding/v2_16_fold_mailer_bimanual/exports/folding_mailer_bimanual_sequence.npz
+  exported_rl_path: outputs/v2_16_box_folding/v2_16_fold_mailer_bimanual/exports/folding_mailer_bimanual_sequence_oakink_sequence.npy
+  object_switch_transition_frames: 0
+  phases:
+  - name: reach_flat_supported_net
+    type: reach_to_keyframe
+    target: raise_end_walls_ready
+    active_object: box
+    frames: 20
+    backoff_translation:
+    - 0.0
+    - 0.0
+    - 0.08
+  - name: hold_first_contacts
+    type: hold_keyframe
+    keyframe: raise_end_walls_ready
+    active_object: box
+    frames: 3
+  - name: raise_end_walls
+    type: interpolate_keyframes
+    start: raise_end_walls_ready
+    end: raise_end_walls_done
+    active_object: box
+    frames: 72
+  - name: hold_raise_end_walls
+    type: hold_keyframe
+    keyframe: raise_end_walls_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_fold_corner_ears
+    type: interpolate_keyframes
+    start: raise_end_walls_done
+    end: fold_corner_ears_ready
+    active_object: box
+    frames: 15
+  - name: fold_corner_ears
+    type: interpolate_keyframes
+    start: fold_corner_ears_ready
+    end: fold_corner_ears_done
+    active_object: box
+    frames: 54
+  - name: hold_fold_corner_ears
+    type: hold_keyframe
+    keyframe: fold_corner_ears_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_raise_side_walls
+    type: interpolate_keyframes
+    start: fold_corner_ears_done
+    end: raise_side_walls_ready
+    active_object: box
+    frames: 15
+  - name: raise_side_walls
+    type: interpolate_keyframes
+    start: raise_side_walls_ready
+    end: raise_side_walls_done
+    active_object: box
+    frames: 66
+  - name: hold_raise_side_walls
+    type: hold_keyframe
+    keyframe: raise_side_walls_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_fold_rollover_strips
+    type: interpolate_keyframes
+    start: raise_side_walls_done
+    end: fold_rollover_strips_ready
+    active_object: box
+    frames: 15
+  - name: fold_rollover_strips
+    type: interpolate_keyframes
+    start: fold_rollover_strips_ready
+    end: fold_rollover_strips_done
+    active_object: box
+    frames: 48
+  - name: hold_fold_rollover_strips
+    type: hold_keyframe
+    keyframe: fold_rollover_strips_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_prebend_locking_strips
+    type: interpolate_keyframes
+    start: fold_rollover_strips_done
+    end: prebend_locking_strips_ready
+    active_object: box
+    frames: 15
+  - name: prebend_locking_strips
+    type: interpolate_keyframes
+    start: prebend_locking_strips_ready
+    end: prebend_locking_strips_done
+    active_object: box
+    frames: 54
+  - name: hold_prebend_locking_strips
+    type: hold_keyframe
+    keyframe: prebend_locking_strips_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_align_floor_tabs
+    type: interpolate_keyframes
+    start: prebend_locking_strips_done
+    end: align_floor_tabs_ready
+    active_object: box
+    frames: 15
+  - name: align_floor_tabs
+    type: interpolate_keyframes
+    start: align_floor_tabs_ready
+    end: align_floor_tabs_done
+    active_object: box
+    frames: 66
+  - name: hold_align_floor_tabs
+    type: hold_keyframe
+    keyframe: align_floor_tabs_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_insert_floor_tabs
+    type: interpolate_keyframes
+    start: align_floor_tabs_done
+    end: insert_floor_tabs_ready
+    active_object: box
+    frames: 15
+  - name: insert_floor_tabs
+    type: interpolate_keyframes
+    start: insert_floor_tabs_ready
+    end: insert_floor_tabs_done
+    active_object: box
+    frames: 60
+  - name: hold_insert_floor_tabs
+    type: hold_keyframe
+    keyframe: insert_floor_tabs_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_deploy_front_receiver
+    type: interpolate_keyframes
+    start: insert_floor_tabs_done
+    end: deploy_front_receiver_ready
+    active_object: box
+    frames: 15
+  - name: deploy_front_receiver
+    type: interpolate_keyframes
+    start: deploy_front_receiver_ready
+    end: deploy_front_receiver_done
+    active_object: box
+    frames: 45
+  - name: hold_deploy_front_receiver
+    type: hold_keyframe
+    keyframe: deploy_front_receiver_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_return_front_keeper
+    type: interpolate_keyframes
+    start: deploy_front_receiver_done
+    end: return_front_keeper_ready
+    active_object: box
+    frames: 15
+  - name: return_front_keeper
+    type: interpolate_keyframes
+    start: return_front_keeper_ready
+    end: return_front_keeper_done
+    active_object: box
+    frames: 48
+  - name: hold_return_front_keeper
+    type: hold_keyframe
+    keyframe: return_front_keeper_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_fold_lid_wings
+    type: interpolate_keyframes
+    start: return_front_keeper_done
+    end: fold_lid_wings_ready
+    active_object: box
+    frames: 15
+  - name: fold_lid_wings
+    type: interpolate_keyframes
+    start: fold_lid_wings_ready
+    end: fold_lid_wings_done
+    active_object: box
+    frames: 54
+  - name: hold_fold_lid_wings
+    type: hold_keyframe
+    keyframe: fold_lid_wings_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_prefold_front_tuck
+    type: interpolate_keyframes
+    start: fold_lid_wings_done
+    end: prefold_front_tuck_ready
+    active_object: box
+    frames: 15
+  - name: prefold_front_tuck
+    type: interpolate_keyframes
+    start: prefold_front_tuck_ready
+    end: prefold_front_tuck_done
+    active_object: box
+    frames: 45
+  - name: hold_prefold_front_tuck
+    type: hold_keyframe
+    keyframe: prefold_front_tuck_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_lower_lid
+    type: interpolate_keyframes
+    start: prefold_front_tuck_done
+    end: lower_lid_ready
+    active_object: box
+    frames: 15
+  - name: lower_lid
+    type: interpolate_keyframes
+    start: lower_lid_ready
+    end: lower_lid_done
+    active_object: box
+    frames: 84
+  - name: hold_lower_lid
+    type: hold_keyframe
+    keyframe: lower_lid_done
+    active_object: box
+    frames: 3
+  - name: regrasp_for_insert_front_flap
+    type: interpolate_keyframes
+    start: lower_lid_done
+    end: insert_front_flap_ready
+    active_object: box
+    frames: 15
+  - name: insert_front_flap
+    type: interpolate_keyframes
+    start: insert_front_flap_ready
+    end: insert_front_flap_done
+    active_object: box
+    frames: 84
+  - name: hold_insert_front_flap
+    type: hold_keyframe
+    keyframe: insert_front_flap_done
+    active_object: box
+    frames: 3
+  - name: hold_closed_mailer
+    type: hold_keyframe
+    keyframe: closed_mailer
+    active_object: box
+    frames: 15
+support_scene_objects:
+- id: platform
+  urdf_path: assets/procedural_mailer_folding/support/platform.urdf
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: support_block
+  urdf_path: assets/procedural_mailer_folding/support/support_block.urdf
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.15
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+note: Each ready/done pair uses independent left/right hammer-style holding retargetings. BPS target geometry
+  is restricted to the one or two cardboard links listed in retargeted_cardboard_links; the complete articulated
+  URDF remains the simulated object. The platform top is z=0 and the 40 mm support block holds the initially
+  flat root panel.

@@ -1,0 +1,71 @@
+experiment_id: v2_15_lift_shapenet_mug_127944b6dabee1c9e20e92c5b8147e4a
+section: V2_15
+task_family: lift
+category: v2_15_lift_asset
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+source_target:
+  category: v2_15_lift_asset
+  source_index: 5
+  target_index: 90
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: lifted
+  derive_from: grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.2
+trajectory:
+  id: reach_grasp_lift
+  output_motion_path: outputs/v2_15_pipeline/v2_15_lift_shapenet_mug_127944b6dabee1c9e20e92c5b8147e4a/exports/reach_grasp_lift.npz
+  exported_rl_path: outputs/v2_15_pipeline/v2_15_lift_shapenet_mug_127944b6dabee1c9e20e92c5b8147e4a/exports/reach_grasp_lift_oakink_sequence.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 4
+  - name: lift
+    type: interpolate_keyframes
+    start: grasp
+    end: lifted
+    frames: 20
+  - name: hold_lift
+    type: hold_keyframe
+    keyframe: lifted
+    frames: 5
+support_scene_objects:
+- id: table
+  mesh_path: assets/v2_15_asset_diversity/support/v2_15_lift_shapenet_mug_127944b6dabee1c9e20e92c5b8147e4a/table.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0

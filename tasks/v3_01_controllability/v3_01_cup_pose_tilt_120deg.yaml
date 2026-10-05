@@ -1,0 +1,97 @@
+experiment_id: v3_01_cup_pose_tilt_120deg
+section: V3_01
+task_family: controllability_pose
+category: cup
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.0
+  table_height: 0.0
+source_target:
+  category: cup
+  source_index: 1
+  target_index: 1
+keyframes:
+- id: grasp
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.0
+- id: lifted
+  derive_from: grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.2
+- id: tilted
+  derive_from: lifted
+  transforms:
+  - type: rotate_pair
+    axis:
+    - 0.0
+    - 1.0
+    - 0.0
+    degrees: -120.0
+    pivot: object_origin
+trajectory:
+  id: cup_pose_tilt_120deg
+  output_motion_path: outputs/v3_01_controllability_pipeline/v3_01_cup_pose_tilt_120deg/exports/cup_pose_tilt_120deg.npz
+  exported_rl_path: outputs/v3_01_controllability_pipeline/v3_01_cup_pose_tilt_120deg/exports/cup_pose_tilt_120deg_oakink_sequence.npy
+  phases:
+  - name: reach
+    type: reach_to_keyframe
+    target: grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp
+    type: hold_keyframe
+    keyframe: grasp
+    frames: 4
+  - name: lift
+    type: interpolate_keyframes
+    start: grasp
+    end: lifted
+    frames: 20
+  - name: hold_lift
+    type: hold_keyframe
+    keyframe: lifted
+    frames: 5
+  - name: tilt
+    type: interpolate_keyframes
+    start: lifted
+    end: tilted
+    frames: 15
+  - name: hold_tilt
+    type: hold_keyframe
+    keyframe: tilted
+    frames: 5
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_080_070_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+retarget_reuse:
+  pipeline_root: outputs/v2_03_pipeline
+  experiment_id: v2_03_lift_tilt_cup
+controllability:
+  factor: terminal_cup_tilt_degrees
+  condition: tilt_120deg
+  target_degrees: -120.0

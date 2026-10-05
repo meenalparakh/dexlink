@@ -1,0 +1,303 @@
+experiment_id: v2_14_throw_catch_cube
+section: V2_14
+task_family: additional_tasks
+category: throw_catch_cube
+robot_model: xhand
+hands:
+- left
+- right
+hand_config_source_by_side:
+  left: right
+  right: right
+object_static: false
+scene:
+  table_size:
+  - 0.8
+  - 0.8
+  table_margin: 0.002
+  table_height: 0.0
+scene_objects:
+- id: cube
+  source_target:
+    category: block
+    source_index: 1
+    target_index: 1
+  role: cube starts on the table, is picked by the right hand, thrown toward the left hand, and caught
+    from underneath
+support_scene_objects:
+- id: table
+  mesh_path: exports/v2_03_pipeline/v2_03_stack_rgb_blocks_equal_size/scene_assets/table.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - -0.025
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+keyframes:
+- id: cube_grasp
+  object_id: cube
+  from_retarget:
+    motion_path: auto
+    frame: last
+  source_hand_side: right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.24
+    - -0.12
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: cube_lifted
+  object_id: cube
+  derive_from: cube_grasp
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.24
+    - -0.12
+    - 0.14
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: cube_throw_ready_right
+  object_id: cube
+  derive_from: cube_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.2
+    - -0.08
+    - 0.2
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: rotate_pair
+    axis:
+    - 0.0
+    - 1.0
+    - 0.0
+    degrees: -8.0
+    pivot: object_origin
+- id: cube_throw_ready
+  object_id: cube
+  allow_mixed_objects: true
+  active_side: right
+  bimanual_from_retarget:
+    left:
+      object_id: cube
+      source_target:
+        category: container
+        source_index: 1
+        target_index: 1
+      source_hand_side: right
+      from_retarget:
+        motion_path: auto
+        frame: last
+      template_pose:
+        object_pos:
+        - 0.2
+        - 0.16
+        - 0.2
+        object_quat_wxyz:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+    right:
+      object_id: cube
+      from_template: cube_throw_ready_right
+      source_hand_side: right
+- id: cube_swing_back_right
+  object_id: cube
+  derive_from: cube_throw_ready_right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.3
+    - -0.16
+    - 0.22
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: rotate_pair
+    axis:
+    - 0.0
+    - 1.0
+    - 0.0
+    degrees: 14.0
+    pivot: object_origin
+- id: cube_release_right
+  object_id: cube
+  derive_from: cube_swing_back_right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.04
+    - 0.02
+    - 0.3
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - type: rotate_pair
+    axis:
+    - 0.0
+    - 1.0
+    - 0.0
+    degrees: -18.0
+    pivot: object_origin
+- id: cube_release_open_right
+  object_id: cube
+  derive_from: cube_release_right
+  transforms:
+  - type: open_hand
+- id: cube_release
+  object_id: cube
+  allow_mixed_objects: true
+  active_side: right
+  bimanual_from_retarget:
+    left:
+      object_id: cube
+      source_target:
+        category: container
+        source_index: 1
+        target_index: 1
+      source_hand_side: right
+      from_retarget:
+        motion_path: auto
+        frame: last
+      template_pose:
+        object_pos:
+        - 0.2
+        - 0.16
+        - 0.2
+        object_quat_wxyz:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+    right:
+      object_id: cube
+      from_template: cube_release_open_right
+      source_hand_side: right
+- id: cube_caught_right_proxy
+  object_id: cube
+  derive_from: cube_release_open_right
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.2
+    - 0.16
+    - 0.2
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+- id: cube_caught
+  object_id: cube
+  allow_mixed_objects: true
+  active_side: right
+  bimanual_from_retarget:
+    left:
+      object_id: cube
+      source_target:
+        category: container
+        source_index: 1
+        target_index: 1
+      source_hand_side: right
+      from_retarget:
+        motion_path: auto
+        frame: last
+      template_pose:
+        object_pos:
+        - 0.2
+        - 0.16
+        - 0.2
+        object_quat_wxyz:
+        - 1.0
+        - 0.0
+        - 0.0
+        - 0.0
+    right:
+      object_id: cube
+      from_template: cube_caught_right_proxy
+      source_hand_side: right
+trajectory:
+  id: throw_catch_cube
+  output_motion_path: outputs/v2_14_pipeline/v2_14_throw_catch_cube/exports/throw_catch_cube.npz
+  exported_rl_path: outputs/v2_14_pipeline/v2_14_throw_catch_cube/exports/throw_catch_cube_oakink_sequence.npy
+  object_switch_transition_frames: 0
+  phases:
+  - name: reach_cube
+    type: reach_to_keyframe
+    active_object: cube
+    target: cube_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_cube
+    type: hold_keyframe
+    active_object: cube
+    keyframe: cube_grasp
+    frames: 4
+  - name: lift_cube
+    type: interpolate_keyframes
+    active_object: cube
+    start: cube_grasp
+    end: cube_lifted
+    frames: 12
+  - name: bring_catcher_ready
+    type: interpolate_keyframes
+    active_object: cube
+    start: cube_lifted
+    end: cube_throw_ready
+    frames: 12
+  - name: swing_back
+    type: interpolate_keyframes
+    active_object: cube
+    start: cube_throw_ready_right
+    end: cube_swing_back_right
+    frames: 8
+  - name: throw_release
+    type: interpolate_keyframes
+    active_object: cube
+    start: cube_swing_back_right
+    end: cube_release
+    frames: 8
+  - name: flight_to_catch
+    type: interpolate_keyframes
+    active_object: cube
+    start: cube_release
+    end: cube_caught
+    frames: 10
+  - name: hold_catch
+    type: hold_keyframe
+    active_object: cube
+    keyframe: cube_caught
+    frames: 8
+note: The cube is the canonical tracked object. The throwing hand uses the block-stacking pickup template.
+  The left-labeled catching hand reuses the right-hand container bottom-support template as a palm-up
+  catch proxy at the catch waypoint.

@@ -1,0 +1,358 @@
+experiment_id: v3_04_stack_3_bowls_normal
+section: V3_04
+task_family: bowl_stack_length_sweep
+category: bowl_stack
+robot_model: xhand
+hand_side: right
+scene:
+  table_margin: 0.002
+  table_height: 0.0
+scene_objects:
+- id: bowl_1
+  source_target:
+    category: bowl
+    source_index: 1
+    target_index: 7
+  role: stack level 1 of 3, bottom to top
+- id: bowl_2
+  source_target:
+    category: bowl
+    source_index: 1
+    target_index: 7
+  role: stack level 2 of 3, bottom to top
+- id: bowl_3
+  source_target:
+    category: bowl
+    source_index: 1
+    target_index: 7
+  role: stack level 3 of 3, bottom to top
+support_scene_objects:
+- id: table
+  mesh_path: assets/support/table_100_160_005.obj
+  static: true
+  support_asset: true
+  friction: 1.2
+  template_pose:
+    object_pos:
+    - 0.0
+    - 0.0
+    - 0.0
+    object_quat_wxyz:
+    - 1.0
+    - 0.0
+    - 0.0
+    - 0.0
+composition_condition:
+  pilot: true
+  bowl_count: 3
+  stage_count: 3
+  target_indices_bottom_to_top:
+  - 7
+  - 7
+  - 7
+  source_template_category: bowl
+  target_object_category: bowl
+  semantic_name: bowl grasp
+  normal_bowl_posed_height: 0.11422822
+  placed_bowl_nesting_depth: 0.05711411
+keyframes:
+- id: bowl_1_grasp
+  object_id: bowl_1
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.28
+    - -0.31
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: bowl_1_lifted
+  object_id: bowl_1
+  derive_from: bowl_1_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.22
+- id: bowl_1_hover
+  object_id: bowl_1
+  derive_from: bowl_1_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.12
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.10200000000000001
+- id: bowl_1_placed
+  object_id: bowl_1
+  derive_from: bowl_1_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.12
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: bowl_1_released
+  object_id: bowl_1
+  derive_from: bowl_1_placed
+  transforms:
+  - type: open_hand
+- id: bowl_2_grasp
+  object_id: bowl_2
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.28
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: bowl_2_lifted
+  object_id: bowl_2
+  derive_from: bowl_2_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.22
+- id: bowl_2_hover
+  object_id: bowl_2
+  derive_from: bowl_2_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.12
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z_from_template_top: bowl_1_placed
+    target_lowest_z_offset: 0.1
+- id: bowl_2_placed
+  object_id: bowl_2
+  derive_from: bowl_2_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.12
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z_from_template_top: bowl_1_placed
+    target_lowest_z_offset: -0.05711411
+- id: bowl_2_released
+  object_id: bowl_2
+  derive_from: bowl_2_placed
+  transforms:
+  - type: open_hand
+- id: bowl_3_grasp
+  object_id: bowl_3
+  from_retarget:
+    motion_path: auto
+    frame: last
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - -0.28
+    - 0.31
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z: 0.002
+- id: bowl_3_lifted
+  object_id: bowl_3
+  derive_from: bowl_3_grasp
+  transforms:
+  - type: translate_pair
+    delta:
+    - 0.0
+    - 0.0
+    - 0.22
+- id: bowl_3_hover
+  object_id: bowl_3
+  derive_from: bowl_3_lifted
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.12
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z_from_template_top: bowl_2_placed
+    target_lowest_z_offset: 0.1
+- id: bowl_3_placed
+  object_id: bowl_3
+  derive_from: bowl_3_hover
+  transforms:
+  - type: set_pair_pose
+    object_pos:
+    - 0.12
+    - 0.0
+    - 0.0
+  - type: align_pair_lowest_z
+    target_lowest_z_from_template_top: bowl_2_placed
+    target_lowest_z_offset: -0.05711411
+- id: bowl_3_released
+  object_id: bowl_3
+  derive_from: bowl_3_placed
+  transforms:
+  - type: open_hand
+trajectory:
+  id: stack_bowls
+  output_motion_path: outputs/v3_04_compositionality_pipeline/v3_04_stack_3_bowls_normal/exports/stack_bowls.npz
+  exported_rl_path: outputs/v3_04_compositionality_pipeline/v3_04_stack_3_bowls_normal/exports/stack_bowls_oakink_sequence.npy
+  phases:
+  - name: reach_bowl_1
+    active_object: bowl_1
+    type: reach_to_keyframe
+    target: bowl_1_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_bowl_1
+    active_object: bowl_1
+    type: hold_keyframe
+    keyframe: bowl_1_grasp
+    frames: 4
+  - name: lift_bowl_1
+    active_object: bowl_1
+    type: interpolate_keyframes
+    start: bowl_1_grasp
+    end: bowl_1_lifted
+    frames: 8
+  - name: move_bowl_1
+    active_object: bowl_1
+    type: interpolate_keyframes
+    start: bowl_1_lifted
+    end: bowl_1_hover
+    frames: 10
+  - name: place_bowl_1
+    active_object: bowl_1
+    type: interpolate_keyframes
+    start: bowl_1_hover
+    end: bowl_1_placed
+    frames: 6
+  - name: hold_bowl_1
+    active_object: bowl_1
+    type: hold_keyframe
+    keyframe: bowl_1_placed
+    frames: 3
+  - name: release_bowl_1
+    active_object: bowl_1
+    type: interpolate_keyframes
+    start: bowl_1_placed
+    end: bowl_1_released
+    frames: 5
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.1
+  - name: reach_bowl_2
+    active_object: bowl_2
+    type: reach_to_keyframe
+    target: bowl_2_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_bowl_2
+    active_object: bowl_2
+    type: hold_keyframe
+    keyframe: bowl_2_grasp
+    frames: 4
+  - name: lift_bowl_2
+    active_object: bowl_2
+    type: interpolate_keyframes
+    start: bowl_2_grasp
+    end: bowl_2_lifted
+    frames: 8
+  - name: move_bowl_2
+    active_object: bowl_2
+    type: interpolate_keyframes
+    start: bowl_2_lifted
+    end: bowl_2_hover
+    frames: 10
+  - name: place_bowl_2
+    active_object: bowl_2
+    type: interpolate_keyframes
+    start: bowl_2_hover
+    end: bowl_2_placed
+    frames: 6
+  - name: hold_bowl_2
+    active_object: bowl_2
+    type: hold_keyframe
+    keyframe: bowl_2_placed
+    frames: 3
+  - name: release_bowl_2
+    active_object: bowl_2
+    type: interpolate_keyframes
+    start: bowl_2_placed
+    end: bowl_2_released
+    frames: 5
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.1
+  - name: reach_bowl_3
+    active_object: bowl_3
+    type: reach_to_keyframe
+    target: bowl_3_grasp
+    frames: 10
+    backoff_translation:
+    - -0.08
+    - 0.0
+    - 0.0
+  - name: grasp_bowl_3
+    active_object: bowl_3
+    type: hold_keyframe
+    keyframe: bowl_3_grasp
+    frames: 4
+  - name: lift_bowl_3
+    active_object: bowl_3
+    type: interpolate_keyframes
+    start: bowl_3_grasp
+    end: bowl_3_lifted
+    frames: 8
+  - name: move_bowl_3
+    active_object: bowl_3
+    type: interpolate_keyframes
+    start: bowl_3_lifted
+    end: bowl_3_hover
+    frames: 10
+  - name: place_bowl_3
+    active_object: bowl_3
+    type: interpolate_keyframes
+    start: bowl_3_hover
+    end: bowl_3_placed
+    frames: 6
+  - name: hold_bowl_3
+    active_object: bowl_3
+    type: hold_keyframe
+    keyframe: bowl_3_placed
+    frames: 3
+  - name: release_bowl_3
+    active_object: bowl_3
+    type: interpolate_keyframes
+    start: bowl_3_placed
+    end: bowl_3_released
+    frames: 5
+    clearance_translation:
+    - 0.0
+    - 0.0
+    - 0.1
+retarget_reuse:
+  pipeline_root: outputs/v3_04_compositionality_pipeline
+  experiment_id: v3_04_stack_2_bowls_normal
