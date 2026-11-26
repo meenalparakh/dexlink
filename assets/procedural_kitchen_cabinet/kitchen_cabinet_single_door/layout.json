@@ -1,0 +1,99 @@
+{
+  "config": {
+    "name": "kitchen_cabinet_single_door",
+    "carcass_width": 0.44,
+    "carcass_depth": 0.4,
+    "carcass_height": 0.5,
+    "panel_thickness": 0.018,
+    "back_thickness": 0.01,
+    "shelf_top_height": 0.22,
+    "shelf_front_setback": 0.147,
+    "door_count": 1,
+    "door_thickness": 0.018,
+    "door_front_gap": 0.0015,
+    "door_edge_gap": 0.0015,
+    "door_center_gap": 0.003,
+    "door_open_limit": 2.007128639793479,
+    "door_damping": 0.3,
+    "door_friction": 0.05,
+    "handle_standoff": 0.06,
+    "handle_edge_offset": 0.045,
+    "handle_grip_height": 0.36,
+    "handle_bar_size": [
+      0.01,
+      0.018,
+      0.18
+    ],
+    "handle_post_size_yz": [
+      0.016,
+      0.012
+    ],
+    "handle_post_inset": 0.006,
+    "include_drawer": false,
+    "drawer_bay_height": 0.14,
+    "drawer_travel": 0.26,
+    "drawer_wall_thickness": 0.01,
+    "drawer_handle_standoff": 0.035,
+    "density": 600.0
+  },
+  "frame_note": "Cabinet frame: origin at the carcass bottom center, front opening toward -x, z up. URDF root frame = cabinet frame translated by root_origin_in_cabinet_frame (the closed primary door grip center).",
+  "root_origin_in_cabinet_frame": [
+    -0.27949999999999997,
+    -0.1735,
+    0.36
+  ],
+  "carcass_front_x": -0.2,
+  "interior": {
+    "x": [
+      -0.2,
+      0.19
+    ],
+    "y": [
+      -0.202,
+      0.202
+    ],
+    "z": [
+      0.018,
+      0.482
+    ]
+  },
+  "shelf": {
+    "top_z": 0.22,
+    "front_x": -0.05300000000000002,
+    "back_x": 0.19
+  },
+  "doors": [
+    {
+      "link": "door",
+      "handle_link": "door_handle",
+      "joint": "door_hinge",
+      "hinge_side_sign": 1,
+      "hinge_cabinet_frame": [
+        -0.2015,
+        0.2185,
+        0.0
+      ],
+      "axis": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "width": 0.437,
+      "z_range": [
+        0.0015,
+        0.4985
+      ],
+      "grip_center_cabinet_frame": [
+        -0.27949999999999997,
+        -0.1735,
+        0.36
+      ],
+      "open_limit": 2.007128639793479
+    }
+  ],
+  "drawer": null,
+  "joint_names": [
+    "door_hinge"
+  ],
+  "urdf_path": "assets/procedural_kitchen_cabinet/kitchen_cabinet_single_door/kitchen_cabinet_single_door.urdf"
+}

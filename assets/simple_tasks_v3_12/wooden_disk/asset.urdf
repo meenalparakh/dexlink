@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="wooden_disk">
+  <link name="body">
+    <inertial>
+      <origin xyz="-7.798833219494802e-19 0.0 -1.1141190313564e-19" />
+      <mass value="0.1" />
+      <inertia ixx="5.562557408087628e-05" iyy="5.562557408087628e-05" izz="0.0001008344814950859" ixy="-2.0019326344685317e-21" ixz="-2.7852975783910006e-22" iyz="0.0" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

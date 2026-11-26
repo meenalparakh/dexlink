@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="rectangular_scoop">
+  <link name="body">
+    <inertial>
+      <origin xyz="-0.028145008066599825 -1.1293772630057339e-19 -0.004988868149479853" />
+      <mass value="0.12" />
+      <inertia ixx="8.808829142706609e-05" iyy="0.0011284337615131378" izz="0.0011019042998797874" ixy="-3.883246349298976e-21" ixz="0.00015547909007073064" iyz="3.692242065317784e-22" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_04.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_04.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_05.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_05.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_06.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_06.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="spring_clip_upper">
+  <link name="body">
+    <inertial>
+      <origin xyz="-0.1748028665605683 1.4964290789365415e-18 0.12563164949707872" />
+      <mass value="0.12" />
+      <inertia ixx="0.00015048630446493126" iyy="0.0008550823524152317" izz="0.0008004323346202236" ixy="-4.197565187168513e-20" ixz="0.00011449131980596738" iyz="1.8957894783603082e-20" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

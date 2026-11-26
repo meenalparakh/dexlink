@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="reach_barrier">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.13000000000000006 -1.3877787807814457e-17 0.05868600682593857" />
+      <mass value="2.0" />
+      <inertia ixx="0.07648619417038446" iyy="0.0024213050918861258" izz="0.07427322241183162" ixy="-4.6254358894432775e-18" ixz="4.3363461463530725e-18" iyz="-1.2523811270491884e-18" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

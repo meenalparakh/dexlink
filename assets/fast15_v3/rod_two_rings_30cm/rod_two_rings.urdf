@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="f15v3_rod_two_rings">
+  <link name="rod">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.06" />
+      <inertia ixx="1e-4" iyy="1e-4" izz="1e-4" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="rod.obj" />
+      </geometry>
+      <material name="rod">
+        <color rgba="0.88 0.57 0.26 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="rod.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="ring_0">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.03" />
+      <inertia ixx="1e-4" iyy="1e-4" izz="1e-4" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="ring_0.obj" />
+      </geometry>
+      <material name="rod">
+        <color rgba="0.88 0.57 0.26 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="ring_0.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="ring_0_fixed" type="fixed">
+    <parent link="rod" />
+    <child link="ring_0" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="ring_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.03" />
+      <inertia ixx="1e-4" iyy="1e-4" izz="1e-4" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="ring_1.obj" />
+      </geometry>
+      <material name="rod">
+        <color rgba="0.88 0.57 0.26 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="ring_1.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="ring_1_fixed" type="fixed">
+    <parent link="rod" />
+    <child link="ring_1" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+</robot>

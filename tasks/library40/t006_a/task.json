@@ -1,0 +1,36 @@
+{
+  "id": "t006_a",
+  "group": "library40",
+  "description": "Extract a deeply seated peg: complete the fit and return to the original state",
+  "name": "Peg extraction (round peg): complete, then reverse back to the start",
+  "object": "Peg extraction 2",
+  "success_check": "Complete the forward task and its reversed regrasp/return sequence.",
+  "criterion": "physical_insertion_clearance",
+  "reference": "tasks/library40/t006_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t006_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t006_a",
+    "timestep": 16000,
+    "seed": 42,
+    "policy_sha256": "eab73092fa9426ce7d83c577fa317b3302b3a670146a7e2155eea689ef71ad22",
+    "files": {
+      "policy.pt": "eab73092fa9426ce7d83c577fa317b3302b3a670146a7e2155eea689ef71ad22",
+      "policy_obs_processor.pt": "d82ba7d178d17bae26b70a18476d1875077d8288f80e91382c74ecd8d047b69d",
+      "value.pt": "d8ff3812eb11604426b8bd8d75bf386ba0bc99f64aa5b916a1ee550728d3954e",
+      "value_obs_processor.pt": "22ff4a2934e31ad347ce59d0cb600839ced1d4ae454fca1ef8d954275642ec90",
+      "optimizer.pt": "31b3015d55b52ed1d228f239048d7bc98c8b9af1449b0cb8463d3c6ab30d9e75"
+    }
+  },
+  "reference_sha256": "9d248d047aa5ddbf0f4b7a9a780cfc33fa04ddb996bd3fc87332e0d347bc3ccd",
+  "source_reference_sha256": "efdf92de3722c7940518c4b98d14b0ef232b3ecb08749d74b75b0e636910870b",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

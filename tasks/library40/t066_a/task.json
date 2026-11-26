@@ -1,0 +1,37 @@
+{
+  "id": "t066_a",
+  "group": "library40",
+  "description": "Turn the masher head before pressing the bowl center",
+  "name": "Masher in bowl: tool alignment then contact",
+  "object": "Masher 4",
+  "success_check": "Rotate to the required head orientation before the press.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t066_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t066_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t066_a",
+    "timestep": 34000,
+    "seed": 42,
+    "policy_sha256": "3ed55831a30da00d299150af3541bce2b0d980d6ce17ce0ea10ce1117d2420b0",
+    "files": {
+      "policy.pt": "3ed55831a30da00d299150af3541bce2b0d980d6ce17ce0ea10ce1117d2420b0",
+      "policy_obs_processor.pt": "da97207a6cd9b909645053c3766436292f7f06d78e4793a5a2ddc37cd0445916",
+      "value.pt": "2bcf1e377a95fd91cb9195a2f18f947a1c2f28719b6d404bf641bfcfd4e9929b",
+      "value_obs_processor.pt": "2fb3c4de796c7a756007f754629967f78d4f47c15416e2c7b8ea1900ea757b17",
+      "optimizer.pt": "bfcabd8447596617971af35e010dcf94c0823d3829f6099ccb70e2c813bacaa0"
+    }
+  },
+  "reference_sha256": "7ba3ff88bc39b7b5350dbd2b8a152f55ea7fa8996200d5d3f0410832af1112b8",
+  "source_reference_sha256": "9d11d2d8f804c4f033c4644b632ebd2d6c5142426da8b3e0d5b93c4b5ec13d8c",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left"
+  ]
+}

@@ -1,0 +1,266 @@
+{
+  "seed": 17,
+  "ranges": {
+    "width": [
+      0.15,
+      0.32
+    ],
+    "depth": [
+      0.11,
+      0.26
+    ],
+    "height": [
+      0.024,
+      0.07
+    ],
+    "thickness": [
+      0.0007,
+      0.0025
+    ]
+  },
+  "backend": "reference",
+  "accepted": [
+    {
+      "path": "box_0000",
+      "parameters": {
+        "width": 0.29366271477564326,
+        "depth": 0.13414596367536605,
+        "height": 0.049656249178821846,
+        "thickness": 0.0013625438949956882,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "configurations_checked": 766
+    },
+    {
+      "path": "box_0001",
+      "parameters": {
+        "width": 0.18654013380550064,
+        "depth": 0.16787360563837977,
+        "height": 0.043695566958305995,
+        "thickness": 0.0018004175952981648,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "configurations_checked": 766
+    },
+    {
+      "path": "box_0002",
+      "parameters": {
+        "width": 0.2751855979872587,
+        "depth": 0.11229344848950673,
+        "height": 0.03568588203446141,
+        "thickness": 0.0017874625382150741,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "configurations_checked": 766
+    },
+    {
+      "path": "box_0003",
+      "parameters": {
+        "width": 0.16423523809681434,
+        "depth": 0.2596645521384465,
+        "height": 0.06228792172703238,
+        "thickness": 0.0007661992438011847,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "configurations_checked": 766
+    },
+    {
+      "path": "box_0004",
+      "parameters": {
+        "width": 0.2464817682352356,
+        "depth": 0.20140102055676554,
+        "height": 0.02431862265765634,
+        "thickness": 0.0010223509730438222,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "configurations_checked": 766
+    },
+    {
+      "path": "box_0005",
+      "parameters": {
+        "width": 0.17803677629948728,
+        "depth": 0.17929368643007965,
+        "height": 0.05008216634645546,
+        "thickness": 0.001513436602906873,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "configurations_checked": 766
+    },
+    {
+      "path": "box_0006",
+      "parameters": {
+        "width": 0.3063618656184047,
+        "depth": 0.23223863103037365,
+        "height": 0.042453638506997314,
+        "thickness": 0.0010656908016312954,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "configurations_checked": 766
+    },
+    {
+      "path": "box_0007",
+      "parameters": {
+        "width": 0.2461807027162855,
+        "depth": 0.1455268779842495,
+        "height": 0.05430007603235432,
+        "thickness": 0.0018884077196121398,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "configurations_checked": 766
+    },
+    {
+      "path": "box_0008",
+      "parameters": {
+        "width": 0.237483287446344,
+        "depth": 0.15186394574887266,
+        "height": 0.052976237054387074,
+        "thickness": 0.0015625434826115883,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "configurations_checked": 766
+    },
+    {
+      "path": "box_0009",
+      "parameters": {
+        "width": 0.15292625426588471,
+        "depth": 0.1566140943340565,
+        "height": 0.0318827238256455,
+        "thickness": 0.0013174899505733122,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "configurations_checked": 766
+    },
+    {
+      "path": "box_0010",
+      "parameters": {
+        "width": 0.2549775048862347,
+        "depth": 0.1926255989160253,
+        "height": 0.056940382839340616,
+        "thickness": 0.0015810167210610323,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "configurations_checked": 766
+    },
+    {
+      "path": "box_0011",
+      "parameters": {
+        "width": 0.2930546596784423,
+        "depth": 0.16219260569431077,
+        "height": 0.049210071035400725,
+        "thickness": 0.0016079907234324378,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "configurations_checked": 766
+    }
+  ],
+  "rejected": [
+    {
+      "attempt": 7,
+      "configuration": {
+        "width": 0.2109153415476112,
+        "depth": 0.2393052554356051,
+        "height": 0.04004551551081453,
+        "thickness": 0.002483918119674516,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "reason": "height must be at least 18*thickness"
+    },
+    {
+      "attempt": 10,
+      "configuration": {
+        "width": 0.26105909852904496,
+        "depth": 0.1913360415633239,
+        "height": 0.029575712661850308,
+        "thickness": 0.0023357284464642397,
+        "face_clearance": null,
+        "lateral_clearance": null,
+        "lock_width": null,
+        "lid_wing_depth": null,
+        "front_tab_width": null,
+        "front_tab_length": null,
+        "density": 450.0
+      },
+      "reason": "height must be at least 18*thickness"
+    }
+  ],
+  "requested_count": 12,
+  "complete": true
+}

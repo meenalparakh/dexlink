@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="peg_t_shape">
+  <link name="body">
+    <inertial>
+      <origin xyz="6.4792386420844e-19 0.0014844488504427626 0.08882249157242085" />
+      <mass value="0.12" />
+      <inertia ixx="0.00019231176376269542" iyy="0.00018992963413322716" izz="9.032807651238403e-05" ixy="1.3302744256386633e-21" ixz="1.3817213321076968e-20" iyz="1.0032942944250295e-05" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

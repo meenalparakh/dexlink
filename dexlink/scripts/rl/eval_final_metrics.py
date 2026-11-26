@@ -66,6 +66,7 @@ class FinalMetricEvalArgs:
     wandb_entity: str | None
     wandb_run_name: str | None
     wandb_group: str | None
+    record_policy_inputs: bool = False
 
 
 def parse_args(argv: list[str] | None = None) -> tuple[FinalMetricEvalArgs, list[str]]:
@@ -84,6 +85,7 @@ def parse_args(argv: list[str] | None = None) -> tuple[FinalMetricEvalArgs, list
     parser.add_argument("--max_parallel_envs", type=int, default=50)
     parser.add_argument("--output_dir", type=Path, default=None)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--record_policy_inputs", action="store_true", help="Save pre-step policy observations and actions in rollout chunks.")
     parser.add_argument("--max_steps", type=int, default=None)
     parser.add_argument("--lift_success_threshold_m", type=float, default=0.15)
     parser.add_argument("--dtw_window_fraction", type=float, default=0.10)
@@ -142,6 +144,7 @@ def parse_args(argv: list[str] | None = None) -> tuple[FinalMetricEvalArgs, list
         dtw_window_fraction=float(parsed.dtw_window_fraction),
         compute_template_metrics=bool(parsed.compute_template_metrics),
         record_video=bool(parsed.record_video),
+        record_policy_inputs=parsed.record_policy_inputs,
         wandb_mode=parsed.wandb_mode,
         wandb_project=parsed.wandb_project,
         wandb_entity=parsed.wandb_entity,
@@ -303,6 +306,7 @@ def _collect_rollout_chunk(
     greedy_actions: bool,
     max_steps: int,
     video_path: Path | None = None,
+    record_policy_inputs: bool = False,
 ) -> dict[str, np.ndarray]:
     env = agent.env
     obs, _ = env.reset(seed=seed, options={"gt_info": True})
@@ -327,6 +331,9 @@ def _collect_rollout_chunk(
         records[f"{side}_wrist_pos"] = []
         records[f"{side}_wrist_quat"] = []
         records[f"{side}_jvals"] = []
+    if record_policy_inputs:
+        records["policy_observation"] = []
+        records["policy_action"] = []
     task_metric_names = tuple(env.task_manager.task_metric_names)
     for name in task_metric_names:
         records[f"task_metric__{name}"] = []
@@ -358,6 +365,12 @@ def _collect_rollout_chunk(
                     history=history,
                     greedy_actions=greedy_actions,
                 )
+                # Capture inputs before stepping: environments can reset in-place.
+                if record_policy_inputs:
+                    for name, tensor in (("policy_observation", obs), ("policy_action", action)):
+                        if tensor.ndim != 2 or tensor.shape[0] != env.num_envs or not torch.isfinite(tensor).all():
+                            raise ValueError(f"Expected finite {name} with shape ({env.num_envs}, D), received {tuple(tensor.shape)}.")
+                        records[name].append(tensor[:active_count].detach().cpu().numpy().copy())
                 next_obs, reward, terminated, truncated, info = env.step(
                     action,
                     compute_gt=True,
@@ -706,6 +719,7 @@ def main(argv: list[str] | None = None) -> int:
                 active_count=active_count,
                 seed=args.seed + chunk_idx,
                 greedy_actions=args.greedy_actions,
+                record_policy_inputs=args.record_policy_inputs,
                 max_steps=max_steps,
                 video_path=(output_dir / "rollout.mp4") if args.record_video else None,
             )

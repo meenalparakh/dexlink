@@ -1,0 +1,36 @@
+{
+  "id": "t010_b",
+  "group": "library40",
+  "description": "Insert and twist a keyed part: complete the fit and return to the original state",
+  "name": "Insert-and-twist lock (two opposing keys): complete, then reverse back to the start",
+  "object": "Key lock 3",
+  "success_check": "Complete the forward task and its reversed regrasp/return sequence.",
+  "criterion": "original_deployed_insertion_success",
+  "reference": "tasks/library40/t010_b/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t010_b/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t010_b",
+    "timestep": 42000,
+    "seed": 42,
+    "policy_sha256": "6d0d39e02e17e7df204b2b96ee16775f72f8611c4a0b5131289ed9765ce9e9d8",
+    "files": {
+      "policy.pt": "6d0d39e02e17e7df204b2b96ee16775f72f8611c4a0b5131289ed9765ce9e9d8",
+      "policy_obs_processor.pt": "54cb9e737184696d0b42397e8b71fe9dd6f2480e782ed95b23f4deecf6b45b03",
+      "value.pt": "6700df6519099bb3957c096aa4a1c4b3dd03c0dbb82bccaa8b7ab507ec39d538",
+      "value_obs_processor.pt": "72c4270ed36de15e75e4ff939d0af7acc2fa79f542c914743fb520a49b8034ee",
+      "optimizer.pt": "68dab86acee67e55c705acc3fc6a472890b311c58ed26b4bfda851ba51dec9c2"
+    }
+  },
+  "reference_sha256": "6dbf95748643ccb2aee55bc762dbe7e367a714bed52704b26b3880f6dcd156ed",
+  "source_reference_sha256": "0253f4f555376753897835282a24392ae94087b9399498f02cc03d7cf5683cf8",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

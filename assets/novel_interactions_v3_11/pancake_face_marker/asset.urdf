@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="pancake_face_marker">
+  <link name="body">
+    <inertial>
+      <origin xyz="1.9555153001023153e-19 -1.0429414933879014e-18 0.009500000000000012" />
+      <mass value="0.001" />
+      <inertia ixx="1.683897765201926e-07" iyy="1.6838977652019255e-07" izz="3.3661288637371875e-07" ixy="-3.2591921668371924e-24" ixz="1.857739535097202e-24" iyz="3.1288244801636924e-24" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

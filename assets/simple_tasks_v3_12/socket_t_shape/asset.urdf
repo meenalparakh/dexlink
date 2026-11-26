@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="socket_t_shape">
+  <link name="body">
+    <inertial>
+      <origin xyz="1.4456028966473393e-18 -0.00032474487369817394 0.02571352028356859" />
+      <mass value="0.6" />
+      <inertia ixx="0.00222309700360497" iyy="0.0022260993442001593" izz="0.004175686259734609" ixy="7.792703114739563e-20" ixz="5.3024323392619794e-21" iyz="1.224901236911172e-06" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_04.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_05.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_06.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

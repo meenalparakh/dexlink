@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="green_block">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" />
+      <mass value="0.1" />
+      <inertia ixx="7.041666666666668e-05" iyy="7.041666666666668e-05" izz="7.041666666666668e-05" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

@@ -1,0 +1,31 @@
+{
+  "id": "invert_cup",
+  "group": "tutorials",
+  "name": "Invert cup",
+  "description": "Grasp and turn the cup over.",
+  "reference": "tasks/tutorials/v2_03_invert_cup/invert_cup_oakink_sequence_refined.npy",
+  "reference_format": "oakink_sequence",
+  "reference_sha256": "df28c674853e1d00d88edf8143f61c7c88b45f63f82d57ce33e584921a631600",
+  "source_reference_sha256": "453c4462b65fd35063ebe780e248235a5fc69f4d4c08deac277493325c76c6c9",
+  "spec": "tasks/v2_03_beyond_grasp_div/v2_03_invert_cup.yaml",
+  "templates": {
+    "cup_grasp": "tasks/tutorials/v2_03_invert_cup/templates/cup_grasp/sequence_motion_lineseq.npz",
+    "cup_top_grasp": "tasks/tutorials/v2_03_invert_cup/templates/cup_top_grasp/sequence_motion_lineseq.npz"
+  },
+  "reference_regeneration": "native_spec_and_cached_retargetings",
+  "training_overrides": [],
+  "checkpoint": {
+    "run_directory": "checkpoints/tutorials/invert_cup",
+    "timestep": 50000,
+    "seed": 42,
+    "policy_sha256": "3a6886b4aa8e8746fcf45ddc6f11211f9fee811871808043f545ac765a330609",
+    "files": {
+      "policy.pt": "3a6886b4aa8e8746fcf45ddc6f11211f9fee811871808043f545ac765a330609",
+      "policy_obs_processor.pt": "4ed57655fbbb1cadec886ec16578985e70a1f480bdf991b6e9e73948e4ef8db6",
+      "value.pt": "c7a2214a15a631c533a0ba2d879ac010e29e59b84512ff4aa31bf3abd88f155e",
+      "value_obs_processor.pt": "d53b0ed1110e50094f9c72658643e230f491537b199017e304b61d60a8a6b694",
+      "optimizer.pt": "ada79caf0d96bbd5dc632c5d3c685f780e532fc7f82bb3fda0f362dd6c7723f3"
+    }
+  },
+  "criterion": "object_pose_success"
+}

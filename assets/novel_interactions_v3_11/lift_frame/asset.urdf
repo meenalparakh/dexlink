@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="lift_frame">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.05272877268688922 0.032793501713415406 0.08427782713542331" />
+      <mass value="3.0" />
+      <inertia ixx="0.052614838347641205" iyy="0.06985843135815428" izz="0.03448234509373763" ixy="0.002023756931148024" ixz="-0.0032633050069507835" iyz="-0.0013710350392496505" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

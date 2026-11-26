@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="socket_asymmetric">
+  <link name="body">
+    <inertial>
+      <origin xyz="2.543736335845918e-05 0.00011606865491843357 0.025689357656564837" />
+      <mass value="0.6" />
+      <inertia ixx="0.002233561160082068" iyy="0.0022340752124845467" izz="0.004193872976718782" ixy="6.615208177547334e-07" ixz="-9.63156613891233e-08" iyz="-4.394806610842539e-07" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_04.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_05.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="onion">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0004606873709021687" />
+      <mass value="0.1" />
+      <inertia ixx="5.551471177941188e-05" iyy="5.550758667633933e-05" izz="5.5537855199496716e-05" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

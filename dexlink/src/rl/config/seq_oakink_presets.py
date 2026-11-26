@@ -393,6 +393,8 @@ SEQ_REQUIRED_TASK_FLAGS_BY_EXPERIMENT_ID = {
     "v3_08_lid_on_container": ("bimanual",),
     "v2_03_lid_on_container_in_hand": ("bimanual",),
     "v2_14_throw_catch_cube": ("bimanual",),
+    "v2_16_fold_carton_dual_point_gripper": ("bimanual", "motion_following"),
+    "v2_16_fold_mailer_dual_point_gripper": ("bimanual", "motion_following"),
     "v2_03_dispenser_press_twice": ("motion_following",),
     "v2_03_erase_board": ("motion_following",),
     "v2_03_hammer_strike_peg": ("motion_following",),
@@ -414,6 +416,7 @@ def seq_experiment_id_from_exported_path(exported_path: str) -> str | None:
         "v2_10_pipeline",
         "v2_11_pipeline",
         "v2_14_pipeline",
+        "v2_16_box_folding_point_gripper",
         "v3_01_controllability_pipeline",
         "v3_03_reusability_pipeline",
         "v3_04_compositionality_pipeline",
@@ -471,14 +474,14 @@ SEQ_DEFAULT_PRESET_SIM = ppo_preset_xhand.copy()
 SEQ_DEFAULT_PRESET_SIM.update(
     {
         "preset": "seq_oakink_default",
-        "logger.project": "dexlink",
+        "logger.project": "condext_v6",
         "logger.group": "seq_oakink",
         "logger.runname": "seq_oakink_default",
         "env.env_class": "multi_object",
         "env.backend": "sim",
         # Use the exported OakInk dispatcher so sequence payloads instantiate
         # OakinkProcessorSequence based on demo_kind="sequence".
-        "env.task_cfg.oakink_exported_path": "outputs/trajectory_templates/01_sparse_bowl_s01_t01_lift/reach_grasp_lift_oakink_sequence_exported.npy",
+        "env.task_cfg.oakink_exported_path": "logs/trajectory_templates/01_sparse_bowl_s01_t01_lift/reach_grasp_lift_oakink_sequence_exported.npy",
         "env.task_cfg.demo_dataset": "oakink",
         "env.task_cfg.start_timestep": 0,
         "env.task_cfg.end_timestep": -1,
@@ -585,6 +588,39 @@ SEQ_RESIDUAL_TARGET_TRAJECTORY_WEIGHTED_POLICY_V3_PCD_PRESET_SIM.update(
     }
 )
 
+SEQ_DUAL_POINT_GRIPPER_PRESET_SIM = SEQ_DEFAULT_PRESET_SIM.copy()
+SEQ_DUAL_POINT_GRIPPER_PRESET_SIM.update(
+    {
+        "preset": "seq_oakink_dual_point_gripper",
+        "logger.group": "seq_oakink_dual_point_gripper",
+        "logger.runname": "seq_oakink_dual_point_gripper",
+        "env.task_cfg.hand_name": "point_gripper",
+        "env.sim_cfg.num_envs": 512,
+        # Root commands move in centimeters/radians; jaw commands move in meters.
+        "env.action_cfg.arm_translation_delta_scale": 0.015,
+        "env.action_cfg.arm_rotation_delta_scale": 0.25,
+        "env.action_cfg.hand_joint_delta_scale": 0.002,
+        "agent.policy_inputs": (
+            "left",
+            "ref_left",
+            "right",
+            "ref_right",
+            "contact",
+            "command",
+            "object",
+        ),
+        "agent.critic_inputs": (
+            "left",
+            "ref_left",
+            "right",
+            "ref_right",
+            "contact",
+            "command",
+            "object",
+        ),
+    }
+)
+
 SEQ_SIM_EVAL_PRESET_OVERRIDES = {
     "preset": "seq_oakink_eval_sim",
     "env.backend": "sim",
@@ -613,5 +649,6 @@ SEQ_OAKINK_PRESETS = {
     "seq_oakink_residual_target_trajectory_weighted_policy_v3_pcd": (
         SEQ_RESIDUAL_TARGET_TRAJECTORY_WEIGHTED_POLICY_V3_PCD_PRESET_SIM
     ),
+    "seq_oakink_dual_point_gripper": SEQ_DUAL_POINT_GRIPPER_PRESET_SIM,
     "seq_oakink_eval_sim": SEQ_SIM_EVAL_PRESET_OVERRIDES,
 }

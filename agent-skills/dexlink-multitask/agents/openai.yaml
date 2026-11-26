@@ -1,0 +1,4 @@
+interface:
+  display_name: "Run conditional cup policies"
+  short_description: "Run conditional cup policies with the public workflow"
+  default_prompt: "Use $dexlink-multitask to help me with this DexLink workflow."

@@ -1,0 +1,37 @@
+{
+  "id": "t080_a",
+  "group": "library40",
+  "description": "Stand the remote upright inside a wide holder",
+  "name": "Remote: upright placement",
+  "object": "Remote 1",
+  "success_check": "Reach an upright pose within the holder and withdraw.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t080_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t080_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t080_a",
+    "timestep": 36000,
+    "seed": 42,
+    "policy_sha256": "d495b846b2732a7be8ded98b4a6c06c0cf600ac7b73917ed77ee5273ebe68cbc",
+    "files": {
+      "policy.pt": "d495b846b2732a7be8ded98b4a6c06c0cf600ac7b73917ed77ee5273ebe68cbc",
+      "policy_obs_processor.pt": "edc50d63e9a5a5e3cf6703502aff1d848d822bb372d7d36b7c76a452ce9b562d",
+      "value.pt": "fd1f2cd8e2781971672ad736c2e37adb5ecdcdcd269b9a7e06100fbbf49ff64e",
+      "value_obs_processor.pt": "b405184ba1a8591a376a2a56e34590cb8d409f16e3b98e6b08de6fbe75f79f4e",
+      "optimizer.pt": "9bfbc9e0098cc0ccf047f06d6c9bfcb7cd9f5d562e522956cd9a94c7b230a106"
+    }
+  },
+  "reference_sha256": "17dc33004f9b17c0786b6795f7f411dfd81b9a8871e7bee7a7f20ff1277655d7",
+  "source_reference_sha256": "fdb88b20d3a9dc26beed39eda93d81d6e6478cdfe2d93f92a9da9c9b9d110906",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="book_pickup_support">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.19999999999999998 -4.564675849259909e-19 0.04615174506828528" />
+      <mass value="2" />
+      <inertia ixx="0.003895821446574035" iyy="0.0038958214465740367" izz="0.0019861629205036304" ixy="-1.0955222038223783e-18" ixz="-4.138752019745039e-18" iyz="-4.213355122288039e-20" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="puck_face_marker">
+  <link name="body">
+    <inertial>
+      <origin xyz="-2.677516898172499e-19 -6.120038624394282e-19 0.009500000000000007" />
+      <mass value="0.001" />
+      <inertia ixx="1.4349237368189988e-07" iyy="1.4349237368189988e-07" izz="2.868180806971332e-07" ixy="7.769580284875557e-25" ixz="1.2813830869825507e-24" iyz="-5.814036693174572e-24" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

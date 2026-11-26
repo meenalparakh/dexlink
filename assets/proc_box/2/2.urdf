@@ -1,0 +1,131 @@
+<?xml version="1.0" ?>
+<robot name="procedural_box_1">
+  <link name="root">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+  <joint name="base_fixed" type="fixed">
+    <parent link="root"/>
+    <child link="bottom"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="bottom">
+    <inertial>
+      <origin xyz="0.0 0.0 0.046096090984263524" rpy="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0.0 0.0 0.0018042859142029565" rpy="0 0 0"/>
+      <geometry><box size="0.22827191798766583 0.376279504895066 0.003608571828405913"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0018042859142029565" rpy="0 0 0"/>
+      <geometry><box size="0.22827191798766583 0.376279504895066 0.003608571828405913"/></geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.0 0.18633546653333005 0.04790037689846648" rpy="0 0 0"/>
+      <geometry><box size="0.22827191798766583 0.003608571828405913 0.09219218196852705"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.18633546653333005 0.04790037689846648" rpy="0 0 0"/>
+      <geometry><box size="0.22827191798766583 0.003608571828405913 0.09219218196852705"/></geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.0 -0.18633546653333005 0.04790037689846648" rpy="0 0 0"/>
+      <geometry><box size="0.22827191798766583 0.003608571828405913 0.09219218196852705"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 -0.18633546653333005 0.04790037689846648" rpy="0 0 0"/>
+      <geometry><box size="0.22827191798766583 0.003608571828405913 0.09219218196852705"/></geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.11233167307962996 0.0 0.04790037689846648" rpy="0 0 0"/>
+      <geometry><box size="0.003608571828405913 0.3690623612382542 0.09219218196852705"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.11233167307962996 0.0 0.04790037689846648" rpy="0 0 0"/>
+      <geometry><box size="0.003608571828405913 0.3690623612382542 0.09219218196852705"/></geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="-0.11233167307962996 0.0 0.04790037689846648" rpy="0 0 0"/>
+      <geometry><box size="0.003608571828405913 0.3690623612382542 0.09219218196852705"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.11233167307962996 0.0 0.04790037689846648" rpy="0 0 0"/>
+      <geometry><box size="0.003608571828405913 0.3690623612382542 0.09219218196852705"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="rotation" type="revolute">
+    <parent link="bottom"/>
+    <child link="top"/>
+    <origin xyz="0.11594024490803587 0 0.09580075379693297" rpy="0 0 0"/>
+    <axis xyz="0 -1 0"/>
+    <dynamics damping="0.01" friction="0.01"/>
+    <limit effort="50.0" velocity="50.0" lower="0.5235987755982988" upper="3.05"/>
+  </joint>
+
+  <link name="top">
+    <inertial>
+      <origin xyz="0.11594024490803587 0.0 -0.010446958291571055" rpy="0 0 0"/>
+      <mass value="0.2"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0.11594024490803587 0.0 -0.022698202497345065" rpy="0 0 0"/>
+      <geometry><box size="0.23188048981607173 0.376279504895066 0.003608571828405913"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.11594024490803587 0.0 -0.022698202497345065" rpy="0 0 0"/>
+      <geometry><box size="0.23188048981607173 0.376279504895066 0.003608571828405913"/></geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.11594024490803587 0.18633546653333005 -0.010446958291571055" rpy="0 0 0"/>
+      <geometry><box size="0.23188048981607173 0.003608571828405913 0.02089391658314211"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.11594024490803587 0.18633546653333005 -0.010446958291571055" rpy="0 0 0"/>
+      <geometry><box size="0.23188048981607173 0.003608571828405913 0.02089391658314211"/></geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.11594024490803587 -0.18633546653333005 -0.010446958291571055" rpy="0 0 0"/>
+      <geometry><box size="0.23188048981607173 0.003608571828405913 0.02089391658314211"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.11594024490803587 -0.18633546653333005 -0.010446958291571055" rpy="0 0 0"/>
+      <geometry><box size="0.23188048981607173 0.003608571828405913 0.02089391658314211"/></geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.23007620390186878 0.0 -0.010446958291571055" rpy="0 0 0"/>
+      <geometry><box size="0.003608571828405913 0.3690623612382542 0.02089391658314211"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.23007620390186878 0.0 -0.010446958291571055" rpy="0 0 0"/>
+      <geometry><box size="0.003608571828405913 0.3690623612382542 0.02089391658314211"/></geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0.0018042859142029565 0.0 -0.010446958291571055" rpy="0 0 0"/>
+      <geometry><box size="0.003608571828405913 0.3690623612382542 0.02089391658314211"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0018042859142029565 0.0 -0.010446958291571055" rpy="0 0 0"/>
+      <geometry><box size="0.003608571828405913 0.3690623612382542 0.02089391658314211"/></geometry>
+    </collision>
+  </link>
+</robot>

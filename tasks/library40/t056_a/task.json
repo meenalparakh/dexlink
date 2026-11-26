@@ -1,0 +1,38 @@
+{
+  "id": "t056_a",
+  "group": "library40",
+  "description": "Turn a held plate by a quarter turn with both hands",
+  "name": "Plate (bimanual): reorientation",
+  "object": "Plate 1",
+  "success_check": "Reach the quarter-turn orientation while retaining both rim grasps.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t056_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t056_a/goal.json",
+  "hands": "bimanual",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t056_a",
+    "timestep": 2000,
+    "seed": 42,
+    "policy_sha256": "1cd89e55e4db3b931ef040972c1abc59c9015c8dede8f7370a6d552e2fd95c82",
+    "files": {
+      "policy.pt": "1cd89e55e4db3b931ef040972c1abc59c9015c8dede8f7370a6d552e2fd95c82",
+      "policy_obs_processor.pt": "e6b357358ef123e5327dbfaddabbfe05e198822f9d7d6b16878cc72496b031a6",
+      "value.pt": "53366cefb91770b823ddd11ca9bdc9a4f67a4e2a793b3ec4ac67d33af1d6a2fa",
+      "value_obs_processor.pt": "3383161c5b781bcdbb488e1198a86cd28cb7157cf75c961fc0777acfb3f232cb",
+      "optimizer.pt": "ba1714174db79f88a2031b1ea70c33852e12ae0585aa569a00523a5343d652c2"
+    }
+  },
+  "reference_sha256": "fbbbe0eb0a9a356030b0fa7f003a6dfd213120984ec164875dbde7ef64d00596",
+  "source_reference_sha256": "7e7bb58db0f1095e230b6e12799a8f841edb214372a89a7c64092d286510dac6",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left",
+    "right"
+  ]
+}

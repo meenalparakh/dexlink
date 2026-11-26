@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="cork">
+  <link name="body">
+    <inertial>
+      <origin xyz="2.238185554064197e-19 0.0 1.4324387546010859e-18" />
+      <mass value="0.015" />
+      <inertia ixx="9.486149383169531e-06" iyy="9.486149383169531e-06" izz="6.7222987663390605e-06" ixy="-1.3743858167925459e-22" ixz="2.517958748322222e-23" iyz="-6.71455666219259e-23" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

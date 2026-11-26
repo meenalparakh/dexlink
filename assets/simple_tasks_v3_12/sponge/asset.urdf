@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="sponge">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" />
+      <mass value="0.03" />
+      <inertia ixx="1.7125000000000003e-05" iyy="3.9062499999999994e-05" izz="5.00625e-05" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

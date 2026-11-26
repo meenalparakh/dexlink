@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="spring_clip_pickup_support">
+  <link name="body">
+    <inertial>
+      <origin xyz="-0.2138541851848486 0.0 0.021570135108221526" />
+      <mass value="2" />
+      <inertia ixx="0.02674101901862689" iyy="0.05101418048881798" izz="0.07333769264511936" ixy="-4.336808689942018e-19" ixz="0.004442240949922596" iyz="-4.0657581468206416e-19" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_04.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_05.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

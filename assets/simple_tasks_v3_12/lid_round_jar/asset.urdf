@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="lid_round_jar">
+  <link name="body">
+    <inertial>
+      <origin xyz="-4.652251688133757e-19 1.860900675253503e-19 0.003197087176175082" />
+      <mass value="0.06" />
+      <inertia ixx="8.881142837165647e-05" iyy="8.881142837165648e-05" izz="0.0001697364114899403" ixy="-4.1662255862917064e-21" ixz="-1.0534587342606008e-22" iyz="1.2695247630024714e-22" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

@@ -1,0 +1,37 @@
+{
+  "id": "t088_a",
+  "group": "library40",
+  "description": "Make two pour motions toward two separate receivers",
+  "name": "Carton: multi receiver pour pose",
+  "object": "Carton 1",
+  "success_check": "Visit the first receiver, return upright, then visit the second.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t088_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t088_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t088_a",
+    "timestep": 10000,
+    "seed": 42,
+    "policy_sha256": "4eca0c28990510796361c9465e3c7273d7db9a419c611315965c7b684303d9e6",
+    "files": {
+      "policy.pt": "4eca0c28990510796361c9465e3c7273d7db9a419c611315965c7b684303d9e6",
+      "policy_obs_processor.pt": "15590402a7ee3674de776280edb65f90b65759449ae940de527c955199d91ba0",
+      "value.pt": "21f0425e504c00c99e21dfbaabfc71fd0fcec18dc0aab3eb102c5d0ca6d75223",
+      "value_obs_processor.pt": "2ac9eb55f59bc39ea2f10aafd38d7a6d4c66d98f36760249ffcdf0040b0645ee",
+      "optimizer.pt": "ce850eff70f34c9377d399b835001ebd7d6a039134e2fe82522378d59457f87b"
+    }
+  },
+  "reference_sha256": "07c985fda13597fbf909d7e962d12d8da8cc248a7e8c4607b24e591ed9bcc817",
+  "source_reference_sha256": "c2f570ce248a77dfe7aac1633a2cec386861c42785693a2484877339707f5909",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

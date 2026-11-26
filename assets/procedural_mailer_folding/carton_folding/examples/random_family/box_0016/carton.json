@@ -1,0 +1,208 @@
+{
+  "schema_version": 2,
+  "units": {
+    "length": "m",
+    "angle": "rad",
+    "mass": "kg"
+  },
+  "requested_parameters": {
+    "width": 0.09843448139070063,
+    "depth": 0.05916511694636187,
+    "height": 0.14439972769663706,
+    "thickness": 0.0006967040939317455,
+    "face_clearance": null,
+    "lateral_clearance": null,
+    "tab_width": null,
+    "tab_length": null,
+    "keeper_length": null,
+    "ear_width": null,
+    "glue_length": null,
+    "density": 700.0
+  },
+  "parameters": {
+    "width": 0.09843448139070063,
+    "depth": 0.05916511694636187,
+    "height": 0.14439972769663706,
+    "thickness": 0.0006967040939317455,
+    "face_clearance": 0.00020901122817952366,
+    "lateral_clearance": 0.001230431017383758,
+    "tab_width": 0.06398241290395541,
+    "tab_length": 0.012284224667881512,
+    "keeper_length": 0.016721608438858653,
+    "ear_width": 0.006152155086918789,
+    "glue_length": 0.014791279236590467,
+    "density": 700.0
+  },
+  "derived": {
+    "slot_clear_gap": 0.0011147265502907929,
+    "socket_axis_spacing": 0.0018114306442225383,
+    "lid_root_margin": 0.0018114306442225383,
+    "tuck_margin": 0.0018114306442225383,
+    "hinge_relief": 0.0003831872516624601,
+    "side_end_inset": 0.0009057153221112692,
+    "dust_depth_notch": 0.003738565755538042,
+    "dust_length": 0.0467563786605828,
+    "lid_length": 0.0582594016242506,
+    "mouth_width": 0.06644327493872293,
+    "seam_axis_spacing": 0.0009057153221112692,
+    "entry_tip_clearance": 0.0006967040939317455
+  },
+  "dimension_convention": "Nominal W/D wall-midplane separation; H is main-wall fold-line height. Not exact exterior dimensions.",
+  "automatic_sizing": "Null detail parameters are recomputed from W/D/H/thickness and analytic insertion reachability.",
+  "root_link": "back_wall",
+  "links": [
+    "back_wall",
+    "right_wall",
+    "front_wall",
+    "left_wall",
+    "seam_margin",
+    "glue_flap",
+    "top_socket_margin",
+    "top_socket_keeper",
+    "bottom_socket_margin",
+    "bottom_socket_keeper",
+    "top_lid_margin",
+    "top_lid",
+    "top_tuck_margin",
+    "top_tuck_tab",
+    "bottom_lid_margin",
+    "bottom_lid",
+    "bottom_tuck_margin",
+    "bottom_tuck_tab",
+    "top_right_dust",
+    "bottom_right_dust",
+    "top_left_dust",
+    "bottom_left_dust"
+  ],
+  "joints": {
+    "fold_right_wall": {
+      "parent": "back_wall",
+      "child": "right_wall",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "fold_front_wall": {
+      "parent": "right_wall",
+      "child": "front_wall",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "fold_left_wall": {
+      "parent": "back_wall",
+      "child": "left_wall",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "seam_margin_fold": {
+      "parent": "front_wall",
+      "child": "seam_margin",
+      "lower": -0.5235987755982988,
+      "upper": 0.5235987755982988
+    },
+    "glue_flap_fold": {
+      "parent": "seam_margin",
+      "child": "glue_flap",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "top_socket_base": {
+      "parent": "front_wall",
+      "child": "top_socket_margin",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "top_socket_return": {
+      "parent": "top_socket_margin",
+      "child": "top_socket_keeper",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "bottom_socket_base": {
+      "parent": "back_wall",
+      "child": "bottom_socket_margin",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "bottom_socket_return": {
+      "parent": "bottom_socket_margin",
+      "child": "bottom_socket_keeper",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "top_lid_margin_fold": {
+      "parent": "back_wall",
+      "child": "top_lid_margin",
+      "lower": -0.5235987755982988,
+      "upper": 0.5235987755982988
+    },
+    "top_lid_fold": {
+      "parent": "top_lid_margin",
+      "child": "top_lid",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "top_tuck_margin_fold": {
+      "parent": "top_lid",
+      "child": "top_tuck_margin",
+      "lower": 0.0,
+      "upper": 1.8325957145940461
+    },
+    "top_tuck_tab_fold": {
+      "parent": "top_tuck_margin",
+      "child": "top_tuck_tab",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "bottom_lid_margin_fold": {
+      "parent": "front_wall",
+      "child": "bottom_lid_margin",
+      "lower": -0.5235987755982988,
+      "upper": 0.5235987755982988
+    },
+    "bottom_lid_fold": {
+      "parent": "bottom_lid_margin",
+      "child": "bottom_lid",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "bottom_tuck_margin_fold": {
+      "parent": "bottom_lid",
+      "child": "bottom_tuck_margin",
+      "lower": 0.0,
+      "upper": 1.8325957145940461
+    },
+    "bottom_tuck_tab_fold": {
+      "parent": "bottom_tuck_margin",
+      "child": "bottom_tuck_tab",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "top_right_dust_fold": {
+      "parent": "right_wall",
+      "child": "top_right_dust",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "bottom_right_dust_fold": {
+      "parent": "right_wall",
+      "child": "bottom_right_dust",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "top_left_dust_fold": {
+      "parent": "left_wall",
+      "child": "top_left_dust",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "bottom_left_dust_fold": {
+      "parent": "left_wall",
+      "child": "bottom_left_dust",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    }
+  },
+  "description": "Rigid-panel approximation inspired by the supplied carton net; not a traced die line.",
+  "socket_mouth_note": "Two separate ear collision boxes, NEVER one full-span convex hull.",
+  "dynamics_note": "Density, effort, and damping are illustrative; no calibrated cardboard constitutive law."
+}

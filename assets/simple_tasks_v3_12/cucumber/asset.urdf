@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="cucumber">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0003290624077872631" />
+      <mass value="0.1" />
+      <inertia ixx="2.908962274514125e-05" iyy="0.00019234613750653156" izz="0.00019312737083521643" ixy="-1.2300039258390526e-21" ixz="0.0" iyz="2.4023514176543996e-23" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

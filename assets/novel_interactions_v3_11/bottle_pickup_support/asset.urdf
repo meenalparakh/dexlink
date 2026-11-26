@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="bottle_pickup_support">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.19999999999999996 -7.179287314229786e-19 0.03821957040572792" />
+      <mass value="2" />
+      <inertia ixx="0.003879425642356209" iyy="0.0038794256423562248" izz="0.002068504749889774" ixy="-7.179287314229785e-19" ixz="-3.279015330688037e-18" iyz="-5.487785539383093e-20" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

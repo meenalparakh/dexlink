@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "assembled_aabb_root_xyz_min_m": [
+    -0.002054058878479994,
+    -0.003537545846282329,
+    -0.00057057191069
+  ],
+  "assembled_aabb_root_xyz_max_m": [
+    0.12093946027469,
+    0.09817684265637,
+    0.09991224769959003
+  ],
+  "assembled_exterior_width_depth_height_m": [
+    0.12299351915317,
+    0.10048281961028004,
+    0.10171438850265233
+  ],
+  "backend": "reference",
+  "urdfpy_executed": false,
+  "num_links": 22,
+  "num_joints": 21,
+  "num_collision_boxes": 24,
+  "num_configurations": 1015,
+  "duration_s": 24.5,
+  "all_interlink_collision_pairs_enabled": true,
+  "collision_tolerance_m": 1e-08,
+  "static_errors": [],
+  "joint_limit_errors": [],
+  "velocity_limit_errors": [],
+  "max_sampled_joint_speed_rad_s": 1.9631457889317732,
+  "collision_pair_sample_count": 0,
+  "collision_pairs": [],
+  "collision_examples": [],
+  "max_sat_overlap_m": 0.0,
+  "urdfpy_reference_max_transform_error": null,
+  "insertion": {
+    "top": {
+      "samples_in_insertion": 99,
+      "min_wall_clearance_m": 0.0003423431463217652,
+      "min_keeper_clearance_m": 0.0003423431465005111,
+      "max_centering_error_m": 8.941458684574854e-14,
+      "seated": {
+        "wall_face_clearance_m": 0.00034234314632176574,
+        "keeper_face_clearance_m": 0.0003423431465005948,
+        "mouth_lateral_clearance_m": 0.001504611104141275,
+        "tip_insertion_depth_m": 0.020363686525449988,
+        "tab_centering_error_m": 8.941437000531405e-14
+      }
+    },
+    "bottom": {
+      "samples_in_insertion": 99,
+      "min_wall_clearance_m": 0.0003423431463217603,
+      "min_keeper_clearance_m": 0.00034234314650050807,
+      "max_centering_error_m": 8.942065837791446e-14,
+      "seated": {
+        "wall_face_clearance_m": 0.0003423431463217651,
+        "keeper_face_clearance_m": 0.00034234314650059524,
+        "mouth_lateral_clearance_m": 0.001504611104132872,
+        "tip_insertion_depth_m": 0.02036368652546617,
+        "tab_centering_error_m": 8.941502052661754e-14
+      }
+    }
+  },
+  "limitations": "Sampled, rigid-geometry tests only. No contact dynamics, friction, glue, continuous collision proof, or cardboard elasticity validation."
+}

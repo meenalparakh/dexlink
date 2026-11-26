@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="puzzle_piece_triangle">
+  <link name="body">
+    <inertial>
+      <origin xyz="-0.009099999999999995 3.349185706427736e-18 0.0" />
+      <mass value="0.1" />
+      <inertia ixx="5.388033333333329e-05" iyy="5.388033333333332e-05" izz="9.734399999999995e-05" ixy="-8.629735170228799e-21" ixz="0.0" iyz="0.0" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

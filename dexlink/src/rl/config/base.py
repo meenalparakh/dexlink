@@ -1,7 +1,10 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass, field, is_dataclass
+from dataclasses import asdict, dataclass, field, is_dataclass, replace
 from math import pi
+from dexlink.src.rl.config.depth_camera import DepthCameraCfg
+from dexlink.src.rl.config.passive_mechanisms import NutThreadConfig, ScrewCapConfig, SpringClipConfig
+from dexlink.src.rl.config.seq_real_world_presets import SEQ_REAL_WORLD_PRESETS
 from typing import Any, Dict, List, get_args, get_type_hints
 
 from dexlink.utils.retargeting.path_utils import (
@@ -97,6 +100,9 @@ class ReferenceTrajectoryCfg:
 class TaskMetricCfg:
     metric_id: str | None = None
     eval_metric_id: str | None = None
+    scissors_object_id: str = ""
+    scissors_joint_name: str = ""
+    scissors_airborne_clearance_m: float = 0.002
     notebook_object_id: str = ""
     notebook_angle_tolerance_rad: float = 15.0 * pi / 180.0
     stacking_object_ids: tuple[str, ...] = ()
@@ -131,6 +137,9 @@ class TaskMetricCfg:
     dispenser_object_id: str = ""
     dispenser_joint_name: str = ""
     dispenser_pressed_tolerance_m: float = 0.002
+    dispenser_cycle_press_depth_m: float = 0.008
+    dispenser_cycle_return_tolerance_m: float = 0.0005
+    dispenser_cycle_dwell_steps: int = 2
     drawer_object_id: str = ""
     drawer_joint_name: str = ""
     drawer_final_articulation_tolerance_m: float = 0.01
@@ -201,6 +210,9 @@ class TaskCfg:
 
 @dataclass
 class SimCfg:
+    nut_thread: NutThreadConfig = field(default_factory=NutThreadConfig)
+    screw_cap: ScrewCapConfig = field(default_factory=ScrewCapConfig)
+    spring_clip: SpringClipConfig = field(default_factory=SpringClipConfig)
     gravity: float = -9.81  # -9.81 is the true val, 0.0 will disable gravity
     apply_random_force: bool = False
     random_force_mag: float = 5.0
@@ -220,6 +232,7 @@ class SimCfg:
     batch_links_info: bool = True
     n_rendered_envs: int | None = None
     enable_joint_limit: bool = True
+    enable_self_collision: bool = False
     max_collision_pairs: int = 1000
     rapid_collision_resolution: bool = True
     num_envs: int = 4096
@@ -404,6 +417,11 @@ class ObsCfg:
     use_privileged_object_pcd: bool = True
     privileged_object_pcd_n_pts: int = 256
     policy_object_pcd_n_pts: int = 128
+    # Scene mode uses one total budget and explicit calibrated world bounds.
+    policy_object_pcd_mode: str = "legacy_per_object"
+    scene_cloud_world_min: tuple[float, float, float] | None = None
+    scene_cloud_world_max: tuple[float, float, float] | None = None
+    rendered_depth_cfg: DepthCameraCfg = field(default_factory=DepthCameraCfg)
     policy_object_pcd_truncation_drop_ratio_range: tuple[float, float] = (0.0, 0.4)
     policy_object_pcd_jitter_std: float = 0.002
     use_object_obs: bool = True
@@ -758,27 +776,26 @@ PRESETS.update(OAKINK_DEFAULT_PRESET)
 PRESETS.update(SEQ_OAKINK_PRESETS)
 PRESETS.update(SEQ_OAKINK_FINAL_EXPERIMENT_PRESETS)
 PRESETS.update(SEQ_OAKINK_METHOD_ABLATION_PRESETS)
+PRESETS.update(SEQ_REAL_WORLD_PRESETS)
 
 
 # ---- Utilities ----
 
 
-def _set_nested_attr(obj: Any, path: List[str], value: Any) -> None:
+def _set_nested_attr(obj: Any, path: List[str], value: Any) -> Any:
     if not path:
-        raise ValueError("Expected a non-empty configuration path.")
-    if len(path) == 1:
-        if not hasattr(obj, path[0]):
-            raise KeyError(
-                f"Unknown config field {path[0]!r} on {type(obj).__name__}."
-            )
-        setattr(obj, path[0], value)
-        return
-    head = path[0]
-    tail = path[1:]
-    if not hasattr(obj, head):
-        raise KeyError(f"Unknown config field {head!r} on {type(obj).__name__}.")
-    child = getattr(obj, head)
-    _set_nested_attr(child, tail, value)
+        raise ValueError("Expected a nonempty configuration attribute path.")
+    key = path[0]
+    if not hasattr(obj, key):
+        raise KeyError(f"Unknown config field {key!r} on {type(obj).__name__}.")
+    current = getattr(obj, key)
+    updated = value if len(path) == 1 else _set_nested_attr(current, path[1:], value)
+    # Immutable mechanism parameters are replaced as a unit, preserving their
+    # dataclass contract during command-line overrides and checkpoint loading.
+    if is_dataclass(obj) and obj.__dataclass_params__.frozen:
+        return replace(obj, **{key: updated})
+    setattr(obj, key, updated)
+    return obj
 
 
 def _cast_scalar(value_str: str, target_type: type) -> Any:
@@ -889,15 +906,21 @@ def load_experiment_config(
     return cfg
 
 
-def _update_dataclass_from_dict(instance: Any, values: Dict[str, Any]) -> None:
+def _update_dataclass_from_dict(instance: Any, values: Dict[str, Any]) -> Any:
+    updates = {}
     for key, value in values.items():
         if not hasattr(instance, key):
             raise KeyError(f"Unknown config key '{key}' for {type(instance).__name__}")
         current_value = getattr(instance, key)
         if is_dataclass(current_value) and isinstance(value, dict):
-            _update_dataclass_from_dict(current_value, value)
+            updates[key] = _update_dataclass_from_dict(current_value, value)
         else:
-            setattr(instance, key, value)
+            updates[key] = value
+    if instance.__dataclass_params__.frozen:
+        return replace(instance, **updates)
+    for key, value in updates.items():
+        setattr(instance, key, value)
+    return instance
 
 
 def load_experiment_config_from_dict(cfg_dict: Dict[str, Any]) -> ExperimentConfig:

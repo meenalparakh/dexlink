@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
 dependencies = [
-    "numpy>=1.24,<2",
+    "numpy>=2.2,<3",
     "PyYAML>=6",
     "scipy>=1.10",
     "tqdm>=4.65",
@@ -21,19 +21,20 @@ dependencies = [
 rl = [
     "dtw-python>=1.5",
     "einops>=0.7",
-    "genesis-world>=0.3.3,<0.4",
+    "genesis-world @ git+https://github.com/meenalparakh/Genesis.git@65883d3e9ad1c6704dc5217be742ba63e0275a73",
     "gymnasium>=0.29",
     "pandas>=2",
     "seaborn>=0.13",
     "torch>=2.2",
-    "urdfpy>=0.0.22",
+    "urdfpy==0.0.22+dexlink.1",
     "wandb>=0.17",
 ]
 retargeting = [
-    "drake>=1.51,<2",
+    "manotorch @ git+https://github.com/lixiny/manotorch.git@da235c9096a5560e2a09102c20f61abb4d0d2309",
+    "drake>=1.50,<2",
     "smplx>=0.1.28",
     "torch>=2.2",
-    "urdfpy>=0.0.22",
+    "urdfpy==0.0.22+dexlink.1",
 ]
 visualization = [
     "imageio[ffmpeg]>=2.34",
@@ -41,26 +42,30 @@ visualization = [
     "meshcat>=0.3",
     "opencv-python>=4.9",
     "pillow>=10",
-    "pyrender>=0.1.45",
+    "pyrender==0.1.45+dexlink.1",
     "seaborn>=0.13",
-    "urdfpy>=0.0.22",
+    "urdfpy==0.0.22+dexlink.1",
 ]
 real = [
     "open3d>=0.19",
     "opencv-contrib-python>=4.9",
 ]
+downloads = ["gdown==5.2.0"]
 test = [
     "pytest>=8",
     "ruff>=0.6",
 ]
 
 [project.scripts]
+dexlink = "dexlink.workflows.cli:main"
+dexlink-resources = "dexlink.workflows.resources:main"
 dexlink-reference = "dexlink.scripts.reference.run_task_pipeline:main"
 dexlink-validate-task = "dexlink.scripts.reference.validate_task_inputs:main"
 dexlink-retarget = "dexlink.scripts.retargeting.run_trajopt_oakink:main"
 dexlink-retarget-task = "dexlink.scripts.retargeting.run_task_category_retargetings:main"
 dexlink-train = "dexlink.scripts.rl.train_rl:main"
 dexlink-eval = "dexlink.scripts.rl.eval_sim:main"
+dexlink-eval-metrics = "dexlink.scripts.rl.eval_final_metrics:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

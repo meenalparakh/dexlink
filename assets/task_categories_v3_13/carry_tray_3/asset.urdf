@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="carry_tray_3">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 -1.0842021724855044e-17 0.01637128392934081" />
+      <mass value="0.4" />
+      <inertia ixx="0.004398042776861797" iyy="0.009139534662543258" izz="0.013253270601752127" ixy="0.0" ixz="4.7518633494357445e-20" iyz="-4.681988542670752e-20" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_04.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

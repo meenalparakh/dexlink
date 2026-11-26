@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="bead_tray">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.26059143559143555 0.0 0.005734292734292733" />
+      <mass value="0.2" />
+      <inertia ixx="0.0005018345051784151" iyy="0.0009700441996463036" izz="0.0014630349664931605" ixy="0.0" ixz="-8.125146840485522e-06" iyz="0.0" />
+    </inertial>
+    <collision>
+      <geometry>
+        <box size="0.23 0.15 0.008" />
+      </geometry>
+      <origin xyz="0.255 0 0.004" />
+    </collision>
+    <collision>
+      <geometry>
+        <box size="0.23 0.006 0.018" />
+      </geometry>
+      <origin xyz="0.255 -0.078 0.013" />
+    </collision>
+    <collision>
+      <geometry>
+        <box size="0.23 0.006 0.018" />
+      </geometry>
+      <origin xyz="0.255 0.078 0.013" />
+    </collision>
+    <collision>
+      <geometry>
+        <box size="0.006 0.15 0.018" />
+      </geometry>
+      <origin xyz="0.373 0 0.013" />
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

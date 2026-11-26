@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="hollow_drawer">
+
+  <link name="frame_bottom">
+    <visual>
+      <geometry>
+        <box size="0.41800000000000004 0.25 0.009000000000000001" />
+      </geometry>
+      <material name="grey"><color rgba="0.6 0.6 0.6 1" /></material>
+      <origin xyz="0 0 0.0045000000000000005" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.41800000000000004 0.25 0.009000000000000001" />
+      </geometry>
+      <origin xyz="0 0 0.0045000000000000005" />
+    </collision>
+  </link>
+
+  <link name="frame_back">
+    <visual>
+      <geometry>
+        <box size="0.41800000000000004 0.009000000000000001 0.15" />
+      </geometry>
+      <material name="grey"><color rgba="0.6 0.6 0.6 1" /></material>
+      <origin xyz="0 -0.1295 0.08399999999999999" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.41800000000000004 0.009000000000000001 0.15" />
+      </geometry>
+      <origin xyz="0 -0.1295 0.08399999999999999" />
+    </collision>
+  </link>
+
+  <joint name="frame_back_fixed" type="fixed">
+    <parent link="frame_bottom" />
+    <child link="frame_back" />
+    <origin xyz="0 0 0" />
+  </joint>
+
+  <link name="frame_left">
+    <visual>
+      <geometry>
+        <box size="0.009000000000000001 0.25 0.15" />
+      </geometry>
+      <material name="grey"><color rgba="0.6 0.6 0.6 1" /></material>
+      <origin xyz="-0.20450000000000002 0 0.08399999999999999" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.009000000000000001 0.25 0.15" />
+      </geometry>
+      <origin xyz="-0.20450000000000002 0 0.08399999999999999" />
+    </collision>
+  </link>
+
+  <joint name="frame_left_fixed" type="fixed">
+    <parent link="frame_bottom" />
+    <child link="frame_left" />
+    <origin xyz="0 0 0" />
+  </joint>
+
+  <link name="frame_right">
+    <visual>
+      <geometry>
+        <box size="0.009000000000000001 0.25 0.15" />
+      </geometry>
+      <material name="grey"><color rgba="0.6 0.6 0.6 1" /></material>
+      <origin xyz="0.20450000000000002 0 0.08399999999999999" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.009000000000000001 0.25 0.15" />
+      </geometry>
+      <origin xyz="0.20450000000000002 0 0.08399999999999999" />
+    </collision>
+  </link>
+
+  <joint name="frame_right_fixed" type="fixed">
+    <parent link="frame_bottom" />
+    <child link="frame_right" />
+    <origin xyz="0 0 0" />
+  </joint>
+
+  <link name="frame_top">
+    <visual>
+      <geometry>
+        <box size="0.41800000000000004 0.25 0.009000000000000001" />
+      </geometry>
+      <material name="grey"><color rgba="0.6 0.6 0.6 1" /></material>
+      <origin xyz="0 0 0.1635" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.41800000000000004 0.25 0.009000000000000001" />
+      </geometry>
+      <origin xyz="0 0 0.1635" />
+    </collision>
+  </link>
+
+  <joint name="frame_top_fixed" type="fixed">
+    <parent link="frame_bottom" />
+    <child link="frame_top" />
+    <origin xyz="0 0 0" />
+  </joint>
+
+  <link name="drawer_bottom">
+    <visual>
+      <geometry>
+        <box size="0.378 0.228 0.01" />
+      </geometry>
+      <material name="wood"><color rgba="0.8 0.6 0.4 1" /></material>
+      <origin xyz="0 0 0.01" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.378 0.228 0.01" />
+      </geometry>
+      <origin xyz="0 0 0.01" />
+    </collision>
+  </link>
+
+  <link name="drawer_back">
+    <visual>
+      <geometry>
+        <box size="0.378 0.01 0.13799999999999998" />
+      </geometry>
+      <material name="wood"><color rgba="0.8 0.6 0.4 1" /></material>
+      <origin xyz="0 -0.109 0.08399999999999999" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.378 0.01 0.13799999999999998" />
+      </geometry>
+      <origin xyz="0 -0.109 0.08399999999999999" />
+    </collision>
+  </link>
+  <joint name="drawer_back_fixed" type="fixed">
+    <parent link="drawer_bottom" />
+    <child link="drawer_back" />
+    <origin xyz="0 0 0" />
+  </joint>
+
+    <link name="drawer_front">
+      <visual>
+        <geometry>
+          <box size="0.378 0.01 0.13799999999999998" />
+        </geometry>
+        <material name="wood"><color rgba="0.8 0.6 0.4 1" /></material>
+        <origin xyz="0 0.109 0.08399999999999999" />
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.378 0.01 0.13799999999999998" />
+        </geometry>
+        <origin xyz="0 0.109 0.08399999999999999" />
+      </collision>
+    </link>
+    <joint name="drawer_front_fixed" type="fixed">
+      <parent link="drawer_bottom" />
+      <child link="drawer_front" />
+      <origin xyz="0 0 0" />
+    </joint>
+
+  <link name="drawer_left">
+    <visual>
+      <geometry>
+        <box size="0.01 0.228 0.13799999999999998" />
+      </geometry>
+      <material name="wood"><color rgba="0.8 0.6 0.4 1" /></material>
+      <origin xyz="-0.184 0 0.08399999999999999" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.01 0.228 0.13799999999999998" />
+      </geometry>
+      <origin xyz="-0.184 0 0.08399999999999999" />
+    </collision>
+  </link>
+  <joint name="drawer_left_fixed" type="fixed">
+    <parent link="drawer_bottom" />
+    <child link="drawer_left" />
+    <origin xyz="0 0 0" />
+  </joint>
+
+  <link name="drawer_right">
+    <visual>
+      <geometry>
+        <box size="0.01 0.228 0.13799999999999998" />
+      </geometry>
+      <material name="wood"><color rgba="0.8 0.6 0.4 1" /></material>
+      <origin xyz="0.184 0 0.08399999999999999" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.01 0.228 0.13799999999999998" />
+      </geometry>
+      <origin xyz="0.184 0 0.08399999999999999" />
+    </collision>
+  </link>
+  <joint name="drawer_right_fixed" type="fixed">
+    <parent link="drawer_bottom" />
+    <child link="drawer_right" />
+    <origin xyz="0 0 0" />
+  </joint>
+
+  <link name="handle_front">
+        <visual name="arc_handle_00_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_00.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_00_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_00.obj" /></geometry></collision><visual name="arc_handle_01_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_01.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_01_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_01.obj" /></geometry></collision><visual name="arc_handle_02_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_02.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_02_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_02.obj" /></geometry></collision><visual name="arc_handle_03_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_03.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_03_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_03.obj" /></geometry></collision><visual name="arc_handle_04_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_04.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_04_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_04.obj" /></geometry></collision><visual name="arc_handle_05_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_05.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_05_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_05.obj" /></geometry></collision><visual name="arc_handle_06_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_06.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_06_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_06.obj" /></geometry></collision><visual name="arc_handle_07_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_07.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_07_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_07.obj" /></geometry></collision><visual name="arc_handle_08_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_08.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_08_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_08.obj" /></geometry></collision><visual name="arc_handle_09_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_09.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_09_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_09.obj" /></geometry></collision><visual name="arc_handle_10_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_10.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_10_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_10.obj" /></geometry></collision><visual name="arc_handle_11_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_11.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_11_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_11.obj" /></geometry></collision><visual name="arc_handle_12_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_12.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_12_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_12.obj" /></geometry></collision><visual name="arc_handle_13_visual"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_13.obj" /></geometry><material name="metal"><color rgba="0.3 0.3 0.3 1" /></material></visual><collision name="arc_handle_13_collision"><origin xyz="0 0 0" rpy="0 0 0" /><geometry><mesh filename="arc_handle_13.obj" /></geometry></collision></link>
+    <joint name="handle_front_fixed" type="fixed">
+        <parent link="drawer_front" />
+        <child link="handle_front" />
+        <origin xyz="0 0.15959906369447707 0.07420826975256205" />
+    </joint>
+
+  <joint name="drawer_slide" type="prismatic">
+    <parent link="frame_bottom" />
+    <child link="drawer_bottom" />
+    <origin xyz="0 0 0.005" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="0.25" effort="50" velocity="0.2" />
+    <dynamics damping="2.0" friction="0.5" />
+  </joint>
+
+</robot>

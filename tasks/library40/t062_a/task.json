@@ -1,0 +1,37 @@
+{
+  "id": "t062_a",
+  "group": "library40",
+  "description": "Press the left and right bowl regions in order",
+  "name": "Masher in bowl: ordered pressing",
+  "object": "Masher 1",
+  "success_check": "Reach the left press goal before the right, retracting between them.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t062_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t062_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t062_a",
+    "timestep": 50000,
+    "seed": 42,
+    "policy_sha256": "3d85e65e7591d24da43ca429fb86f3d2dd167649e77cac740900c51c5e3c9c3e",
+    "files": {
+      "policy.pt": "3d85e65e7591d24da43ca429fb86f3d2dd167649e77cac740900c51c5e3c9c3e",
+      "policy_obs_processor.pt": "db1ff4241804995e373cb553ceda966fcb1c313bd1b381a010b3426a3e24da67",
+      "value.pt": "e9d1d29bef9461956b933e80607a29a920e21297752e3460f8f0ddeea81eb942",
+      "value_obs_processor.pt": "38b32cb1f0f28c628f0b9fb97d46593a1ec104ca344a315a2b3b50376e39d10d",
+      "optimizer.pt": "9f721924ebcbdfbfd916a0ffebee7f0aed733a7c804be6885b48a574d66ec947"
+    }
+  },
+  "reference_sha256": "779d7f3a5b1477614183c691fa89cbfd294bdf65fa45bdd94e93d4364bc0d9bb",
+  "source_reference_sha256": "0b3c94c5aa698726bd9ac8d33789b181973868544cc2e743860f87ef3be48fc7",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left"
+  ]
+}

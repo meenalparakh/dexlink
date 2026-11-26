@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="fixed_drink_bottle">
+  <link name="body">
+    <inertial>
+      <origin xyz="1.3516649722588608e-20 -2.4510191496960676e-18 0.08932515337423313" />
+      <mass value="0.3" />
+      <inertia ixx="0.0009453973890259724" iyy="0.0009453973890259724" izz="0.00025266312085747076" ixy="6.462648148612676e-22" ixz="-1.5857766624233525e-20" iyz="-3.107867515110829e-20" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

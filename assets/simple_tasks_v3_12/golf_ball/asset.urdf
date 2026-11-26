@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="golf_ball">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0003589771721315599" />
+      <mass value="0.045" />
+      <inertia ixx="1.557857482549713e-05" iyy="1.557652279581224e-05" izz="1.5994902297455054e-05" ixy="0.0" ixz="3.4518786932421657e-23" iyz="-1.7259393466210828e-23" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

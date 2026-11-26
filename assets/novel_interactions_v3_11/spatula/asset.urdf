@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="spatula">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.006861131252426477 1.0997069103626243e-20 -0.004700928712089618" />
+      <mass value="0.13" />
+      <inertia ixx="8.131428077378636e-05" iyy="0.0008844468280051429" izz="0.0008607419031257433" ixy="8.92740782485902e-22" ixz="0.0001373208706963244" iyz="4.682548553942083e-23" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

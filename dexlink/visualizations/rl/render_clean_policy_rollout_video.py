@@ -13,30 +13,20 @@ from pathlib import Path
 from typing import Any, Literal
 
 os.environ.setdefault("PYOPENGL_PLATFORM", "egl")
-os.environ.setdefault("MPLCONFIGDIR", "/tmp/dexlink_matplotlib")
+os.environ.setdefault("MPLCONFIGDIR", "/tmp/trackart2_matplotlib")
 
 import imageio.v2 as imageio
 import numpy as np
 import trimesh
 from urdfpy import URDF
 
-from dexlink.visualizations.rl.rollout_rendering import (
+from dexlink.visualizations.rl.rollout_io import (
+    _load_episode_from_eval,
+    _rollout_motion_from_reference,
+    load_reference_motion,
+)
+from dexlink.visualizations.rl.camera import (
     CameraSpec,
-    OBJECT_COLOR_RGBA,
-    fk_mesh_instances_with_color,
-    fk_robot_link_instances,
-    hand_config_source_by_side,
-    load_episode_from_eval,
-    load_exported_npy_payload,
-    localize_path,
-    look_at,
-    render_panel,
-    resolve_visualized_joint_motion,
-    rollout_motion_from_reference,
-    scene_object_joint_dict_for_frame,
-    scene_object_pose_for_frame,
-    transformed_meshes,
-    unwrap_scalar,
 )
 from dexlink.visualizations.retargeting.render_oakink_last_frame_views import (
     ROBOT_URDFS,
@@ -44,6 +34,20 @@ from dexlink.visualizations.retargeting.render_oakink_last_frame_views import (
     _resolve_active_hands,
     _resolve_robot_base_pose,
     _resolve_robot_model,
+)
+from dexlink.visualizations.rl.rendering import (
+    OBJECT_COLOR_RGBA,
+    _fk_mesh_instances_with_color,
+    _fk_robot_link_instances,
+    _hand_config_source_by_side,
+    _localize_path,
+    _look_at,
+    _render_panel,
+    _resolve_visualized_joint_motion,
+    _scene_object_joint_dict_for_frame,
+    _scene_object_pose_for_frame,
+    _transformed_meshes,
+    _unwrap_scalar,
 )
 
 
@@ -58,12 +62,14 @@ OBJECT_COLORS: dict[str, np.ndarray] = {
     "block": np.array([174, 177, 181, 255], dtype=np.uint8),
     "table": np.array([137, 143, 151, 255], dtype=np.uint8),
 }
+SUPPORT_PLANE_COLOR_RGBA = np.array([202, 207, 214, 255], dtype=np.uint8)
 CameraMode = Literal["tracked", "fixed"]
 
 
 @dataclass(frozen=True)
 class RenderVideoArgs:
-    eval_dir: Path
+    eval_dir: Path | None
+    reference_path: Path | None
     output_path: Path
     metadata_path: Path
     cache_dir: Path
@@ -95,7 +101,8 @@ class HandModel:
 
 def parse_args(argv: list[str] | None = None) -> RenderVideoArgs:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--eval-dir", type=Path, required=True)
+    parser.add_argument("--eval-dir", type=Path)
+    parser.add_argument("--reference-path", type=Path, help="Reference preview, or an explicit reference override for relocated evaluation data.")
     parser.add_argument("--output-path", type=Path, required=True)
     parser.add_argument("--metadata-path", type=Path, required=True)
     parser.add_argument("--cache-dir", type=Path, required=True)
@@ -113,8 +120,11 @@ def parse_args(argv: list[str] | None = None) -> RenderVideoArgs:
         help="Use the moving close-up camera or one fixed third-person camera.",
     )
     parsed = parser.parse_args(argv)
+    if parsed.eval_dir is None and parsed.reference_path is None:
+        parser.error("Provide --eval-dir for saved rollouts or --reference-path for a reference preview.")
     args = RenderVideoArgs(
         eval_dir=parsed.eval_dir,
+        reference_path=parsed.reference_path,
         output_path=parsed.output_path,
         metadata_path=parsed.metadata_path,
         cache_dir=parsed.cache_dir,
@@ -170,7 +180,7 @@ def _reference_motion_path(eval_dir: Path) -> Path:
             f"Expected a non-empty reference-motion path in {config_path}, got "
             f"{raw_path!r}."
         )
-    path = localize_path(raw_path)
+    path = _localize_path(raw_path)
     if not path.is_file():
         raise FileNotFoundError(
             f"Reference motion from {config_path} does not exist: {path}"
@@ -200,7 +210,7 @@ def _semantic_object_ids(
     task_id: str,
 ) -> tuple[tuple[str, ...], tuple[str, ...]]:
     object_ids = tuple(
-        str(unwrap_scalar(value))
+        str(_unwrap_scalar(value))
         for value in np.asarray(reference_motion["scene_object_ids"], dtype=object)
     )
     static = np.asarray(reference_motion["scene_object_static"], dtype=bool)
@@ -281,6 +291,14 @@ def _localize_rollout_path(
             candidates.append(relative_to / raw_path)
         candidates.append(PROJECT_ROOT / raw_path)
 
+    parts = raw_path.parts
+    if "trackart2" in parts:
+        project_index = len(parts) - 1 - parts[::-1].index("trackart2")
+        candidates.append(PROJECT_ROOT.joinpath(*parts[project_index + 1 :]))
+    if "trackart2_logs" in parts:
+        logs_index = len(parts) - 1 - parts[::-1].index("trackart2_logs")
+        candidates.append(PROJECT_ROOT / "logs" / Path(*parts[logs_index + 1 :]))
+
     unique_candidates = list(
         dict.fromkeys(candidate.resolve() for candidate in candidates)
     )
@@ -334,7 +352,7 @@ def _load_scene_objects(
     cache_dir: Path,
 ) -> tuple[SceneObject, ...]:
     all_object_ids = tuple(
-        str(unwrap_scalar(value))
+        str(_unwrap_scalar(value))
         for value in np.asarray(reference_motion["scene_object_ids"], dtype=object)
     )
     urdf_paths = np.asarray(reference_motion["scene_object_urdf_paths"], dtype=object)
@@ -346,7 +364,7 @@ def _load_scene_objects(
     objects = []
     for object_id in included_object_ids:
         object_index = all_object_ids.index(object_id)
-        urdf_path = Path(str(unwrap_scalar(urdf_paths[object_index])))
+        urdf_path = Path(str(_unwrap_scalar(urdf_paths[object_index])))
         processed_path = _process_rollout_urdf_cached(urdf_path, cache_dir / "urdf")
         objects.append(
             SceneObject(
@@ -368,7 +386,7 @@ def _load_hand_models(
         raise ValueError(
             f"Clean revision videos require robot_model='xhand', got {robot_model!r}."
         )
-    hand_config_source = hand_config_source_by_side(motion)
+    hand_config_source = _hand_config_source_by_side(motion)
     models = []
     for side in ("left", "right"):
         if not active_hands[side]:
@@ -382,7 +400,7 @@ def _load_hand_models(
         processed_path = _process_rollout_urdf_cached(
             Path(relative_urdf_path), cache_dir / "urdf"
         )
-        joint_names_raw, joint_values_raw = resolve_visualized_joint_motion(
+        joint_names_raw, joint_values_raw = _resolve_visualized_joint_motion(
             motion, side=side
         )
         if joint_values_raw is None:
@@ -414,6 +432,7 @@ def _frame_meshes(
     hand_models: tuple[HandModel, ...],
     robot_base_pose: np.ndarray,
     scene_objects: tuple[SceneObject, ...],
+    support_plane: trimesh.Trimesh | None,
 ) -> list[trimesh.Trimesh]:
     # Reconstruct robot visuals with the established cividis per-link palette.
     hand_instances = []
@@ -424,7 +443,7 @@ def _frame_meshes(
                 f"frames, cannot render frame {frame_index}."
             )
         hand_instances.extend(
-            fk_robot_link_instances(
+            _fk_robot_link_instances(
                 urdf_inst=hand_model.urdf,
                 joint_dict=_joint_dict_for_frame(
                     hand_model.joint_names,
@@ -434,16 +453,16 @@ def _frame_meshes(
                 mesh_type="visual",
             )
         )
-    meshes = transformed_meshes(hand_instances)
+    meshes = _transformed_meshes(hand_instances)
 
     # Render only task-semantic objects, using consistent paper colors and lights.
     for scene_object in scene_objects:
-        instances = fk_mesh_instances_with_color(
+        instances = _fk_mesh_instances_with_color(
             urdf_inst=scene_object.urdf,
-            joint_dict=scene_object_joint_dict_for_frame(
+            joint_dict=_scene_object_joint_dict_for_frame(
                 motion, frame_index, scene_object.object_index
             ),
-            base_pose=scene_object_pose_for_frame(
+            base_pose=_scene_object_pose_for_frame(
                 motion, frame_index, scene_object.object_index
             ),
             mesh_type="visual",
@@ -453,8 +472,71 @@ def _frame_meshes(
             raise ValueError(
                 f"No visual meshes found for scene object {scene_object.object_id!r}."
             )
-        meshes.extend(transformed_meshes(instances))
+        meshes.extend(_transformed_meshes(instances))
+    if support_plane is not None:
+        meshes.append(support_plane)
     return meshes
+
+
+def _stack_support_plane(
+    *,
+    motion: dict[str, object],
+    task_id: str,
+    included_object_ids: tuple[str, ...],
+) -> tuple[trimesh.Trimesh | None, dict[str, object] | None]:
+    """Create a compact tabletop under the RGB blocks without restoring the scene."""
+    if "stack_rgb_blocks" not in task_id:
+        return None, None
+
+    object_ids = tuple(
+        str(_unwrap_scalar(value))
+        for value in np.asarray(motion["scene_object_ids"], dtype=object)
+    )
+    object_indices = [
+        object_ids.index(object_id)
+        for object_id in included_object_ids
+        if object_id != "table"
+    ]
+    if not object_indices:
+        raise ValueError("Stack-block support plane requires at least one block.")
+
+    positions = np.asarray(motion["scene_object_pos"], dtype=np.float32)
+    if positions.ndim != 3 or positions.shape[1:] != (len(object_ids), 3):
+        raise ValueError(
+            "Expected scene_object_pos shape "
+            f"(T, {len(object_ids)}, 3), got {positions.shape}."
+        )
+    block_xy = positions[:, object_indices, :2].reshape(-1, 2)
+    bounds_min = np.min(block_xy, axis=0)
+    bounds_max = np.max(block_xy, axis=0)
+    margin_xy = np.array([0.08, 0.06], dtype=np.float32)
+    size_xy = bounds_max - bounds_min + 2.0 * margin_xy
+    center_xy = 0.5 * (bounds_min + bounds_max)
+
+    if "table" not in object_ids:
+        raise ValueError("Stack-block support plane requires the table scene object.")
+    table_index = object_ids.index("table")
+    table_center_heights = positions[:, table_index, 2]
+    if not np.allclose(table_center_heights, table_center_heights[0], atol=1.0e-5):
+        raise ValueError("Expected the stack-block table pose to remain static.")
+    table_height = float(table_center_heights[0] + 0.025)
+    thickness = 0.018
+    center = np.array(
+        [center_xy[0], center_xy[1], table_height - 0.5 * thickness],
+        dtype=np.float32,
+    )
+    support_plane = trimesh.creation.box(
+        extents=np.array([size_xy[0], size_xy[1], thickness], dtype=np.float32),
+        transform=trimesh.transformations.translation_matrix(center),
+    )
+    support_plane.visual.face_colors = SUPPORT_PLANE_COLOR_RGBA
+    metadata = {
+        "center": center.tolist(),
+        "size": [float(size_xy[0]), float(size_xy[1]), thickness],
+        "top_height": table_height,
+        "color_rgba": SUPPORT_PLANE_COLOR_RGBA.tolist(),
+    }
+    return support_plane, metadata
 
 
 def _frame_indices(episode: dict[str, np.ndarray], stride: int) -> np.ndarray:
@@ -532,7 +614,7 @@ def _tracked_camera_sequence(
     for center, (bounds_min, bounds_max) in zip(centers, mesh_bounds, strict=True):
         extent = np.maximum(bounds_max - bounds_min, 1.0e-4)
         radius = 0.5 * float(np.linalg.norm(extent))
-        camera_pose = look_at(
+        camera_pose = _look_at(
             center + max(2.8 * radius, 0.35) * direction,
             center,
             np.array([0.0, 0.0, 1.0], dtype=np.float32),
@@ -613,17 +695,33 @@ def _camera_scene_objects(
 
 
 def render_video(args: RenderVideoArgs) -> dict[str, Any]:
-    evaluation_metadata = _load_json_object(args.eval_dir / "metadata.json")
-    reference_path = _reference_motion_path(args.eval_dir)
-    metric_config = _metric_config(args.eval_dir)
-    episode = load_episode_from_eval(args.eval_dir, args.episode_index)
-    reference_motion = load_exported_npy_payload(reference_path)
-    rollout_motion = rollout_motion_from_reference(reference_motion, episode)
-    included_object_ids, excluded_object_ids = _semantic_object_ids(
+    if args.output_path.exists() or args.metadata_path.exists():
+        raise FileExistsError(f"Rendering requires new video/metadata paths: {args.output_path}, {args.metadata_path}.")
+    # Reference previews and saved policy states share geometry/FK rendering only.
+    if args.eval_dir is None:
+        if args.reference_path is None or args.episode_index != 0:
+            raise ValueError("Reference preview requires an explicit reference and episode-index 0.")
+        reference_path = args.reference_path
+        reference_motion = load_reference_motion(reference_path)
+        rollout_motion = reference_motion
+        episode = {"done": np.zeros(reference_motion["scene_object_pos"].shape[0], dtype=bool)}
+        metric_config = {}
+        evaluation_metadata = {}
+    else:
+        evaluation_metadata = _load_json_object(args.eval_dir / "metadata.json")
+        reference_path = args.reference_path if args.reference_path is not None else _reference_motion_path(args.eval_dir)
+        metric_config = _metric_config(args.eval_dir)
+        episode = _load_episode_from_eval(args.eval_dir, args.episode_index)
+        reference_motion = load_reference_motion(reference_path)
+        rollout_motion = _rollout_motion_from_reference(reference_motion, episode)
+    focus_object_ids, _ = _semantic_object_ids(
         reference_motion=reference_motion,
         metric_config=metric_config,
         task_id=args.task_id,
     )
+    # Static fixtures remain visible; camera focus is a separate presentation choice.
+    included_object_ids = tuple(str(_unwrap_scalar(value)) for value in reference_motion["scene_object_ids"])
+    excluded_object_ids = ()
     args.cache_dir.mkdir(parents=True, exist_ok=True)
     hand_models, robot_base_pose = _load_hand_models(
         motion=rollout_motion, cache_dir=args.cache_dir
@@ -633,9 +731,15 @@ def render_video(args: RenderVideoArgs) -> dict[str, Any]:
         included_object_ids=included_object_ids,
         cache_dir=args.cache_dir,
     )
+    support_plane, support_plane_metadata = _stack_support_plane(
+        motion=rollout_motion,
+        task_id=args.task_id,
+        included_object_ids=included_object_ids,
+    )
     frame_indices = _frame_indices(episode, args.frame_stride)
     camera_scene_objects = _camera_scene_objects(
-        scene_objects=scene_objects,
+        scene_objects=(scene_objects if args.camera_mode == "fixed" else tuple(
+            obj for obj in scene_objects if obj.object_id in focus_object_ids)),
         task_id=args.task_id,
         camera_mode=args.camera_mode,
     )
@@ -647,6 +751,7 @@ def render_video(args: RenderVideoArgs) -> dict[str, Any]:
             hand_models=hand_models,
             robot_base_pose=robot_base_pose,
             scene_objects=camera_scene_objects,
+            support_plane=support_plane,
         )
         frame_bounds.append(_mesh_bounds(meshes))
     camera = _camera_for_task(args.task_id)
@@ -686,8 +791,9 @@ def render_video(args: RenderVideoArgs) -> dict[str, Any]:
                 hand_models=hand_models,
                 robot_base_pose=robot_base_pose,
                 scene_objects=scene_objects,
+                support_plane=support_plane,
             )
-            image = render_panel(
+            image = _render_panel(
                 meshes,
                 camera_pose=camera_poses[output_index],
                 xmag=float(xmags[output_index]),
@@ -706,12 +812,13 @@ def render_video(args: RenderVideoArgs) -> dict[str, Any]:
         raise FileNotFoundError(f"Video encoder did not write {args.output_path}.")
 
     metadata = {
-        "renderer": "pyrender visual-URDF reconstruction from recorded policy state",
-        "eval_dir": str(args.eval_dir),
+        "renderer": "pyrender visual-URDF reconstruction",
+        "source_kind": "reference_preview" if args.eval_dir is None else "recorded_policy_rollout",
+        "eval_dir": str(args.eval_dir) if args.eval_dir is not None else None,
         "reference_motion": str(reference_path),
         "task_id": args.task_id,
         "episode_index": args.episode_index,
-        "episode_selection": "fixed episode index 0; no success cherry-picking",
+        "episode_selection": f"explicit episode index {args.episode_index}",
         "run_dir": evaluation_metadata.get("run_dir"),
         "checkpoint_label": evaluation_metadata.get("checkpoint_label"),
         "policy_checkpoint": evaluation_metadata.get("policy_checkpoint"),
@@ -722,7 +829,8 @@ def render_video(args: RenderVideoArgs) -> dict[str, Any]:
             scene_object.object_id: scene_object.color_rgba.tolist()
             for scene_object in scene_objects
         },
-        "background": "neutral white; no simulator scene, viewer, or table background",
+        "background": "neutral white; no simulator scene or viewer background",
+        "synthetic_support_plane": support_plane_metadata,
         "camera": asdict(camera),
         "camera_mode": args.camera_mode,
         "camera_tracking": (

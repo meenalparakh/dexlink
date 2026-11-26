@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="peg_key_marker">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.041000000000000085 0.0 0.1700000000000001" />
+      <mass value="0.001" />
+      <inertia ixx="1.7083333333329904e-07" iyy="1.7008333333329893e-07" izz="3.416666666660935e-09" ixy="0.0" ixz="1.5624522681557185e-20" iyz="0.0" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

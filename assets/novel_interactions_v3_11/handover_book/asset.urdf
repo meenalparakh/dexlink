@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="handover_book">
+  <link name="body">
+    <inertial>
+      <origin xyz="-1.777287980536622e-18 0.0008460037271735558 0.01428087413242271" />
+      <mass value="0.45" />
+      <inertia ixx="0.001369657829066347" iyy="0.0018644044247122587" izz="0.0031483312601580625" ixy="-1.0618732906369385e-19" ixz="5.728717612157136e-20" iyz="-2.9007194558177095e-06" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

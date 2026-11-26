@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="bead_0.0250">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 3.417550091291186e-05" />
+      <mass value="0.003" />
+      <inertia ixx="7.3153667154424e-07" iyy="7.315831193048927e-07" izz="7.339419711165314e-07" ixy="0.0" ixz="4.29837470669401e-25" iyz="5.321797255906871e-25" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

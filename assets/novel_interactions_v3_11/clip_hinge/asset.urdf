@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="clip_hinge">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 2.1760137331179693e-19 0.0" />
+      <mass value="0.015" />
+      <inertia ixx="3.0690339013071246e-06" iyy="1.0755678026142497e-06" izz="3.0690339013071246e-06" ixy="2.295014484147858e-23" ixz="-1.5140720555142117e-23" iyz="4.0800257495961918e-22" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

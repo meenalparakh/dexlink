@@ -11,6 +11,7 @@ from dexlink.src.retargeting.data.demo_loader import is_oakink_dataset
 from dexlink.utils.retargeting.path_utils import get_assets_dir
 from dexlink.src.rl.world.art_object import ArtObject, get_object_cfg
 from dexlink.src.rl.world.cardboard_object import CardboardObject
+from dexlink.src.rl.world.mechanism_object import MechanismObject
 from dexlink.src.rl.world.contact_info_sim import get_filtered_contacts
 from dexlink.src.rl.world.robot import Hand, get_hand_specific_cfg
 
@@ -103,7 +104,9 @@ class PhysicsSim:
             object_fixed=self.env.task_cfg.object_fixed,
         )
         object_type = (
-            CardboardObject
+            MechanismObject
+            if self.object_cfg["passive_mechanism"]
+            else CardboardObject
             if self.object_cfg["cardboard_model"] is not None
             else ArtObject
         )
@@ -230,7 +233,7 @@ class PhysicsSim:
         object_entity: ArtObject = self.env.physics_manager.scene_entities["object"]
         if not object_entity.actuated:
             return
-        if isinstance(object_entity, CardboardObject):
+        if isinstance(object_entity, (CardboardObject, MechanismObject)):
             object_entity.configure_joint_dynamics()
             return
 
@@ -1123,7 +1126,7 @@ class PhysicsSim:
         rigid_options = dict(
             constraint_solver=gs.constraint_solver.Newton,
             enable_collision=True,
-            enable_self_collision=False,
+            enable_self_collision=cfg.enable_self_collision,
             enable_joint_limit=cfg.enable_joint_limit,
             max_collision_pairs=cfg.max_collision_pairs,
             batch_links_info=cfg.batch_links_info,

@@ -500,7 +500,7 @@ def _job_pair_ids(job) -> set[str]:
 
 
 def _category_jobs(args: argparse.Namespace):
-    from dexlink.scripts.retargeting.run_experiment_category_retargetings import (
+    from dexlink.scripts.retargeting.category_mesh_inputs import (
         _iter_jobs,
         _validate_job_inputs,
     )

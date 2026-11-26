@@ -1,0 +1,50 @@
+[
+  {
+    "name": "small",
+    "passed": true,
+    "samples": 1016,
+    "pairs": []
+  },
+  {
+    "name": "wide",
+    "passed": true,
+    "samples": 1016,
+    "pairs": []
+  },
+  {
+    "name": "square",
+    "passed": true,
+    "samples": 1016,
+    "pairs": []
+  },
+  {
+    "name": "shallow",
+    "passed": true,
+    "samples": 1016,
+    "pairs": []
+  },
+  {
+    "name": "large",
+    "passed": true,
+    "samples": 1016,
+    "pairs": []
+  },
+  {
+    "name": "long",
+    "passed": true,
+    "samples": 1016,
+    "pairs": []
+  },
+  {
+    "name": "thick_board",
+    "passed": true,
+    "samples": 1016,
+    "pairs": []
+  },
+  {
+    "name": "thin_board",
+    "passed": true,
+    "samples": 1016,
+    "pairs": []
+  }
+]

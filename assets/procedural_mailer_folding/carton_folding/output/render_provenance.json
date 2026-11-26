@@ -1,0 +1,28 @@
+{
+  "fk_backend": "reference",
+  "urdfpy_executed": false,
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "rendering": "Software orthographic z-buffer, actual URDF geometry; no OpenGL",
+  "note": "Kinematic visualization, not contact-dynamics simulation. Full motion and section rendered separately in the sandbox.",
+  "fps": 12,
+  "generated": [
+    "assembled.png",
+    "flat_net.svg",
+    "folding.gif",
+    "folding.mp4",
+    "insertion_entry.png",
+    "insertion_seated.png",
+    "insertion_section.gif",
+    "overview.png",
+    "procedural_gallery.png",
+    "unfolded.png"
+  ],
+  "urdfpy_install_failure": "No installed package; package index unavailable and files.pythonhosted.org DNS failed.",
+  "numpy": "2.3.5",
+  "Pillow": "12.3.0",
+  "urdfpy": null,
+  "networkx": "3.6.1",
+  "trimesh": "4.11.1",
+  "imageio": "2.37.3",
+  "imageio-ffmpeg": "0.6.0"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "t041_a",
+  "group": "library40",
+  "description": "Turn the mug handle toward the user before placing it",
+  "name": "Mug: orient then place",
+  "object": "Mug 2",
+  "success_check": "Satisfy handle orientation before touchdown and release.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t041_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t041_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t041_a",
+    "timestep": 50000,
+    "seed": 42,
+    "policy_sha256": "9af08b2ab22544795ab9bcfeb36bece07a0d75b7fa6ace530dd88cda6f342ec3",
+    "files": {
+      "policy.pt": "9af08b2ab22544795ab9bcfeb36bece07a0d75b7fa6ace530dd88cda6f342ec3",
+      "policy_obs_processor.pt": "0b994682f1e6fc4c68b47243cc273659cf217f8452aa3595d97078f264ac6f4b",
+      "value.pt": "00975142c1064ec3451fd7f0534ab1324191580e4b7ab7aa14f3c31efe634445",
+      "value_obs_processor.pt": "27965420e083ca41189f895623ed5bb8de7af499ee576d360b2a67eed7b3e041",
+      "optimizer.pt": "7e6936c11c3d810485198f1ee49ada7e25eb6fa18256a90e2c3fcdedc3317edd"
+    }
+  },
+  "reference_sha256": "69748d2d96311eafc83af35caae159b6ae19d9aa0bd37b24c168bda39522c37f",
+  "source_reference_sha256": "723bf58e15079eaef09fffec6b735b85d39bff6524238be3a03547965c6a041b",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left"
+  ]
+}

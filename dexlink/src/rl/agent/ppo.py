@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 from collections import deque
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Callable
 
 import numpy as np
 import pandas as pd
@@ -1088,6 +1088,10 @@ class PPO:
                 torch.load(legacy_obs_proc_path, map_location=self.device)
             )
         else:
+            if self.policy_obs_processor.scene_cloud_contract is not None:
+                raise FileNotFoundError(
+                    f"scene_cloud_v1 requires trained policy observation processor state: {policy_obs_proc_path}"
+                )
             print(
                 "Warning: checkpoint is missing policy observation processor state. "
                 "Using a freshly initialized policy_obs_processor."
@@ -1271,7 +1275,12 @@ class PPO:
 
         return policy_obs, info
 
-    def train(self, eval_cfg: EvalConfig | None = None):
+    def train(
+        self,
+        eval_cfg: EvalConfig | None = None,
+        *,
+        stop_requested: Callable[[], bool] | None = None,
+    ) -> int:
         # trainer method
         # the logging convention here is
         # all logs are wrt the number of env steps taken so far (ignoring the parallel env count)
@@ -1340,6 +1349,7 @@ class PPO:
         )
         # become obsolete.
 
+        completed_timesteps = start_global_step * self.per_loop_env_count
         for global_step in train_loop:
 
             self.env.set_mode("train")
@@ -1705,11 +1715,14 @@ class PPO:
             if self.hand_obj_bps_decoder is not None:
                 optimize_log_payload["hand_obj_bps_aux_loss"] = mean_aux_loss
             optimize_log_payload.update(rollout_log_payload)
+            # Stop only after a complete PPO update and save its actual timestep.
+            completed_timesteps = (global_step + 1) * self.per_loop_env_count
+            stop_training = stop_requested is not None and stop_requested()
             self.logger.log(
                 optimize_log_payload,
                 timestep=(global_step + 1) * self.per_loop_env_count,
                 train_iters=global_step + 1,
-                force_model_save=(global_step == (self.num_train_iters - 1)),
+                force_model_save=stop_training or (global_step == (self.num_train_iters - 1)),
                 force_log=bool(
                     task_metric_summary
                     or episode_progress_summary
@@ -1729,6 +1742,9 @@ class PPO:
                     timestep=(global_step + 1) * self.per_loop_env_count,
                     train_iters=global_step + 1,
                 )
+
+            if stop_training:
+                break
 
             # periodic evaluation (metrics and video can have separate cadences)
             should_eval_metrics = (self.eval_metrics_freq > 0) and (
@@ -1754,6 +1770,8 @@ class PPO:
             self.value_net.eval()
             if self.hand_obj_bps_decoder is not None:
                 self.hand_obj_bps_decoder.eval()
+
+        return completed_timesteps
 
     def _eval_current_policy(
         self,

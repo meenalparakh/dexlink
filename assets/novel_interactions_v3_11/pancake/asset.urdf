@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="pancake">
+  <link name="body">
+    <inertial>
+      <origin xyz="-1.776337741320791e-19 0.0 0.0" />
+      <mass value="0.035" />
+      <inertia ixx="1.631665651236199e-05" iyy="1.631665651236199e-05" izz="3.074331302472397e-05" ixy="-2.9143041068544235e-23" ixz="5.828608213708847e-23" iyz="0.0" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

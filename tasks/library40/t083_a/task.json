@@ -1,0 +1,37 @@
+{
+  "id": "t083_a",
+  "group": "library40",
+  "description": "Present the remote after a quarter turn in the hand",
+  "name": "Remote: in hand reorientation",
+  "object": "Remote 2",
+  "success_check": "Hold the reoriented remote at the presentation target.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t083_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t083_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t083_a",
+    "timestep": 26000,
+    "seed": 42,
+    "policy_sha256": "4cb82654b5387b87bba98f05c3fad4ec9448a3519ce28da593d9c5cdf3bc1434",
+    "files": {
+      "policy.pt": "4cb82654b5387b87bba98f05c3fad4ec9448a3519ce28da593d9c5cdf3bc1434",
+      "policy_obs_processor.pt": "b8a8ab3c33086f99b8a2124be1b36155fd9858dc7863bf100ddcf1315bfcf39a",
+      "value.pt": "1528f5c4709bc655bc0994cfe196e07323cfb31bd8dabe2c61e040c4f586c2f1",
+      "value_obs_processor.pt": "b1a31506a855f637689091362c1d0efb98a6979be87ca6546a4fa72e614d64b0",
+      "optimizer.pt": "8fe2aa747a96051313bb32dfb64ad03989151960423c21af575312bfd43f3558"
+    }
+  },
+  "reference_sha256": "7469a5afdfec973882ce07bd4ef55e1a41e8d1f707198964521adf84c58fb47d",
+  "source_reference_sha256": "7190fc2b2ed9a6daf93136984eeb723d73ee311a414604b68b9b5a907d331a4e",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "t002_b",
+  "group": "library40",
+  "description": "Insert a long peg: complete the fit and return to the original state",
+  "name": "Long peg insertion (square peg): complete, then reverse back to the start",
+  "object": "Peg insertion 3",
+  "success_check": "Complete the forward task and its reversed regrasp/return sequence.",
+  "criterion": "physical_insertion_clearance",
+  "reference": "tasks/library40/t002_b/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t002_b/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t002_b",
+    "timestep": 30000,
+    "seed": 42,
+    "policy_sha256": "d3eb1abd73e8a875bd191a4800ae7163f5753b75eb5bff774ab945e97abcdb59",
+    "files": {
+      "policy.pt": "d3eb1abd73e8a875bd191a4800ae7163f5753b75eb5bff774ab945e97abcdb59",
+      "policy_obs_processor.pt": "3cb21c72330923e33c377f213bb597b85e139975ab0f5b51ffac854766cc2d42",
+      "value.pt": "9565cb4918f31e3aec19a8012b1674b326fe53a365036d6d81d538f75f16fa57",
+      "value_obs_processor.pt": "37ef1ddbe70d6646ae82f6d6c8ebd4d791a3bff2f42baa16bb8389b1f669e0c1",
+      "optimizer.pt": "4f4401f61cfca522e25803d796e7ca0bdd3d18f522a1ca24fc5d0dd41bed203d"
+    }
+  },
+  "reference_sha256": "55ec6db53b9ff504b871d54db87ff5bd509a849c116efd4e9eac7171ad4102fe",
+  "source_reference_sha256": "66a78dcfd5608d457937544cc24e5898dc3b1d5d8b45111b03a213ad9f1a3b9b",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

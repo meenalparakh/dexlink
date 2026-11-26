@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="puzzle_piece_asymmetric">
+  <link name="body">
+    <inertial>
+      <origin xyz="-0.0008564705882352906 -0.0051388235294117625 2.665882264483595e-19" />
+      <mass value="0.1" />
+      <inertia ixx="9.494894731257208e-05" iyy="8.930890855824682e-05" izz="0.00017384118920415223" ixy="-8.187225467128032e-06" ixz="-2.2832497512282928e-23" iyz="-1.369949850736981e-22" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

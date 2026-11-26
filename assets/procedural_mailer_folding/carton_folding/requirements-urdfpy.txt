@@ -1,0 +1,16 @@
+# Compatibility-oriented environment for Python 3.10 or 3.11.
+# Install this first, then: pip install --no-deps urdfpy==0.0.22
+# This environment could not be installed in the artifact build sandbox.
+# NetworkX intentionally overrides urdfpy's obsolete networkx==2.2 pin.
+numpy==1.23.5
+scipy==1.10.1
+networkx==2.8.8
+trimesh==3.23.5
+lxml>=4.9,<6
+Pillow>=9.5,<11
+six>=1.16
+pycollada==0.6
+pyrender==0.1.45
+pyglet==1.5.27
+imageio>=2.31,<3
+imageio-ffmpeg>=0.4.9,<1

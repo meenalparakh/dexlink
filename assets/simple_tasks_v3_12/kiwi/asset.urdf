@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="kiwi">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.00037094307786927856" />
+      <mass value="0.1" />
+      <inertia ixx="3.57607488896913e-05" iyy="4.5751720241081215e-05" izz="4.553975874503424e-05" ixy="0.0" ixz="1.979572010461457e-23" iyz="8.908074047076555e-23" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

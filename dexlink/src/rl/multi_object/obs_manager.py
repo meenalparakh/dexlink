@@ -8,6 +8,7 @@ from dexlink.utils.retargeting.math_utils import (
     rot6d_from_matrix,
 )
 from dexlink.utils.retargeting.mesh_utils import compute_kpts_traj
+from dexlink.utils.rl.scene_cloud import scene_cloud_contract
 from dexlink.src.rl.world.art_object import ArtObject
 from dexlink.src.rl.world.obs_manager import ObservationManager
 from dexlink.src.rl.world.robot import Hand
@@ -17,6 +18,7 @@ class MultiObjectObservationManager(ObservationManager):
     """Observation manager that packs every scene object into object terms."""
 
     def __init__(self, cfg, env):
+        self.scene_cloud_contract = scene_cloud_contract(cfg)
         super().__init__(cfg, env)
         self.object_ids = list(env.task_manager.scene_object_ids)
         self.object_entities: dict[str, ArtObject] = env.physics_manager.object_entities
@@ -37,7 +39,15 @@ class MultiObjectObservationManager(ObservationManager):
             object_id: self._privileged_pcd_n_pts_for_object(object_id)
             for object_id in self.object_ids
         }
-        self.object_pcd_policy_offsets = self._pcd_offsets(self.policy_object_pcd_n_pts)
+        # An unlabeled sampled scene has no per-object point slices.
+        self.object_pcd_policy_offsets = (
+            {}
+            if self.scene_cloud_contract is not None
+            else self._pcd_offsets(self.policy_object_pcd_n_pts)
+        )
+        self.total_policy_object_pcd_n_pts = self.policy_object_pcd_n_pts * (
+            1 if self.scene_cloud_contract is not None else len(self.object_ids)
+        )
         self.object_pcd_privileged_offsets = self._pcd_offsets(
             self.privileged_object_pcd_n_pts_by_id
         )
@@ -72,9 +82,7 @@ class MultiObjectObservationManager(ObservationManager):
             self._replace_registered_term(
                 "policy",
                 "object_pcd",
-                len(self.object_ids)
-                * self.policy_object_pcd_n_pts
-                * self.policy_object_pcd_dim,
+                self.total_policy_object_pcd_n_pts * self.policy_object_pcd_dim,
                 self._compute_policy_object_pcd_obs,
             )
         if self.privileged_object_pcd_obs:
@@ -217,7 +225,7 @@ class MultiObjectObservationManager(ObservationManager):
         policy_object_pcd = self.physics.get_object_pcd(normals=False)
         expected_shape = (
             self.env.num_envs,
-            len(self.object_ids) * self.policy_object_pcd_n_pts,
+            self.total_policy_object_pcd_n_pts,
             self.policy_object_pcd_dim,
         )
         if tuple(policy_object_pcd.shape) != expected_shape:
@@ -261,7 +269,9 @@ class MultiObjectObservationManager(ObservationManager):
             self._add_named_object_slices(named, named["object"])
         if "object_vel" in named:
             self._add_named_object_velocity_slices(named, named["object_vel"])
-        if "object_pcd" in named:
+        if "object_pcd" in named and (
+            view != "policy" or self.scene_cloud_contract is None
+        ):
             offsets = (
                 self.object_pcd_policy_offsets
                 if view == "policy"
@@ -552,12 +562,13 @@ class MultiObjectObservationManager(ObservationManager):
                 )
             rel_object_pcd = object_pcd - wrist_pos[:, None, :]
             processed["object_pcd"] = rel_object_pcd.reshape(self.env.num_envs, -1)
-            self._add_named_object_pcd_slices(
-                processed,
-                processed["object_pcd"],
-                expected_feat_dim=self.policy_object_pcd_dim,
-                offsets=self.object_pcd_policy_offsets,
-            )
+            if self.scene_cloud_contract is None:
+                self._add_named_object_pcd_slices(
+                    processed,
+                    processed["object_pcd"],
+                    expected_feat_dim=self.policy_object_pcd_dim,
+                    offsets=self.object_pcd_policy_offsets,
+                )
         if "hand_pcd" in processed:
             hand_pcd = self.get_hand_pcd_from_named_obs(
                 processed,

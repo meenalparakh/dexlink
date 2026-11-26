@@ -1,0 +1,5 @@
+interface:
+  display_name: "Install DexLink"
+  short_description: "Set up DexLink and its licensed data"
+  brand_color: "#3B82F6"
+  default_prompt: "Use $dexlink-install to set up this DexLink checkout and verify the required data."

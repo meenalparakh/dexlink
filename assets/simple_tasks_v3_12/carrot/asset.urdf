@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="carrot">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0002692328790986696" />
+      <mass value="0.1" />
+      <inertia ixx="1.9473218531871413e-05" iyy="0.00016940362475511054" izz="0.00016992659913216406" ixy="-1.9394917870397682e-21" ixz="-6.060911834499276e-23" iyz="2.6516489275934325e-23" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

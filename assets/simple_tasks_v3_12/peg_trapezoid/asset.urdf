@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="peg_trapezoid">
+  <link name="body">
+    <inertial>
+      <origin xyz="5.936508750626755e-19 -0.0005693792996406997 0.08410466878083894" />
+      <mass value="0.12" />
+      <inertia ixx="0.00021057698690341638" iyy="0.0002083420168667944" izz="8.594874233500304e-05" ixy="1.2580497868626896e-21" ixz="1.2323733226900722e-20" iyz="-3.5259156202349105e-06" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

@@ -1,0 +1,10 @@
+torch==2.6.0
+numpy==2.2.6
+scipy==1.15.3
+trimesh==4.11.5
+smplx==0.1.28
+drake==1.50.0
+urdfpy==0.0.22+dexlink.1
+
+pyrender==0.1.45+dexlink.1
+networkx==3.3

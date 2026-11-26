@@ -1,0 +1,4 @@
+interface:
+  display_name: "Submit DexLink cluster jobs"
+  short_description: "Submit DexLink cluster jobs with the public workflow"
+  default_prompt: "Use $dexlink-submit-cluster to help me with this DexLink workflow."

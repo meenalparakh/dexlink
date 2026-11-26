@@ -1,0 +1,42 @@
+{
+  "kitchen_cabinet_single_door": {
+    "kinematic_sweep_max_penetration_m": {
+      "door_hinge": 0.0
+    },
+    "genesis_sweep": {
+      "door_hinge": {
+        "upper_limit": 2.00713,
+        "max_reached": 2.007061719894409,
+        "final_after_return": 3.800901322392747e-05,
+        "min_reached": 3.800901322392747e-05
+      }
+    }
+  },
+  "kitchen_cabinet_double_door_drawer": {
+    "kinematic_sweep_max_penetration_m": {
+      "door_hinge": 0.0,
+      "door_2_hinge": 0.0,
+      "drawer_slide": 0.0
+    },
+    "genesis_sweep": {
+      "door_hinge": {
+        "upper_limit": 2.00713,
+        "max_reached": 2.007089138031006,
+        "final_after_return": 1.6701053027645685e-05,
+        "min_reached": 1.6701053027645685e-05
+      },
+      "door_2_hinge": {
+        "upper_limit": 2.00713,
+        "max_reached": 2.007089138031006,
+        "final_after_return": 1.670105484663509e-05,
+        "min_reached": 1.670105484663509e-05
+      },
+      "drawer_slide": {
+        "upper_limit": 0.26,
+        "max_reached": 0.2619466185569763,
+        "final_after_return": 0.0009670636500231922,
+        "min_reached": -0.0020387533586472273
+      }
+    }
+  }
+}

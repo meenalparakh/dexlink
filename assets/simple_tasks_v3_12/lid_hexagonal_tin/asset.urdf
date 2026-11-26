@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="lid_hexagonal_tin">
+  <link name="body">
+    <inertial>
+      <origin xyz="-5.0128622444164025e-18 7.058110040138293e-18 0.0035826995224637857" />
+      <mass value="0.06" />
+      <inertia ixx="7.715633406601146e-05" iyy="7.715633406601144e-05" izz="0.0001458144775823013" ixy="-1.6988339503214967e-20" ixz="-1.0956210542347416e-21" iyz="1.5412869869912173e-21" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

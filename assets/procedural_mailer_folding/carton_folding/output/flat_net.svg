@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330.75000000000006 329.8000000000054" width="330.75000000000006mm" height="329.8000000000054mm">
+  <title>Simulation carton: zero-pose geometry (not a manufacturing die line)</title>
+  <rect x="0" y="0" width="330.75000000000006" height="329.8000000000054" fill="white" />
+  <rect x="77.0" y="95.44999999999999" width="78.89999999999999" height="138.9" fill="#af8456" stroke="#493827" stroke-width="0.12">
+    <title>back_wall</title>
+  </rect>
+  <text x="116.44999999999999" y="164.89999999999998" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">back_wall</text>
+  <rect x="157.0" y="96.75" width="63.89999999999998" height="136.3" fill="#af8456" stroke="#493827" stroke-width="0.12">
+    <title>right_wall</title>
+  </rect>
+  <text x="188.95" y="164.9" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">right_wall</text>
+  <rect x="222.0" y="95.44999999999999" width="78.90000000000003" height="138.9" fill="#af8456" stroke="#493827" stroke-width="0.12">
+    <title>front_wall</title>
+  </rect>
+  <text x="261.45000000000005" y="164.89999999999998" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">front_wall</text>
+  <rect x="12.0" y="96.75" width="63.9" height="136.3" fill="#af8456" stroke="#493827" stroke-width="0.12">
+    <title>left_wall</title>
+  </rect>
+  <text x="43.95" y="164.9" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">left_wall</text>
+  <rect x="302.00000000000006" y="95.44999999999999" width="0.1999999999999602" height="138.9" fill="#c95923" stroke="#493827" stroke-width="0.12">
+    <title>seam_margin</title>
+  </rect>
+  <rect x="303.3" y="95.44999999999999" width="15.450000000000017" height="138.9" fill="#6d847a" stroke="#493827" stroke-width="0.12">
+    <title>glue_flap</title>
+  </rect>
+  <text x="311.02500000000003" y="164.89999999999998" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">glue_flap</text>
+  <rect x="229.45000000000005" y="92.85" width="5.0" height="1.5" fill="#c95923" stroke="#493827" stroke-width="0.12">
+    <title>top_socket_margin</title>
+  </rect>
+  <rect x="288.45000000000005" y="92.85" width="5.0" height="1.5" fill="#c95923" stroke="#493827" stroke-width="0.12">
+    <title>top_socket_margin</title>
+  </rect>
+  <rect x="229.45000000000005" y="73.29999999999998" width="64.0" height="18.450000000000017" fill="#387a82" stroke="#493827" stroke-width="0.12">
+    <title>top_socket_keeper</title>
+  </rect>
+  <text x="261.45000000000005" y="82.52499999999999" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">top_socket_keeper</text>
+  <rect x="143.4500000000001" y="235.4499999999934" width="5.000000000000313" height="1.5000000000010343" fill="#c95923" stroke="#493827" stroke-width="0.12">
+    <title>bottom_socket_margin</title>
+  </rect>
+  <rect x="84.45000000000012" y="235.4500000000056" width="5.000000000000309" height="1.5000000000010338" fill="#c95923" stroke="#493827" stroke-width="0.12">
+    <title>bottom_socket_margin</title>
+  </rect>
+  <rect x="84.45000000000064" y="238.0499999999934" width="64.00000000000382" height="18.450000000013237" fill="#387a82" stroke="#493827" stroke-width="0.12">
+    <title>bottom_socket_keeper</title>
+  </rect>
+  <text x="116.45000000000255" y="247.275" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">bottom_socket_keeper</text>
+  <rect x="77.0" y="92.85" width="78.89999999999999" height="1.5" fill="#c95923" stroke="#493827" stroke-width="0.12">
+    <title>top_lid_margin</title>
+  </rect>
+  <rect x="77.0" y="29.150000000000006" width="78.89999999999999" height="62.599999999999994" fill="#d6af7c" stroke="#493827" stroke-width="0.12">
+    <title>top_lid</title>
+  </rect>
+  <text x="116.44999999999999" y="60.45" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">top_lid</text>
+  <rect x="90.45" y="26.55000000000001" width="52.0" height="1.5" fill="#c95923" stroke="#493827" stroke-width="0.12">
+    <title>top_tuck_margin</title>
+  </rect>
+  <rect x="90.45" y="12.0" width="52.0" height="13.450000000000017" fill="#eab24f" stroke="#493827" stroke-width="0.12">
+    <title>top_tuck_tab</title>
+  </rect>
+  <text x="116.45" y="18.72500000000001" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">top_tuck_tab</text>
+  <rect x="222.00000000000017" y="235.44999999999186" width="78.90000000000029" height="1.5000000000163183" fill="#c95923" stroke="#493827" stroke-width="0.12">
+    <title>bottom_lid_margin</title>
+  </rect>
+  <rect x="222.00000000000068" y="238.04999999999185" width="78.90000000001294" height="62.600000000016315" fill="#d6af7c" stroke="#493827" stroke-width="0.12">
+    <title>bottom_lid</title>
+  </rect>
+  <text x="261.45000000000715" y="269.35" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">bottom_lid</text>
+  <rect x="235.45000000001386" y="301.74999999999466" width="52.00000000000034" height="1.5000000000107434" fill="#c95923" stroke="#493827" stroke-width="0.12">
+    <title>bottom_tuck_margin</title>
+  </rect>
+  <rect x="235.45000000001437" y="304.3499999999947" width="52.00000000000276" height="13.45000000001076" fill="#eab24f" stroke="#493827" stroke-width="0.12">
+    <title>bottom_tuck_tab</title>
+  </rect>
+  <text x="261.45000000001573" y="311.07500000000005" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">bottom_tuck_tab</text>
+  <rect x="161.05" y="58.200000000000045" width="55.8" height="37.44999999999999" fill="#bf9b6d" stroke="#493827" stroke-width="0.12">
+    <title>top_right_dust</title>
+  </rect>
+  <text x="188.95000000000002" y="76.92500000000004" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">top_right_dust</text>
+  <rect x="161.05000000000013" y="234.14999999999424" width="55.80000000000773" height="37.45000000001154" fill="#bf9b6d" stroke="#493827" stroke-width="0.12">
+    <title>bottom_right_dust</title>
+  </rect>
+  <text x="188.950000000004" y="252.875" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">bottom_right_dust</text>
+  <rect x="16.049999999999997" y="58.200000000000045" width="55.800000000000004" height="37.44999999999999" fill="#bf9b6d" stroke="#493827" stroke-width="0.12">
+    <title>top_left_dust</title>
+  </rect>
+  <text x="43.95" y="76.92500000000004" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">top_left_dust</text>
+  <rect x="16.050000000000118" y="234.14999999999424" width="55.80000000000775" height="37.45000000001154" fill="#bf9b6d" stroke="#493827" stroke-width="0.12">
+    <title>bottom_left_dust</title>
+  </rect>
+  <text x="43.950000000003996" y="252.875" fill="#222222" font-size="2.2" font-family="sans-serif" text-anchor="middle">bottom_left_dust</text>
+  <line x1="156.45" y1="232.9" x2="156.45" y2="236.9" stroke="#c12d20" stroke-width="0.35">
+    <title>fold_right_wall</title>
+  </line>
+  <line x1="221.45000000000005" y1="232.9" x2="221.45000000000005" y2="236.9" stroke="#c12d20" stroke-width="0.35">
+    <title>fold_front_wall</title>
+  </line>
+  <line x1="76.45" y1="236.9" x2="76.45" y2="232.9" stroke="#c12d20" stroke-width="0.35">
+    <title>fold_left_wall</title>
+  </line>
+  <line x1="301.45000000000005" y1="232.9" x2="301.45000000000005" y2="236.9" stroke="#c12d20" stroke-width="0.35">
+    <title>seam_margin_fold</title>
+  </line>
+  <line x1="302.75000000000006" y1="232.9" x2="302.75000000000006" y2="236.9" stroke="#c12d20" stroke-width="0.35">
+    <title>glue_flap_fold</title>
+  </line>
+  <line x1="259.45000000000005" y1="94.9" x2="263.45000000000005" y2="94.9" stroke="#c12d20" stroke-width="0.35">
+    <title>top_socket_base</title>
+  </line>
+  <line x1="259.45000000000005" y1="92.30000000000001" x2="263.45000000000005" y2="92.30000000000001" stroke="#c12d20" stroke-width="0.35">
+    <title>top_socket_return</title>
+  </line>
+  <line x1="118.45" y1="234.89999999999958" x2="114.45" y2="234.90000000000043" stroke="#c12d20" stroke-width="0.35">
+    <title>bottom_socket_base</title>
+  </line>
+  <line x1="118.45000000000053" y1="237.4999999999996" x2="114.45000000000053" y2="237.50000000000043" stroke="#c12d20" stroke-width="0.35">
+    <title>bottom_socket_return</title>
+  </line>
+  <line x1="114.45" y1="94.9" x2="118.45" y2="94.9" stroke="#c12d20" stroke-width="0.35">
+    <title>top_lid_margin_fold</title>
+  </line>
+  <line x1="114.45" y1="92.30000000000001" x2="118.45" y2="92.30000000000001" stroke="#c12d20" stroke-width="0.35">
+    <title>top_lid_fold</title>
+  </line>
+  <line x1="114.45" y1="28.599999999999994" x2="118.45" y2="28.599999999999994" stroke="#c12d20" stroke-width="0.35">
+    <title>top_tuck_margin_fold</title>
+  </line>
+  <line x1="114.45" y1="26.0" x2="118.45" y2="26.0" stroke="#c12d20" stroke-width="0.35">
+    <title>top_tuck_tab_fold</title>
+  </line>
+  <line x1="263.45000000000005" y1="234.89999999999958" x2="259.45000000000005" y2="234.90000000000043" stroke="#c12d20" stroke-width="0.35">
+    <title>bottom_lid_margin_fold</title>
+  </line>
+  <line x1="263.45000000000056" y1="237.4999999999996" x2="259.45000000000056" y2="237.50000000000043" stroke="#c12d20" stroke-width="0.35">
+    <title>bottom_lid_fold</title>
+  </line>
+  <line x1="263.45000000001374" y1="301.1999999999996" x2="259.45000000001374" y2="301.20000000000044" stroke="#c12d20" stroke-width="0.35">
+    <title>bottom_tuck_margin_fold</title>
+  </line>
+  <line x1="263.45000000001426" y1="303.7999999999996" x2="259.45000000001426" y2="303.8000000000004" stroke="#c12d20" stroke-width="0.35">
+    <title>bottom_tuck_tab_fold</title>
+  </line>
+  <line x1="186.95" y1="96.20000000000002" x2="190.95" y2="96.20000000000002" stroke="#c12d20" stroke-width="0.35">
+    <title>top_right_dust_fold</title>
+  </line>
+  <line x1="190.95" y1="233.5999999999996" x2="186.95" y2="233.60000000000042" stroke="#c12d20" stroke-width="0.35">
+    <title>bottom_right_dust_fold</title>
+  </line>
+  <line x1="41.95" y1="96.20000000000002" x2="45.95" y2="96.20000000000002" stroke="#c12d20" stroke-width="0.35">
+    <title>top_left_dust_fold</title>
+  </line>
+  <line x1="45.95" y1="233.5999999999996" x2="41.95" y2="233.60000000000042" stroke="#c12d20" stroke-width="0.35">
+    <title>bottom_left_dust_fold</title>
+  </line>
+</svg>

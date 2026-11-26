@@ -1,0 +1,17 @@
+{
+  "id": "lift_mug",
+  "group": "tutorials",
+  "name": "Lift mug",
+  "description": "Reach, grasp and lift the mug 20 cm.",
+  "reference": "tasks/tutorials/v2_03_lift_mug/reach_grasp_lift_oakink_sequence_refined.npy",
+  "reference_format": "oakink_sequence",
+  "reference_sha256": "6c9697f66473f876d80252ff5fb2f94473b300c80cf3c9007e094c99b975ff2e",
+  "source_reference_sha256": "901ff32a354c30d3e4153dd8adcbb857927664d5efc920e1447766ac0a1432f6",
+  "spec": "tasks/v2_03_beyond_grasp_div/v2_03_lift_mug.yaml",
+  "templates": {
+    "grasp": "tasks/tutorials/v2_03_lift_mug/templates/grasp/sequence_motion_lineseq.npz"
+  },
+  "reference_regeneration": "native_spec_and_cached_retargetings",
+  "training_overrides": [],
+  "checkpoint": null
+}

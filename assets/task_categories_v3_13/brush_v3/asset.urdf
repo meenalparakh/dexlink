@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="brush_v3">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.09107218962414679 0.0 -0.021537268688122856" />
+      <mass value="0.16" />
+      <inertia ixx="0.0003839511961580309" iyy="0.002311519772776036" izz="0.0023716614744791692" ixy="-1.8188834909180926e-21" ixz="0.0004685126532704997" iyz="-8.099715545494631e-22" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

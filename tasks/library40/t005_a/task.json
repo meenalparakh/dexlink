@@ -1,0 +1,36 @@
+{
+  "id": "t005_a",
+  "group": "library40",
+  "description": "Extract a deeply seated peg: complete the fit",
+  "name": "Peg extraction (round peg): complete in one motion",
+  "object": "Peg extraction 3",
+  "success_check": "Reach the original supported assembly/extraction goal.",
+  "criterion": "physical_insertion_clearance",
+  "reference": "tasks/library40/t005_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t005_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t005_a",
+    "timestep": 40000,
+    "seed": 42,
+    "policy_sha256": "3322e0e9c66315f3672e092e2396a4f6b2fcbc2f74064a244c511215f02db020",
+    "files": {
+      "policy.pt": "3322e0e9c66315f3672e092e2396a4f6b2fcbc2f74064a244c511215f02db020",
+      "policy_obs_processor.pt": "6bc626b3bdd3d3ba354cdbfadf1387766012f4943855301054caf867ada05c7c",
+      "value.pt": "036fedd88e39bc318346d2c67c0c9822ed4b23d4a6058c9f340c4f8c23fdd1a7",
+      "value_obs_processor.pt": "aa926ab01123925b2ce3a45782301d5c4214de351c488a8dc76d21b8e97244e2",
+      "optimizer.pt": "817de949b70969c3cc668c7d28d6d6e8b962bb8c8be41423a7abc6fc36841a19"
+    }
+  },
+  "reference_sha256": "ee991b10df638c5841d0be0a7f8e91a10657511df543fe765781098436858878",
+  "source_reference_sha256": "e83f01eecff1be55f2447d141ad9878a346fe01c4b8c4142916803d83a497714",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

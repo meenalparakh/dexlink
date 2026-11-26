@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="tong_jaw">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" />
+      <mass value="0.1" />
+      <inertia ixx="6.408333333333334e-06" iyy="0.00012520833333333335" izz="0.00012120000000000002" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

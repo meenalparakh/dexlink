@@ -1,0 +1,37 @@
+{
+  "id": "t065_a",
+  "group": "library40",
+  "description": "Press in one bowl and then a second bowl",
+  "name": "Masher in bowl: multi container tool use",
+  "object": "Masher 3",
+  "success_check": "Complete a press in each distinct bowl in order.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t065_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t065_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t065_a",
+    "timestep": 46000,
+    "seed": 42,
+    "policy_sha256": "57c82546b959b0f5a37224acfd54247a6a219105628852a7d2ec333e02480638",
+    "files": {
+      "policy.pt": "57c82546b959b0f5a37224acfd54247a6a219105628852a7d2ec333e02480638",
+      "policy_obs_processor.pt": "109bb526a2591f1976088840ce33bee66960d5cac2cf5113c63b2e9a98c46a61",
+      "value.pt": "e6c66244f093bf36aa8f9478a500bf020daf127f6c0bb72c1c2c6bc290b4df14",
+      "value_obs_processor.pt": "fdeb58a3e599f93565934a97e0bfe10aef8225b3e0520082abce5655667150ad",
+      "optimizer.pt": "9638b856c4896b0d1a953cdb5212d0115ebe467f037b62102ffc74a598e8171d"
+    }
+  },
+  "reference_sha256": "caa89a7acc0c7043fbfa529b0608f89c4e4d3b4dfac9cb483e3a736d5c7ff4c9",
+  "source_reference_sha256": "cc45a6990608fe648bfed1b31898d0cee7552c01327c77e8b28a89d7f02bbc95",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left"
+  ]
+}

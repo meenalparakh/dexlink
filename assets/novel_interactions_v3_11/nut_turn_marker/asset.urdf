@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="nut_turn_marker">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.047499999999999945 0.0 0.03999999999999996" />
+      <mass value="0.001" />
+      <inertia ixx="2.534166666666684e-07" iyy="2.5341666666667e-07" izz="2.6666666666687014e-09" ixy="0.0" ixz="-2.819933906430771e-21" iyz="0.0" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

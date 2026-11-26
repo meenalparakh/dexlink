@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="scoop_pickup_support">
+  <link name="body">
+    <inertial>
+      <origin xyz="-0.19718390713818446 0.02200000000000004 0.00925970082893493" />
+      <mass value="2" />
+      <inertia ixx="0.00180874530720988" iyy="0.036132832157636345" izz="0.036947193198584596" ixy="-4.763727276053498e-18" ixz="0.002067382142248108" iyz="3.9979955110402976e-19" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

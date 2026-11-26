@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="hook">
+  <link name="body">
+    <inertial>
+      <origin xyz="-0.022559801132766517 1.0288072383664361e-22 -9.265811784278134e-05" />
+      <mass value="0.12" />
+      <inertia ixx="9.96357172571286e-05" iyy="0.0004700030310288583" izz="0.00046960391943963974" ixy="-1.2687211563272402e-22" ixz="2.908901326623954e-06" iyz="-5.331934717581808e-22" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_04.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_04.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

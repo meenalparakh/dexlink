@@ -19,7 +19,7 @@ from dexlink.src.reference.arctic.config import (
     ArcticClipSpec,
     resolve_clips,
 )
-from dexlink.src.reference.v2_tasks.common import write_box_obj
+from dexlink.src.reference.arctic.geometry import write_box_obj
 
 RAW_SUFFIXES = ("mano.npy", "object.npy", "smplx.npy", "egocam.dist.npy")
 

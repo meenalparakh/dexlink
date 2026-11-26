@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<robot name="procedural_notebook_0">
+  <link name="root">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+  <joint name="base_fixed" type="fixed">
+    <parent link="root"/>
+    <child link="bottom"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="bottom">
+    <inertial>
+      <origin xyz="0.0 0.0 0.005650175910214716" rpy="0 0 0"/>
+      <mass value="0.5"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0.0 0.0 0.005650175910214716" rpy="0 0 0"/>
+      <geometry><box size="0.1711541438766307 0.17200086041781337 0.011300351820429431"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.005650175910214716" rpy="0 0 0"/>
+      <geometry><box size="0.1711541438766307 0.17200086041781337 0.011300351820429431"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="bottom_cover_fixed" type="fixed">
+    <parent link="bottom"/>
+    <child link="bottom_cover"/>
+    <origin xyz="-0.007502537510347476 0 -0.0009021429571014782" rpy="0 0 0"/>
+  </joint>
+
+  <link name="bottom_cover">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.2"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry><box size="0.18615921889732565 0.18753187781830985 0.0018042859142029565"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry><box size="0.18615921889732565 0.18753187781830985 0.0018042859142029565"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="rotation" type="revolute">
+    <parent link="bottom"/>
+    <child link="top"/>
+    <origin xyz="0.08557707193831535 0 0.011300351820429431" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="0.01" friction="0.01"/>
+    <limit effort="50.0" velocity="50.0" lower="0.087" upper="3.0"/>
+  </joint>
+
+  <link name="top">
+    <inertial>
+      <origin xyz="-0.08701678300329964 0.0 0.0036160536907441135" rpy="0 0 0"/>
+      <mass value="0.35"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="-0.08701678300329964 0.0 0.0036160536907441135" rpy="0 0 0"/>
+      <geometry><box size="0.17403356600659928 0.17200086041781337 0.007232107381488227"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.08701678300329964 0.0 0.0036160536907441135" rpy="0 0 0"/>
+      <geometry><box size="0.17403356600659928 0.17200086041781337 0.007232107381488227"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="top_cover_fixed" type="fixed">
+    <parent link="top"/>
+    <child link="top_cover"/>
+    <origin xyz="-0.094645539908918 0 0.00872047056593745" rpy="0 0 0"/>
+  </joint>
+
+  <link name="top_cover">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.2"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry><box size="0.189291079817836 0.18753187781830985 0.0029767263688984464"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry><box size="0.189291079817836 0.18753187781830985 0.0029767263688984464"/></geometry>
+    </collision>
+  </link>
+</robot>

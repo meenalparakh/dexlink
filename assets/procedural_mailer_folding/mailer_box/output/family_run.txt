@@ -1,0 +1,12 @@
+Accepted 1/12: examples/random_family/box_0000
+Accepted 2/12: examples/random_family/box_0001
+Accepted 3/12: examples/random_family/box_0002
+Accepted 4/12: examples/random_family/box_0003
+Accepted 5/12: examples/random_family/box_0004
+Accepted 6/12: examples/random_family/box_0005
+Accepted 7/12: examples/random_family/box_0006
+Accepted 8/12: examples/random_family/box_0007
+Accepted 9/12: examples/random_family/box_0008
+Accepted 10/12: examples/random_family/box_0009
+Accepted 11/12: examples/random_family/box_0010
+Accepted 12/12: examples/random_family/box_0011

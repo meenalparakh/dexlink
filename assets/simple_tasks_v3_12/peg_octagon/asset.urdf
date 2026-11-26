@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="peg_octagon">
+  <link name="body">
+    <inertial>
+      <origin xyz="5.102799032380418e-19 -8.504665053967365e-21 0.08572891247689154" />
+      <mass value="0.12" />
+      <inertia ixx="0.00020259529901868576" iyy="0.00020259529901868576" izz="8.514941306825588e-05" ixy="9.312608234094265e-22" ixz="1.218929562364666e-20" iyz="1.35880099244527e-20" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

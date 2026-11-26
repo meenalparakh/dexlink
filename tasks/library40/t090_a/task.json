@@ -1,0 +1,37 @@
+{
+  "id": "t090_a",
+  "group": "library40",
+  "description": "Perform a pour motion and return the carton upright",
+  "name": "Carton: pour pose and recover",
+  "object": "Carton 2",
+  "success_check": "Reach the tilt goal and finish upright.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t090_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t090_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t090_a",
+    "timestep": 50000,
+    "seed": 42,
+    "policy_sha256": "35471c03c5718b62e8aad39df01636bab248716b184536ab5f5968f70239c5e5",
+    "files": {
+      "policy.pt": "35471c03c5718b62e8aad39df01636bab248716b184536ab5f5968f70239c5e5",
+      "policy_obs_processor.pt": "2b4a676ea4ee3fa5d9b7dfc4a8ed2fb59921d450597160d8406b3364525aae08",
+      "value.pt": "f7f228d8a0acdb44a9aa76b91164de32a3767037a614d99b6825486bc2a6d66d",
+      "value_obs_processor.pt": "82eeabeb23d7d40d64904d62507e9939ac9be65b2c49f148a65b2644e9d7ad18",
+      "optimizer.pt": "13b882dec21019eda4298907a5a993ddb897628a93be979fd7394e7bdc42e979"
+    }
+  },
+  "reference_sha256": "a958f5d773c9a3be56cd976f82c3ec57ceb20e925c9ace506429f1eb1770a7f3",
+  "source_reference_sha256": "fcfbd2ddee1ed95735e67b41aae0e37e9ab85525f3f75e45431037e718b4be6a",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

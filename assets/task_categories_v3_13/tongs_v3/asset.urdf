@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="tongs_v3">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.007582148907899238 0.0 3.64077660769777e-19" />
+      <mass value="0.16" />
+      <inertia ixx="0.00012742255266061546" iyy="0.0005115669096763644" izz="0.0005115669096763644" ixy="-2.9126212861582165e-21" ixz="-2.0856864588952585e-20" iyz="-1.2970266664923307e-21" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

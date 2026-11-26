@@ -1,0 +1,1583 @@
+{
+  "schema": "dexlink_tasks_v1",
+  "tasks": [
+    {
+      "id": "t012_a",
+      "group": "library40",
+      "description": "Insert and twist a keyed part: pause at two engagement depths before completing the task",
+      "name": "Insert-and-twist lock (quarter-turn lock): hold at two engagement depths",
+      "object": "Key lock 1",
+      "success_check": "Hold the quarter and three-quarter engagement states in order, then finish.",
+      "criterion": "original_deployed_insertion_success",
+      "reference": "tasks/library40/t012_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t012_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t012_a",
+        "timestep": 30000,
+        "seed": 42,
+        "policy_sha256": "8f79916f9e5569b434efd79f0594773339e736929ee690b79fdc17e93e1c452f",
+        "files": {
+          "policy.pt": "8f79916f9e5569b434efd79f0594773339e736929ee690b79fdc17e93e1c452f",
+          "policy_obs_processor.pt": "c2badf57c46b8225b9d1fc94492a97725400ab6391b02839ebe529cdb4c36180",
+          "value.pt": "793bbc51969572d168a9a9e66c07c4abb5abdfc67e1b8c3b872289aa0fe639a5",
+          "value_obs_processor.pt": "b9a5a2b95e847a824aebfd92d3d4cd6a2d49ecf25a354c7e4d3caaf4c8c3d22b",
+          "optimizer.pt": "2be1588d2359a4e0868efa9cbdc5c8936094549b61cc39cd37ad39b7df4cb28e"
+        }
+      },
+      "reference_sha256": "e32c2019e0ad9065dc933c979358186d0e1b2e05184e29768720c7109a4c08a5",
+      "source_reference_sha256": "8622f52115be7ea859afdf7c072e34a74019470d8b6c91939efcebcd5f6ab11f",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t009_a",
+      "group": "library40",
+      "description": "Insert and twist a keyed part: complete the fit",
+      "name": "Insert-and-twist lock (quarter-turn lock): complete in one motion",
+      "object": "Key lock 2",
+      "success_check": "Reach the original supported assembly/extraction goal.",
+      "criterion": "physical_insertion_clearance",
+      "reference": "tasks/library40/t009_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t009_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t009_a",
+        "timestep": 12000,
+        "seed": 42,
+        "policy_sha256": "d891419383b38d6fd28b2122a373be397dcbeae0cd06c5118d5e91a033d514f4",
+        "files": {
+          "policy.pt": "d891419383b38d6fd28b2122a373be397dcbeae0cd06c5118d5e91a033d514f4",
+          "policy_obs_processor.pt": "e3e5cb629185bb13c108707984bfb46c292c719573e4d0eaa2ec4c375ffbdf65",
+          "value.pt": "5fdfd5165e657ece158e325afbbc6a092fb4f4a4003c01af13bf3ce51a752f11",
+          "value_obs_processor.pt": "77977e1670e2562aee657a8f0f48349cf28cad5cc803c5e1e1dc8f0f986aa5a9",
+          "optimizer.pt": "d45f7e0d007a44b201027d47239530dcef468178e98076331ef4fb0663937ac2"
+        }
+      },
+      "reference_sha256": "86eb416105db514333ac458195f87b49e35e163661455e84b906e658772fb372",
+      "source_reference_sha256": "abd14202ee106c56aefcf4d381fe1f9ab0861fce807001ccd945d4d2162d9852",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t001_a",
+      "group": "library40",
+      "description": "Insert a long peg: complete the fit",
+      "name": "Long peg insertion (round peg): complete in one motion",
+      "object": "Peg insertion 1",
+      "success_check": "Reach the original supported assembly/extraction goal.",
+      "criterion": "physical_insertion_clearance",
+      "reference": "tasks/library40/t001_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t001_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t001_a",
+        "timestep": 10000,
+        "seed": 42,
+        "policy_sha256": "9a19d8a4519c7e117278dbc6f1e8b6320e71d425c904385dc7c8d4f8d4c113c9",
+        "files": {
+          "policy.pt": "9a19d8a4519c7e117278dbc6f1e8b6320e71d425c904385dc7c8d4f8d4c113c9",
+          "policy_obs_processor.pt": "56ab0bf5e7cf80b0b6c16b11791907265209460fd216ea24bafe6ea081c177b9",
+          "value.pt": "4f2a09670344d7e3f41cdc9fabc576bc51d0a8c807b3ce3112017f47a9000fb1",
+          "value_obs_processor.pt": "e286c1542fa8d46c330ff01b552bf00f85119d8187dde0cc3b5347976fba626e",
+          "optimizer.pt": "ace684ef1e52c262abd12af4e379a450c9a9acd55d5f5ffeb4d2d01d55a8fac4"
+        }
+      },
+      "reference_sha256": "1dbd8cd2ea0742ce85f079a9762c3c0348e8ef6130b5bb9661545533d955a685",
+      "source_reference_sha256": "37266ddec749bd62cea9f1efb12d61e7c92ccf568ae5a84b7b622f0c17addd05",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t001_b",
+      "group": "library40",
+      "description": "Insert a long peg: complete the fit",
+      "name": "Long peg insertion (square peg): complete in one motion",
+      "object": "Peg insertion 2",
+      "success_check": "Reach the original supported assembly/extraction goal.",
+      "criterion": "physical_insertion_clearance",
+      "reference": "tasks/library40/t001_b/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t001_b/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t001_b",
+        "timestep": 6000,
+        "seed": 42,
+        "policy_sha256": "276f729b199b5b924c31a1e830c2220d6736062794d7caf465201045ed92051e",
+        "files": {
+          "policy.pt": "276f729b199b5b924c31a1e830c2220d6736062794d7caf465201045ed92051e",
+          "policy_obs_processor.pt": "ede9e7523d21e3b4e3d40b1446394d9458bb34469a7fabcf0515c036aae6dfb2",
+          "value.pt": "9c7200fc7abc1ee0adbaa069830310123133cb9f91f30b39866853f6368447ce",
+          "value_obs_processor.pt": "55ace41dab9c571e4f3e7dbaedb9ce7d84e2f309d031a3d06566088d15621283",
+          "optimizer.pt": "3f7b06eec4ecd3a9197ecf3f2d8513babda5c455deb4d3adf27acd051333a90d"
+        }
+      },
+      "reference_sha256": "e0c8c0ea9e658935cf6383938fc729ce299ae70d88879f8f47964ae9ec865dde",
+      "source_reference_sha256": "9f990c13f294825be02a49d4cf708a8810f8905d04a0f71ccda39c65b583c296",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t017_a",
+      "group": "library40",
+      "description": "Seat a broad part in a recess: complete the fit",
+      "name": "Fit a piece into its recess (rectangle): complete in one motion",
+      "object": "Recess fitting 1",
+      "success_check": "Reach the original supported assembly/extraction goal.",
+      "criterion": "original_deployed_insertion_success",
+      "reference": "tasks/library40/t017_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t017_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t017_a",
+        "timestep": 48000,
+        "seed": 42,
+        "policy_sha256": "287f3eaad7c75eae807d2b25b3d9ea3ec39b2a5e602bd8fc418cc12320aaf232",
+        "files": {
+          "policy.pt": "287f3eaad7c75eae807d2b25b3d9ea3ec39b2a5e602bd8fc418cc12320aaf232",
+          "policy_obs_processor.pt": "ce627e7dfdf105384d8bd2d662aa04df02fae64f9c738b262abe180a455929de",
+          "value.pt": "e9a081188aaabf653ecea7ebc2f0b3f6ac7606f3ef8e43e407bf02b4669c8075",
+          "value_obs_processor.pt": "d9c6f4191abb2f975311a27239d77e4328f2573687314cbc4b81ca969477da25",
+          "optimizer.pt": "006ff72474ea01b46c2f82d601c028c9f8af61abea686083292694b725e8f22f"
+        }
+      },
+      "reference_sha256": "925191dfb7c076d3e075fb1c89620257e64b3202dc85636fff88a0fa1ffd6f95",
+      "source_reference_sha256": "8c28fbca0edf426037ba3374a75e04a88c909e35239ee0527fd69a1a63e01666",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t002_b",
+      "group": "library40",
+      "description": "Insert a long peg: complete the fit and return to the original state",
+      "name": "Long peg insertion (square peg): complete, then reverse back to the start",
+      "object": "Peg insertion 3",
+      "success_check": "Complete the forward task and its reversed regrasp/return sequence.",
+      "criterion": "physical_insertion_clearance",
+      "reference": "tasks/library40/t002_b/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t002_b/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t002_b",
+        "timestep": 30000,
+        "seed": 42,
+        "policy_sha256": "d3eb1abd73e8a875bd191a4800ae7163f5753b75eb5bff774ab945e97abcdb59",
+        "files": {
+          "policy.pt": "d3eb1abd73e8a875bd191a4800ae7163f5753b75eb5bff774ab945e97abcdb59",
+          "policy_obs_processor.pt": "3cb21c72330923e33c377f213bb597b85e139975ab0f5b51ffac854766cc2d42",
+          "value.pt": "9565cb4918f31e3aec19a8012b1674b326fe53a365036d6d81d538f75f16fa57",
+          "value_obs_processor.pt": "37ef1ddbe70d6646ae82f6d6c8ebd4d791a3bff2f42baa16bb8389b1f669e0c1",
+          "optimizer.pt": "4f4401f61cfca522e25803d796e7ca0bdd3d18f522a1ca24fc5d0dd41bed203d"
+        }
+      },
+      "reference_sha256": "55ec6db53b9ff504b871d54db87ff5bd509a849c116efd4e9eac7171ad4102fe",
+      "source_reference_sha256": "66a78dcfd5608d457937544cc24e5898dc3b1d5d8b45111b03a213ad9f1a3b9b",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t002_a",
+      "group": "library40",
+      "description": "Insert a long peg: complete the fit and return to the original state",
+      "name": "Long peg insertion (round peg): complete, then reverse back to the start",
+      "object": "Peg insertion 4",
+      "success_check": "Complete the forward task and its reversed regrasp/return sequence.",
+      "criterion": "physical_insertion_clearance",
+      "reference": "tasks/library40/t002_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t002_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t002_a",
+        "timestep": 6000,
+        "seed": 42,
+        "policy_sha256": "a04a011cdd48199f3c502f55af179b5f222213db30500f5250a5c7d9cd68a240",
+        "files": {
+          "policy.pt": "a04a011cdd48199f3c502f55af179b5f222213db30500f5250a5c7d9cd68a240",
+          "policy_obs_processor.pt": "d3203b42029f7db2f19fc073421f82219a55edcf891e535939b1bb025adffba6",
+          "value.pt": "07f5f538ad70d64c8143669fa34ad76766d93b561af7ffdcdbac115be53ec981",
+          "value_obs_processor.pt": "2668fa5c400176d3dadeaeda25cf508d39e7b3f23d18bed8831afc4adaaf89d6",
+          "optimizer.pt": "473158b8fb80b2d50b76411c74041e9a50de11f462155aca99953fa5c01d4e43"
+        }
+      },
+      "reference_sha256": "dde57c623dfe3a1c0d16c0484965f77d7336c4bfe0a707df9339d5b061e02938",
+      "source_reference_sha256": "2cd3128584a03a4fdb5c12df6671ac93777728fe8cbf7df5172516b4e6f79d70",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t006_b",
+      "group": "library40",
+      "description": "Extract a deeply seated peg: complete the fit and return to the original state",
+      "name": "Peg extraction (square peg): complete, then reverse back to the start",
+      "object": "Peg extraction 1",
+      "success_check": "Complete the forward task and its reversed regrasp/return sequence.",
+      "criterion": "physical_insertion_clearance",
+      "reference": "tasks/library40/t006_b/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t006_b/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t006_b",
+        "timestep": 50000,
+        "seed": 42,
+        "policy_sha256": "bf4d6ff6f0727710f58706ec2a5689a12ad47485a81ad6958ae0fe7ba15fc457",
+        "files": {
+          "policy.pt": "bf4d6ff6f0727710f58706ec2a5689a12ad47485a81ad6958ae0fe7ba15fc457",
+          "policy_obs_processor.pt": "7c347f47bdc478d2f2c20e1b70d65ffd70c61be6516ed4b923cdb9f035480a29",
+          "value.pt": "25f985aee46b883ce37aae5b8f69814960f9bac0b5f3eab569eee3feaaef86cd",
+          "value_obs_processor.pt": "8006a79e9b9d666e26cec31f90a54fd0dcc2254ce273a3a0efe1d2e9650a8df2",
+          "optimizer.pt": "69b5d8edb49d0b4e4f089915588c4e1435f3add2a2ea28d8d857bdaaa612a4cd"
+        }
+      },
+      "reference_sha256": "b20cc521b1aa6ec18d310b03daab48a020bc8fb49dbed610bb7b0a0ad1a635a4",
+      "source_reference_sha256": "732b958bd4d7cfe74a751d38656857a3e7e1c1db40aa37935c71f9f9b0bd14d9",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t006_a",
+      "group": "library40",
+      "description": "Extract a deeply seated peg: complete the fit and return to the original state",
+      "name": "Peg extraction (round peg): complete, then reverse back to the start",
+      "object": "Peg extraction 2",
+      "success_check": "Complete the forward task and its reversed regrasp/return sequence.",
+      "criterion": "physical_insertion_clearance",
+      "reference": "tasks/library40/t006_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t006_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t006_a",
+        "timestep": 16000,
+        "seed": 42,
+        "policy_sha256": "eab73092fa9426ce7d83c577fa317b3302b3a670146a7e2155eea689ef71ad22",
+        "files": {
+          "policy.pt": "eab73092fa9426ce7d83c577fa317b3302b3a670146a7e2155eea689ef71ad22",
+          "policy_obs_processor.pt": "d82ba7d178d17bae26b70a18476d1875077d8288f80e91382c74ecd8d047b69d",
+          "value.pt": "d8ff3812eb11604426b8bd8d75bf386ba0bc99f64aa5b916a1ee550728d3954e",
+          "value_obs_processor.pt": "22ff4a2934e31ad347ce59d0cb600839ced1d4ae454fca1ef8d954275642ec90",
+          "optimizer.pt": "31b3015d55b52ed1d228f239048d7bc98c8b9af1449b0cb8463d3c6ab30d9e75"
+        }
+      },
+      "reference_sha256": "9d248d047aa5ddbf0f4b7a9a780cfc33fa04ddb996bd3fc87332e0d347bc3ccd",
+      "source_reference_sha256": "efdf92de3722c7940518c4b98d14b0ef232b3ecb08749d74b75b0e636910870b",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t004_a",
+      "group": "library40",
+      "description": "Insert a long peg: pause at two engagement depths before completing the task",
+      "name": "Long peg insertion (round peg): hold at two engagement depths",
+      "object": "Peg insertion 5",
+      "success_check": "Hold the quarter and three-quarter engagement states in order, then finish.",
+      "criterion": "physical_insertion_clearance",
+      "reference": "tasks/library40/t004_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t004_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t004_a",
+        "timestep": 46000,
+        "seed": 42,
+        "policy_sha256": "448838dff91b350e0035f6405d736592bade330f9968fc1f679356ef2208bd19",
+        "files": {
+          "policy.pt": "448838dff91b350e0035f6405d736592bade330f9968fc1f679356ef2208bd19",
+          "policy_obs_processor.pt": "9b7fc6d61b877a49a970b3dab79218ec0d433de9d76917abe24faac82f328c97",
+          "value.pt": "54356213a5cf99f51301a88aa1198f26407f5ce8c09002868cb7ebf30ad80076",
+          "value_obs_processor.pt": "80c5a46048bcd0085ec65b9d0aab10a153f43704c8a8ff41180a3a69051464d7",
+          "optimizer.pt": "d022c4580978c21b9b3ccbaf0f4f9efe3614fb0c441d089b1d734659be60e6f5"
+        }
+      },
+      "reference_sha256": "90de1a9ca09c21274cff7f52799f7535b90265f4afea416ad83e27ef7e82e98f",
+      "source_reference_sha256": "bed5df113397ea228a4d3c9a9b5f358e1ff8ab54ed3f8451be974c85a6a70b73",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t004_b",
+      "group": "library40",
+      "description": "Insert a long peg: pause at two engagement depths before completing the task",
+      "name": "Long peg insertion (square peg): hold at two engagement depths",
+      "object": "Peg insertion 6",
+      "success_check": "Hold the quarter and three-quarter engagement states in order, then finish.",
+      "criterion": "physical_insertion_clearance",
+      "reference": "tasks/library40/t004_b/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t004_b/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t004_b",
+        "timestep": 10000,
+        "seed": 42,
+        "policy_sha256": "ca9cb2a4678835eaf939c3e59c39dbf64ec0072d84bc4fbe94e74cd0411180b4",
+        "files": {
+          "policy.pt": "ca9cb2a4678835eaf939c3e59c39dbf64ec0072d84bc4fbe94e74cd0411180b4",
+          "policy_obs_processor.pt": "37236229be4bb0f293186dbf6b60c674add58869ce5e379ddf0b56fa72b3fbde",
+          "value.pt": "6e5e8488918ad5e73124f7871da07539a46d43f7f99a4fcf429f2733231b6cc3",
+          "value_obs_processor.pt": "7c2d2b3cb7f9f76bbac0d1a6b6fefba1f204005b8dfb5ca3da3ca4e8855cbcfa",
+          "optimizer.pt": "e9e5bbf5c6086c6457e88ef5dd4cd621739f769602b890f6965409c9abe793cd"
+        }
+      },
+      "reference_sha256": "ec230b30452343d35c2d678c62e5a5159be2e8c3112cd6b86ce0554032380b70",
+      "source_reference_sha256": "5228f9dc45094c20b8a7bfc06c3e23b22ddb4457c5a5b0f7b7ee48d4f1a09b35",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t005_a",
+      "group": "library40",
+      "description": "Extract a deeply seated peg: complete the fit",
+      "name": "Peg extraction (round peg): complete in one motion",
+      "object": "Peg extraction 3",
+      "success_check": "Reach the original supported assembly/extraction goal.",
+      "criterion": "physical_insertion_clearance",
+      "reference": "tasks/library40/t005_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t005_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t005_a",
+        "timestep": 40000,
+        "seed": 42,
+        "policy_sha256": "3322e0e9c66315f3672e092e2396a4f6b2fcbc2f74064a244c511215f02db020",
+        "files": {
+          "policy.pt": "3322e0e9c66315f3672e092e2396a4f6b2fcbc2f74064a244c511215f02db020",
+          "policy_obs_processor.pt": "6bc626b3bdd3d3ba354cdbfadf1387766012f4943855301054caf867ada05c7c",
+          "value.pt": "036fedd88e39bc318346d2c67c0c9822ed4b23d4a6058c9f340c4f8c23fdd1a7",
+          "value_obs_processor.pt": "aa926ab01123925b2ce3a45782301d5c4214de351c488a8dc76d21b8e97244e2",
+          "optimizer.pt": "817de949b70969c3cc668c7d28d6d6e8b962bb8c8be41423a7abc6fc36841a19"
+        }
+      },
+      "reference_sha256": "ee991b10df638c5841d0be0a7f8e91a10657511df543fe765781098436858878",
+      "source_reference_sha256": "e83f01eecff1be55f2447d141ad9878a346fe01c4b8c4142916803d83a497714",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t005_b",
+      "group": "library40",
+      "description": "Extract a deeply seated peg: complete the fit",
+      "name": "Peg extraction (square peg): complete in one motion",
+      "object": "Peg extraction 4",
+      "success_check": "Reach the original supported assembly/extraction goal.",
+      "criterion": "physical_insertion_clearance",
+      "reference": "tasks/library40/t005_b/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t005_b/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t005_b",
+        "timestep": 50000,
+        "seed": 42,
+        "policy_sha256": "6efc2d2db5a0c4c17656a006175fb21fb354c0cfec81151d8c450082e077f075",
+        "files": {
+          "policy.pt": "6efc2d2db5a0c4c17656a006175fb21fb354c0cfec81151d8c450082e077f075",
+          "policy_obs_processor.pt": "1b547b36c0ffcd185ad12876592a40af031a394958946bff3ba421e08c40d4cc",
+          "value.pt": "55511d6abdf09938badba1456ab7adb8a1cdecc7c51b9be450690c6c588bfdad",
+          "value_obs_processor.pt": "073a00c462c1046503fc03489bad05751f454590ab447457b7c4f6d64b0b450d",
+          "optimizer.pt": "431c780f43973d7d78fa653de7f9f450af1a06f4d26577544ccf63b424f2f46a"
+        }
+      },
+      "reference_sha256": "ab49ab00cde6f0d0960d3fc194ca5ed4ea516a501796bb8e351b01476ad694a7",
+      "source_reference_sha256": "59889342d2af200555fbe780c2f874f7a2cfe406ec929bf2f2c53b47592d1349",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t007_b",
+      "group": "library40",
+      "description": "Extract a deeply seated peg: pause halfway through engagement before completing the task",
+      "name": "Peg extraction (square peg): pause midway through engagement",
+      "object": "Peg extraction 5",
+      "success_check": "Hold the intermediate engagement pose for a declared dwell, then finish.",
+      "criterion": "physical_insertion_clearance",
+      "reference": "tasks/library40/t007_b/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t007_b/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t007_b",
+        "timestep": 50000,
+        "seed": 42,
+        "policy_sha256": "a716fac80f56e2d982e11e1202102993cca885aab173cca9cda03841c3d11bcb",
+        "files": {
+          "policy.pt": "a716fac80f56e2d982e11e1202102993cca885aab173cca9cda03841c3d11bcb",
+          "policy_obs_processor.pt": "568b26b86a8ddf28cc49b4d7d26efae79757629c41f76652316b41e52c92e9fa",
+          "value.pt": "c027a6a5359c75466e4b19399140ede344ebd86d689c8f667fb2561838c5f7b2",
+          "value_obs_processor.pt": "9fc98128662dd92401abe4f95978e823f60a1ff9c0b6ffb8830f407f7b689d0e",
+          "optimizer.pt": "956e6e193d4b0353b6f7a035f4bede05077c3358b17a94ebd01a358c183db293"
+        }
+      },
+      "reference_sha256": "c3af8ef40c58de78bb1fedee90cd65fd1a1698ede4c45d7428acbdaa45c81563",
+      "source_reference_sha256": "304828002722f406b848622e0feb57f40ae2a1fd58bd0df631d502c4516545e3",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t008_a",
+      "group": "library40",
+      "description": "Extract a deeply seated peg: pause at two engagement depths before completing the task",
+      "name": "Peg extraction (round peg): hold at two engagement depths",
+      "object": "Peg extraction 6",
+      "success_check": "Hold the quarter and three-quarter engagement states in order, then finish.",
+      "criterion": "physical_insertion_clearance",
+      "reference": "tasks/library40/t008_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t008_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t008_a",
+        "timestep": 16000,
+        "seed": 42,
+        "policy_sha256": "e5f06b35d9935fe826366d676bf523f6b234b7f52d7b0ace9f8cafc05e304c84",
+        "files": {
+          "policy.pt": "e5f06b35d9935fe826366d676bf523f6b234b7f52d7b0ace9f8cafc05e304c84",
+          "policy_obs_processor.pt": "5f21259ce70c05f001f8c579d25b363e2071d540db26f750d876ea75fff4b0ca",
+          "value.pt": "6298dd46815f23b008d672763cab3bc2ad67c355a8904e2701833f4fb347d48c",
+          "value_obs_processor.pt": "236397673d2a252bda83581bfd3cf7fa6ff48de12ad2353522b5de2accc8b2f6",
+          "optimizer.pt": "876c14972210649b2ab05dcba84a468e9149fe694f642b3945a3e076ec95880e"
+        }
+      },
+      "reference_sha256": "3bd15932a33387d248baefe59110fcdd4d7ac5a134114a35df2834f7b27cc5c1",
+      "source_reference_sha256": "a391aa7f86679d48378a3a5355637ea0e0961447b1f0ad857adb1e93de4c82f3",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t010_b",
+      "group": "library40",
+      "description": "Insert and twist a keyed part: complete the fit and return to the original state",
+      "name": "Insert-and-twist lock (two opposing keys): complete, then reverse back to the start",
+      "object": "Key lock 3",
+      "success_check": "Complete the forward task and its reversed regrasp/return sequence.",
+      "criterion": "original_deployed_insertion_success",
+      "reference": "tasks/library40/t010_b/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t010_b/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t010_b",
+        "timestep": 42000,
+        "seed": 42,
+        "policy_sha256": "6d0d39e02e17e7df204b2b96ee16775f72f8611c4a0b5131289ed9765ce9e9d8",
+        "files": {
+          "policy.pt": "6d0d39e02e17e7df204b2b96ee16775f72f8611c4a0b5131289ed9765ce9e9d8",
+          "policy_obs_processor.pt": "54cb9e737184696d0b42397e8b71fe9dd6f2480e782ed95b23f4deecf6b45b03",
+          "value.pt": "6700df6519099bb3957c096aa4a1c4b3dd03c0dbb82bccaa8b7ab507ec39d538",
+          "value_obs_processor.pt": "72c4270ed36de15e75e4ff939d0af7acc2fa79f542c914743fb520a49b8034ee",
+          "optimizer.pt": "68dab86acee67e55c705acc3fc6a472890b311c58ed26b4bfda851ba51dec9c2"
+        }
+      },
+      "reference_sha256": "6dbf95748643ccb2aee55bc762dbe7e367a714bed52704b26b3880f6dcd156ed",
+      "source_reference_sha256": "0253f4f555376753897835282a24392ae94087b9399498f02cc03d7cf5683cf8",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t011_a",
+      "group": "library40",
+      "description": "Insert and twist a keyed part: pause halfway through engagement before completing the task",
+      "name": "Insert-and-twist lock (quarter-turn lock): pause midway through engagement",
+      "object": "Key lock 4",
+      "success_check": "Hold the intermediate engagement pose for a declared dwell, then finish.",
+      "criterion": "original_deployed_insertion_success",
+      "reference": "tasks/library40/t011_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t011_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t011_a",
+        "timestep": 28000,
+        "seed": 42,
+        "policy_sha256": "d221e9dae7c0b21d1165eab414903d65c1878b74cc629d4a993e3b0242c9bc7e",
+        "files": {
+          "policy.pt": "d221e9dae7c0b21d1165eab414903d65c1878b74cc629d4a993e3b0242c9bc7e",
+          "policy_obs_processor.pt": "31e75b2db35d6de590b1b2ff22fcb745e027e6fa639052a2b62bb16a282ccf4c",
+          "value.pt": "5890142a3a63f22dcb2e8964a1af5cc06a60b4f99ab18f2072ca95b4c4655a9e",
+          "value_obs_processor.pt": "e9f5ab858dacacd9b1b0d28f0e27f879a13c547db0edf59a817fd1929b61a5ad",
+          "optimizer.pt": "d27be77a846efb7ffe9df0b377d3ec2d20c6583f51c0ddb6e69d912d64fdad02"
+        }
+      },
+      "reference_sha256": "fa74d6383aa93585eb05250c979b40829662bcd931298f27c6e288bedfea1927",
+      "source_reference_sha256": "dcdadc8d32626911f1c4245dfd312854ade97920385c178c6942e17b97215f41",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t011_b",
+      "group": "library40",
+      "description": "Insert and twist a keyed part: pause halfway through engagement before completing the task",
+      "name": "Insert-and-twist lock (two opposing keys): pause midway through engagement",
+      "object": "Key lock 5",
+      "success_check": "Hold the intermediate engagement pose for a declared dwell, then finish.",
+      "criterion": "original_deployed_insertion_success",
+      "reference": "tasks/library40/t011_b/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t011_b/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t011_b",
+        "timestep": 28000,
+        "seed": 42,
+        "policy_sha256": "7671f165f3d810b0c8a59c6a78c84cabdf4c1c62f38a31906bdbc433482e4ef5",
+        "files": {
+          "policy.pt": "7671f165f3d810b0c8a59c6a78c84cabdf4c1c62f38a31906bdbc433482e4ef5",
+          "policy_obs_processor.pt": "8a6a4c5f310c10f69e16c62bcc338374ad72fa72fed9f3d48eaf1885bcdee255",
+          "value.pt": "da58e6e6f964d2397c290c35a222db7879fa110d2533d9bd5c94000d3caffa4a",
+          "value_obs_processor.pt": "8603c4a1bb9f625c19e38ef6e9e1ed68041e8c08339ffd218fc7eb763845c907",
+          "optimizer.pt": "0d51f693cdc319fd225b02f03136d5287bc257b32e258eb0f3c73efca29f9bae"
+        }
+      },
+      "reference_sha256": "f5c28189026f4e49c1fcffbc8eac8eba8ed300692c9467fd411df6291e5d89ab",
+      "source_reference_sha256": "f5339fd2e6e0df6468df624b073d0309f75a2fc0f1622ae64b37e5bb81f89582",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t056_a",
+      "group": "library40",
+      "description": "Turn a held plate by a quarter turn with both hands",
+      "name": "Plate (bimanual): reorientation",
+      "object": "Plate 1",
+      "success_check": "Reach the quarter-turn orientation while retaining both rim grasps.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t056_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t056_a/goal.json",
+      "hands": "bimanual",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t056_a",
+        "timestep": 2000,
+        "seed": 42,
+        "policy_sha256": "1cd89e55e4db3b931ef040972c1abc59c9015c8dede8f7370a6d552e2fd95c82",
+        "files": {
+          "policy.pt": "1cd89e55e4db3b931ef040972c1abc59c9015c8dede8f7370a6d552e2fd95c82",
+          "policy_obs_processor.pt": "e6b357358ef123e5327dbfaddabbfe05e198822f9d7d6b16878cc72496b031a6",
+          "value.pt": "53366cefb91770b823ddd11ca9bdc9a4f67a4e2a793b3ec4ac67d33af1d6a2fa",
+          "value_obs_processor.pt": "3383161c5b781bcdbb488e1198a86cd28cb7157cf75c961fc0777acfb3f232cb",
+          "optimizer.pt": "ba1714174db79f88a2031b1ea70c33852e12ae0585aa569a00523a5343d652c2"
+        }
+      },
+      "reference_sha256": "fbbbe0eb0a9a356030b0fa7f003a6dfd213120984ec164875dbde7ef64d00596",
+      "source_reference_sha256": "7e7bb58db0f1095e230b6e12799a8f841edb214372a89a7c64092d286510dac6",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left",
+        "right"
+      ]
+    },
+    {
+      "id": "t057_a",
+      "group": "library40",
+      "description": "Present a tilted plate toward the viewer",
+      "name": "Plate (bimanual): presentation",
+      "object": "Plate 2",
+      "success_check": "Reach the requested presentation tilt and hold.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t057_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t057_a/goal.json",
+      "hands": "bimanual",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t057_a",
+        "timestep": 2000,
+        "seed": 42,
+        "policy_sha256": "fe22538db596cf9710b8f0d877b22d56ed5b0f57c9327b0efd6e9b322618999d",
+        "files": {
+          "policy.pt": "fe22538db596cf9710b8f0d877b22d56ed5b0f57c9327b0efd6e9b322618999d",
+          "policy_obs_processor.pt": "b62c2389262f79c218b6c363b57c89f254535448ba34a134e7a03523fb188eed",
+          "value.pt": "e968415d07f9df892042ec1689db1a84ac2bbe1e31e47b91a51e4b8036157e5a",
+          "value_obs_processor.pt": "d034fa85c6284d1f13b8d15ad85639eaa50ff00f23e13027638e4d39fb9347ae",
+          "optimizer.pt": "b32dd18943a0df7b21c9e730fcf02c3a4aaa6d3c75d869d98d3c74863fa40c42"
+        }
+      },
+      "reference_sha256": "04ee9b996e8c0ee572d91685f39911f5ff2bf4e112973d3c82813488203b1c0c",
+      "source_reference_sha256": "e6edee353ddca24be3afd04dc4ab00f5d6b7abf6c009c2171a790430c3963905",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left",
+        "right"
+      ]
+    },
+    {
+      "id": "t058_a",
+      "group": "library40",
+      "description": "Raise a plate and lower it onto a marked support while holding its rim",
+      "name": "Plate (bimanual): supported lowering",
+      "object": "Plate 3",
+      "success_check": "Reach the support while both hands continue stabilizing the plate.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t058_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t058_a/goal.json",
+      "hands": "bimanual",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t058_a",
+        "timestep": 2000,
+        "seed": 42,
+        "policy_sha256": "2b93fd64c960d4044956cc650d8f9cba1bd3ace3a5b8c4de9c5d7b2c4cf769ed",
+        "files": {
+          "policy.pt": "2b93fd64c960d4044956cc650d8f9cba1bd3ace3a5b8c4de9c5d7b2c4cf769ed",
+          "policy_obs_processor.pt": "c288b6ee0f76edc07b549ccba3dc1948870765abf3c0e3caf5ad1819426b56c5",
+          "value.pt": "50f48961953c9d3cb4b30fde515d8276b8e5eec84866de7233bfdc4becb7e6b0",
+          "value_obs_processor.pt": "ef7212fd641f367b051efc4098c3a0371fc0153f9e049602d43dad657c8f22f8",
+          "optimizer.pt": "76922913a769fd1b367d81cb45e28f3a2e7856d15f47d5f042c6cfa5e1fe3d54"
+        }
+      },
+      "reference_sha256": "8aea0e82f1b0c3a7dc977141653260bf14e6f449170f51accb9737893e3a2e18",
+      "source_reference_sha256": "3c53525986ad41cf1862b3080687bd801de5cdc60d695afbc55ebe8e2ed0ddc2",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left",
+        "right"
+      ]
+    },
+    {
+      "id": "t023_a",
+      "group": "library40",
+      "description": "Clean the same board strip with three return strokes",
+      "name": "Eraser on board: repeated surface contact",
+      "object": "Eraser 1",
+      "success_check": "Complete three back-and-forth strokes, then withdraw.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t023_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t023_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t023_a",
+        "timestep": 2000,
+        "seed": 42,
+        "policy_sha256": "8b6755fa1c04ff32c73c8662099f13fb55544afb000a0e2500757d1e0c39b1c4",
+        "files": {
+          "policy.pt": "8b6755fa1c04ff32c73c8662099f13fb55544afb000a0e2500757d1e0c39b1c4",
+          "policy_obs_processor.pt": "f1598ed69acbe0eeb4ce6ae3554e9a6becc443d15d76e2edd3facad8562ebb7a",
+          "value.pt": "5d20872eba85718133921b029b82e72eecb749bbf5014591d7631153e7cc6ff7",
+          "value_obs_processor.pt": "178665789935f70c03a05379deb2a28aad046cf45174f0ce31d58bbffe4a23d0",
+          "optimizer.pt": "8aba9f48c5a1aaaf65056db54302361b6b1e930da5a48bcda219fa1361a72993"
+        }
+      },
+      "reference_sha256": "94cbcc313922c6e1ad6f907d0ac4bdb66d22535ce3985f5c087ec94d2b38e8bb",
+      "source_reference_sha256": "075e44dcc40387964cf42797be91d74f818dac9a5851e96ae04470873392dc58",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left"
+      ]
+    },
+    {
+      "id": "t024_a",
+      "group": "library40",
+      "description": "Trace a closed rectangle on the board with the eraser",
+      "name": "Eraser on board: closed surface tracing",
+      "object": "Eraser 2",
+      "success_check": "Visit all four corners in order and close the rectangle.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t024_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t024_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t024_a",
+        "timestep": 38000,
+        "seed": 42,
+        "policy_sha256": "c1531eee00f697c000e92e4677a660ee5328e7deb5d8026b9618fd0d739600c8",
+        "files": {
+          "policy.pt": "c1531eee00f697c000e92e4677a660ee5328e7deb5d8026b9618fd0d739600c8",
+          "policy_obs_processor.pt": "bc3f78c964a06a023546dcf7aacd93c03214f1505b31ec2bfa5c25ba9cc57002",
+          "value.pt": "f1dd9e3d483959a76db2043c6ab20a38f4f3d44d3cd6fd0d4684ea8c36aa9f0c",
+          "value_obs_processor.pt": "2dd3361feda7d1d7282eddbbc8fb7e5a8ec1272a6e53d72cb3ef81fc18ca4423",
+          "optimizer.pt": "e37e53af3c77653f6ee3672bba7c160f54c7811eb6f639ea8692229bd2f130d5"
+        }
+      },
+      "reference_sha256": "2007b45ebb78d26e9bfa114c3840d87ff2db80949d54ebcf200da37a1daf43ba",
+      "source_reference_sha256": "a25696db50235a43957d73e2acca8ce4f4d81e0e0ae17ac1f809103a01d540d8",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left"
+      ]
+    },
+    {
+      "id": "t025_a",
+      "group": "library40",
+      "description": "Wipe a zigzag across a board patch",
+      "name": "Eraser on board: area coverage",
+      "object": "Eraser 3",
+      "success_check": "Cover alternating upper/lower endpoints across the patch.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t025_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t025_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t025_a",
+        "timestep": 50000,
+        "seed": 42,
+        "policy_sha256": "e0981208b3e0aedbc3118397fa2e22e2d87de24e520caff4d8701cf2cdacfb35",
+        "files": {
+          "policy.pt": "e0981208b3e0aedbc3118397fa2e22e2d87de24e520caff4d8701cf2cdacfb35",
+          "policy_obs_processor.pt": "c2cf106c59f595770ef3049cdb3e3c0345011c530763dc472b391e9d0d981c6d",
+          "value.pt": "8981625699316ba1410c15d9ae4233960b7a3465314c324bc4973824fcd7a5ad",
+          "value_obs_processor.pt": "8d8dd895c678d7c9e876b7b145ccb687b75ec7b4fb636cefcce05eb2f354a061",
+          "optimizer.pt": "132fe05b516d9de6136aa57865c3ee45f8cea9573a4da6d0981652d11699e1dd"
+        }
+      },
+      "reference_sha256": "14c3c605b0eb0c244e9ffbe81888b1ebb39b10cf9e070beadb23f638338ce381",
+      "source_reference_sha256": "c1c5ac3eb2c5aba3edb916738bfbb6366b31612171bb729ef8ceef29dc3d16ad",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left"
+      ]
+    },
+    {
+      "id": "t047_a",
+      "group": "library40",
+      "description": "Stir a figure-eight through two regions of the bowl",
+      "name": "Spoon in bowl: multi region stirring",
+      "object": "Spoon 1",
+      "success_check": "Visit both lobes of the figure-eight in sequence.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t047_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t047_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t047_a",
+        "timestep": 2000,
+        "seed": 42,
+        "policy_sha256": "361f1d7958cd50ffb5f138e8ad73e83cb5b5e3fa94db8a33f169e616e977fd68",
+        "files": {
+          "policy.pt": "361f1d7958cd50ffb5f138e8ad73e83cb5b5e3fa94db8a33f169e616e977fd68",
+          "policy_obs_processor.pt": "37d5fec4332dfc4ecd15ae5555db61c1a0c114538a1597b80c3bacf464ce9d5e",
+          "value.pt": "a5880177d5ab48781e69d510055300e8eb8e0893301d15fe53caad4154e2362d",
+          "value_obs_processor.pt": "1594b20583d5ab9b05d9438a7f633fab693839ab278a5d9e1af3f1d1cc2f2593",
+          "optimizer.pt": "0e67693fdc4a8ccbdcbde377a50f6dadff4e371bf2b0065429fcd04178bbd12c"
+        }
+      },
+      "reference_sha256": "5bac92c2a94f631e5e7b310d26c8ab7074570227a6b82e7156084ab6dc2abe53",
+      "source_reference_sha256": "d072c78051ff30f8fdc3ead3318ba7abdd8bcfdab9a2845fa642ee1060366c6e",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t048_a",
+      "group": "library40",
+      "description": "Sweep the spoon across the bowl floor and lift it clear",
+      "name": "Spoon in bowl: tool surface sweep",
+      "object": "Spoon 2",
+      "success_check": "Traverse the working floor patch and withdraw above the rim.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t048_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t048_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t048_a",
+        "timestep": 24000,
+        "seed": 42,
+        "policy_sha256": "95638a88a4d424e4451da71945cc71f9fb8496a3bdbf892f1cd48aa977269b52",
+        "files": {
+          "policy.pt": "95638a88a4d424e4451da71945cc71f9fb8496a3bdbf892f1cd48aa977269b52",
+          "policy_obs_processor.pt": "9a0f980a150e42d5df9b5cc0cc855a3aadcaa307b49d92d92831badc9affe312",
+          "value.pt": "8a0b4fe12835b2f38bbfe4ac3b26274a2859c984dfd8717ac860fb96fce78cdb",
+          "value_obs_processor.pt": "8e5296777ec71c0a29768fb69a9d5f2706b1537a6ab18dcf510b6d20bf99b173",
+          "optimizer.pt": "25f17eea9b9b1a060205d0cd8ac959670163ece0eb6628c407c372c5e6463d4f"
+        }
+      },
+      "reference_sha256": "e30c22c085c8c495664e4acc2b8571a39c30f36d8a111001624bc8a064f302ae",
+      "source_reference_sha256": "28c5f9dcff9cc1fc4d67d0797e690f3248f725fe3436e27dd5ab8d6136a90bda",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t062_a",
+      "group": "library40",
+      "description": "Press the left and right bowl regions in order",
+      "name": "Masher in bowl: ordered pressing",
+      "object": "Masher 1",
+      "success_check": "Reach the left press goal before the right, retracting between them.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t062_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t062_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t062_a",
+        "timestep": 50000,
+        "seed": 42,
+        "policy_sha256": "3d85e65e7591d24da43ca429fb86f3d2dd167649e77cac740900c51c5e3c9c3e",
+        "files": {
+          "policy.pt": "3d85e65e7591d24da43ca429fb86f3d2dd167649e77cac740900c51c5e3c9c3e",
+          "policy_obs_processor.pt": "db1ff4241804995e373cb553ceda966fcb1c313bd1b381a010b3426a3e24da67",
+          "value.pt": "e9d1d29bef9461956b933e80607a29a920e21297752e3460f8f0ddeea81eb942",
+          "value_obs_processor.pt": "38b32cb1f0f28c628f0b9fb97d46593a1ec104ca344a315a2b3b50376e39d10d",
+          "optimizer.pt": "9f721924ebcbdfbfd916a0ffebee7f0aed733a7c804be6885b48a574d66ec947"
+        }
+      },
+      "reference_sha256": "779d7f3a5b1477614183c691fa89cbfd294bdf65fa45bdd94e93d4364bc0d9bb",
+      "source_reference_sha256": "0b3c94c5aa698726bd9ac8d33789b181973868544cc2e743860f87ef3be48fc7",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left"
+      ]
+    },
+    {
+      "id": "t064_a",
+      "group": "library40",
+      "description": "Make two presses at increasing depths",
+      "name": "Masher in bowl: depth staged pressing",
+      "object": "Masher 2",
+      "success_check": "Reach the shallower depth before the deeper press and retract.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t064_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t064_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t064_a",
+        "timestep": 50000,
+        "seed": 42,
+        "policy_sha256": "29118cccc74c4a5a6e07d03e49ebbacf7fe95ff09077b6572e72ecc44e0b9825",
+        "files": {
+          "policy.pt": "29118cccc74c4a5a6e07d03e49ebbacf7fe95ff09077b6572e72ecc44e0b9825",
+          "policy_obs_processor.pt": "bca1e90800e707213bafb93d3fa2b2d1184060f7863211fa588a2a20bd2b1eb9",
+          "value.pt": "359bda7f7507f4999655d939e0df1128fcb09ab105e01dd2b38b1abf85d3a132",
+          "value_obs_processor.pt": "d192163cae6ab4dfb2f7d20aa06a328f22266cdad34e77e40fbf979ba6d42b57",
+          "optimizer.pt": "e5d20afd12c31265e214155636b4ef232bd8ed6bf3c80ee826b309c7c628109b"
+        }
+      },
+      "reference_sha256": "6f8bc7f3602a367837f56003defce9eb1306d14f8cab9a5126ad10e9bdbfa1d1",
+      "source_reference_sha256": "3aaa7e003f61712355e22747c072d28ed6996c0ca48e360f1fea8aee2b6a1701",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left"
+      ]
+    },
+    {
+      "id": "t065_a",
+      "group": "library40",
+      "description": "Press in one bowl and then a second bowl",
+      "name": "Masher in bowl: multi container tool use",
+      "object": "Masher 3",
+      "success_check": "Complete a press in each distinct bowl in order.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t065_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t065_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t065_a",
+        "timestep": 46000,
+        "seed": 42,
+        "policy_sha256": "57c82546b959b0f5a37224acfd54247a6a219105628852a7d2ec333e02480638",
+        "files": {
+          "policy.pt": "57c82546b959b0f5a37224acfd54247a6a219105628852a7d2ec333e02480638",
+          "policy_obs_processor.pt": "109bb526a2591f1976088840ce33bee66960d5cac2cf5113c63b2e9a98c46a61",
+          "value.pt": "e6c66244f093bf36aa8f9478a500bf020daf127f6c0bb72c1c2c6bc290b4df14",
+          "value_obs_processor.pt": "fdeb58a3e599f93565934a97e0bfe10aef8225b3e0520082abce5655667150ad",
+          "optimizer.pt": "9638b856c4896b0d1a953cdb5212d0115ebe467f037b62102ffc74a598e8171d"
+        }
+      },
+      "reference_sha256": "caa89a7acc0c7043fbfa529b0608f89c4e4d3b4dfac9cb483e3a736d5c7ff4c9",
+      "source_reference_sha256": "cc45a6990608fe648bfed1b31898d0cee7552c01327c77e8b28a89d7f02bbc95",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left"
+      ]
+    },
+    {
+      "id": "t066_a",
+      "group": "library40",
+      "description": "Turn the masher head before pressing the bowl center",
+      "name": "Masher in bowl: tool alignment then contact",
+      "object": "Masher 4",
+      "success_check": "Rotate to the required head orientation before the press.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t066_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t066_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t066_a",
+        "timestep": 34000,
+        "seed": 42,
+        "policy_sha256": "3ed55831a30da00d299150af3541bce2b0d980d6ce17ce0ea10ce1117d2420b0",
+        "files": {
+          "policy.pt": "3ed55831a30da00d299150af3541bce2b0d980d6ce17ce0ea10ce1117d2420b0",
+          "policy_obs_processor.pt": "da97207a6cd9b909645053c3766436292f7f06d78e4793a5a2ddc37cd0445916",
+          "value.pt": "2bcf1e377a95fd91cb9195a2f18f947a1c2f28719b6d404bf641bfcfd4e9929b",
+          "value_obs_processor.pt": "2fb3c4de796c7a756007f754629967f78d4f47c15416e2c7b8ea1900ea757b17",
+          "optimizer.pt": "bfcabd8447596617971af35e010dcf94c0823d3829f6099ccb70e2c813bacaa0"
+        }
+      },
+      "reference_sha256": "7ba3ff88bc39b7b5350dbd2b8a152f55ea7fa8996200d5d3f0410832af1112b8",
+      "source_reference_sha256": "9d11d2d8f804c4f033c4644b632ebd2d6c5142426da8b3e0d5b93c4b5ec13d8c",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left"
+      ]
+    },
+    {
+      "id": "t067_a",
+      "group": "library40",
+      "description": "Trace a short floor line with the masher and then retract",
+      "name": "Masher in bowl: press and trace",
+      "object": "Masher 5",
+      "success_check": "Maintain the working height along the line and retract.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t067_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t067_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t067_a",
+        "timestep": 10000,
+        "seed": 42,
+        "policy_sha256": "6a147da53fb693374227e24410de741a1c3fc12ad134499c87d20c18f422644c",
+        "files": {
+          "policy.pt": "6a147da53fb693374227e24410de741a1c3fc12ad134499c87d20c18f422644c",
+          "policy_obs_processor.pt": "8caa2f8f00c90765762a377a8c7f3a5a79d5f75929dc4aee03e926b0ea5f8378",
+          "value.pt": "d0d71cf4dc03b97c59bed05d54eddadc959f6af591af6a468c932d0ff669263f",
+          "value_obs_processor.pt": "9ae987aec0270d031b108d7434bf5c96de47723a6f1188a475af0da31231beb3",
+          "optimizer.pt": "999277662129a55fb08b4cac699a8ed138a4d4bb6ff37398796f1d5638940887"
+        }
+      },
+      "reference_sha256": "057e3fc6c99db4e6bcf2e9a570fe27426b7124dd3626f36b6da5a677b2acf758",
+      "source_reference_sha256": "50df2ad365f87bc1c6ae2ae829f7c04c3b26cdbe16021866204727d80944473d",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left"
+      ]
+    },
+    {
+      "id": "t069_a",
+      "group": "library40",
+      "description": "Lift the mouse for inspection and replace it",
+      "name": "Mouse: inspect then replace",
+      "object": "Mouse 1",
+      "success_check": "Retain the lift/reorientation peak before supported release.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t069_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t069_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t069_a",
+        "timestep": 4000,
+        "seed": 42,
+        "policy_sha256": "89b0fb441d736d781ef3c788ff599485f4d06ef6e6cbd8b2f10cce905d0ec9f5",
+        "files": {
+          "policy.pt": "89b0fb441d736d781ef3c788ff599485f4d06ef6e6cbd8b2f10cce905d0ec9f5",
+          "policy_obs_processor.pt": "48637a282fe4abb4be0f8dddf5ffe8aaf2be3b60929ec9a7c9caeda07202df2b",
+          "value.pt": "c9aa156f25531f3d76ea781eced199ab48804e9908af3caab7eba15d4b538470",
+          "value_obs_processor.pt": "acb19683a4c27b7f107a34447afbffa86c40021439bafeaa1bee8a9b6e05b987",
+          "optimizer.pt": "56c97f487996d365df8d13a424fa0d96915d0a6b3b6928f683fef58f4dd6cfe2"
+        }
+      },
+      "reference_sha256": "6605502600d02a51e3d93b0cff6ba0d488359783d03efa4f8d21f00b2f218441",
+      "source_reference_sha256": "7dd2572a9134df9e85a85496099a89c4f2c539431f0399febcfb38aa8f512e9e",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t038_a",
+      "group": "library40",
+      "description": "Place the mug inside a wide cup holder",
+      "name": "Mug: containment placement",
+      "object": "Mug 1",
+      "success_check": "Lower below the holder rim and release on its floor.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t038_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t038_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t038_a",
+        "timestep": 50000,
+        "seed": 42,
+        "policy_sha256": "a28e1ddec8800a9974b09b74d6c5e4e4685100c70b385ca5b7ef44754f2abb7c",
+        "files": {
+          "policy.pt": "a28e1ddec8800a9974b09b74d6c5e4e4685100c70b385ca5b7ef44754f2abb7c",
+          "policy_obs_processor.pt": "84e4f1bd0a0fe0c118a6ab8776a0efb578b39ca07336aecda18eb8f40a094ffd",
+          "value.pt": "d2c92d716114d6c102139854ce80b5a21fe9e022e4442ae84e2e76108cfc6b57",
+          "value_obs_processor.pt": "df60e4ed0c42090b76469b8ebcefe81b7c8fa69d6142aab67164c0bbb80e9efd",
+          "optimizer.pt": "60392c41449c2e273d002b29f011ddafc764d1cfe9ead6d92cd996c8fc2443f3"
+        }
+      },
+      "reference_sha256": "26d0f733ffcf495e0b17ff2ec55ffd414f58002a9104525c5501bc752fa07027",
+      "source_reference_sha256": "f201aabb4fcd0e29df1e5847617d22d7edeff399b14ef6ad30ad6023cff7a993",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left"
+      ]
+    },
+    {
+      "id": "t041_a",
+      "group": "library40",
+      "description": "Turn the mug handle toward the user before placing it",
+      "name": "Mug: orient then place",
+      "object": "Mug 2",
+      "success_check": "Satisfy handle orientation before touchdown and release.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t041_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t041_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t041_a",
+        "timestep": 50000,
+        "seed": 42,
+        "policy_sha256": "9af08b2ab22544795ab9bcfeb36bece07a0d75b7fa6ace530dd88cda6f342ec3",
+        "files": {
+          "policy.pt": "9af08b2ab22544795ab9bcfeb36bece07a0d75b7fa6ace530dd88cda6f342ec3",
+          "policy_obs_processor.pt": "0b994682f1e6fc4c68b47243cc273659cf217f8452aa3595d97078f264ac6f4b",
+          "value.pt": "00975142c1064ec3451fd7f0534ab1324191580e4b7ab7aa14f3c31efe634445",
+          "value_obs_processor.pt": "27965420e083ca41189f895623ed5bb8de7af499ee576d360b2a67eed7b3e041",
+          "optimizer.pt": "7e6936c11c3d810485198f1ee49ada7e25eb6fa18256a90e2c3fcdedc3317edd"
+        }
+      },
+      "reference_sha256": "69748d2d96311eafc83af35caae159b6ae19d9aa0bd37b24c168bda39522c37f",
+      "source_reference_sha256": "723bf58e15079eaef09fffec6b735b85d39bff6524238be3a03547965c6a041b",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left"
+      ]
+    },
+    {
+      "id": "t042_a",
+      "group": "library40",
+      "description": "Lift and present the mug with its opening visible",
+      "name": "Mug: object presentation",
+      "object": "Mug 3",
+      "success_check": "Hold the mug at the presentation target without releasing it.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t042_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t042_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t042_a",
+        "timestep": 50000,
+        "seed": 42,
+        "policy_sha256": "835719f9576129ccdc08c3da134b7fdd79c8340bf4b18db9c27e42ec875eb23d",
+        "files": {
+          "policy.pt": "835719f9576129ccdc08c3da134b7fdd79c8340bf4b18db9c27e42ec875eb23d",
+          "policy_obs_processor.pt": "3ad78728ef02e18bcc0b6f9667d5db8f90072dfe4f404c293ef7636c747384d2",
+          "value.pt": "c523fff0f80810d11c6d6a4777015c95974f70403e402cc84628216d2b820a6d",
+          "value_obs_processor.pt": "1ae3ef347853f20d49b10b7908d228552ab4753bd7ab240d270deb6fcccdb6c5",
+          "optimizer.pt": "08ab329d49c8c03860be2e1702b911cc9ffc5090c395b0e50ac9c826e519f8c6"
+        }
+      },
+      "reference_sha256": "2754de252501d79632f1fd2a18994bd030748e83b18ee29d2d6ae6631890a546",
+      "source_reference_sha256": "c4ba03ce621758db1eaec7ab09a49ab3e43a07ad6a3fb5b78db1a302a010c623",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left"
+      ]
+    },
+    {
+      "id": "t080_a",
+      "group": "library40",
+      "description": "Stand the remote upright inside a wide holder",
+      "name": "Remote: upright placement",
+      "object": "Remote 1",
+      "success_check": "Reach an upright pose within the holder and withdraw.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t080_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t080_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t080_a",
+        "timestep": 36000,
+        "seed": 42,
+        "policy_sha256": "d495b846b2732a7be8ded98b4a6c06c0cf600ac7b73917ed77ee5273ebe68cbc",
+        "files": {
+          "policy.pt": "d495b846b2732a7be8ded98b4a6c06c0cf600ac7b73917ed77ee5273ebe68cbc",
+          "policy_obs_processor.pt": "edc50d63e9a5a5e3cf6703502aff1d848d822bb372d7d36b7c76a452ce9b562d",
+          "value.pt": "fd1f2cd8e2781971672ad736c2e37adb5ecdcdcd269b9a7e06100fbbf49ff64e",
+          "value_obs_processor.pt": "b405184ba1a8591a376a2a56e34590cb8d409f16e3b98e6b08de6fbe75f79f4e",
+          "optimizer.pt": "9bfbc9e0098cc0ccf047f06d6c9bfcb7cd9f5d562e522956cd9a94c7b230a106"
+        }
+      },
+      "reference_sha256": "17dc33004f9b17c0786b6795f7f411dfd81b9a8871e7bee7a7f20ff1277655d7",
+      "source_reference_sha256": "fdb88b20d3a9dc26beed39eda93d81d6e6478cdfe2d93f92a9da9c9b9d110906",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t083_a",
+      "group": "library40",
+      "description": "Present the remote after a quarter turn in the hand",
+      "name": "Remote: in hand reorientation",
+      "object": "Remote 2",
+      "success_check": "Hold the reoriented remote at the presentation target.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t083_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t083_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t083_a",
+        "timestep": 26000,
+        "seed": 42,
+        "policy_sha256": "4cb82654b5387b87bba98f05c3fad4ec9448a3519ce28da593d9c5cdf3bc1434",
+        "files": {
+          "policy.pt": "4cb82654b5387b87bba98f05c3fad4ec9448a3519ce28da593d9c5cdf3bc1434",
+          "policy_obs_processor.pt": "b8a8ab3c33086f99b8a2124be1b36155fd9858dc7863bf100ddcf1315bfcf39a",
+          "value.pt": "1528f5c4709bc655bc0994cfe196e07323cfb31bd8dabe2c61e040c4f586c2f1",
+          "value_obs_processor.pt": "b1a31506a855f637689091362c1d0efb98a6979be87ca6546a4fa72e614d64b0",
+          "optimizer.pt": "8fe2aa747a96051313bb32dfb64ad03989151960423c21af575312bfd43f3558"
+        }
+      },
+      "reference_sha256": "7469a5afdfec973882ce07bd4ef55e1a41e8d1f707198964521adf84c58fb47d",
+      "source_reference_sha256": "7190fc2b2ed9a6daf93136984eeb723d73ee311a414604b68b9b5a907d331a4e",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t033_b",
+      "group": "library40",
+      "description": "Square the keyboard against two desk alignment markers",
+      "name": "Keyboard (bimanual): fixture alignment",
+      "object": "Keyboard 1",
+      "success_check": "Match both target edge directions and stop at the marked corner.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t033_b/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t033_b/goal.json",
+      "hands": "bimanual",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t033_b",
+        "timestep": 6000,
+        "seed": 42,
+        "policy_sha256": "af024af70c51478d4497ff8d7cd5c68e355817976527c8a396b7c4fc046a3ec6",
+        "files": {
+          "policy.pt": "af024af70c51478d4497ff8d7cd5c68e355817976527c8a396b7c4fc046a3ec6",
+          "policy_obs_processor.pt": "a6ce05892245bb1118455ef265e818fe510f77fdd9dae7fa40d1359dc651b893",
+          "value.pt": "6184304a212f6b70aedc02f5492fdea5e4af46bc8582addd96d1693fe4abb303",
+          "value_obs_processor.pt": "e763a7bd8f5540996e8aa1b9dc76f56956331aea2568c1e762a3e1f3bd7661ef",
+          "optimizer.pt": "9a4fc1e5d7c99b4febf0056fbb6027e536eb02511037b36ee3b00ddd92635a1b"
+        }
+      },
+      "reference_sha256": "560fbe6b3901f45408ca8ea00cfd883c09fcc6d497a36caf2a77c7fb7bdae684",
+      "source_reference_sha256": "ff4892c7fb0936255e2bd183fd946dd79f9483559d53e46b9a1979b7fea7f0d0",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "left",
+        "right"
+      ]
+    },
+    {
+      "id": "t088_a",
+      "group": "library40",
+      "description": "Make two pour motions toward two separate receivers",
+      "name": "Carton: multi receiver pour pose",
+      "object": "Carton 1",
+      "success_check": "Visit the first receiver, return upright, then visit the second.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t088_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t088_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t088_a",
+        "timestep": 10000,
+        "seed": 42,
+        "policy_sha256": "4eca0c28990510796361c9465e3c7273d7db9a419c611315965c7b684303d9e6",
+        "files": {
+          "policy.pt": "4eca0c28990510796361c9465e3c7273d7db9a419c611315965c7b684303d9e6",
+          "policy_obs_processor.pt": "15590402a7ee3674de776280edb65f90b65759449ae940de527c955199d91ba0",
+          "value.pt": "21f0425e504c00c99e21dfbaabfc71fd0fcec18dc0aab3eb102c5d0ca6d75223",
+          "value_obs_processor.pt": "2ac9eb55f59bc39ea2f10aafd38d7a6d4c66d98f36760249ffcdf0040b0645ee",
+          "optimizer.pt": "ce850eff70f34c9377d399b835001ebd7d6a039134e2fe82522378d59457f87b"
+        }
+      },
+      "reference_sha256": "07c985fda13597fbf909d7e962d12d8da8cc248a7e8c4607b24e591ed9bcc817",
+      "source_reference_sha256": "c2f570ce248a77dfe7aac1633a2cec386861c42785693a2484877339707f5909",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "t090_a",
+      "group": "library40",
+      "description": "Perform a pour motion and return the carton upright",
+      "name": "Carton: pour pose and recover",
+      "object": "Carton 2",
+      "success_check": "Reach the tilt goal and finish upright.",
+      "criterion": "per_episode_progress90_and_final_pose",
+      "reference": "tasks/library40/t090_a/reference_motion.npz",
+      "reference_format": "native_xhand",
+      "reference_regeneration": "exported_reference_only",
+      "goal": "tasks/library40/t090_a/goal.json",
+      "hands": "single",
+      "checkpoint": {
+        "run_directory": "checkpoints/library40/t090_a",
+        "timestep": 50000,
+        "seed": 42,
+        "policy_sha256": "35471c03c5718b62e8aad39df01636bab248716b184536ab5f5968f70239c5e5",
+        "files": {
+          "policy.pt": "35471c03c5718b62e8aad39df01636bab248716b184536ab5f5968f70239c5e5",
+          "policy_obs_processor.pt": "2b4a676ea4ee3fa5d9b7dfc4a8ed2fb59921d450597160d8406b3364525aae08",
+          "value.pt": "f7f228d8a0acdb44a9aa76b91164de32a3767037a614d99b6825486bc2a6d66d",
+          "value_obs_processor.pt": "82eeabeb23d7d40d64904d62507e9939ac9be65b2c49f148a65b2644e9d7ad18",
+          "optimizer.pt": "13b882dec21019eda4298907a5a993ddb897628a93be979fd7394e7bdc42e979"
+        }
+      },
+      "reference_sha256": "a958f5d773c9a3be56cd976f82c3ec57ceb20e925c9ace506429f1eb1770a7f3",
+      "source_reference_sha256": "fcfbd2ddee1ed95735e67b41aae0e37e9ab85525f3f75e45431037e718b4be6a",
+      "reference_changes": [
+        "scene_object_urdf_paths",
+        "traj_object_urdf_path",
+        "removed obsolete source_mano_reference provenance path"
+      ],
+      "active_sides": [
+        "right"
+      ]
+    },
+    {
+      "id": "lift_mug",
+      "group": "tutorials",
+      "name": "Lift mug",
+      "description": "Reach, grasp and lift the mug 20 cm.",
+      "reference": "tasks/tutorials/v2_03_lift_mug/reach_grasp_lift_oakink_sequence_refined.npy",
+      "reference_format": "oakink_sequence",
+      "reference_sha256": "6c9697f66473f876d80252ff5fb2f94473b300c80cf3c9007e094c99b975ff2e",
+      "source_reference_sha256": "901ff32a354c30d3e4153dd8adcbb857927664d5efc920e1447766ac0a1432f6",
+      "spec": "tasks/v2_03_beyond_grasp_div/v2_03_lift_mug.yaml",
+      "templates": {
+        "grasp": "tasks/tutorials/v2_03_lift_mug/templates/grasp/sequence_motion_lineseq.npz"
+      },
+      "reference_regeneration": "native_spec_and_cached_retargetings",
+      "training_overrides": [],
+      "checkpoint": null
+    },
+    {
+      "id": "open_notebook",
+      "group": "tutorials",
+      "name": "Open notebook",
+      "description": "Open the articulated notebook cover.",
+      "reference": "tasks/tutorials/v2_03_open_notebook/open_notebook_oakink_sequence_refined.npy",
+      "reference_format": "oakink_sequence",
+      "reference_sha256": "631b805321c4c8575c998b77c1974168d2fceb4bc14b74631dd52d58ae18e123",
+      "source_reference_sha256": "c28845128eb660437f045e92c7e6b545222fd213df390a0bd8d9b6e7a31292a8",
+      "spec": "tasks/v2_03_beyond_grasp_div/v2_03_open_notebook.yaml",
+      "templates": {
+        "notebook_t077": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t077/sequence_motion_lineseq.npz",
+        "notebook_t078": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t078/sequence_motion_lineseq.npz",
+        "notebook_t079": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t079/sequence_motion_lineseq.npz",
+        "notebook_t080": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t080/sequence_motion_lineseq.npz",
+        "notebook_t081": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t081/sequence_motion_lineseq.npz",
+        "notebook_t082": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t082/sequence_motion_lineseq.npz",
+        "notebook_t083": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t083/sequence_motion_lineseq.npz",
+        "notebook_t084": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t084/sequence_motion_lineseq.npz",
+        "notebook_t085": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t085/sequence_motion_lineseq.npz",
+        "notebook_t086": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t086/sequence_motion_lineseq.npz",
+        "notebook_t087": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t087/sequence_motion_lineseq.npz",
+        "notebook_t088": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t088/sequence_motion_lineseq.npz",
+        "notebook_t089": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t089/sequence_motion_lineseq.npz",
+        "notebook_t090": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t090/sequence_motion_lineseq.npz",
+        "notebook_t091": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t091/sequence_motion_lineseq.npz",
+        "notebook_t092": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t092/sequence_motion_lineseq.npz",
+        "notebook_t093": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t093/sequence_motion_lineseq.npz",
+        "notebook_t094": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t094/sequence_motion_lineseq.npz",
+        "notebook_t095": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t095/sequence_motion_lineseq.npz",
+        "notebook_t096": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t096/sequence_motion_lineseq.npz",
+        "notebook_t097": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t097/sequence_motion_lineseq.npz",
+        "notebook_t098": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t098/sequence_motion_lineseq.npz",
+        "notebook_t099": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t099/sequence_motion_lineseq.npz",
+        "notebook_t100": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t100/sequence_motion_lineseq.npz",
+        "notebook_t101": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t101/sequence_motion_lineseq.npz",
+        "notebook_t102": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t102/sequence_motion_lineseq.npz",
+        "notebook_t103": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t103/sequence_motion_lineseq.npz",
+        "notebook_t104": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t104/sequence_motion_lineseq.npz",
+        "notebook_t105": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t105/sequence_motion_lineseq.npz",
+        "notebook_t106": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t106/sequence_motion_lineseq.npz",
+        "notebook_t107": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t107/sequence_motion_lineseq.npz",
+        "notebook_t108": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t108/sequence_motion_lineseq.npz",
+        "notebook_t109": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t109/sequence_motion_lineseq.npz",
+        "notebook_t110": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t110/sequence_motion_lineseq.npz",
+        "notebook_t111": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t111/sequence_motion_lineseq.npz",
+        "notebook_t112": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t112/sequence_motion_lineseq.npz",
+        "notebook_t113": "tasks/tutorials/v2_03_open_notebook/templates/notebook_t113/sequence_motion_lineseq.npz"
+      },
+      "reference_regeneration": "native_spec_and_cached_retargetings",
+      "training_overrides": [],
+      "checkpoint": {
+        "run_directory": "checkpoints/tutorials/open_notebook",
+        "timestep": 29248,
+        "seed": 42,
+        "policy_sha256": "64615fb42ac8f5fec250af137f89c1916619900bcb01de6ea2a2f7f7be3912ca",
+        "files": {
+          "policy.pt": "64615fb42ac8f5fec250af137f89c1916619900bcb01de6ea2a2f7f7be3912ca",
+          "policy_obs_processor.pt": "218ea450febfa995e49eeb419c539b76c42cbcf6cb5150ba46bc0d8d854b847a",
+          "value.pt": "9c90b8132fd140fb3d50e5434f19996f19bf08c2a4baaa083209ad3c9f6a738f",
+          "value_obs_processor.pt": "51e6df321f0b592fadb2cbf88483394e6952d7a2cef575b49d53801a9793a17d"
+        }
+      }
+    },
+    {
+      "id": "invert_cup",
+      "group": "tutorials",
+      "name": "Invert cup",
+      "description": "Grasp and turn the cup over.",
+      "reference": "tasks/tutorials/v2_03_invert_cup/invert_cup_oakink_sequence_refined.npy",
+      "reference_format": "oakink_sequence",
+      "reference_sha256": "df28c674853e1d00d88edf8143f61c7c88b45f63f82d57ce33e584921a631600",
+      "source_reference_sha256": "453c4462b65fd35063ebe780e248235a5fc69f4d4c08deac277493325c76c6c9",
+      "spec": "tasks/v2_03_beyond_grasp_div/v2_03_invert_cup.yaml",
+      "templates": {
+        "cup_grasp": "tasks/tutorials/v2_03_invert_cup/templates/cup_grasp/sequence_motion_lineseq.npz",
+        "cup_top_grasp": "tasks/tutorials/v2_03_invert_cup/templates/cup_top_grasp/sequence_motion_lineseq.npz"
+      },
+      "reference_regeneration": "native_spec_and_cached_retargetings",
+      "training_overrides": [],
+      "checkpoint": {
+        "run_directory": "checkpoints/tutorials/invert_cup",
+        "timestep": 50000,
+        "seed": 42,
+        "policy_sha256": "3a6886b4aa8e8746fcf45ddc6f11211f9fee811871808043f545ac765a330609",
+        "files": {
+          "policy.pt": "3a6886b4aa8e8746fcf45ddc6f11211f9fee811871808043f545ac765a330609",
+          "policy_obs_processor.pt": "4ed57655fbbb1cadec886ec16578985e70a1f480bdf991b6e9e73948e4ef8db6",
+          "value.pt": "c7a2214a15a631c533a0ba2d879ac010e29e59b84512ff4aa31bf3abd88f155e",
+          "value_obs_processor.pt": "d53b0ed1110e50094f9c72658643e230f491537b199017e304b61d60a8a6b694",
+          "optimizer.pt": "ada79caf0d96bbd5dc632c5d3c685f780e532fc7f82bb3fda0f362dd6c7723f3"
+        }
+      },
+      "criterion": "object_pose_success"
+    }
+  ]
+}

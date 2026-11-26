@@ -1,0 +1,37 @@
+{
+  "id": "t067_a",
+  "group": "library40",
+  "description": "Trace a short floor line with the masher and then retract",
+  "name": "Masher in bowl: press and trace",
+  "object": "Masher 5",
+  "success_check": "Maintain the working height along the line and retract.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t067_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t067_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t067_a",
+    "timestep": 10000,
+    "seed": 42,
+    "policy_sha256": "6a147da53fb693374227e24410de741a1c3fc12ad134499c87d20c18f422644c",
+    "files": {
+      "policy.pt": "6a147da53fb693374227e24410de741a1c3fc12ad134499c87d20c18f422644c",
+      "policy_obs_processor.pt": "8caa2f8f00c90765762a377a8c7f3a5a79d5f75929dc4aee03e926b0ea5f8378",
+      "value.pt": "d0d71cf4dc03b97c59bed05d54eddadc959f6af591af6a468c932d0ff669263f",
+      "value_obs_processor.pt": "9ae987aec0270d031b108d7434bf5c96de47723a6f1188a475af0da31231beb3",
+      "optimizer.pt": "999277662129a55fb08b4cac699a8ed138a4d4bb6ff37398796f1d5638940887"
+    }
+  },
+  "reference_sha256": "057e3fc6c99db4e6bcf2e9a570fe27426b7124dd3626f36b6da5a677b2acf758",
+  "source_reference_sha256": "50df2ad365f87bc1c6ae2ae829f7c04c3b26cdbe16021866204727d80944473d",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left"
+  ]
+}

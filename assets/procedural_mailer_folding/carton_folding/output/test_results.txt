@@ -1,0 +1,13 @@
+test_default_motion (test_carton.CartonTests.test_default_motion) ... ok
+test_dimensions_change_nonuniformly (test_carton.CartonTests.test_dimensions_change_nonuniformly) ... ok
+test_flat_zero_pose (test_carton.CartonTests.test_flat_zero_pose) ... ok
+test_inserted_tabs_stay_centered (test_carton.CartonTests.test_inserted_tabs_stay_centered) ... ok
+test_invalid_parameters_are_rejected (test_carton.CartonTests.test_invalid_parameters_are_rejected) ... ok
+test_real_urdfpy_agrees_with_reference (test_carton.CartonTests.test_real_urdfpy_agrees_with_reference) ... skipped 'urdfpy is not installed'
+test_separating_axis_checker_detects_overlap (test_carton.CartonTests.test_separating_axis_checker_detects_overlap) ... ok
+test_uniform_scaling (test_carton.CartonTests.test_uniform_scaling) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 3.276s
+
+OK (skipped=1)

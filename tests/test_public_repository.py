@@ -19,6 +19,8 @@ def test_source_has_no_private_machine_or_cluster_paths() -> None:
     )
     inspected_suffixes = {".py", ".sh"}
     for path in REPOSITORY_ROOT.rglob("*"):
+        if path.relative_to(REPOSITORY_ROOT).parts[0] in {"outputs", "external_data", ".venv"}:
+            continue
         if not path.is_file() or path.suffix not in inspected_suffixes:
             continue
         text = path.read_text(encoding="utf-8")
@@ -70,7 +72,11 @@ def test_every_asset_group_has_explicit_provenance() -> None:
         for path in (assets_root / "robots").iterdir()
         if path.is_dir()
     )
-    assert declared_paths == actual_paths
+    downloaded_groups = {"library40", "tutorials", "multitask_cup"}
+    assert declared_paths == actual_paths - downloaded_groups
+    manifest = __import__("json").loads((REPOSITORY_ROOT / "resources/manifest.json").read_text())
+    assert all(any(name.startswith(f"assets/{group}/") for name in manifest["assets"]["files"])
+               for group in actual_paths & downloaded_groups)
 
     xhand = next(
         entry for entry in inventory["asset_groups"] if entry["path"] == "robots/xhand"

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from typing import Any
+from pathlib import Path
+from typing import Any, Callable
 
 import numpy as np
 import torch
@@ -11,7 +12,13 @@ from urdfpy import URDF
 from dexlink.utils.retargeting.error_functions import angle_error
 from dexlink.utils.retargeting.math_utils import matrix_from_quat
 from dexlink.utils.retargeting.path_utils import process_urdf
+from dexlink.utils.rl.dispenser_cycle_metrics import (
+    DispenserCycleConfig,
+    DispenserCycleTracker,
+)
+from dexlink.utils.rl.scissors_tracking_metrics import SCISSORS_METRIC_NAMES, ScissorsSample, ScissorsTracking
 from dexlink.src.rl.world.art_object import ArtObject
+from dexlink.src.rl.world.cardboard_object import CardboardObject
 from dexlink.src.rl.world.robot import Hand
 from dexlink.src.rl.world.task_manager import TaskManager
 
@@ -20,6 +27,7 @@ class MultiObjectTaskManager(TaskManager):
     """Task manager for exported sequence payloads with scene_object_* fields."""
 
     TASK_METRIC_NAMES = {
+        "scissors_tracking": SCISSORS_METRIC_NAMES,
         "open_notebook": (
             "notebook_final_angle_error_rad",
             "notebook_final_angle_within_15deg",
@@ -98,6 +106,11 @@ class MultiObjectTaskManager(TaskManager):
             "dispenser_min_head_joint_position_m",
             "dispenser_pressed_state_achieved",
         ),
+        "dispenser_press_return_twice": (
+            "dispenser_completed_press_return_cycles",
+            "dispenser_head_returned",
+            "dispenser_two_press_return_cycles_success",
+        ),
         "drawer_articulation": (
             "drawer_final_articulation_error_m",
             "drawer_articulation_success",
@@ -126,6 +139,7 @@ class MultiObjectTaskManager(TaskManager):
         ),
     }
     PRIMARY_TASK_METRIC_NAMES = {
+        "scissors_tracking": "scissors_in_air",
         "open_notebook": "notebook_final_angle_within_15deg",
         "block_stacking": "stack_success",
         "banana_handover": "banana_handover_success",
@@ -137,6 +151,7 @@ class MultiObjectTaskManager(TaskManager):
         "bottle_interaction": "object_lift_success",
         "cube_strategy": "cube_strategy_success",
         "dispenser_pressed": "dispenser_pressed_state_achieved",
+        "dispenser_press_return_twice": "dispenser_two_press_return_cycles_success",
         "drawer_articulation": "drawer_articulation_success",
         "eraser_tracking": "eraser_erase_phase_success",
         "precision_mounting": "mounting_success",
@@ -205,6 +220,27 @@ class MultiObjectTaskManager(TaskManager):
             )
 
         if metric_id is None:
+            return
+
+        if metric_id == "scissors_tracking":
+            self._validate_object_ids((cfg.scissors_object_id,))
+            index = self.scene_object_ids.index(cfg.scissors_object_id)
+            names = tuple(self.scene_object_arti_names[index])
+            valid = self.scene_object_arti_valid_mask[index]
+            if names != (cfg.scissors_joint_name,) or int(valid.sum()) != 1:
+                raise ValueError(f"Expected exactly the scissors hinge {cfg.scissors_joint_name}, received {names}")
+            if self.task_cfg.object_fixed or self.scene_object_static[index]:
+                raise ValueError("Scissors retention tracking requires an explicitly free-floating scene object")
+            self._scissors_index = index
+            self._scissors_tracking = ScissorsTracking(
+                Path(self.scene_object_urdf_paths[index]), self.env.num_envs,
+                self.env.device, cfg.scissors_airborne_clearance_m,
+            )
+            self._scissors_reference = {
+                "pos": torch.as_tensor(self.scene_object_pos[:, index], device=self.env.device),
+                "quat": torch.as_tensor(self.scene_object_quat[:, index], device=self.env.device),
+                "arti": torch.as_tensor(self.scene_object_arti_vals[:, index, valid], device=self.env.device),
+            }
             return
 
         if metric_id == "open_notebook":
@@ -432,6 +468,38 @@ class MultiObjectTaskManager(TaskManager):
             )
             self._cube_max_center_z = torch.zeros(
                 self.env.num_envs, dtype=torch.float32, device=self.env.device
+            )
+            return
+
+        if metric_id == "dispenser_press_return_twice":
+            self._validate_object_ids((cfg.dispenser_object_id,))
+            object_index = self.scene_object_ids.index(cfg.dispenser_object_id)
+            valid_arti = self.scene_object_arti_valid_mask[object_index]
+            joint_names = tuple(self.scene_object_arti_names[object_index])
+            if int(valid_arti.sum()) != 1 or joint_names != (cfg.dispenser_joint_name,):
+                raise ValueError(
+                    "Dispenser cycle criterion expects exactly the joint "
+                    f"{cfg.dispenser_joint_name!r}, got names={joint_names} and "
+                    f"valid mask={valid_arti}."
+                )
+            cycle_cfg = DispenserCycleConfig(
+                press_depth_m=cfg.dispenser_cycle_press_depth_m,
+                return_tolerance_m=cfg.dispenser_cycle_return_tolerance_m,
+                dwell_steps=cfg.dispenser_cycle_dwell_steps,
+            )
+            reference_positions = self.scene_object_arti_vals[:, object_index, valid_arti]
+            expected_shape = (self.total_steps, 1)
+            if (reference_positions.shape != expected_shape
+                    or not np.isfinite(reference_positions).all()):
+                raise ValueError(
+                    f"Expected finite dispenser reference articulation shape {expected_shape}, "
+                    f"got {reference_positions.shape}."
+                )
+            if (reference_positions.min() > -cycle_cfg.press_depth_m
+                    or not np.any(np.abs(reference_positions) <= cycle_cfg.return_tolerance_m)):
+                raise ValueError("Dispenser cycle reference must reach the press and zero-rest return thresholds.")
+            self._dispenser_cycle_tracker = DispenserCycleTracker(
+                self.env.num_envs, self.env.device, cycle_cfg,
             )
             return
 
@@ -685,6 +753,7 @@ class MultiObjectTaskManager(TaskManager):
         if metric_id is None:
             return {}
         metric_fns = {
+            "scissors_tracking": self._compute_scissors_tracking_metrics,
             "open_notebook": self._compute_open_notebook_metrics,
             "block_stacking": self._compute_block_stacking_metrics,
             "banana_handover": self._compute_banana_handover_metrics,
@@ -696,6 +765,7 @@ class MultiObjectTaskManager(TaskManager):
             "bottle_interaction": self._compute_bottle_interaction_metrics,
             "cube_strategy": self._compute_cube_strategy_metrics,
             "dispenser_pressed": self._compute_dispenser_pressed_metrics,
+            "dispenser_press_return_twice": self._compute_dispenser_cycle_metrics,
             "drawer_articulation": self._compute_drawer_articulation_metrics,
             "eraser_tracking": self._compute_eraser_tracking_metrics,
             "precision_mounting": self._compute_precision_mounting_metrics,
@@ -717,6 +787,8 @@ class MultiObjectTaskManager(TaskManager):
 
     def update_task_metric_accumulators(self) -> None:
         cfg = self.task_cfg.metric_cfg
+        if cfg.metric_id == "scissors_tracking":
+            self._scissors_tracking.update(self._scissors_tracking_sample())
         if cfg.metric_id in {
             "hammer_peg_impact",
             "hammer_single_swing",
@@ -791,6 +863,9 @@ class MultiObjectTaskManager(TaskManager):
                 current_position,
             )
 
+        if cfg.metric_id == "dispenser_press_return_twice":
+            self._dispenser_cycle_tracker.update(self._dispenser_head_joint_position())
+
         if cfg.metric_id == "eraser_tracking":
             self._accumulate_eraser_tracking_error()
 
@@ -823,6 +898,8 @@ class MultiObjectTaskManager(TaskManager):
 
     def reset_task_metric_accumulators(self, env_ids: np.ndarray) -> None:
         cfg = self.task_cfg.metric_cfg
+        if cfg.metric_id == "scissors_tracking":
+            self._scissors_tracking.reset(torch.as_tensor(env_ids, dtype=torch.long, device=self.env.device))
         if cfg.metric_id in {
             "hammer_peg_impact",
             "hammer_single_swing",
@@ -856,6 +933,10 @@ class MultiObjectTaskManager(TaskManager):
             self._dispenser_min_head_position_m[env_ids_tensor] = current_position[
                 env_ids_tensor
             ]
+        if cfg.metric_id == "dispenser_press_return_twice":
+            self._dispenser_cycle_tracker.reset(
+                torch.as_tensor(env_ids, dtype=torch.long, device=self.env.device)
+            )
         if cfg.metric_id == "eraser_tracking":
             env_ids_tensor = torch.as_tensor(
                 env_ids,
@@ -1017,6 +1098,16 @@ class MultiObjectTaskManager(TaskManager):
             "stack_min_center_height_margin_m": min_margin,
             "stack_success": success.to(torch.float32),
         }
+
+    def _scissors_tracking_sample(self) -> ScissorsSample:
+        cfg = self.task_cfg.metric_cfg
+        asset = self.env.physics_manager.object_entities[cfg.scissors_object_id]
+        reference = {name: values[self.env.command_time_step] for name, values in self._scissors_reference.items()}
+        return self._scissors_tracking.sample(asset.object, asset.get_ground_truth_info(), reference,
+                                              self.env.physics_manager.get_scene_table_top_height())
+
+    def _compute_scissors_tracking_metrics(self) -> dict[str, torch.Tensor]:
+        return self._scissors_tracking.metrics(self._scissors_tracking_sample())
 
     def _compute_banana_handover_metrics(self) -> dict[str, torch.Tensor]:
         cfg = self.task_cfg.metric_cfg
@@ -1421,6 +1512,9 @@ class MultiObjectTaskManager(TaskManager):
             ),
             "dispenser_pressed_state_achieved": achieved.to(torch.float32),
         }
+
+    def _compute_dispenser_cycle_metrics(self) -> dict[str, torch.Tensor]:
+        return self._dispenser_cycle_tracker.metrics()
 
     def _drawer_joint_position(self) -> torch.Tensor:
         cfg = self.task_cfg.metric_cfg
@@ -2062,7 +2156,12 @@ class MultiObjectTaskManager(TaskManager):
             device=self.env.device,
         )
 
-    def verify_target_object_motion(self, mode: str = "sim") -> None:
+    def verify_target_object_motion(
+        self,
+        mode: str = "sim",
+        *,
+        frame_callback: Callable[[int, np.ndarray], None] | None = None,
+    ) -> None:
         if mode == "real":
             return
         if not self.task_cfg.save_reference_video:
@@ -2101,12 +2200,43 @@ class MultiObjectTaskManager(TaskManager):
                         asset=asset,
                         frame_idx=frame_idx,
                     )
-                    asset.set_state(
-                        pos=pos,
-                        quat=quat,
-                        jpos=arti,
-                        env_idx=env_idx,
-                    )
+                    state_kwargs = {
+                        "pos": pos,
+                        "quat": quat,
+                        "jpos": arti,
+                        "env_idx": env_idx,
+                    }
+                    if isinstance(asset, CardboardObject):
+                        if object_index != self.canonical_object_index:
+                            raise ValueError(
+                                "Reference video only supports cardboard rest "
+                                "states for the canonical scene object."
+                            )
+                        rest_values = reset_mgr.frame_cardboard_rest_arti
+                        rest_names = reset_mgr.cardboard_rest_arti_names
+                        if rest_values is None:
+                            raise ValueError(
+                                "Cardboard reference video requires recorded "
+                                "cardboard_rest_arti_vals."
+                            )
+                        asset_joint_names = [joint.name for joint in asset.joints]
+                        missing_rest_joints = [
+                            name for name in asset_joint_names if name not in rest_names
+                        ]
+                        if missing_rest_joints:
+                            raise ValueError(
+                                "Cardboard reference video rest state is missing "
+                                f"joints {missing_rest_joints}."
+                            )
+                        rest_indices = [
+                            rest_names.index(name) for name in asset_joint_names
+                        ]
+                        state_kwargs["rest_jpos"] = (
+                            rest_values[frame_idx, rest_indices]
+                            .unsqueeze(0)
+                            .repeat(self.env.num_envs, 1)
+                        )
+                    asset.set_state(**state_kwargs)
 
                 for side in self.active_hand_sides:
                     robot: Hand = physics_manager.scene_entities[side]
@@ -2118,7 +2248,11 @@ class MultiObjectTaskManager(TaskManager):
                     robot.set_robot_state(jpos=hand_jpos, env_idx=env_idx)
 
                 physics_manager.step()
-                physics_manager.video_recording_hook(timestep=0)
+                image = physics_manager.video_recording_hook(timestep=0)
+                if frame_callback is not None:
+                    if image is None:
+                        raise ValueError("Reference frame callback requires an enabled recording camera.")
+                    frame_callback(frame_idx, image)
 
             fname = f"{physics_manager.logs_dir}/reference_motion.mp4"
             physics_manager.stop_recording(save_to_filename=fname, fps=30)

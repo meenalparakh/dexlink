@@ -1,0 +1,37 @@
+{
+  "id": "t038_a",
+  "group": "library40",
+  "description": "Place the mug inside a wide cup holder",
+  "name": "Mug: containment placement",
+  "object": "Mug 1",
+  "success_check": "Lower below the holder rim and release on its floor.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t038_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t038_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t038_a",
+    "timestep": 50000,
+    "seed": 42,
+    "policy_sha256": "a28e1ddec8800a9974b09b74d6c5e4e4685100c70b385ca5b7ef44754f2abb7c",
+    "files": {
+      "policy.pt": "a28e1ddec8800a9974b09b74d6c5e4e4685100c70b385ca5b7ef44754f2abb7c",
+      "policy_obs_processor.pt": "84e4f1bd0a0fe0c118a6ab8776a0efb578b39ca07336aecda18eb8f40a094ffd",
+      "value.pt": "d2c92d716114d6c102139854ce80b5a21fe9e022e4442ae84e2e76108cfc6b57",
+      "value_obs_processor.pt": "df60e4ed0c42090b76469b8ebcefe81b7c8fa69d6142aab67164c0bbb80e9efd",
+      "optimizer.pt": "60392c41449c2e273d002b29f011ddafc764d1cfe9ead6d92cd996c8fc2443f3"
+    }
+  },
+  "reference_sha256": "26d0f733ffcf495e0b17ff2ec55ffd414f58002a9104525c5501bc752fa07027",
+  "source_reference_sha256": "f201aabb4fcd0e29df1e5847617d22d7edeff399b14ef6ad30ad6023cff7a993",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left"
+  ]
+}

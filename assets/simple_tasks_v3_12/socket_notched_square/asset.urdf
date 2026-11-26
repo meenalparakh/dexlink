@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="socket_notched_square">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.00017364910027391298 0.00017364910027391445 0.025610830788587297" />
+      <mass value="0.6" />
+      <inertia ixx="0.002255957406390354" iyy="0.002255957406390354" izz="0.0042373378608230195" ixy="-2.0240210132056913e-06" ixz="-6.6568409103581e-07" iyz="-6.656840910357725e-07" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_04.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_05.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

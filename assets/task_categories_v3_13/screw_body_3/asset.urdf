@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="screw_body_3">
+  <link name="body">
+    <inertial>
+      <origin xyz="9.81578447933763e-19 -4.3933202779766655e-18 0.0940234291146616" />
+      <mass value="0.5" />
+      <inertia ixx="0.0019174706620743772" iyy="0.0019174706620743772" izz="0.0008426664071987413" ixy="-8.173626978165405e-21" ixz="8.852220030218447e-20" iyz="-2.0307821156167876e-19" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

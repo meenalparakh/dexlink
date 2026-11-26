@@ -1,0 +1,36 @@
+{
+  "id": "t008_a",
+  "group": "library40",
+  "description": "Extract a deeply seated peg: pause at two engagement depths before completing the task",
+  "name": "Peg extraction (round peg): hold at two engagement depths",
+  "object": "Peg extraction 6",
+  "success_check": "Hold the quarter and three-quarter engagement states in order, then finish.",
+  "criterion": "physical_insertion_clearance",
+  "reference": "tasks/library40/t008_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t008_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t008_a",
+    "timestep": 16000,
+    "seed": 42,
+    "policy_sha256": "e5f06b35d9935fe826366d676bf523f6b234b7f52d7b0ace9f8cafc05e304c84",
+    "files": {
+      "policy.pt": "e5f06b35d9935fe826366d676bf523f6b234b7f52d7b0ace9f8cafc05e304c84",
+      "policy_obs_processor.pt": "5f21259ce70c05f001f8c579d25b363e2071d540db26f750d876ea75fff4b0ca",
+      "value.pt": "6298dd46815f23b008d672763cab3bc2ad67c355a8904e2701833f4fb347d48c",
+      "value_obs_processor.pt": "236397673d2a252bda83581bfd3cf7fa6ff48de12ad2353522b5de2accc8b2f6",
+      "optimizer.pt": "876c14972210649b2ab05dcba84a468e9149fe694f642b3945a3e076ec95880e"
+    }
+  },
+  "reference_sha256": "3bd15932a33387d248baefe59110fcdd4d7ac5a134114a35df2834f7b27cc5c1",
+  "source_reference_sha256": "a391aa7f86679d48378a3a5355637ea0e0961447b1f0ad857adb1e93de4c82f3",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

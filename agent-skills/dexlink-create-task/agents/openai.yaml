@@ -1,0 +1,5 @@
+interface:
+  display_name: "Create a DexLink Task"
+  short_description: "Author and validate portable task YAML"
+  brand_color: "#3B82F6"
+  default_prompt: "Use $dexlink-create-task to add this task as a validated portable YAML specification."

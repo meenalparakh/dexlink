@@ -1,0 +1,36 @@
+{
+  "id": "t017_a",
+  "group": "library40",
+  "description": "Seat a broad part in a recess: complete the fit",
+  "name": "Fit a piece into its recess (rectangle): complete in one motion",
+  "object": "Recess fitting 1",
+  "success_check": "Reach the original supported assembly/extraction goal.",
+  "criterion": "original_deployed_insertion_success",
+  "reference": "tasks/library40/t017_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t017_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t017_a",
+    "timestep": 48000,
+    "seed": 42,
+    "policy_sha256": "287f3eaad7c75eae807d2b25b3d9ea3ec39b2a5e602bd8fc418cc12320aaf232",
+    "files": {
+      "policy.pt": "287f3eaad7c75eae807d2b25b3d9ea3ec39b2a5e602bd8fc418cc12320aaf232",
+      "policy_obs_processor.pt": "ce627e7dfdf105384d8bd2d662aa04df02fae64f9c738b262abe180a455929de",
+      "value.pt": "e9a081188aaabf653ecea7ebc2f0b3f6ac7606f3ef8e43e407bf02b4669c8075",
+      "value_obs_processor.pt": "d9c6f4191abb2f975311a27239d77e4328f2573687314cbc4b81ca969477da25",
+      "optimizer.pt": "006ff72474ea01b46c2f82d601c028c9f8af61abea686083292694b725e8f22f"
+    }
+  },
+  "reference_sha256": "925191dfb7c076d3e075fb1c89620257e64b3202dc85636fff88a0fa1ffd6f95",
+  "source_reference_sha256": "8c28fbca0edf426037ba3374a75e04a88c909e35239ee0527fd69a1a63e01666",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

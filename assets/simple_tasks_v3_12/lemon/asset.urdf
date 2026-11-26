@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="lemon">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0003769260307381379" />
+      <mass value="0.1" />
+      <inertia ixx="3.63456329685437e-05" iyy="5.423430815586952e-05" izz="5.3437462580970135e-05" ixy="0.0" ixz="8.594780437577752e-23" iyz="-6.875824350062202e-23" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

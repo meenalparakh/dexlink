@@ -1,0 +1,36 @@
+{
+  "id": "t009_a",
+  "group": "library40",
+  "description": "Insert and twist a keyed part: complete the fit",
+  "name": "Insert-and-twist lock (quarter-turn lock): complete in one motion",
+  "object": "Key lock 2",
+  "success_check": "Reach the original supported assembly/extraction goal.",
+  "criterion": "physical_insertion_clearance",
+  "reference": "tasks/library40/t009_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t009_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t009_a",
+    "timestep": 12000,
+    "seed": 42,
+    "policy_sha256": "d891419383b38d6fd28b2122a373be397dcbeae0cd06c5118d5e91a033d514f4",
+    "files": {
+      "policy.pt": "d891419383b38d6fd28b2122a373be397dcbeae0cd06c5118d5e91a033d514f4",
+      "policy_obs_processor.pt": "e3e5cb629185bb13c108707984bfb46c292c719573e4d0eaa2ec4c375ffbdf65",
+      "value.pt": "5fdfd5165e657ece158e325afbbc6a092fb4f4a4003c01af13bf3ce51a752f11",
+      "value_obs_processor.pt": "77977e1670e2562aee657a8f0f48349cf28cad5cc803c5e1e1dc8f0f986aa5a9",
+      "optimizer.pt": "d45f7e0d007a44b201027d47239530dcef468178e98076331ef4fb0663937ac2"
+    }
+  },
+  "reference_sha256": "86eb416105db514333ac458195f87b49e35e163661455e84b906e658772fb372",
+  "source_reference_sha256": "abd14202ee106c56aefcf4d381fe1f9ab0861fce807001ccd945d4d2162d9852",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

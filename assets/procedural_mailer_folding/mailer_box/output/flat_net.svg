@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-217.300000000191 -239.25000000001444 434.600000000382 482.5500000000144">
+<title>Hinged mailer: simulation geometry projection, not a manufacturing die line</title>
+<rect x="-217.300000000191" y="-239.25000000001444" width="434.600000000382" height="482.5500000000144" fill="#f6f7f7"/>
+<rect x="-99.025" y="0.9750000000000036" width="8.625" height="148.04999999999998" fill="#b58249" stroke="none" stroke-width="0.15"><title>base</title></rect>
+<rect x="-88.0" y="0.9750000000000036" width="176.0" height="148.04999999999998" fill="#b58249" stroke="none" stroke-width="0.15"><title>base</title></rect>
+<rect x="90.4" y="0.9750000000000036" width="8.625" height="148.04999999999998" fill="#b58249" stroke="none" stroke-width="0.15"><title>base</title></rect>
+<rect x="88.0" y="0.9750000000000002" width="2.4000000000000057" height="33.525" fill="#b58249" stroke="none" stroke-width="0.15"><title>base</title></rect>
+<rect x="88.0" y="55.49999999999999" width="2.4000000000000057" height="39.00000000000001" fill="#b58249" stroke="none" stroke-width="0.15"><title>base</title></rect>
+<rect x="88.0" y="115.5" width="2.4000000000000057" height="33.525000000000006" fill="#b58249" stroke="none" stroke-width="0.15"><title>base</title></rect>
+<rect x="-90.4" y="0.9750000000000002" width="2.4000000000000057" height="33.525" fill="#b58249" stroke="none" stroke-width="0.15"><title>base</title></rect>
+<rect x="-90.4" y="55.49999999999999" width="2.4000000000000057" height="39.00000000000001" fill="#b58249" stroke="none" stroke-width="0.15"><title>base</title></rect>
+<rect x="-90.4" y="115.5" width="2.4000000000000057" height="33.525000000000006" fill="#b58249" stroke="none" stroke-width="0.15"><title>base</title></rect>
+<rect x="-97.0749999999998" y="-44.02500000002008" width="194.1500000000089" height="43.05000000004016" fill="#b58249" stroke="#6c5437" stroke-width="0.15"><title>rear_wall</title></rect>
+<rect x="99.02500000000039" y="-43.04999999997952" width="23.025000000008518" height="41.10000000000476" fill="#bc8c51" stroke="#6c5437" stroke-width="0.15"><title>rear_corner_a</title></rect>
+<rect x="-122.0499999999996" y="-43.050000000025236" width="23.025000000008504" height="41.100000000004755" fill="#bc8c51" stroke="#6c5437" stroke-width="0.15"><title>rear_corner_b</title></rect>
+<rect x="-97.07499999999999" y="150.975" width="194.14999999999998" height="43.04999999999998" fill="#b58249" stroke="#6c5437" stroke-width="0.15"><title>front_wall</title></rect>
+<rect x="-122.05" y="151.94999999999996" width="23.02499999999999" height="41.10000000000005" fill="#bc8c51" stroke="#6c5437" stroke-width="0.15"><title>front_corner_a</title></rect>
+<rect x="99.025" y="151.94999999999996" width="23.02499999999999" height="41.10000000000005" fill="#bc8c51" stroke="#6c5437" stroke-width="0.15"><title>front_corner_b</title></rect>
+<rect x="-144.0250000003577" y="1.9500000000047675" width="43.0500000007154" height="146.1000000002108" fill="#b58249" stroke="#6c5437" stroke-width="0.15"><title>left_outer</title></rect>
+<rect x="-147.92500000035776" y="1.9500000002251205" width="1.9500000001227136" height="25.05000000000955" fill="#c6602b" stroke="#6c5437" stroke-width="0.15"><title>left_roll_margin</title></rect>
+<rect x="-147.924999999765" y="123.00000000022514" width="1.9500000001226852" height="25.050000000009547" fill="#c6602b" stroke="#6c5437" stroke-width="0.15"><title>left_roll_margin</title></rect>
+<rect x="-189.4000000003577" y="1.9500000002442146" width="39.52500000071541" height="146.10000000019355" fill="#518784" stroke="#6c5437" stroke-width="0.15"><title>left_liner</title></rect>
+<rect x="-196.30000000035773" y="1.950000000452437" width="3.9000000007154085" height="146.1000000000191" fill="#c6602b" stroke="#6c5437" stroke-width="0.15"><title>left_foot_margin</title></rect>
+<rect x="-202.300000000191" y="36.00000000048623" width="3.000000000088164" height="18.000000000014687" fill="#e8aa49" stroke="#6c5437" stroke-width="0.15"><title>left_lock_0</title></rect>
+<rect x="-202.2999999998972" y="96.00000000048622" width="3.000000000088164" height="18.000000000014694" fill="#e8aa49" stroke="#6c5437" stroke-width="0.15"><title>left_lock_1</title></rect>
+<rect x="100.97499999964229" y="1.9500000000047675" width="43.0500000007154" height="146.1000000002108" fill="#b58249" stroke="#6c5437" stroke-width="0.15"><title>right_outer</title></rect>
+<rect x="145.9749999996423" y="123.00000000022514" width="1.9500000001226852" height="25.050000000009547" fill="#c6602b" stroke="#6c5437" stroke-width="0.15"><title>right_roll_margin</title></rect>
+<rect x="145.97500000023504" y="1.9500000002251205" width="1.9500000001227136" height="25.05000000000955" fill="#c6602b" stroke="#6c5437" stroke-width="0.15"><title>right_roll_margin</title></rect>
+<rect x="149.87499999964228" y="1.9500000002442146" width="39.52500000071541" height="146.10000000019355" fill="#518784" stroke="#6c5437" stroke-width="0.15"><title>right_liner</title></rect>
+<rect x="192.39999999964232" y="1.950000000452437" width="3.9000000007154085" height="146.1000000000191" fill="#c6602b" stroke="#6c5437" stroke-width="0.15"><title>right_foot_margin</title></rect>
+<rect x="199.30000000010284" y="36.00000000048623" width="3.000000000088164" height="18.000000000014687" fill="#e8aa49" stroke="#6c5437" stroke-width="0.15"><title>right_lock_0</title></rect>
+<rect x="199.29999999980905" y="96.00000000048622" width="3.000000000088164" height="18.000000000014694" fill="#e8aa49" stroke="#6c5437" stroke-width="0.15"><title>right_lock_1</title></rect>
+<rect x="-80.5" y="195.97500000000002" width="9.0" height="1.9499999999999886" fill="#c6602b" stroke="#6c5437" stroke-width="0.15"><title>front_socket_margin</title></rect>
+<rect x="71.5" y="195.97500000000002" width="9.0" height="1.9499999999999886" fill="#c6602b" stroke="#6c5437" stroke-width="0.15"><title>front_socket_margin</title></rect>
+<rect x="-94.14999999999999" y="199.875" width="188.29999999999998" height="28.424999999999983" fill="#518784" stroke="#6c5437" stroke-width="0.15"><title>front_keeper</title></rect>
+<rect x="-97.07499999999048" y="-47.92500000002008" width="194.1500000000004" height="1.9500000000401556" fill="#c6602b" stroke="#6c5437" stroke-width="0.15"><title>lid_spine_margin</title></rect>
+<rect x="-97.07499999998969" y="-195.9750000000201" width="194.15000000003022" height="146.10000000004018" fill="#cea063" stroke="#6c5437" stroke-width="0.15"><title>lid</title></rect>
+<rect x="-125.04999999998367" y="-164.38807631547587" width="26.02500000001767" height="85.48807631550538" fill="#bc8c51" stroke="#6c5437" stroke-width="0.15"><title>lid_left_wing</title></rect>
+<rect x="99.02500000001632" y="-164.38807631542952" width="26.02500000001767" height="85.48807631550537" fill="#bc8c51" stroke="#6c5437" stroke-width="0.15"><title>lid_right_wing</title></rect>
+<rect x="-69.99999999995909" y="-199.87500000001447" width="140.00000000000045" height="1.9500000000289504" fill="#c6602b" stroke="#6c5437" stroke-width="0.15"><title>lid_front_margin</title></rect>
+<rect x="-69.99999999995826" y="-224.25000000001444" width="140.00000000000466" height="22.425000000028945" fill="#e8aa49" stroke="#6c5437" stroke-width="0.15"><title>lid_front_tab</title></rect>
+<rect x="-90.4" y="34.5" width="2.4000000000000132" height="20.99999999999999" fill="none" stroke="#243e45" stroke-width="0.2"/>
+<rect x="-90.4" y="94.5" width="2.4000000000000132" height="20.99999999999999" fill="none" stroke="#243e45" stroke-width="0.2"/>
+<rect x="88.0" y="34.5" width="2.4000000000000132" height="20.99999999999999" fill="none" stroke="#243e45" stroke-width="0.2"/>
+<rect x="88.0" y="94.5" width="2.4000000000000132" height="20.99999999999999" fill="none" stroke="#243e45" stroke-width="0.2"/>
+</svg>

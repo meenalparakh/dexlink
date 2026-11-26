@@ -1,0 +1,4 @@
+interface:
+  display_name: "Set up DexLink datasets"
+  short_description: "Set up DexLink datasets with the public workflow"
+  default_prompt: "Use $dexlink-datasets to help me with this DexLink workflow."

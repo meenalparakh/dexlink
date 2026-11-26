@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="collect_container_1">
+  <link name="body">
+    <inertial>
+      <origin xyz="-1.3010426069826053e-17 1.3010426069826053e-17 0.013120267260579075" />
+      <mass value="0.4" />
+      <inertia ixx="0.008502936159377517" iyy="0.010653011883208257" izz="0.018945832813659996" ixy="-7.222237291452134e-35" ixz="-6.544997344105995e-20" iyz="1.3616739543586255e-20" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_04.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

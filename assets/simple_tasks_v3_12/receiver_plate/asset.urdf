@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="receiver_plate">
+  <link name="body">
+    <inertial>
+      <origin xyz="9.02436415398684e-19 0.0 0.003999999999999999" />
+      <mass value="0.4" />
+      <inertia ixx="0.001558221010726634" iyy="0.0015582210107266342" izz="0.003112175354786602" ixy="1.8048728307973683e-21" ixz="-1.7146291892575004e-21" iyz="0.0" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

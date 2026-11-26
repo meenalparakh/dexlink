@@ -1,0 +1,37 @@
+{
+  "id": "t024_a",
+  "group": "library40",
+  "description": "Trace a closed rectangle on the board with the eraser",
+  "name": "Eraser on board: closed surface tracing",
+  "object": "Eraser 2",
+  "success_check": "Visit all four corners in order and close the rectangle.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t024_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t024_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t024_a",
+    "timestep": 38000,
+    "seed": 42,
+    "policy_sha256": "c1531eee00f697c000e92e4677a660ee5328e7deb5d8026b9618fd0d739600c8",
+    "files": {
+      "policy.pt": "c1531eee00f697c000e92e4677a660ee5328e7deb5d8026b9618fd0d739600c8",
+      "policy_obs_processor.pt": "bc3f78c964a06a023546dcf7aacd93c03214f1505b31ec2bfa5c25ba9cc57002",
+      "value.pt": "f1dd9e3d483959a76db2043c6ab20a38f4f3d44d3cd6fd0d4684ea8c36aa9f0c",
+      "value_obs_processor.pt": "2dd3361feda7d1d7282eddbbc8fb7e5a8ec1272a6e53d72cb3ef81fc18ca4423",
+      "optimizer.pt": "e37e53af3c77653f6ee3672bba7c160f54c7811eb6f639ea8692229bd2f130d5"
+    }
+  },
+  "reference_sha256": "2007b45ebb78d26e9bfa114c3840d87ff2db80949d54ebcf200da37a1daf43ba",
+  "source_reference_sha256": "a25696db50235a43957d73e2acca8ce4f4d81e0e0ae17ac1f809103a01d540d8",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left"
+  ]
+}

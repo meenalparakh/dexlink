@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="long_socket_square_0.150">
+  <link name="body">
+    <inertial>
+      <origin xyz="-3.355130238075775e-18 2.168404344971009e-18 0.08076076327096826" />
+      <mass value="0.8" />
+      <inertia ixx="0.005108353151334715" iyy="0.005108353151334715" izz="0.006699990054152718" ixy="-1.0773002575154104e-19" ixz="-2.185874111181692e-19" iyz="1.6617330568088282e-19" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_04.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="peg_star">
+  <link name="body">
+    <inertial>
+      <origin xyz="5.225870871212314e-19 -8.470329472543003e-20 0.09265337629910445" />
+      <mass value="0.12" />
+      <inertia ixx="0.00017008923490958463" iyy="0.00017008923490958463" izz="8.946328071817124e-05" ixy="1.4823076576950256e-21" ixz="1.3114232182179137e-20" iyz="1.444680796384184e-20" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_04.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

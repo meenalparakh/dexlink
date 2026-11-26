@@ -7,6 +7,11 @@ from dexlink.src.rl.world.env import Env
 
 def create_env(cfg: EnvConfig) -> Env:
     env_class = str(cfg.env_class)
+    if env_class == "library_rigid":
+        if cfg.backend != "sim":
+            raise ValueError("library_rigid requires the simulation backend.")
+        from dexlink.src.rl.library.environment import LibraryEnv
+        return LibraryEnv(cfg)
     if env_class == "single_object":
         return Env(cfg)
     if env_class == "multi_object":
@@ -39,5 +44,5 @@ def create_env(cfg: EnvConfig) -> Env:
         return DualActiveEnv(cfg)
     raise ValueError(
         "Expected env.env_class to be 'single_object', 'multi_object' or "
-        f"'dual_active_object', got {env_class!r}."
+        f"'library_rigid' or 'dual_active_object', got {env_class!r}."
     )

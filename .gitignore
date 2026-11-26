@@ -13,3 +13,12 @@ external_data/*/*
 !external_data/*/.gitkeep
 .env
 .env.*
+
+# Downloaded runtime assets and learned parameters
+assets/library40/
+assets/tutorials/
+assets/multitask_cup/
+checkpoints/*
+!checkpoints/README.md
+
+bundles/

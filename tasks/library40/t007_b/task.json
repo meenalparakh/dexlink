@@ -1,0 +1,36 @@
+{
+  "id": "t007_b",
+  "group": "library40",
+  "description": "Extract a deeply seated peg: pause halfway through engagement before completing the task",
+  "name": "Peg extraction (square peg): pause midway through engagement",
+  "object": "Peg extraction 5",
+  "success_check": "Hold the intermediate engagement pose for a declared dwell, then finish.",
+  "criterion": "physical_insertion_clearance",
+  "reference": "tasks/library40/t007_b/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t007_b/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t007_b",
+    "timestep": 50000,
+    "seed": 42,
+    "policy_sha256": "a716fac80f56e2d982e11e1202102993cca885aab173cca9cda03841c3d11bcb",
+    "files": {
+      "policy.pt": "a716fac80f56e2d982e11e1202102993cca885aab173cca9cda03841c3d11bcb",
+      "policy_obs_processor.pt": "568b26b86a8ddf28cc49b4d7d26efae79757629c41f76652316b41e52c92e9fa",
+      "value.pt": "c027a6a5359c75466e4b19399140ede344ebd86d689c8f667fb2561838c5f7b2",
+      "value_obs_processor.pt": "9fc98128662dd92401abe4f95978e823f60a1ff9c0b6ffb8830f407f7b689d0e",
+      "optimizer.pt": "956e6e193d4b0353b6f7a035f4bede05077c3358b17a94ebd01a358c183db293"
+    }
+  },
+  "reference_sha256": "c3af8ef40c58de78bb1fedee90cd65fd1a1698ede4c45d7428acbdaa45c81563",
+  "source_reference_sha256": "304828002722f406b848622e0feb57f40ae2a1fd58bd0df631d502c4516545e3",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

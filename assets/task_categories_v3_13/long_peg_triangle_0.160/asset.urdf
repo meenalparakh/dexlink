@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="long_peg_triangle_0.160">
+  <link name="body">
+    <inertial>
+      <origin xyz="-3.832756368933199e-19 1.3140878979199541e-18 0.20214335046201298" />
+      <mass value="0.1" />
+      <inertia ixx="0.0005628725947947736" iyy="0.0005628725947947736" izz="6.59575872223597e-05" ixy="1.3688415603332864e-22" ixz="-7.094011368165822e-21" iyz="3.2038779290045475e-20" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

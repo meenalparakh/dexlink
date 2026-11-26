@@ -1,0 +1,37 @@
+{
+  "id": "t047_a",
+  "group": "library40",
+  "description": "Stir a figure-eight through two regions of the bowl",
+  "name": "Spoon in bowl: multi region stirring",
+  "object": "Spoon 1",
+  "success_check": "Visit both lobes of the figure-eight in sequence.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t047_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t047_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t047_a",
+    "timestep": 2000,
+    "seed": 42,
+    "policy_sha256": "361f1d7958cd50ffb5f138e8ad73e83cb5b5e3fa94db8a33f169e616e977fd68",
+    "files": {
+      "policy.pt": "361f1d7958cd50ffb5f138e8ad73e83cb5b5e3fa94db8a33f169e616e977fd68",
+      "policy_obs_processor.pt": "37d5fec4332dfc4ecd15ae5555db61c1a0c114538a1597b80c3bacf464ce9d5e",
+      "value.pt": "a5880177d5ab48781e69d510055300e8eb8e0893301d15fe53caad4154e2362d",
+      "value_obs_processor.pt": "1594b20583d5ab9b05d9438a7f633fab693839ab278a5d9e1af3f1d1cc2f2593",
+      "optimizer.pt": "0e67693fdc4a8ccbdcbde377a50f6dadff4e371bf2b0065429fcd04178bbd12c"
+    }
+  },
+  "reference_sha256": "5bac92c2a94f631e5e7b310d26c8ab7074570227a6b82e7156084ab6dc2abe53",
+  "source_reference_sha256": "d072c78051ff30f8fdc3ead3318ba7abdd8bcfdab9a2845fa642ee1060366c6e",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

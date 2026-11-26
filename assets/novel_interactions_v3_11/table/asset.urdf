@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="table">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.020000000000000007" />
+      <mass value="20.0" />
+      <inertia ixx="1.3526666666666671" iyy="2.402666666666667" izz="3.7500000000000013" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

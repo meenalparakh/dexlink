@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="peg_semicircle">
+  <link name="body">
+    <inertial>
+      <origin xyz="7.332506861980956e-19 0.0016369790079235227 0.0921008058733613" />
+      <mass value="0.12" />
+      <inertia ixx="0.00017399075290717357" iyy="0.00017431231693985948" izz="9.121066340620222e-05" ixy="1.629584762467189e-21" ixz="1.5645964550762326e-20" iyz="1.1707832168402111e-05" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

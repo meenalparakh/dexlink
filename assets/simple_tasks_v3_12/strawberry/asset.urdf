@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="strawberry">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.00038889193647585675" />
+      <mass value="0.1" />
+      <inertia ixx="3.7543475562033434e-05" iyy="3.753891549606701e-05" izz="3.5544227327677906e-05" ixy="0.0" ixz="-7.080776806650598e-23" iyz="-1.7701942016626494e-23" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

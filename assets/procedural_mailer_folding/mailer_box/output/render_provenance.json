@@ -1,0 +1,32 @@
+{
+  "fk_backend": "reference",
+  "urdfpy_executed": false,
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "rendering": "Orthographic software z-buffer using actual URDF geometry",
+  "generated": [
+    "trajectory.json",
+    "trajectory.npz",
+    "open_configuration.json",
+    "closed_configuration.json",
+    "overview.png",
+    "flat_net.svg",
+    "unfolded.png",
+    "open.png",
+    "closed.png",
+    "base_section.png",
+    "front_section.png",
+    "wing_section.png",
+    "folding.gif",
+    "folding.mp4",
+    "base_insertion.gif",
+    "front_insertion.gif",
+    "wing_insertion.gif"
+  ],
+  "notice": "Kinematic preview only, not a contact-dynamics simulation.",
+  "numpy": "2.3.5",
+  "Pillow": "12.3.0",
+  "urdfpy": null,
+  "networkx": "3.6.1",
+  "trimesh": "4.11.1",
+  "imageio": "2.37.3"
+}

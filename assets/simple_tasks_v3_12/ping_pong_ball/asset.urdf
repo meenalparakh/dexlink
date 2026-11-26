@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="ping_pong_ball">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0003589771721315598" />
+      <mass value="0.005" />
+      <inertia ixx="1.73095275838857e-06" iyy="1.7307247550902487e-06" izz="1.7772113663838949e-06" ixy="0.0" ixz="3.8354207702690726e-24" iyz="-1.9177103851345363e-24" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

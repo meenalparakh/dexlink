@@ -20,7 +20,7 @@ from dexlink.src.reference.arctic.assemble_dense_motion import (
 )
 from dexlink.src.reference.arctic.config import DEFAULT_WORKSPACE
 from dexlink.src.reference.arctic.transfer_config import ArcticTransferSpec, get_transfer
-from dexlink.src.reference.v2_tasks.common import write_box_obj
+from dexlink.src.reference.arctic.geometry import write_box_obj
 
 
 @dataclass(frozen=True)

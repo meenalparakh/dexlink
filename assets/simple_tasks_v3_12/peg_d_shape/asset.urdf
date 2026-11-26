@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="peg_d_shape">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.001076071389088088 -8.798944367241706e-21 0.08757074489599809" />
+      <mass value="0.12" />
+      <inertia ixx="0.00019612622318881094" iyy="0.00019447653564169358" izz="8.675481303536102e-05" ixy="1.516681708274662e-21" ixz="7.1112063550022955e-06" iyz="1.3264333935968372e-20" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

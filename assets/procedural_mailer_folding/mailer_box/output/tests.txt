@@ -1,0 +1,15 @@
+test_continuity_at_boundaries (test_mailer.MailerTests.test_continuity_at_boundaries) ... ok
+test_default_collision_limits_inertia (test_mailer.MailerTests.test_default_collision_limits_inertia) ... ok
+test_different_dimensions (test_mailer.MailerTests.test_different_dimensions) ... ok
+test_insertion_centering_all_intermediate_times (test_mailer.MailerTests.test_insertion_centering_all_intermediate_times) ... ok
+test_invalid_inputs_rejected (test_mailer.MailerTests.test_invalid_inputs_rejected) ... ok
+test_real_urdfpy_transforms (test_mailer.MailerTests.test_real_urdfpy_transforms) ... skipped 'upstream urdfpy not installed'
+test_sample_times_and_nan (test_mailer.MailerTests.test_sample_times_and_nan) ... ok
+test_slot_empty_partition_area (test_mailer.MailerTests.test_slot_empty_partition_area) ... ok
+test_uniform_scale_invariance (test_mailer.MailerTests.test_uniform_scale_invariance) ... ok
+test_zero_is_planar (test_mailer.MailerTests.test_zero_is_planar) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.183s
+
+OK (skipped=1)

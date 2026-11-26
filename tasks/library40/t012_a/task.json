@@ -1,0 +1,36 @@
+{
+  "id": "t012_a",
+  "group": "library40",
+  "description": "Insert and twist a keyed part: pause at two engagement depths before completing the task",
+  "name": "Insert-and-twist lock (quarter-turn lock): hold at two engagement depths",
+  "object": "Key lock 1",
+  "success_check": "Hold the quarter and three-quarter engagement states in order, then finish.",
+  "criterion": "original_deployed_insertion_success",
+  "reference": "tasks/library40/t012_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t012_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t012_a",
+    "timestep": 30000,
+    "seed": 42,
+    "policy_sha256": "8f79916f9e5569b434efd79f0594773339e736929ee690b79fdc17e93e1c452f",
+    "files": {
+      "policy.pt": "8f79916f9e5569b434efd79f0594773339e736929ee690b79fdc17e93e1c452f",
+      "policy_obs_processor.pt": "c2badf57c46b8225b9d1fc94492a97725400ab6391b02839ebe529cdb4c36180",
+      "value.pt": "793bbc51969572d168a9a9e66c07c4abb5abdfc67e1b8c3b872289aa0fe639a5",
+      "value_obs_processor.pt": "b9a5a2b95e847a824aebfd92d3d4cd6a2d49ecf25a354c7e4d3caaf4c8c3d22b",
+      "optimizer.pt": "2be1588d2359a4e0868efa9cbdc5c8936094549b61cc39cd37ad39b7df4cb28e"
+    }
+  },
+  "reference_sha256": "e32c2019e0ad9065dc933c979358186d0e1b2e05184e29768720c7109a4c08a5",
+  "source_reference_sha256": "8622f52115be7ea859afdf7c072e34a74019470d8b6c91939efcebcd5f6ab11f",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

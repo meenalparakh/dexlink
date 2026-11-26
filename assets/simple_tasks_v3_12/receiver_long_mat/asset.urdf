@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="receiver_long_mat">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.004" />
+      <mass value="0.4" />
+      <inertia ixx="0.0016154666666666666" iyy="0.0020854666666666665" izz="0.0036966666666666662" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

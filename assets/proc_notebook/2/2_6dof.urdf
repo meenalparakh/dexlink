@@ -1,0 +1,191 @@
+<?xml version="1.0" ?>
+<robot name="procedural_notebook_1">
+  <link name="root">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+  <joint name="base_fixed" type="fixed">
+    <parent link="yaw_link"/>
+    <child link="bottom"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="bottom">
+    <inertial>
+      <origin xyz="0.0 0.0 0.007032131728620175" rpy="0 0 0"/>
+      <mass value="0.5"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0.0 0.0 0.007032131728620175" rpy="0 0 0"/>
+      <geometry><box size="0.12238377755504562 0.1874910379842883 0.01406426345724035"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.007032131728620175" rpy="0 0 0"/>
+      <geometry><box size="0.12238377755504562 0.1874910379842883 0.01406426345724035"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="bottom_cover_fixed" type="fixed">
+    <parent link="bottom"/>
+    <child link="bottom_cover"/>
+    <origin xyz="-0.00520060339903522 0 -0.0011357710885712192" rpy="0 0 0"/>
+  </joint>
+
+  <link name="bottom_cover">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.2"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry><box size="0.13278498435311606 0.19856139630964048 0.0022715421771424384"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry><box size="0.13278498435311606 0.19856139630964048 0.0022715421771424384"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="rotation" type="revolute">
+    <parent link="bottom"/>
+    <child link="top"/>
+    <origin xyz="0.06119188877752281 0 0.01406426345724035" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="0.01" friction="0.01"/>
+    <limit effort="50.0" velocity="50.0" lower="0.087" upper="3.0"/>
+  </joint>
+
+  <link name="top">
+    <inertial>
+      <origin xyz="-0.06057641357225242 0.0 0.002632679848419318" rpy="0 0 0"/>
+      <mass value="0.35"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="-0.06057641357225242 0.0 0.002632679848419318" rpy="0 0 0"/>
+      <geometry><box size="0.12115282714450484 0.1874910379842883 0.005265359696838636"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.06057641357225242 0.0 0.002632679848419318" rpy="0 0 0"/>
+      <geometry><box size="0.12115282714450484 0.1874910379842883 0.005265359696838636"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="top_cover_fixed" type="fixed">
+    <parent link="top"/>
+    <child link="top_cover"/>
+    <origin xyz="-0.0657247086914078 0 0.007046574643621476" rpy="0 0 0"/>
+  </joint>
+
+  <link name="top_cover">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <mass value="0.2"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry><box size="0.1314494173828156 0.19856139630964048 0.0035624298935656804"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry><box size="0.1314494173828156 0.19856139630964048 0.0035624298935656804"/></geometry>
+    </collision>
+  </link>
+
+  <link name="tx_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+  <joint name="tx_joint" type="prismatic">
+    <parent link="root"/>
+    <child link="tx_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-5.0" upper="5.0" effort="50" velocity="1"/>
+  </joint>
+  <link name="ty_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+  <joint name="ty_joint" type="prismatic">
+    <parent link="tx_link"/>
+    <child link="ty_link"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-5.0" upper="5.0" effort="50" velocity="1"/>
+  </joint>
+  <link name="tz_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+  <joint name="tz_joint" type="prismatic">
+    <parent link="ty_link"/>
+    <child link="tz_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-5.0" upper="5.0" effort="50" velocity="1"/>
+  </joint>
+  <link name="roll_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+  <joint name="roll_joint" type="revolute">
+    <parent link="tz_link"/>
+    <child link="roll_link"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-31.41592653589793" upper="31.41592653589793" effort="50" velocity="1"/>
+  </joint>
+  <link name="pitch_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+  <joint name="pitch_joint" type="revolute">
+    <parent link="roll_link"/>
+    <child link="pitch_link"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-31.41592653589793" upper="31.41592653589793" effort="50" velocity="1"/>
+  </joint>
+  <link name="yaw_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+  <joint name="yaw_joint" type="revolute">
+    <parent link="pitch_link"/>
+    <child link="yaw_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-31.41592653589793" upper="31.41592653589793" effort="50" velocity="1"/>
+  </joint>
+
+</robot>

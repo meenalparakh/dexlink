@@ -1,0 +1,33 @@
+{
+  "moving_object": "piece",
+  "fixture_object": "recess",
+  "phase": "fit_piece_lower",
+  "reference_frame": 185,
+  "relative_position": [
+    0.0,
+    0.0,
+    0.02500000037252903
+  ],
+  "relative_rotation": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "yaw_symmetry": 2,
+  "radial_tolerance_m": 0.002,
+  "axial_tolerance_m": 0.003,
+  "orientation_tolerance_rad": 0.035,
+  "semantics": "Reach the designated physical goal at least once, then finish the episode without early termination. Curriculum resets can start mid-reference."
+}

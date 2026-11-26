@@ -318,6 +318,7 @@ class CardboardObject(ArtObject):
         jpos: torch.Tensor | None = None,
         jvel: torch.Tensor | None = None,
         env_idx=None,
+        rest_jpos: torch.Tensor | None = None,
     ) -> None:
         super().set_state(
             pos=pos,
@@ -336,11 +337,56 @@ class CardboardObject(ArtObject):
         rest_angles, loaded_angles, was_loaded, release_counts, _, _ = (
             self._require_plastic_state()
         )
-        # Every episode starts with the URDF's flat zero-angle net as its rest state.
-        rest_angles[indices] = 0.0
+        selected_rest_angles = rest_angles[indices]
+        if rest_jpos is None:
+            requested_rest_angles = torch.zeros_like(selected_rest_angles)
+        else:
+            if not isinstance(rest_jpos, torch.Tensor):
+                raise TypeError(
+                    f"Expected rest_jpos to be a torch.Tensor, got {type(rest_jpos)}."
+                )
+            if rest_jpos.shape != selected_rest_angles.shape:
+                raise ValueError(
+                    f"Expected rest_jpos shape {tuple(selected_rest_angles.shape)}, "
+                    f"got {tuple(rest_jpos.shape)}."
+                )
+            if rest_jpos.dtype != selected_rest_angles.dtype:
+                raise ValueError(
+                    f"Expected rest_jpos dtype {selected_rest_angles.dtype}, got "
+                    f"{rest_jpos.dtype}."
+                )
+            if rest_jpos.device != selected_rest_angles.device:
+                raise ValueError(
+                    f"Expected rest_jpos device {selected_rest_angles.device}, got "
+                    f"{rest_jpos.device}."
+                )
+            if not torch.isfinite(rest_jpos).all():
+                raise ValueError(
+                    "Expected every cardboard rest_jpos value to be finite."
+                )
+            requested_rest_angles = rest_jpos
+        lower_limits = self.lower_limits
+        upper_limits = self.upper_limits
+        if lower_limits is None or upper_limits is None:
+            raise RuntimeError(
+                "Cardboard joint limits are unavailable after configuration."
+            )
+        if torch.any(requested_rest_angles < lower_limits[indices]) or torch.any(
+            requested_rest_angles > upper_limits[indices]
+        ):
+            raise ValueError("Cardboard rest_jpos must lie within every joint limit.")
+
+        # Phase resets may load a recorded plastic rest vector; ordinary episode
+        # resets retain the original all-flat crease state.
+        rest_angles[indices] = requested_rest_angles
         loaded_angles[indices] = joint_angles[indices]
         was_loaded[indices] = False
         release_counts[indices] = 0
+        self.physics.control_entity_dofs_position(
+            self.object,
+            rest_angles,
+            self.dof_map,
+        )
 
     def apply_rest_joint_targets(self) -> None:
         (

@@ -1,0 +1,12 @@
+torch==2.6.0
+numpy==2.2.6
+scipy==1.15.3
+trimesh==4.9.0
+urdfpy==0.0.22+dexlink.1
+wandb==0.23.1
+gymnasium==1.2.2
+PyYAML==6.0.2
+genesis-world==0.3.3
+
+pyrender==0.1.45+dexlink.1
+networkx==3.3

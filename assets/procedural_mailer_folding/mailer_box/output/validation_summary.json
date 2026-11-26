@@ -1,0 +1,205 @@
+{
+  "all_passed": true,
+  "models_checked": 21,
+  "total_configurations": 20336,
+  "urdfpy_executed": false,
+  "all_interlink_pairs_enabled": true,
+  "collision_tolerance_m": 1e-08,
+  "regression_tests": {
+    "passed": 9,
+    "skipped": 1,
+    "skipped_reason": "upstream urdfpy unavailable"
+  },
+  "models": [
+    {
+      "model": "output",
+      "report": "output/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 3016,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.00044999999980900596
+    },
+    {
+      "model": "examples/large",
+      "report": "examples/large/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 1016,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.0005999999996944005
+    },
+    {
+      "model": "examples/long",
+      "report": "examples/long/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 1016,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.0004499999996180476
+    },
+    {
+      "model": "examples/shallow",
+      "report": "examples/shallow/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 1016,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.00029999999979628267
+    },
+    {
+      "model": "examples/small",
+      "report": "examples/small/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 1016,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.000299999999872666
+    },
+    {
+      "model": "examples/square",
+      "report": "examples/square/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 1016,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.0003599999997708214
+    },
+    {
+      "model": "examples/thick_board",
+      "report": "examples/thick_board/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 1016,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.000749999999770809
+    },
+    {
+      "model": "examples/thin_board",
+      "report": "examples/thin_board/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 1016,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.00020999999978355
+    },
+    {
+      "model": "examples/wide",
+      "report": "examples/wide/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 1016,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.0004499999997708004
+    },
+    {
+      "model": "examples/random_family/box_0000",
+      "report": "examples/random_family/box_0000/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 766,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.0004087631681480297
+    },
+    {
+      "model": "examples/random_family/box_0001",
+      "report": "examples/random_family/box_0001/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 766,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.0005401252780828925
+    },
+    {
+      "model": "examples/random_family/box_0002",
+      "report": "examples/random_family/box_0002/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 766,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.0005362387609489372
+    },
+    {
+      "model": "examples/random_family/box_0003",
+      "report": "examples/random_family/box_0003/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 766,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.00022985977263351165
+    },
+    {
+      "model": "examples/random_family/box_0004",
+      "report": "examples/random_family/box_0004/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 766,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.0003067052912709284
+    },
+    {
+      "model": "examples/random_family/box_0005",
+      "report": "examples/random_family/box_0005/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 766,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.00045403098055687985
+    },
+    {
+      "model": "examples/random_family/box_0006",
+      "report": "examples/random_family/box_0006/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 766,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.0003197072399973022
+    },
+    {
+      "model": "examples/random_family/box_0007",
+      "report": "examples/random_family/box_0007/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 766,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.0005665223155540827
+    },
+    {
+      "model": "examples/random_family/box_0008",
+      "report": "examples/random_family/box_0008/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 766,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.00046876304428949966
+    },
+    {
+      "model": "examples/random_family/box_0009",
+      "report": "examples/random_family/box_0009/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 766,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.00039524698485141063
+    },
+    {
+      "model": "examples/random_family/box_0010",
+      "report": "examples/random_family/box_0010/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 766,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.00047430501594628027
+    },
+    {
+      "model": "examples/random_family/box_0011",
+      "report": "examples/random_family/box_0011/validation.json",
+      "passed": true,
+      "backend": "reference",
+      "configurations": 766,
+      "collision_pair_sample_count": 0,
+      "min_insertion_clearance_m": 0.00048239721660681134
+    }
+  ],
+  "limitations": "Sampled reference FK geometry, not urdfpy execution or contact dynamics."
+}

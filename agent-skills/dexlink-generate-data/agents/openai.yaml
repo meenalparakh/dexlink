@@ -1,0 +1,4 @@
+interface:
+  display_name: "Collect DexLink demonstrations"
+  short_description: "Collect DexLink demonstrations with the public workflow"
+  default_prompt: "Use $dexlink-generate-data to help me with this DexLink workflow."

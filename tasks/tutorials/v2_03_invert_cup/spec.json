@@ -1,0 +1,231 @@
+{
+  "experiment_id": "v2_03_invert_cup",
+  "section": "V2_03",
+  "task_family": "invert_cup",
+  "category": "cup",
+  "robot_model": "xhand",
+  "hand_side": "right",
+  "scene": {
+    "table_margin": 0.002,
+    "table_height": 0.0
+  },
+  "source_target": {
+    "category": "cup",
+    "source_index": 2,
+    "target_index": 1
+  },
+  "keyframes": [
+    {
+      "id": "cup_grasp",
+      "from_retarget": {
+        "motion_path": "auto",
+        "frame": "last"
+      },
+      "transforms": [
+        {
+          "type": "rotate_pair",
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "degrees": 90.0,
+          "pivot": "object_origin"
+        },
+        {
+          "type": "rotate_pair",
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "degrees": 90.0,
+          "pivot": "object_origin"
+        },
+        {
+          "type": "align_pair_lowest_z",
+          "target_lowest_z": 0.002
+        }
+      ]
+    },
+    {
+      "id": "cup_lifted",
+      "derive_from": "cup_grasp",
+      "transforms": [
+        {
+          "type": "translate_pair",
+          "delta": [
+            0.0,
+            0.0,
+            0.12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cup_upright",
+      "derive_from": "cup_lifted",
+      "transforms": [
+        {
+          "type": "rotate_pair",
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "degrees": 90.0,
+          "pivot": "object_origin"
+        },
+        {
+          "type": "rotate_pair",
+          "axis": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "degrees": 90.0,
+          "pivot": "object_origin"
+        }
+      ]
+    },
+    {
+      "id": "cup_top_grasp",
+      "source_target": {
+        "category": "cup",
+        "source_index": 1,
+        "target_index": 1
+      },
+      "from_retarget": {
+        "motion_path": "auto",
+        "frame": "last"
+      },
+      "transforms": [
+        {
+          "type": "translate_pair",
+          "delta": [
+            0.0,
+            0.0,
+            0.12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cup_placed",
+      "derive_from": "cup_top_grasp",
+      "transforms": [
+        {
+          "type": "align_pair_lowest_z",
+          "target_lowest_z": 0.002
+        }
+      ]
+    },
+    {
+      "id": "cup_released",
+      "derive_from": "cup_placed",
+      "transforms": [
+        {
+          "type": "open_hand"
+        }
+      ]
+    }
+  ],
+  "trajectory": {
+    "id": "invert_cup",
+    "output_motion_path": "logs/v2_03_pipeline/v2_03_invert_cup/exports/invert_cup.npz",
+    "exported_rl_path": "logs/v2_03_pipeline/v2_03_invert_cup/exports/invert_cup_oakink_sequence.npy",
+    "phases": [
+      {
+        "name": "reach_cup",
+        "type": "reach_to_keyframe",
+        "target": "cup_grasp",
+        "frames": 10,
+        "backoff_translation": [
+          -0.08,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "grasp_cup",
+        "type": "hold_keyframe",
+        "keyframe": "cup_grasp",
+        "frames": 4
+      },
+      {
+        "name": "lift_cup",
+        "type": "interpolate_keyframes",
+        "start": "cup_grasp",
+        "end": "cup_lifted",
+        "frames": 10
+      },
+      {
+        "name": "upright_cup",
+        "type": "interpolate_keyframes",
+        "start": "cup_lifted",
+        "end": "cup_upright",
+        "frames": 18
+      },
+      {
+        "name": "change_to_top_grasp",
+        "type": "interpolate_keyframes",
+        "start": "cup_upright",
+        "end": "cup_top_grasp",
+        "frames": 12
+      },
+      {
+        "name": "hold_top_grasp",
+        "type": "hold_keyframe",
+        "keyframe": "cup_top_grasp",
+        "frames": 5
+      },
+      {
+        "name": "place_cup",
+        "type": "interpolate_keyframes",
+        "start": "cup_top_grasp",
+        "end": "cup_placed",
+        "frames": 6
+      },
+      {
+        "name": "hold_cup_placed",
+        "type": "hold_keyframe",
+        "keyframe": "cup_placed",
+        "frames": 3
+      },
+      {
+        "name": "release_cup",
+        "type": "interpolate_keyframes",
+        "start": "cup_placed",
+        "end": "cup_released",
+        "frames": 8,
+        "clearance_translation": [
+          0.0,
+          0.0,
+          0.08
+        ]
+      }
+    ]
+  },
+  "support_scene_objects": [
+    {
+      "id": "table",
+      "mesh_path": "assets/tutorials/d6024cf009d1/table.obj",
+      "static": true,
+      "support_asset": true,
+      "friction": 1.2,
+      "template_pose": {
+        "object_pos": [
+          0.0,
+          0.0,
+          -0.025
+        ],
+        "object_quat_wxyz": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  ]
+}

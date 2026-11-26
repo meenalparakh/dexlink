@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "backend": "reference",
+  "urdfpy_executed": false,
+  "num_links": 27,
+  "num_joints": 26,
+  "collision_boxes": 38,
+  "sampled_configurations": 3016,
+  "duration_s": 31.400000000000006,
+  "all_interlink_collision_pairs_enabled": true,
+  "collision_tolerance_m": 1e-08,
+  "collision_pair_sample_count": 0,
+  "collision_pairs": [],
+  "collision_examples": [],
+  "maximum_sat_overlap_m": 0,
+  "static_errors": [],
+  "joint_limit_errors": [],
+  "velocity_limit_errors": [],
+  "max_sampled_joint_speed_rad_s": 2.128771316793293,
+  "minimum_sampled_insertion_face_clearance_m": 0.00044999999980900596,
+  "seated": {
+    "left_lock_0": {
+      "min_face_clearance_m": 0.0004499999998090476,
+      "lateral_clearance_m": 0.0014999999999434459,
+      "centering_error_m": 1.468825061579082e-13,
+      "tip_z_m": -0.0015000000000000029,
+      "protrusion_below_base_underside_m": 0.0007500000000000028
+    },
+    "left_lock_1": {
+      "min_face_clearance_m": 0.00044999999980901983,
+      "lateral_clearance_m": 0.001499999999943439,
+      "centering_error_m": 1.4691026173352384e-13,
+      "tip_z_m": -0.0015000000000000029,
+      "protrusion_below_base_underside_m": 0.0007500000000000028
+    },
+    "right_lock_0": {
+      "min_face_clearance_m": 0.0004499999998090476,
+      "lateral_clearance_m": 0.0014999999999434459,
+      "centering_error_m": 1.468825061579082e-13,
+      "tip_z_m": -0.0015000000000000029,
+      "protrusion_below_base_underside_m": 0.0007500000000000028
+    },
+    "right_lock_1": {
+      "min_face_clearance_m": 0.00044999999980901983,
+      "lateral_clearance_m": 0.001499999999943439,
+      "centering_error_m": 1.4691026173352384e-13,
+      "tip_z_m": -0.0015000000000000029,
+      "protrusion_below_base_underside_m": 0.0007500000000000028
+    },
+    "front": {
+      "min_face_clearance_m": 0.0004499999999854898,
+      "lateral_clearance_m": 0.0014999999999692204,
+      "centering_error_m": 0.0,
+      "tip_depth_m": 0.023399999999999962
+    },
+    "left_wing": {
+      "min_face_clearance_m": 0.0004499999999761223,
+      "tip_depth_m": 0.023099999999999996
+    },
+    "right_wing": {
+      "min_face_clearance_m": 0.0004499999999761084,
+      "tip_depth_m": 0.023099999999999996
+    }
+  },
+  "assembled_aabb_min_m": [
+    -0.1007500000003577,
+    -0.0007500000000200827,
+    -0.0015000000000000029
+  ],
+  "assembled_aabb_max_m": [
+    0.1007500000003577,
+    0.15075,
+    0.04965000000000003
+  ],
+  "assembled_exterior_width_depth_height_m": [
+    0.2015000000007154,
+    0.1515000000000201,
+    0.05115000000000003
+  ],
+  "urdfpy_reference_max_transform_error": null,
+  "limitations": "Sampled rigid geometry only; no continuous collision proof, contact solver, elastic cardboard, frictional retention or crease-strength model."
+}

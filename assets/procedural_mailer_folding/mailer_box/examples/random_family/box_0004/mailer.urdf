@@ -1,0 +1,916 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="procedural_hinged_mailer">
+  <!-- SI units. Root: base. All zero joints: flat net. The slot ears are separate collision boxes: do not convex-hull them together. -->
+  <material name="kraft">
+    <color rgba="0.71 0.51 0.29 1" />
+  </material>
+  <material name="lid">
+    <color rgba="0.81 0.63 0.39 1" />
+  </material>
+  <material name="dust">
+    <color rgba="0.74 0.55 0.32 1" />
+  </material>
+  <material name="margin">
+    <color rgba="0.78 0.38 0.17 1" />
+  </material>
+  <material name="keeper">
+    <color rgba="0.32 0.53 0.52 1" />
+  </material>
+  <material name="tab">
+    <color rgba="0.91 0.67 0.29 1" />
+  </material>
+  <material name="glue">
+    <color rgba="0.43 0.52 0.48 1" />
+  </material>
+  <link name="base">
+    <inertial>
+      <origin xyz="3.76691776867e-20 0.100700510278 0" rpy="0 0 0" />
+      <mass value="0.0224861013505" />
+      <inertia ixx="7.5140244813e-05" iyy="0.000111955184381" izz="0.00018709151211" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="base_visual_0">
+      <origin xyz="-0.119637096938 0.100700510278 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.005878518095 0.200071964292 0.00102235097304" />
+      </geometry>
+      <material name="kraft" />
+    </visual>
+    <collision name="base_collision_0">
+      <origin xyz="-0.119637096938 0.100700510278 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.005878518095 0.200071964292 0.00102235097304" />
+      </geometry>
+    </collision>
+    <visual name="base_visual_1">
+      <origin xyz="0 0.100700510278 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.230124152667 0.200071964292 0.00102235097304" />
+      </geometry>
+      <material name="kraft" />
+    </visual>
+    <collision name="base_collision_1">
+      <origin xyz="0 0.100700510278 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.230124152667 0.200071964292 0.00102235097304" />
+      </geometry>
+    </collision>
+    <visual name="base_visual_2">
+      <origin xyz="0.119637096938 0.100700510278 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.005878518095 0.200071964292 0.00102235097304" />
+      </geometry>
+      <material name="kraft" />
+    </visual>
+    <collision name="base_collision_2">
+      <origin xyz="0.119637096938 0.100700510278 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.005878518095 0.200071964292 0.00102235097304" />
+      </geometry>
+    </collision>
+    <visual name="base_visual_3">
+      <origin xyz="0.115879957112 0.0239892110465 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.00163576155687 0.0466493658281 0.00102235097304" />
+      </geometry>
+      <material name="kraft" />
+    </visual>
+    <collision name="base_collision_3">
+      <origin xyz="0.115879957112 0.0239892110465 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.00163576155687 0.0466493658281 0.00102235097304" />
+      </geometry>
+    </collision>
+    <visual name="base_visual_4">
+      <origin xyz="0.115879957112 0.100700510278 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.00163576155687 0.0543475838098 0.00102235097304" />
+      </geometry>
+      <material name="kraft" />
+    </visual>
+    <collision name="base_collision_4">
+      <origin xyz="0.115879957112 0.100700510278 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.00163576155687 0.0543475838098 0.00102235097304" />
+      </geometry>
+    </collision>
+    <visual name="base_visual_5">
+      <origin xyz="0.115879957112 0.17741180951 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.00163576155687 0.0466493658281 0.00102235097304" />
+      </geometry>
+      <material name="kraft" />
+    </visual>
+    <collision name="base_collision_5">
+      <origin xyz="0.115879957112 0.17741180951 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.00163576155687 0.0466493658281 0.00102235097304" />
+      </geometry>
+    </collision>
+    <visual name="base_visual_6">
+      <origin xyz="-0.115879957112 0.0239892110465 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.00163576155687 0.0466493658281 0.00102235097304" />
+      </geometry>
+      <material name="kraft" />
+    </visual>
+    <collision name="base_collision_6">
+      <origin xyz="-0.115879957112 0.0239892110465 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.00163576155687 0.0466493658281 0.00102235097304" />
+      </geometry>
+    </collision>
+    <visual name="base_visual_7">
+      <origin xyz="-0.115879957112 0.100700510278 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.00163576155687 0.0543475838098 0.00102235097304" />
+      </geometry>
+      <material name="kraft" />
+    </visual>
+    <collision name="base_collision_7">
+      <origin xyz="-0.115879957112 0.100700510278 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.00163576155687 0.0543475838098 0.00102235097304" />
+      </geometry>
+    </collision>
+    <visual name="base_visual_8">
+      <origin xyz="-0.115879957112 0.17741180951 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.00163576155687 0.0466493658281 0.00102235097304" />
+      </geometry>
+      <material name="kraft" />
+    </visual>
+    <collision name="base_collision_8">
+      <origin xyz="-0.115879957112 0.17741180951 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.00163576155687 0.0466493658281 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="rear_wall">
+    <inertial>
+      <origin xyz="0 0.0121593113288 0" rpy="0 0 0" />
+      <mass value="0.00256475201379" />
+      <inertia ixx="1.13183652906e-07" iyy="1.25682842572e-05" izz="1.26810211297e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rear_wall_visual_0">
+      <origin xyz="0 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.24249459944 0.0229895663927 0.00102235097304" />
+      </geometry>
+      <material name="kraft" />
+    </visual>
+    <collision name="rear_wall_collision_0">
+      <origin xyz="0 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.24249459944 0.0229895663927 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_rise" type="revolute">
+    <parent link="base" />
+    <child link="rear_wall" />
+    <origin xyz="0 0 0" rpy="0 0 3.14159265359" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="rear_corner_a">
+    <inertial>
+      <origin xyz="-0.00884378199642 0.0121593113288 0" rpy="0 0 0" />
+      <mass value="0.0001630139956" />
+      <inertia ixx="6.38774281951e-09" iyy="3.64942117055e-09" izz="1.00087669109e-08" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rear_corner_a_visual_0">
+      <origin xyz="-0.00884378199642 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0163585077279 0.0216605101277 0.00102235097304" />
+      </geometry>
+      <material name="dust" />
+    </visual>
+    <collision name="rear_corner_a_collision_0">
+      <origin xyz="-0.00884378199642 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0163585077279 0.0216605101277 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_corner_a_fold" type="revolute">
+    <parent link="rear_wall" />
+    <child link="rear_corner_a" />
+    <origin xyz="-0.121911827853 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="rear_corner_b">
+    <inertial>
+      <origin xyz="0.00884378199642 0.0121593113288 0" rpy="0 0 0" />
+      <mass value="0.0001630139956" />
+      <inertia ixx="6.38774281951e-09" iyy="3.64942117055e-09" izz="1.00087669109e-08" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="rear_corner_b_visual_0">
+      <origin xyz="0.00884378199642 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0163585077279 0.0216605101277 0.00102235097304" />
+      </geometry>
+      <material name="dust" />
+    </visual>
+    <collision name="rear_corner_b_collision_0">
+      <origin xyz="0.00884378199642 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0163585077279 0.0216605101277 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rear_corner_b_fold" type="revolute">
+    <parent link="rear_wall" />
+    <child link="rear_corner_b" />
+    <origin xyz="0.121911827853 0 0" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="front_wall">
+    <inertial>
+      <origin xyz="0 0.0121593113288 0" rpy="0 0 0" />
+      <mass value="0.00256475201379" />
+      <inertia ixx="1.13183652906e-07" iyy="1.25682842572e-05" izz="1.26810211297e-05" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="front_wall_visual_0">
+      <origin xyz="0 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.24249459944 0.0229895663927 0.00102235097304" />
+      </geometry>
+      <material name="kraft" />
+    </visual>
+    <collision name="front_wall_collision_0">
+      <origin xyz="0 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.24249459944 0.0229895663927 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_rise" type="revolute">
+    <parent link="base" />
+    <child link="front_wall" />
+    <origin xyz="0 0.201401020557 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="front_corner_a">
+    <inertial>
+      <origin xyz="-0.00884378199642 0.0121593113288 0" rpy="0 0 0" />
+      <mass value="0.0001630139956" />
+      <inertia ixx="6.38774281951e-09" iyy="3.64942117055e-09" izz="1.00087669109e-08" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="front_corner_a_visual_0">
+      <origin xyz="-0.00884378199642 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0163585077279 0.0216605101277 0.00102235097304" />
+      </geometry>
+      <material name="dust" />
+    </visual>
+    <collision name="front_corner_a_collision_0">
+      <origin xyz="-0.00884378199642 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0163585077279 0.0216605101277 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_corner_a_fold" type="revolute">
+    <parent link="front_wall" />
+    <child link="front_corner_a" />
+    <origin xyz="-0.121911827853 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="front_corner_b">
+    <inertial>
+      <origin xyz="0.00884378199642 0.0121593113288 0" rpy="0 0 0" />
+      <mass value="0.0001630139956" />
+      <inertia ixx="6.38774281951e-09" iyy="3.64942117055e-09" izz="1.00087669109e-08" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="front_corner_b_visual_0">
+      <origin xyz="0.00884378199642 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0163585077279 0.0216605101277 0.00102235097304" />
+      </geometry>
+      <material name="dust" />
+    </visual>
+    <collision name="front_corner_b_collision_0">
+      <origin xyz="0.00884378199642 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0163585077279 0.0216605101277 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_corner_b_fold" type="revolute">
+    <parent link="front_wall" />
+    <child link="front_corner_b" />
+    <origin xyz="0.121911827853 0 0" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="left_outer">
+    <inertial>
+      <origin xyz="0 0.0121593113288 0" rpy="0 0 0" />
+      <mass value="0.00210201082731" />
+      <inertia ixx="9.27626774845e-08" iyy="6.91908195901e-06" izz="7.01147846567e-06" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="left_outer_visual_0">
+      <origin xyz="0 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.198742908027 0.0229895663927 0.00102235097304" />
+      </geometry>
+      <material name="kraft" />
+    </visual>
+    <collision name="left_outer_collision_0">
+      <origin xyz="0 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.198742908027 0.0229895663927 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_rise" type="revolute">
+    <parent link="base" />
+    <child link="left_outer" />
+    <origin xyz="-0.123240884118 0.100700510278 0" rpy="0 0 1.57079632679" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="left_roll_margin">
+    <inertial>
+      <origin xyz="0 0.00132905626496 0" rpy="0 0 0" />
+      <mass value="2.16923812204e-05" />
+      <inertia ixx="5.08251058037e-12" iyy="1.78245023942e-07" izz="1.78246327634e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="left_roll_margin_visual_0">
+      <origin xyz="-0.0905021132427 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0177386815415 0.00132905626496 0.00102235097304" />
+      </geometry>
+      <material name="margin" />
+    </visual>
+    <collision name="left_roll_margin_collision_0">
+      <origin xyz="-0.0905021132427 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0177386815415 0.00132905626496 0.00102235097304" />
+      </geometry>
+    </collision>
+    <visual name="left_roll_margin_visual_1">
+      <origin xyz="0.0905021132427 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0177386815415 0.00132905626496 0.00102235097304" />
+      </geometry>
+      <material name="margin" />
+    </visual>
+    <collision name="left_roll_margin_collision_1">
+      <origin xyz="0.0905021132427 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0177386815415 0.00132905626496 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_roll_base" type="revolute">
+    <parent link="left_outer" />
+    <child link="left_roll_margin" />
+    <origin xyz="0 0.0243186226577 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="left_liner">
+    <inertial>
+      <origin xyz="0 0.0109580489355 0" rpy="0 0 0" />
+      <mass value="0.00188234017202" />
+      <inertia ixx="6.66460551272e-08" iyy="6.1960032535e-06" izz="6.26232140449e-06" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="left_liner_visual_0">
+      <origin xyz="0 0.0109580489355 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.198742908027 0.020587041606 0.00102235097304" />
+      </geometry>
+      <material name="keeper" />
+    </visual>
+    <collision name="left_liner_collision_0">
+      <origin xyz="0 0.0109580489355 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.198742908027 0.020587041606 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_roll_return" type="revolute">
+    <parent link="left_roll_margin" />
+    <child link="left_liner" />
+    <origin xyz="0 0.00265811252991 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="left_foot_margin">
+    <inertial>
+      <origin xyz="0 0.002351407238 0" rpy="0 0 0" />
+      <mass value="0.000243039873943" />
+      <inertia ixx="1.64269916286e-10" iyy="8.0000197205e-07" izz="8.00123904359e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="left_foot_margin_visual_0">
+      <origin xyz="0 0.002351407238 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.198742908027 0.00265811252991 0.00102235097304" />
+      </geometry>
+      <material name="margin" />
+    </visual>
+    <collision name="left_foot_margin_collision_0">
+      <origin xyz="0 0.002351407238 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.198742908027 0.00265811252991 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_foot_fold" type="revolute">
+    <parent link="left_liner" />
+    <child link="left_foot_margin" />
+    <origin xyz="0 0.0222739207116 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-3.14159265359" upper="0" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="left_lock_0">
+    <inertial>
+      <origin xyz="0 0.00204470194609 0" rpy="0 0 0" />
+      <mass value="2.27345023319e-05" />
+      <inertia ixx="9.90089008906e-12" iyy="1.10857856194e-09" izz="1.11451909599e-09" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="left_lock_0_visual_0">
+      <origin xyz="0 0.00204470194609 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0241681224668 0.00204470194609 0.00102235097304" />
+      </geometry>
+      <material name="tab" />
+    </visual>
+    <collision name="left_lock_0_collision_0">
+      <origin xyz="0 0.00204470194609 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0241681224668 0.00204470194609 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_lock_0_fold" type="revolute">
+    <parent link="left_foot_margin" />
+    <child link="left_lock_0" />
+    <origin xyz="-0.0402802041114 0.004702814476 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="3.14159265359" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="left_lock_1">
+    <inertial>
+      <origin xyz="0 0.00204470194609 0" rpy="0 0 0" />
+      <mass value="2.27345023319e-05" />
+      <inertia ixx="9.90089008906e-12" iyy="1.10857856194e-09" izz="1.11451909599e-09" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="left_lock_1_visual_0">
+      <origin xyz="0 0.00204470194609 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0241681224668 0.00204470194609 0.00102235097304" />
+      </geometry>
+      <material name="tab" />
+    </visual>
+    <collision name="left_lock_1_collision_0">
+      <origin xyz="0 0.00204470194609 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0241681224668 0.00204470194609 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_lock_1_fold" type="revolute">
+    <parent link="left_foot_margin" />
+    <child link="left_lock_1" />
+    <origin xyz="0.0402802041114 0.004702814476 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="3.14159265359" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="right_outer">
+    <inertial>
+      <origin xyz="0 0.0121593113288 0" rpy="0 0 0" />
+      <mass value="0.00210201082731" />
+      <inertia ixx="9.27626774845e-08" iyy="6.91908195901e-06" izz="7.01147846567e-06" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="right_outer_visual_0">
+      <origin xyz="0 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.198742908027 0.0229895663927 0.00102235097304" />
+      </geometry>
+      <material name="kraft" />
+    </visual>
+    <collision name="right_outer_collision_0">
+      <origin xyz="0 0.0121593113288 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.198742908027 0.0229895663927 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_rise" type="revolute">
+    <parent link="base" />
+    <child link="right_outer" />
+    <origin xyz="0.123240884118 0.100700510278 0" rpy="0 0 -1.57079632679" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="right_roll_margin">
+    <inertial>
+      <origin xyz="0 0.00132905626496 0" rpy="0 0 0" />
+      <mass value="2.16923812204e-05" />
+      <inertia ixx="5.08251058037e-12" iyy="1.78245023942e-07" izz="1.78246327634e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="right_roll_margin_visual_0">
+      <origin xyz="-0.0905021132427 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0177386815415 0.00132905626496 0.00102235097304" />
+      </geometry>
+      <material name="margin" />
+    </visual>
+    <collision name="right_roll_margin_collision_0">
+      <origin xyz="-0.0905021132427 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0177386815415 0.00132905626496 0.00102235097304" />
+      </geometry>
+    </collision>
+    <visual name="right_roll_margin_visual_1">
+      <origin xyz="0.0905021132427 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0177386815415 0.00132905626496 0.00102235097304" />
+      </geometry>
+      <material name="margin" />
+    </visual>
+    <collision name="right_roll_margin_collision_1">
+      <origin xyz="0.0905021132427 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0177386815415 0.00132905626496 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_roll_base" type="revolute">
+    <parent link="right_outer" />
+    <child link="right_roll_margin" />
+    <origin xyz="0 0.0243186226577 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="right_liner">
+    <inertial>
+      <origin xyz="0 0.0109580489355 0" rpy="0 0 0" />
+      <mass value="0.00188234017202" />
+      <inertia ixx="6.66460551272e-08" iyy="6.1960032535e-06" izz="6.26232140449e-06" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="right_liner_visual_0">
+      <origin xyz="0 0.0109580489355 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.198742908027 0.020587041606 0.00102235097304" />
+      </geometry>
+      <material name="keeper" />
+    </visual>
+    <collision name="right_liner_collision_0">
+      <origin xyz="0 0.0109580489355 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.198742908027 0.020587041606 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_roll_return" type="revolute">
+    <parent link="right_roll_margin" />
+    <child link="right_liner" />
+    <origin xyz="0 0.00265811252991 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="right_foot_margin">
+    <inertial>
+      <origin xyz="0 0.002351407238 0" rpy="0 0 0" />
+      <mass value="0.000243039873943" />
+      <inertia ixx="1.64269916286e-10" iyy="8.0000197205e-07" izz="8.00123904359e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="right_foot_margin_visual_0">
+      <origin xyz="0 0.002351407238 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.198742908027 0.00265811252991 0.00102235097304" />
+      </geometry>
+      <material name="margin" />
+    </visual>
+    <collision name="right_foot_margin_collision_0">
+      <origin xyz="0 0.002351407238 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.198742908027 0.00265811252991 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_foot_fold" type="revolute">
+    <parent link="right_liner" />
+    <child link="right_foot_margin" />
+    <origin xyz="0 0.0222739207116 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-3.14159265359" upper="0" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="right_lock_0">
+    <inertial>
+      <origin xyz="0 0.00204470194609 0" rpy="0 0 0" />
+      <mass value="2.27345023319e-05" />
+      <inertia ixx="9.90089008906e-12" iyy="1.10857856194e-09" izz="1.11451909599e-09" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="right_lock_0_visual_0">
+      <origin xyz="0 0.00204470194609 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0241681224668 0.00204470194609 0.00102235097304" />
+      </geometry>
+      <material name="tab" />
+    </visual>
+    <collision name="right_lock_0_collision_0">
+      <origin xyz="0 0.00204470194609 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0241681224668 0.00204470194609 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_lock_0_fold" type="revolute">
+    <parent link="right_foot_margin" />
+    <child link="right_lock_0" />
+    <origin xyz="0.0402802041114 0.004702814476 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="3.14159265359" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="right_lock_1">
+    <inertial>
+      <origin xyz="0 0.00204470194609 0" rpy="0 0 0" />
+      <mass value="2.27345023319e-05" />
+      <inertia ixx="9.90089008906e-12" iyy="1.10857856194e-09" izz="1.11451909599e-09" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="right_lock_1_visual_0">
+      <origin xyz="0 0.00204470194609 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0241681224668 0.00204470194609 0.00102235097304" />
+      </geometry>
+      <material name="tab" />
+    </visual>
+    <collision name="right_lock_1_collision_0">
+      <origin xyz="0 0.00204470194609 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0241681224668 0.00204470194609 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_lock_1_fold" type="revolute">
+    <parent link="right_foot_margin" />
+    <child link="right_lock_1" />
+    <origin xyz="-0.0402802041114 0.004702814476 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="3.14159265359" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="front_socket_margin">
+    <inertial>
+      <origin xyz="0 0.00132905626496 0" rpy="0 0 0" />
+      <mass value="1.35638571027e-05" />
+      <inertia ixx="3.1780027529e-12" iyy="1.17042691638e-07" izz="1.17043506813e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="front_socket_margin_visual_0">
+      <origin xyz="-0.0928368096407 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0110916795706 0.00132905626496 0.00102235097304" />
+      </geometry>
+      <material name="margin" />
+    </visual>
+    <collision name="front_socket_margin_collision_0">
+      <origin xyz="-0.0928368096407 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0110916795706 0.00132905626496 0.00102235097304" />
+      </geometry>
+    </collision>
+    <visual name="front_socket_margin_visual_1">
+      <origin xyz="0.0928368096407 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0110916795706 0.00132905626496 0.00102235097304" />
+      </geometry>
+      <material name="margin" />
+    </visual>
+    <collision name="front_socket_margin_collision_1">
+      <origin xyz="0.0928368096407 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0110916795706 0.00132905626496 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_socket_base" type="revolute">
+    <parent link="front_wall" />
+    <child link="front_socket_margin" />
+    <origin xyz="0 0.0243186226577 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="front_keeper">
+    <inertial>
+      <origin xyz="0 0.00869980790332 0" rpy="0 0 0" />
+      <mass value="0.00176337809088" />
+      <inertia ixx="3.81048497292e-08" iyy="8.35941722848e-06" izz="8.3972148973e-06" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="front_keeper_visual_0">
+      <origin xyz="0 0.00869980790332 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.238507430645 0.0160705595417 0.00102235097304" />
+      </geometry>
+      <material name="keeper" />
+    </visual>
+    <collision name="front_keeper_collision_0">
+      <origin xyz="0 0.00869980790332 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.238507430645 0.0160705595417 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="front_socket_return" type="revolute">
+    <parent link="front_socket_margin" />
+    <child link="front_keeper" />
+    <origin xyz="0 0.00265811252991 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="lid_spine_margin">
+    <inertial>
+      <origin xyz="0 0.00132905626496 0" rpy="0 0 0" />
+      <mass value="0.000148271597374" />
+      <inertia ixx="3.47399372511e-11" iyy="7.26588603129e-07" izz="7.26597514117e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lid_spine_margin_visual_0">
+      <origin xyz="0 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.24249459944 0.00132905626496 0.00102235097304" />
+      </geometry>
+      <material name="margin" />
+    </visual>
+    <collision name="lid_spine_margin_collision_0">
+      <origin xyz="0 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.24249459944 0.00132905626496 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lid_spine_fold" type="revolute">
+    <parent link="rear_wall" />
+    <child link="lid_spine_margin" />
+    <origin xyz="0 0.0243186226577 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.3" upper="0.3" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="lid">
+    <inertial>
+      <origin xyz="0 0.100035982146 0" rpy="0 0 0" />
+      <mass value="0.0221720699243" />
+      <inertia ixx="7.29826730737e-05" iyy="0.00010865178227" izz="0.000181630592964" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lid_visual_0">
+      <origin xyz="0 0.100035982146 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.24249459944 0.198742908027 0.00102235097304" />
+      </geometry>
+      <material name="lid" />
+    </visual>
+    <collision name="lid_collision_0">
+      <origin xyz="0 0.100035982146 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.24249459944 0.198742908027 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lid_fold" type="revolute">
+    <parent link="lid_spine_margin" />
+    <child link="lid" />
+    <origin xyz="0 0.00265811252991 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.4" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="lid_left_wing">
+    <inertial>
+      <origin xyz="0.00762785086354 0.099903454658 0" rpy="0 0 0" />
+      <mass value="0.00100963811759" />
+      <inertia ixx="2.08937383808e-06" iyy="1.64063380028e-08" izz="2.10560429687e-06" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lid_left_wing_visual_0">
+      <origin xyz="0.00762785086354 0.099903454658 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0139266454621 0.157582029811 0.00102235097304" />
+      </geometry>
+      <material name="dust" />
+    </visual>
+    <collision name="lid_left_wing_collision_0">
+      <origin xyz="0.00762785086354 0.099903454658 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0139266454621 0.157582029811 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lid_left_wing_fold" type="revolute">
+    <parent link="lid" />
+    <child link="lid_left_wing" />
+    <origin xyz="0.121911827853 0 0" rpy="0 0 0" />
+    <axis xyz="0 -1 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="lid_right_wing">
+    <inertial>
+      <origin xyz="-0.00762785086354 0.099903454658 0" rpy="0 0 0" />
+      <mass value="0.00100963811759" />
+      <inertia ixx="2.08937383808e-06" iyy="1.64063380028e-08" izz="2.10560429687e-06" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lid_right_wing_visual_0">
+      <origin xyz="-0.00762785086354 0.099903454658 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0139266454621 0.157582029811 0.00102235097304" />
+      </geometry>
+      <material name="dust" />
+    </visual>
+    <collision name="lid_right_wing_collision_0">
+      <origin xyz="-0.00762785086354 0.099903454658 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.0139266454621 0.157582029811 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lid_right_wing_fold" type="revolute">
+    <parent link="lid" />
+    <child link="lid_right_wing" />
+    <origin xyz="-0.121911827853 0 0" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="lid_front_margin">
+    <inertial>
+      <origin xyz="0 0.00132905626496 0" rpy="0 0 0" />
+      <mass value="0.000105496666354" />
+      <inertia ixx="2.47177991892e-11" iyy="2.6172090904e-07" izz="2.61727249293e-07" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lid_front_margin_visual_0">
+      <origin xyz="0 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.172537237765 0.00132905626496 0.00102235097304" />
+      </geometry>
+      <material name="margin" />
+    </visual>
+    <collision name="lid_front_margin_collision_0">
+      <origin xyz="0 0.00132905626496 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.172537237765 0.00132905626496 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lid_front_margin_fold" type="revolute">
+    <parent link="lid" />
+    <child link="lid_front_margin" />
+    <origin xyz="0 0.200071964292 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="2.2" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+  <link name="lid_front_tab">
+    <inertial>
+      <origin xyz="0 0.00665510595723 0" rpy="0 0 0" />
+      <mass value="0.000951029699361" />
+      <inertia ixx="1.14593762683e-08" iyy="2.35935756116e-06" izz="2.37065126782e-06" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual name="lid_front_tab_visual_0">
+      <origin xyz="0 0.00665510595723 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.172537237765 0.0119811556495 0.00102235097304" />
+      </geometry>
+      <material name="tab" />
+    </visual>
+    <collision name="lid_front_tab_collision_0">
+      <origin xyz="0 0.00665510595723 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.172537237765 0.0119811556495 0.00102235097304" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lid_front_tab_fold" type="revolute">
+    <parent link="lid_front_margin" />
+    <child link="lid_front_tab" />
+    <origin xyz="0 0.00265811252991 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="1.57079632679" effort="0.2" velocity="2.5" />
+    <dynamics damping="0.0001" friction="0" />
+  </joint>
+</robot>

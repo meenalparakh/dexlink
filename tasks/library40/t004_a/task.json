@@ -1,0 +1,36 @@
+{
+  "id": "t004_a",
+  "group": "library40",
+  "description": "Insert a long peg: pause at two engagement depths before completing the task",
+  "name": "Long peg insertion (round peg): hold at two engagement depths",
+  "object": "Peg insertion 5",
+  "success_check": "Hold the quarter and three-quarter engagement states in order, then finish.",
+  "criterion": "physical_insertion_clearance",
+  "reference": "tasks/library40/t004_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t004_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t004_a",
+    "timestep": 46000,
+    "seed": 42,
+    "policy_sha256": "448838dff91b350e0035f6405d736592bade330f9968fc1f679356ef2208bd19",
+    "files": {
+      "policy.pt": "448838dff91b350e0035f6405d736592bade330f9968fc1f679356ef2208bd19",
+      "policy_obs_processor.pt": "9b7fc6d61b877a49a970b3dab79218ec0d433de9d76917abe24faac82f328c97",
+      "value.pt": "54356213a5cf99f51301a88aa1198f26407f5ce8c09002868cb7ebf30ad80076",
+      "value_obs_processor.pt": "80c5a46048bcd0085ec65b9d0aab10a153f43704c8a8ff41180a3a69051464d7",
+      "optimizer.pt": "d022c4580978c21b9b3ccbaf0f4f9efe3614fb0c441d089b1d734659be60e6f5"
+    }
+  },
+  "reference_sha256": "90de1a9ca09c21274cff7f52799f7535b90265f4afea416ad83e27ef7e82e98f",
+  "source_reference_sha256": "bed5df113397ea228a4d3c9a9b5f358e1ff8ab54ed3f8451be974c85a6a70b73",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

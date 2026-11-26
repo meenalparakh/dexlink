@@ -1,0 +1,38 @@
+{
+  "id": "t058_a",
+  "group": "library40",
+  "description": "Raise a plate and lower it onto a marked support while holding its rim",
+  "name": "Plate (bimanual): supported lowering",
+  "object": "Plate 3",
+  "success_check": "Reach the support while both hands continue stabilizing the plate.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t058_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t058_a/goal.json",
+  "hands": "bimanual",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t058_a",
+    "timestep": 2000,
+    "seed": 42,
+    "policy_sha256": "2b93fd64c960d4044956cc650d8f9cba1bd3ace3a5b8c4de9c5d7b2c4cf769ed",
+    "files": {
+      "policy.pt": "2b93fd64c960d4044956cc650d8f9cba1bd3ace3a5b8c4de9c5d7b2c4cf769ed",
+      "policy_obs_processor.pt": "c288b6ee0f76edc07b549ccba3dc1948870765abf3c0e3caf5ad1819426b56c5",
+      "value.pt": "50f48961953c9d3cb4b30fde515d8276b8e5eec84866de7233bfdc4becb7e6b0",
+      "value_obs_processor.pt": "ef7212fd641f367b051efc4098c3a0371fc0153f9e049602d43dad657c8f22f8",
+      "optimizer.pt": "76922913a769fd1b367d81cb45e28f3a2e7856d15f47d5f042c6cfa5e1fe3d54"
+    }
+  },
+  "reference_sha256": "8aea0e82f1b0c3a7dc977141653260bf14e6f449170f51accb9737893e3a2e18",
+  "source_reference_sha256": "3c53525986ad41cf1862b3080687bd801de5cdc60d695afbc55ebe8e2ed0ddc2",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left",
+    "right"
+  ]
+}

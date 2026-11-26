@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="pan_trivet">
+  <material name="pan_trivet_color">
+    <color rgba="0.25 0.25 0.27 1" />
+  </material>
+  <link name="pan_trivet">
+    <inertial>
+      <origin xyz="0 0 0.04" rpy="0 0 0" />
+      <mass value="2" />
+      <inertia ixx="0.00533333" iyy="0.00588333" izz="0.00908333" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.04" rpy="0 0 0" />
+      <geometry>
+        <box size="0.17 0.16 0.08" />
+      </geometry>
+      <material name="pan_trivet_color" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.04" rpy="0 0 0" />
+      <geometry>
+        <box size="0.17 0.16 0.08" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

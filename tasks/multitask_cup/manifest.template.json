@@ -1,0 +1,2036 @@
+{
+  "schema": "dexlink_multitask_v1",
+  "case_count": 30,
+  "variants": [
+    {
+      "id": "CUP-G01",
+      "axis": "G",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.11428161,
+        0.10502679000000001,
+        0.12753554
+      ],
+      "geometry_scale_xyz": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0769377127289772,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.27693772315979004,
+        0.7071067690849304,
+        0.0,
+        -0.7071067690849304,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-G01.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/9555ce79a3ee1306b087/object.urdf",
+        "assets/multitask_cup/a3c4a9b0980e73b7fd98/object.urdf"
+      ],
+      "reference_sha256": "21db672dce6cad0ffd5c115b01a1604ed8e096ebc7e9f01234c27b5cb3cd5c40",
+      "scene_urdf_sha256": [
+        "6fb2b737a3d1c60c677883772a2db5c1af400d825b2c28db7eeda4424bffef1a",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-Q01",
+      "axis": "Q",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        0.9762960076332092,
+        0.0,
+        -0.2164396196603775,
+        0.0
+      ],
+      "tilt_degrees": -25.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-Q01.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/a90c6188419a589df794/object.urdf"
+      ],
+      "reference_sha256": "8954bab19d29382609a963d8106da381487cb255613a960ee6047ad8608a6cca",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-T01",
+      "axis": "T",
+      "frames": 44,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        8,
+        4,
+        14,
+        4,
+        10,
+        4
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        0.7071067690849304,
+        0.0,
+        -0.7071067690849304,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-T01.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/07ba40d235eb0f0c62a5/object.urdf"
+      ],
+      "reference_sha256": "edd4fe8f1b08893828542dbcfcdb3406cf6567538666252330da8e1e75ff9100",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-S01",
+      "axis": "S",
+      "frames": 79,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "visit_1",
+        "hold_visit_1",
+        "visit_2",
+        "hold_visit_2"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [
+        -45.0,
+        0.0
+      ],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-S01.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/f59f75009bf4a80cb8cb/object.urdf"
+      ],
+      "reference_sha256": "0da9c9d027e6def40eabc539941b497f4dd647381ce1cd2fbdc66f98fc509945",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-P01",
+      "axis": "P",
+      "frames": 124,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt",
+        "return_upright",
+        "translate_to_goal",
+        "lower",
+        "release",
+        "retreat"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5,
+        15,
+        15,
+        20,
+        5,
+        10
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        -0.07999999821186066,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": [
+        -0.08,
+        0.0
+      ],
+      "reference": "tasks/multitask_cup/references/CUP-P01.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/27dcf37b93a89abc84a9/object.urdf"
+      ],
+      "reference_sha256": "d78d5ff586397f7d05b98c385445a35d58f078d506cc93bfa4b5d97979d20e85",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-G02",
+      "axis": "G",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.15461629,
+        0.14209507,
+        0.17254808
+      ],
+      "geometry_scale_xyz": [
+        1.15,
+        1.15,
+        1.15
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.10338631272315979,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.3033863306045532,
+        0.7071067690849304,
+        0.0,
+        -0.7071067690849304,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-G02.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/3e8996c9673d93fdfd6e/object.urdf",
+        "assets/multitask_cup/033a8c6eaedf24e553de/object.urdf"
+      ],
+      "reference_sha256": "55e7a3812787214b7a72c004698d3dbc04264732ad844e14ab0abb6813c5416d",
+      "scene_urdf_sha256": [
+        "898504bd713c498492d2fd7b326b8ccd092ce2639e76c16d778a99040e2c4d71",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-Q02",
+      "axis": "Q",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        0.9396926164627075,
+        0.0,
+        -0.3420201539993286,
+        0.0
+      ],
+      "tilt_degrees": -40.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-Q02.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/3dc07486315b07b3dc08/object.urdf"
+      ],
+      "reference_sha256": "6484e1dec0f5b71ce337e239c7f1cb24f347ff6d00cfdea1312c3759deed6a0c",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-T02",
+      "axis": "T",
+      "frames": 70,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        12,
+        4,
+        24,
+        6,
+        18,
+        6
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        0.7071067690849304,
+        0.0,
+        -0.7071067690849304,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-T02.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/f99fe135f445f74e9b0b/object.urdf"
+      ],
+      "reference_sha256": "5f661cd3bbbdf58ff4c10da408d3511ba8ec5d2d6ee86d264a18ec0807f178e4",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-S02",
+      "axis": "S",
+      "frames": 79,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "visit_1",
+        "hold_visit_1",
+        "visit_2",
+        "hold_visit_2"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [
+        -90.0,
+        0.0
+      ],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-S02.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/cfd8e88e14643f9b4ce3/object.urdf"
+      ],
+      "reference_sha256": "d3fbb66a8432596f82463e48e10a4009600b093516c7461911807dfe802d6388",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-P02",
+      "axis": "P",
+      "frames": 124,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt",
+        "return_upright",
+        "translate_to_goal",
+        "lower",
+        "release",
+        "retreat"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5,
+        15,
+        15,
+        20,
+        5,
+        10
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.07999999821186066,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": [
+        0.08,
+        0.0
+      ],
+      "reference": "tasks/multitask_cup/references/CUP-P02.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/65e0221a857c9e926ddc/object.urdf"
+      ],
+      "reference_sha256": "f81408849fd0f908fa816a092ef2cfea922fe79b66999d97679e5c9dfacaae5b",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-G03",
+      "axis": "G",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.11428161,
+        0.10502679000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        0.85,
+        0.85,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        0.7071067690849304,
+        0.0,
+        -0.7071067690849304,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-G03.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/e981ba286620511e8228/object.urdf",
+        "assets/multitask_cup/0b9ca8a46e8726485728/object.urdf"
+      ],
+      "reference_sha256": "51b3aeaee0ac9b2f40557cb1fe47c3942956cd98a58fa5ad71a7747a5df8c3ef",
+      "scene_urdf_sha256": [
+        "bf2dcc566cc1b1a0b85a7be1d86817cdd606dac016ad9648432b7fbde0e58b43",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-Q03",
+      "axis": "Q",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        0.8870108127593994,
+        0.0,
+        -0.4617486000061035,
+        0.0
+      ],
+      "tilt_degrees": -55.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-Q03.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/229836beb7e7f47b116e/object.urdf"
+      ],
+      "reference_sha256": "f81d7a67053fc57e2b19e207624a063bcda23f1a39ee6cd5ea68c9af3ca5ac00",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-T03",
+      "axis": "T",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        12,
+        5,
+        23,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        0.7071067690849304,
+        0.0,
+        -0.7071067690849304,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-T03.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/65015f9da3a5f360fee1/object.urdf"
+      ],
+      "reference_sha256": "0121eebd9d5b4e2e9d74d7fa13f837d42a7c0924a73c6f07181cb56ad1a17ee2",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-S03",
+      "axis": "S",
+      "frames": 79,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "visit_1",
+        "hold_visit_1",
+        "visit_2",
+        "hold_visit_2"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [
+        -135.0,
+        0.0
+      ],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-S03.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/97d48ec3eb2d4f0ef7d0/object.urdf"
+      ],
+      "reference_sha256": "e0295cb60fe837cf95a116bd090d26fd650d1bfde932d49d8b8e86ee9f1c852b",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-P03",
+      "axis": "P",
+      "frames": 124,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt",
+        "return_upright",
+        "translate_to_goal",
+        "lower",
+        "release",
+        "retreat"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5,
+        15,
+        15,
+        20,
+        5,
+        10
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        -0.07999999821186066,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": [
+        0.0,
+        -0.08
+      ],
+      "reference": "tasks/multitask_cup/references/CUP-P03.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/f8c417100dd76cfd1fa1/object.urdf"
+      ],
+      "reference_sha256": "3b146364290e505376a6e10fc194d1da80aa10d1dd8c071e7519947e0c9b52b6",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-G04",
+      "axis": "G",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.15461629,
+        0.14209507,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        0.7071067690849304,
+        0.0,
+        -0.7071067690849304,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-G04.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/d5dff1afe3b59eab2b6f/object.urdf",
+        "assets/multitask_cup/721bc78be6d49eb6036f/object.urdf"
+      ],
+      "reference_sha256": "3b3a604971b39c3fb6ed127d469ccf933240ba49f1b44ae4eee37ca65147efab",
+      "scene_urdf_sha256": [
+        "59a663cea30a159dae55389946ac14c984feb9afc7695fbfa866e884db8c641f",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-Q04",
+      "axis": "Q",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        0.8191520571708679,
+        0.0,
+        -0.5735764503479004,
+        0.0
+      ],
+      "tilt_degrees": -70.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-Q04.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/857fc5b5763cce61ba1c/object.urdf"
+      ],
+      "reference_sha256": "8842d63f56a9f003f161c8f3d3e8445fde3404884fc3c857c0086a3f55bb678a",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-T04",
+      "axis": "T",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        28,
+        5,
+        7,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        0.7071067690849304,
+        0.0,
+        -0.7071067690849304,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-T04.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/60aa7073f5d8f6718d9c/object.urdf"
+      ],
+      "reference_sha256": "3c41022ce300fe5af1b57f4bebdceb64956a58c23e893230db7f7b58ea826880",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-S04",
+      "axis": "S",
+      "frames": 79,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "visit_1",
+        "hold_visit_1",
+        "visit_2",
+        "hold_visit_2"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [
+        -180.0,
+        0.0
+      ],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-S04.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/382f4429f3a7b98927cb/object.urdf"
+      ],
+      "reference_sha256": "68ca8b8b63b0ddab4fa50f0cedcbb623568f3b08a310da878c1ceefca36c99a4",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-P04",
+      "axis": "P",
+      "frames": 124,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt",
+        "return_upright",
+        "translate_to_goal",
+        "lower",
+        "release",
+        "retreat"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5,
+        15,
+        15,
+        20,
+        5,
+        10
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.07999999821186066,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": [
+        0.0,
+        0.08
+      ],
+      "reference": "tasks/multitask_cup/references/CUP-P04.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/47c83232b8bd45057b11/object.urdf"
+      ],
+      "reference_sha256": "1c7480721c78e7e52a4555d431f02e6cd9786bd73263a5a7c3903de3afaf1913",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-G05",
+      "axis": "G",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.12753554
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        0.85
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0769377127289772,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.27693772315979004,
+        0.7071067690849304,
+        0.0,
+        -0.7071067690849304,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-G05.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/76651a8ed11efdfef901/object.urdf",
+        "assets/multitask_cup/9feb63afe2eff4674180/object.urdf"
+      ],
+      "reference_sha256": "edd44c2afede71c92e8a45bb70d01199724bb54caf62e18b8d6ce8e532447668",
+      "scene_urdf_sha256": [
+        "a9fc166ed8339005838f7f787c726d65357cc3bfe0608024d6a6317f49314a6b",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-Q05",
+      "axis": "Q",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        -0.6087614297866821,
+        0.0,
+        0.7933533191680908,
+        0.0
+      ],
+      "tilt_degrees": -105.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-Q05.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/7ba13d28fedad14255ac/object.urdf"
+      ],
+      "reference_sha256": "7befc9565975d0986dfbe0acaab1009c7860080fc87f3ee465183cbcb055780b",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-T05",
+      "axis": "T",
+      "frames": 73,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        8,
+        20,
+        10,
+        15,
+        10
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        0.7071067690849304,
+        0.0,
+        -0.7071067690849304,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-T05.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/043c488bdfa393d7264d/object.urdf"
+      ],
+      "reference_sha256": "84d4928f61abcb9d9016d1538fd76a23cdc83085864aabe8b173c6b355ca69e0",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-S05",
+      "axis": "S",
+      "frames": 99,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "visit_1",
+        "hold_visit_1",
+        "visit_2",
+        "hold_visit_2",
+        "visit_3",
+        "hold_visit_3"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5,
+        15,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [
+        -90.0,
+        -180.0,
+        0.0
+      ],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-S05.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/48be6ecf65423152bc68/object.urdf"
+      ],
+      "reference_sha256": "8bd7f5853da7ed0b29ea7d6152e49f423cfede5b768b5c718afb257f522fd6fb",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-P05",
+      "axis": "P",
+      "frames": 124,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt",
+        "return_upright",
+        "translate_to_goal",
+        "lower",
+        "release",
+        "retreat"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5,
+        15,
+        15,
+        20,
+        5,
+        10
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        -0.05999999865889549,
+        0.05999999865889549,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": [
+        -0.06,
+        0.06
+      ],
+      "reference": "tasks/multitask_cup/references/CUP-P05.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/9851c847b9be275cec91/object.urdf"
+      ],
+      "reference_sha256": "abc38330025a720fd94471ee4ecaa79af5aaa63d2830772b20cb447627941bb3",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-G06",
+      "axis": "G",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.17254808
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.15
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.10338631272315979,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.3033863306045532,
+        0.7071067690849304,
+        0.0,
+        -0.7071067690849304,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-G06.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/9757cc9b9c621fc59304/object.urdf",
+        "assets/multitask_cup/45d9e5cf2a19d15cb320/object.urdf"
+      ],
+      "reference_sha256": "25a049fc94be60e4b78228605fffc29a6d3aa63b3813615307dfadcc2b657f57",
+      "scene_urdf_sha256": [
+        "4a604c656a65e30c9b207799de6787664839c3e3cac71382bb53c0a8572c7a0e",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-Q06",
+      "axis": "Q",
+      "frames": 59,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        -0.5,
+        0.0,
+        0.8660253882408142,
+        0.0
+      ],
+      "tilt_degrees": -120.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-Q06.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/ab00a5d6e9563898b52e/object.urdf"
+      ],
+      "reference_sha256": "37a911fba7222d230ff0f51bc7ca8ac485d1f30df1f0e4e60baf3c704f31e21b",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-T06",
+      "axis": "T",
+      "frames": 92,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt"
+      ],
+      "phase_frames": [
+        16,
+        6,
+        30,
+        8,
+        24,
+        8
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        0.7071067690849304,
+        0.0,
+        -0.7071067690849304,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-T06.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/d0edb68fb26596dad714/object.urdf"
+      ],
+      "reference_sha256": "56c598c90d2100ec62f812815e8ab8df1c93bcd384a8d6620c62d38a6f376106",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-S06",
+      "axis": "S",
+      "frames": 119,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "visit_1",
+        "hold_visit_1",
+        "visit_2",
+        "hold_visit_2",
+        "visit_3",
+        "hold_visit_3",
+        "visit_4",
+        "hold_visit_4"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5,
+        15,
+        5,
+        15,
+        5,
+        15,
+        5
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.0,
+        0.0,
+        0.29016202688217163,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [
+        -180.0,
+        -90.0,
+        -180.0,
+        0.0
+      ],
+      "placement_xy": null,
+      "reference": "tasks/multitask_cup/references/CUP-S06.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/45f33695165f26da8a4f/object.urdf"
+      ],
+      "reference_sha256": "402310d72ecd7f99317f0e7865c99d1834b27d526f282e8f86ab8e0153bb10d6",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    },
+    {
+      "id": "CUP-P06",
+      "axis": "P",
+      "frames": 124,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "hold_lift",
+        "tilt",
+        "hold_tilt",
+        "return_upright",
+        "translate_to_goal",
+        "lower",
+        "release",
+        "retreat"
+      ],
+      "phase_frames": [
+        10,
+        4,
+        20,
+        5,
+        15,
+        5,
+        15,
+        15,
+        20,
+        5,
+        10
+      ],
+      "control_period_seconds": 0.06666666666666667,
+      "geometry_extent_xyz": [
+        0.13444895,
+        0.12356093000000001,
+        0.15004181
+      ],
+      "geometry_scale_xyz": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "initial_pose": [
+        0.0,
+        0.0,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "goal_pose": [
+        0.05999999865889549,
+        -0.05999999865889549,
+        0.0901620090007782,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "tilt_degrees": -90.0,
+      "sequence_degrees": [],
+      "placement_xy": [
+        0.06,
+        -0.06
+      ],
+      "reference": "tasks/multitask_cup/references/CUP-P06.npy",
+      "scene_urdfs": [
+        "assets/multitask_cup/7fa2ab52da7536675658/object.urdf",
+        "assets/multitask_cup/b0925e81acd9321d6ce1/object.urdf"
+      ],
+      "reference_sha256": "403cd196d997a43e179a906eb979ea0e27523fb59cc8d1027838786b45f4b141",
+      "scene_urdf_sha256": [
+        "ffc87aef743e66ff09cfcbe2fda6ca2574713380046a090f21dcdf37f93a17a6",
+        "72764e6c2930faec80b0bdb9c0d97f99c1cd594df6a35d865911146065379b09"
+      ]
+    }
+  ],
+  "robot_urdf": "assets/robots/xhand/xhand_right_6dof_abs_obj.urdf",
+  "robot_urdf_sha256": "d92a5ef8079625b8792a501824513bc5ad9fc3824752b64fab6b1b30f133ae11",
+  "control_period_seconds": 0.06666666666666667,
+  "simulation_dt_seconds": 0.008333333333333333,
+  "simulation_steps_per_control": 8
+}

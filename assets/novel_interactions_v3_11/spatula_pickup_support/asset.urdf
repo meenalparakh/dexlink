@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="spatula_pickup_support">
+  <link name="body">
+    <inertial>
+      <origin xyz="-0.23233735019270474 -0.26999999999999924 0.0338722838344465" />
+      <mass value="2" />
+      <inertia ixx="0.004001215737953143" iyy="0.05546870496863718" izz="0.053683351325608336" ixy="-1.793544982528877e-16" ixz="0.0032309836937280565" iyz="5.195700098457878e-17" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

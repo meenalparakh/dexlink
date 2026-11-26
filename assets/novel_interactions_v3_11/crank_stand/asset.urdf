@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="crank_stand">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.03826086956521738 0.06858695652173911" />
+      <mass value="3.0" />
+      <inertia ixx="0.024820805765595463" iyy="0.023451618620037813" izz="0.015795274102079395" ixy="6.137919907639857e-20" ixz="0.0" iyz="-0.002816540642722117" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

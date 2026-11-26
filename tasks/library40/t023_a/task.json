@@ -1,0 +1,37 @@
+{
+  "id": "t023_a",
+  "group": "library40",
+  "description": "Clean the same board strip with three return strokes",
+  "name": "Eraser on board: repeated surface contact",
+  "object": "Eraser 1",
+  "success_check": "Complete three back-and-forth strokes, then withdraw.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t023_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t023_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t023_a",
+    "timestep": 2000,
+    "seed": 42,
+    "policy_sha256": "8b6755fa1c04ff32c73c8662099f13fb55544afb000a0e2500757d1e0c39b1c4",
+    "files": {
+      "policy.pt": "8b6755fa1c04ff32c73c8662099f13fb55544afb000a0e2500757d1e0c39b1c4",
+      "policy_obs_processor.pt": "f1598ed69acbe0eeb4ce6ae3554e9a6becc443d15d76e2edd3facad8562ebb7a",
+      "value.pt": "5d20872eba85718133921b029b82e72eecb749bbf5014591d7631153e7cc6ff7",
+      "value_obs_processor.pt": "178665789935f70c03a05379deb2a28aad046cf45174f0ce31d58bbffe4a23d0",
+      "optimizer.pt": "8aba9f48c5a1aaaf65056db54302361b6b1e930da5a48bcda219fa1361a72993"
+    }
+  },
+  "reference_sha256": "94cbcc313922c6e1ad6f907d0ac4bdb66d22535ce3985f5c087ec94d2b38e8bb",
+  "source_reference_sha256": "075e44dcc40387964cf42797be91d74f818dac9a5851e96ae04470873392dc58",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left"
+  ]
+}

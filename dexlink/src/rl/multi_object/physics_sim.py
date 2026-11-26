@@ -8,6 +8,7 @@ from dexlink.src.retargeting.data.demo_loader import is_oakink_dataset
 from dexlink.utils.retargeting.mesh_utils import compute_mesh_transforms
 from dexlink.src.rl.world.art_object import ArtObject, get_object_cfg
 from dexlink.src.rl.world.cardboard_object import CardboardObject
+from dexlink.src.rl.world.mechanism_object import MechanismObject
 from dexlink.src.rl.world.physics_sim import PhysicsSim
 from dexlink.src.rl.world.robot import Hand, get_hand_specific_cfg
 
@@ -34,9 +35,12 @@ class MultiObjectPhysicsSim(PhysicsSim):
         self._scene_table_top_height = None
         self.scene_entities["plane"] = self._add_plane(pos=(0, 0, 0))
 
-        if not is_oakink_dataset(self.env.task_cfg.demo_dataset):
+        if not (
+            is_oakink_dataset(self.env.task_cfg.demo_dataset)
+            or self.env.task_cfg.demo_dataset == "random_traj"
+        ):
             raise ValueError(
-                "MultiObjectPhysicsSim currently expects an OakInk exported sequence "
+                "MultiObjectPhysicsSim expects an OakInk sequence or native robot trajectory "
                 f"dataset, got {self.env.task_cfg.demo_dataset!r}."
             )
 
@@ -278,7 +282,13 @@ class MultiObjectPhysicsSim(PhysicsSim):
                 friction=float(object_friction),
             )
             object_type = (
-                CardboardObject if obj_cfg["cardboard_model"] is not None else ArtObject
+                MechanismObject
+                if obj_cfg["passive_mechanism"]
+                else (
+                    CardboardObject
+                    if obj_cfg["cardboard_model"] is not None
+                    else ArtObject
+                )
             )
             entity = object_type(
                 physics=self,
@@ -318,7 +328,7 @@ class MultiObjectPhysicsSim(PhysicsSim):
         for object_entity in self.object_entities.values():
             if not object_entity.actuated:
                 continue
-            if isinstance(object_entity, CardboardObject):
+            if isinstance(object_entity, (CardboardObject, MechanismObject)):
                 object_entity.configure_joint_dynamics()
                 continue
 
@@ -435,6 +445,27 @@ class MultiObjectPhysicsSim(PhysicsSim):
             return self.env.observation_manager._compute_privileged_object_pcd()
 
         obs_mgr = self.env.observation_manager
+        if obs_mgr.scene_cloud_contract is not None:
+            from dexlink.utils.rl.scene_cloud import sample_scene_cloud
+
+            # Use full geometry for actor sampling, independently of critic budget.
+            chunks = []
+            for object_id in obs_mgr.object_ids:
+                entity = obs_mgr.object_entities[object_id]
+                pos, quat, arti = obs_mgr._current_object_state_for_id(object_id)
+                chunks.append(
+                    obs_mgr.compute_object_pcd_obs_for_entity(
+                        entity,
+                        pos=pos,
+                        quat=quat,
+                        arti=arti,
+                        normals=False,
+                        num_pts_sample=-1,
+                    )
+                )
+            return sample_scene_cloud(
+                torch.cat(chunks, dim=1), obs_mgr.scene_cloud_contract
+            )
         privileged_object_pcd = obs_mgr._cached_privileged_object_pcd
         if privileged_object_pcd is None:
             privileged_object_pcd = (

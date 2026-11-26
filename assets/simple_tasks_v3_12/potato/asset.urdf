@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="potato">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0003888919364758568" />
+      <mass value="0.1" />
+      <inertia ixx="4.062930780106507e-05" iyy="6.431706756478713e-05" izz="6.540821163542965e-05" ixy="0.0" ixz="1.6512256844658882e-22" iyz="-3.440053509303933e-23" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

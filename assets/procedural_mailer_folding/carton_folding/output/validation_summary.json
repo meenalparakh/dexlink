@@ -1,0 +1,155 @@
+{
+  "backend": "reference",
+  "urdfpy_executed": false,
+  "default": {
+    "model": "carton.urdf",
+    "passed": true,
+    "configurations": 5015
+  },
+  "additional_models": [
+    {
+      "model": "examples/deep/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/large/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/shallow/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/slim/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/small/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/thick_small/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/thin_large/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/wide/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0000/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0001/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0002/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0003/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0004/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0005/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0006/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0007/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0008/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0009/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0010/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0011/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0012/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0013/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0014/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0015/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0016/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0017/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0018/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    },
+    {
+      "model": "examples/random_family/box_0019/carton.urdf",
+      "passed": true,
+      "configurations": 1015
+    }
+  ],
+  "total_models": 29,
+  "total_configurations": 33435,
+  "detected_interlink_penetrations": 0,
+  "note": "Sampled geometry checks, no continuous collision proof or dynamics validation."
+}

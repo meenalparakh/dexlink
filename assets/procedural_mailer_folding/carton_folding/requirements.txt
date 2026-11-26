@@ -1,0 +1,5 @@
+# Minimal procedural generation, reference FK, validation, and headless rendering.
+numpy>=1.23,<3
+Pillow>=9.5
+imageio>=2.31,<3
+imageio-ffmpeg>=0.4.9,<1

@@ -1,0 +1,37 @@
+{
+  "id": "t048_a",
+  "group": "library40",
+  "description": "Sweep the spoon across the bowl floor and lift it clear",
+  "name": "Spoon in bowl: tool surface sweep",
+  "object": "Spoon 2",
+  "success_check": "Traverse the working floor patch and withdraw above the rim.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t048_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t048_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t048_a",
+    "timestep": 24000,
+    "seed": 42,
+    "policy_sha256": "95638a88a4d424e4451da71945cc71f9fb8496a3bdbf892f1cd48aa977269b52",
+    "files": {
+      "policy.pt": "95638a88a4d424e4451da71945cc71f9fb8496a3bdbf892f1cd48aa977269b52",
+      "policy_obs_processor.pt": "9a0f980a150e42d5df9b5cc0cc855a3aadcaa307b49d92d92831badc9affe312",
+      "value.pt": "8a0b4fe12835b2f38bbfe4ac3b26274a2859c984dfd8717ac860fb96fce78cdb",
+      "value_obs_processor.pt": "8e5296777ec71c0a29768fb69a9d5f2706b1537a6ab18dcf510b6d20bf99b173",
+      "optimizer.pt": "25f17eea9b9b1a060205d0cd8ac959670163ece0eb6628c407c372c5e6463d4f"
+    }
+  },
+  "reference_sha256": "e30c22c085c8c495664e4acc2b8571a39c30f36d8a111001624bc8a064f302ae",
+  "source_reference_sha256": "28c5f9dcff9cc1fc4d67d0797e690f3248f725fe3436e27dd5ab8d6136a90bda",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

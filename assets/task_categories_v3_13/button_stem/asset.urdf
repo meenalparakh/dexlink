@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="button_stem">
+  <link name="body">
+    <inertial>
+      <origin xyz="-9.792061799030858e-20 0.0 9.792061799030858e-20" />
+      <mass value="0.1" />
+      <inertia ixx="1.954923736818999e-05" iyy="1.9549237368189996e-05" izz="2.868180806971332e-05" ixy="-1.683010621708429e-22" ixz="1.8360115873182866e-22" iyz="3.0600193121971433e-22" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

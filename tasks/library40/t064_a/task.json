@@ -1,0 +1,37 @@
+{
+  "id": "t064_a",
+  "group": "library40",
+  "description": "Make two presses at increasing depths",
+  "name": "Masher in bowl: depth staged pressing",
+  "object": "Masher 2",
+  "success_check": "Reach the shallower depth before the deeper press and retract.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t064_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t064_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t064_a",
+    "timestep": 50000,
+    "seed": 42,
+    "policy_sha256": "29118cccc74c4a5a6e07d03e49ebbacf7fe95ff09077b6572e72ecc44e0b9825",
+    "files": {
+      "policy.pt": "29118cccc74c4a5a6e07d03e49ebbacf7fe95ff09077b6572e72ecc44e0b9825",
+      "policy_obs_processor.pt": "bca1e90800e707213bafb93d3fa2b2d1184060f7863211fa588a2a20bd2b1eb9",
+      "value.pt": "359bda7f7507f4999655d939e0df1128fcb09ab105e01dd2b38b1abf85d3a132",
+      "value_obs_processor.pt": "d192163cae6ab4dfb2f7d20aa06a328f22266cdad34e77e40fbf979ba6d42b57",
+      "optimizer.pt": "e5d20afd12c31265e214155636b4ef232bd8ed6bf3c80ee826b309c7c628109b"
+    }
+  },
+  "reference_sha256": "6f8bc7f3602a367837f56003defce9eb1306d14f8cab9a5126ad10e9bdbfa1d1",
+  "source_reference_sha256": "3aaa7e003f61712355e22747c072d28ed6996c0ca48e360f1fea8aee2b6a1701",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left"
+  ]
+}

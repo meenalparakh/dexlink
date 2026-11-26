@@ -41,3 +41,11 @@ Users are responsible for accepting upstream terms, preserving attribution,
 and ensuring their intended use is permitted. In particular, MANO files are
 license-gated and must not be committed, packaged, or redistributed with
 DexLink.
+
+## Runtime dependency patches
+
+The source checkout includes small MIT-licensed URDFpy/Pyrender wheels in
+[`third_party/wheels/`](third_party/wheels/README.md). The guide identifies
+their pinned upstream sources, exact compatibility/metadata changes,
+checksums and rebuild instructions. Upstream licenses are retained in the
+wheels and `third_party_licenses/URDFPY-MIT.txt` / `PYRENDER-MIT.txt`.

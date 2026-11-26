@@ -1,0 +1,38 @@
+{
+  "id": "t033_b",
+  "group": "library40",
+  "description": "Square the keyboard against two desk alignment markers",
+  "name": "Keyboard (bimanual): fixture alignment",
+  "object": "Keyboard 1",
+  "success_check": "Match both target edge directions and stop at the marked corner.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t033_b/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t033_b/goal.json",
+  "hands": "bimanual",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t033_b",
+    "timestep": 6000,
+    "seed": 42,
+    "policy_sha256": "af024af70c51478d4497ff8d7cd5c68e355817976527c8a396b7c4fc046a3ec6",
+    "files": {
+      "policy.pt": "af024af70c51478d4497ff8d7cd5c68e355817976527c8a396b7c4fc046a3ec6",
+      "policy_obs_processor.pt": "a6ce05892245bb1118455ef265e818fe510f77fdd9dae7fa40d1359dc651b893",
+      "value.pt": "6184304a212f6b70aedc02f5492fdea5e4af46bc8582addd96d1693fe4abb303",
+      "value_obs_processor.pt": "e763a7bd8f5540996e8aa1b9dc76f56956331aea2568c1e762a3e1f3bd7661ef",
+      "optimizer.pt": "9a4fc1e5d7c99b4febf0056fbb6027e536eb02511037b36ee3b00ddd92635a1b"
+    }
+  },
+  "reference_sha256": "560fbe6b3901f45408ca8ea00cfd883c09fcc6d497a36caf2a77c7fb7bdae684",
+  "source_reference_sha256": "ff4892c7fb0936255e2bd183fd946dd79f9483559d53e46b9a1979b7fea7f0d0",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left",
+    "right"
+  ]
+}

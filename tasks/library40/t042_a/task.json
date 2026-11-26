@@ -1,0 +1,37 @@
+{
+  "id": "t042_a",
+  "group": "library40",
+  "description": "Lift and present the mug with its opening visible",
+  "name": "Mug: object presentation",
+  "object": "Mug 3",
+  "success_check": "Hold the mug at the presentation target without releasing it.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t042_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t042_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t042_a",
+    "timestep": 50000,
+    "seed": 42,
+    "policy_sha256": "835719f9576129ccdc08c3da134b7fdd79c8340bf4b18db9c27e42ec875eb23d",
+    "files": {
+      "policy.pt": "835719f9576129ccdc08c3da134b7fdd79c8340bf4b18db9c27e42ec875eb23d",
+      "policy_obs_processor.pt": "3ad78728ef02e18bcc0b6f9667d5db8f90072dfe4f404c293ef7636c747384d2",
+      "value.pt": "c523fff0f80810d11c6d6a4777015c95974f70403e402cc84628216d2b820a6d",
+      "value_obs_processor.pt": "1ae3ef347853f20d49b10b7908d228552ab4753bd7ab240d270deb6fcccdb6c5",
+      "optimizer.pt": "08ab329d49c8c03860be2e1702b911cc9ffc5090c395b0e50ac9c826e519f8c6"
+    }
+  },
+  "reference_sha256": "2754de252501d79632f1fd2a18994bd030748e83b18ee29d2d6ae6631890a546",
+  "source_reference_sha256": "c4ba03ce621758db1eaec7ab09a49ab3e43a07ad6a3fb5b78db1a302a010c623",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left"
+  ]
+}

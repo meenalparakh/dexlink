@@ -1,0 +1,5 @@
+interface:
+  display_name: "Evaluate a DexLink Policy"
+  short_description: "Audit checkpoints and run policy evaluation"
+  brand_color: "#3B82F6"
+  default_prompt: "Use $dexlink-evaluate-policy to audit this checkpoint and run the standard 50-episode evaluation."

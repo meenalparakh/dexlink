@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<robot name="procedural_laptop_3">
+  <link name="root">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+  <joint name="base_fixed" type="fixed">
+    <parent link="root"/>
+    <child link="bottom"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="bottom">
+    <inertial>
+      <origin xyz="0.0 0.0 0.006062429893565681" rpy="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0.0 0.0 0.006062429893565681" rpy="0 0 0"/>
+      <geometry><box size="0.20179765922412868 0.22645287464488362 0.012124859787131362"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.006062429893565681" rpy="0 0 0"/>
+      <geometry><box size="0.20179765922412868 0.22645287464488362 0.012124859787131362"/></geometry>
+    </collision>
+  </link>
+
+  <joint name="rotation" type="revolute">
+    <parent link="bottom"/>
+    <child link="top"/>
+    <origin xyz="0.10089882961206434 0 0.012124859787131362" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="2.0" friction="0.5"/>
+    <limit effort="50.0" velocity="50.0" lower="0.087" upper="3.141592653589793"/>
+  </joint>
+
+  <link name="top">
+    <inertial>
+      <origin xyz="-0.0989267532270043 0.0 0.006451867511728046" rpy="0 0 0"/>
+      <mass value="0.2"/>
+      <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="-0.0989267532270043 0.0 0.006451867511728046" rpy="0 0 0"/>
+      <geometry><box size="0.1978535064540086 0.22645287464488362 0.012903735023456092"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0989267532270043 0.0 0.006451867511728046" rpy="0 0 0"/>
+      <geometry><box size="0.1978535064540086 0.22645287464488362 0.012903735023456092"/></geometry>
+    </collision>
+  </link>
+</robot>

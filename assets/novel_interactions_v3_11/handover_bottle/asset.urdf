@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="handover_bottle">
+  <link name="body">
+    <inertial>
+      <origin xyz="-3.6213034516672923e-19 2.170069484145194e-20 0.01719248970797584" />
+      <mass value="0.3" />
+      <inertia ixx="0.002757879695211893" iyy="0.002757879695211893" izz="0.00023615177300257879" ixy="1.370704045258898e-21" ixz="-1.0168292446522786e-20" iyz="-2.4921566891589563e-21" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

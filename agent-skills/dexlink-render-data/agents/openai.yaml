@@ -1,0 +1,4 @@
+interface:
+  display_name: "Render saved DexLink motions"
+  short_description: "Render saved DexLink motions with the public workflow"
+  default_prompt: "Use $dexlink-render-data to help me with this DexLink workflow."

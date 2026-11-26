@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="clip_lower">
+  <link name="body">
+    <inertial>
+      <origin xyz="-0.004291166991389976 0.0 -0.00017681349880746514" />
+      <mass value="0.1" />
+      <inertia ixx="3.465077318804724e-05" iyy="0.0003981603892859796" izz="0.00039856429285127916" ixy="1.0833829500089084e-21" ixz="3.7889570999282295e-06" iyz="0.0" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

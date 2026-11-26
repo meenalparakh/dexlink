@@ -1,0 +1,36 @@
+{
+  "id": "t001_b",
+  "group": "library40",
+  "description": "Insert a long peg: complete the fit",
+  "name": "Long peg insertion (square peg): complete in one motion",
+  "object": "Peg insertion 2",
+  "success_check": "Reach the original supported assembly/extraction goal.",
+  "criterion": "physical_insertion_clearance",
+  "reference": "tasks/library40/t001_b/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t001_b/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t001_b",
+    "timestep": 6000,
+    "seed": 42,
+    "policy_sha256": "276f729b199b5b924c31a1e830c2220d6736062794d7caf465201045ed92051e",
+    "files": {
+      "policy.pt": "276f729b199b5b924c31a1e830c2220d6736062794d7caf465201045ed92051e",
+      "policy_obs_processor.pt": "ede9e7523d21e3b4e3d40b1446394d9458bb34469a7fabcf0515c036aae6dfb2",
+      "value.pt": "9c7200fc7abc1ee0adbaa069830310123133cb9f91f30b39866853f6368447ce",
+      "value_obs_processor.pt": "55ace41dab9c571e4f3e7dbaedb9ce7d84e2f309d031a3d06566088d15621283",
+      "optimizer.pt": "3f7b06eec4ecd3a9197ecf3f2d8513babda5c455deb4d3adf27acd051333a90d"
+    }
+  },
+  "reference_sha256": "e0c8c0ea9e658935cf6383938fc729ce299ae70d88879f8f47964ae9ec865dde",
+  "source_reference_sha256": "9f990c13f294825be02a49d4cf708a8810f8905d04a0f71ccda39c65b583c296",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

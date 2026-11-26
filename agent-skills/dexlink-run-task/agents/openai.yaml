@@ -1,0 +1,5 @@
+interface:
+  display_name: "Run a DexLink Task"
+  short_description: "Generate a reference and train its policy"
+  brand_color: "#3B82F6"
+  default_prompt: "Use $dexlink-run-task to validate this task, generate its reference, and launch training."

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="hook_v1">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.009417982241687724 0.0 -0.002079294780632358" />
+      <mass value="0.16" />
+      <inertia ixx="0.00019535435579973255" iyy="0.000679326799413659" izz="0.0006589873616935449" ixy="-6.395174968226246e-21" ixz="7.136259001581432e-05" iyz="1.5987937420565615e-21" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_03.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="foam_ball">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.00041880670082015335" />
+      <mass value="0.025" />
+      <inertia ixx="1.1780095161255553e-05" iyy="1.1778543472141977e-05" izz="1.2094910687890404e-05" ixy="-2.5763292870845307e-22" ixz="-4.025514511069579e-24" iyz="2.0127572555347896e-24" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

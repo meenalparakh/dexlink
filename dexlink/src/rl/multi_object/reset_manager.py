@@ -4,6 +4,7 @@ import numpy as np
 import torch
 
 from dexlink.src.rl.world.art_object import ArtObject
+from dexlink.src.rl.world.cardboard_object import CardboardObject
 from dexlink.src.rl.world.reset_manager import ResetManager
 from dexlink.src.rl.world.robot import Hand
 
@@ -14,6 +15,28 @@ class MultiObjectResetManager(ResetManager):
     def sync_reference_buffers(self) -> None:
         super().sync_reference_buffers()
         task = self.env.task_manager
+        motion = self._retargeted_motion()
+        rest_values = motion.get("cardboard_rest_arti_vals")
+        rest_names = motion.get("cardboard_rest_arti_names")
+        if (rest_values is None) != (rest_names is None):
+            raise ValueError(
+                "Retargeted motion must provide cardboard rest articulation values "
+                "and names together."
+            )
+        self.frame_cardboard_rest_arti = None
+        self.cardboard_rest_arti_names: list[str] = []
+        if rest_values is not None:
+            rest_array = np.asarray(rest_values, dtype=np.float32)
+            if rest_array.shape != tuple(self.frame_arti.shape):
+                raise ValueError(
+                    "Expected cardboard rest articulation shape to match canonical "
+                    f"reference articulation {tuple(self.frame_arti.shape)}, got "
+                    f"{rest_array.shape}."
+                )
+            self.frame_cardboard_rest_arti = torch.as_tensor(
+                rest_array, dtype=torch.float32, device=self.env.device
+            )
+            self.cardboard_rest_arti_names = [str(name) for name in rest_names]
         self.frame_scene_object_pos = torch.as_tensor(
             task.scene_object_pos, dtype=torch.float32, device=self.env.device
         )
@@ -228,12 +251,42 @@ class MultiObjectResetManager(ResetManager):
                 if jpos_tensor is not None:
                     jpos_tensor = jpos_tensor + torch.randn_like(jpos_tensor) * noise
 
-            asset.set_state(
-                pos=pos,
-                quat=quat,
-                jpos=jpos_tensor,
-                env_idx=env_ids_array,
-            )
+            state_kwargs = {
+                "pos": pos,
+                "quat": quat,
+                "jpos": jpos_tensor,
+                "env_idx": env_ids_array,
+            }
+            if isinstance(asset, CardboardObject):
+                if object_index != task.canonical_object_index:
+                    raise ValueError(
+                        "Cardboard constitutive resets are only supported for the "
+                        "canonical scene object."
+                    )
+                if self.frame_cardboard_rest_arti is None:
+                    raise ValueError(
+                        "CardboardObject reset requires recorded "
+                        "cardboard_rest_arti_vals in the reference motion."
+                    )
+                asset_joint_names = [joint.name for joint in asset.joints]
+                missing_rest_joints = [
+                    name
+                    for name in asset_joint_names
+                    if name not in self.cardboard_rest_arti_names
+                ]
+                if missing_rest_joints:
+                    raise ValueError(
+                        "Recorded cardboard rest state is missing simulated joints "
+                        f"{missing_rest_joints}."
+                    )
+                rest_indices = [
+                    self.cardboard_rest_arti_names.index(name)
+                    for name in asset_joint_names
+                ]
+                state_kwargs["rest_jpos"] = self.frame_cardboard_rest_arti[
+                    frame_idx_array
+                ][:, rest_indices]
+            asset.set_state(**state_kwargs)
             if object_index == task.canonical_object_index:
                 canonical_return = (pos, quat, jpos_tensor)
 
@@ -273,8 +326,8 @@ class MultiObjectResetManager(ResetManager):
         joint_indices = [
             exported_joint_names.index(joint.name) for joint in asset.joints
         ]
-        valid_values = self.frame_scene_object_arti_vals[
-            frame_idx, object_index, valid_indices
+        valid_values = self.frame_scene_object_arti_vals[frame_idx, object_index][
+            :, valid_indices
         ]
         return valid_values[:, joint_indices].to(self.env.device)
 
@@ -389,6 +442,9 @@ class MultiObjectResetManager(ResetManager):
         frame_idx: torch.Tensor | np.ndarray,
         real_object_pcd_world: torch.Tensor | None = None,
     ) -> torch.Tensor:
+        if self.env.observation_manager.scene_cloud_contract is not None:
+            # Scene policies use the calibrated workspace; no single-object anchor exists.
+            return wrist_pos
         if side != "right":
             raise ValueError(
                 "Real eval object alignment currently expects side='right', got "
@@ -513,9 +569,14 @@ class MultiObjectResetManager(ResetManager):
         target_hand_qpos = right_jpos.index_select(1, finger_target_indices)
         target_wrist_quat = frame_right_wrist_quat[frame_idx].to(self.env.device)
 
-        if self.env.cfg.backend == "real":
+        if (
+            self.env.cfg.backend == "real"
+            and self.env.observation_manager.scene_cloud_contract is not None
+        ):
+            target_wrist_pos = frame_right_wrist_pos[frame_idx].to(self.env.device)
+        elif self.env.cfg.backend == "real":
             self.env.observation_manager.reset_step_cache()
-            self.env.observation_manager.compute_observations()
+            reset_obs = self.env.observation_manager.compute_observations()
             current_wrist_pos = self.env.current_wrist_pos_by_side.get("right")
             if current_wrist_pos is None:
                 raise ValueError(

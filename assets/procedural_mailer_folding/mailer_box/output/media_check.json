@@ -1,0 +1,48 @@
+{
+  "folding.gif": {
+    "frames": 316,
+    "size": [
+      720,
+      540
+    ],
+    "duration_s": 31.6,
+    "bytes": 8386916
+  },
+  "base_insertion.gif": {
+    "frames": 27,
+    "size": [
+      840,
+      659
+    ],
+    "duration_s": 5.1,
+    "bytes": 851707
+  },
+  "front_insertion.gif": {
+    "frames": 30,
+    "size": [
+      840,
+      659
+    ],
+    "duration_s": 5.1,
+    "bytes": 897105
+  },
+  "wing_insertion.gif": {
+    "frames": 20,
+    "size": [
+      840,
+      659
+    ],
+    "duration_s": 5.1,
+    "bytes": 601187
+  },
+  "folding.mp4": {
+    "frames": 316,
+    "fps": 10.0,
+    "duration_s": 31.6,
+    "size": [
+      960,
+      720
+    ],
+    "bytes": 1771188
+  }
+}

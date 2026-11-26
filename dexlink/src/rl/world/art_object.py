@@ -15,6 +15,7 @@ from dexlink.utils.retargeting.mesh_utils import (
     sample_kpts_with_normals,
 )
 from dexlink.utils.retargeting.path_utils import process_urdf
+from dexlink.src.rl.config.passive_mechanisms import CLIP_ROBOT, NUT_ROBOT, SCREW_ROBOT
 
 if TYPE_CHECKING:
     from dexlink.src.rl.world.physics_sim import PhysicsSim
@@ -111,6 +112,7 @@ def get_object_cfg(
         ),
         "rest_joint_targets": (rest_joint_targets if is_final_dispenser else {}),
         "cardboard_model": cardboard_model,
+        "passive_mechanism": urdf_inst.name in (SCREW_ROBOT, CLIP_ROBOT, NUT_ROBOT),
         "collect_data": False,
         "offset_pos": [0.0, 0.0, 0.0],  # useful for visualization
         "color": None,
@@ -258,7 +260,9 @@ class ArtObject:
 
     def _initialize_surface_samples(self) -> None:
         task_cfg = self.physics.env.cfg.task_cfg
-        asset_mesh = construct_pytorch_mesh(urdf_inst=self.urdf_inst)
+        asset_mesh = construct_pytorch_mesh(
+            urdf_inst=self.urdf_inst, device=self.physics.env.device
+        )
         object_surface_kpts, object_surface_normals = sample_kpts_with_normals(
             asset_mesh,
             max_pts=task_cfg.max_pts_per_link,

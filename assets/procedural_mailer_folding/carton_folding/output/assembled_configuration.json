@@ -1,0 +1,23 @@
+{
+  "fold_right_wall": 1.5707963267948966,
+  "fold_front_wall": 1.5707963267948966,
+  "fold_left_wall": 1.5707963267948966,
+  "seam_margin_fold": 0.0,
+  "glue_flap_fold": 1.5707963267948966,
+  "top_socket_base": 1.5707963267948966,
+  "top_socket_return": 1.5707963267948966,
+  "bottom_socket_base": 1.5707963267948966,
+  "bottom_socket_return": 1.5707963267948966,
+  "top_lid_margin_fold": 0.0,
+  "top_lid_fold": 1.5707963267948966,
+  "top_tuck_margin_fold": 1.5707963267948966,
+  "top_tuck_tab_fold": 0.0,
+  "bottom_lid_margin_fold": 0.0,
+  "bottom_lid_fold": 1.5707963267948966,
+  "bottom_tuck_margin_fold": 1.5707963267948966,
+  "bottom_tuck_tab_fold": 0.0,
+  "top_right_dust_fold": 1.5707963267948966,
+  "bottom_right_dust_fold": 1.5707963267948966,
+  "top_left_dust_fold": 1.5707963267948966,
+  "bottom_left_dust_fold": 1.5707963267948966
+}

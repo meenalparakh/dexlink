@@ -18,6 +18,10 @@ from dexlink.utils.retargeting.math_utils import (
     quat_from_rotvec,
     quat_mul,
 )
+from dexlink.utils.rl.scene_cloud import (
+    scene_cloud_contract,
+    validate_scene_cloud_actor_inputs,
+)
 
 if TYPE_CHECKING:
     from dexlink.src.rl.world.env import Env
@@ -269,6 +273,7 @@ class ObservationProcessor(nn.Module):
                 f"Available terms: {self.full_obs_terms}."
             )
         self.selected_terms = list(selected_terms)
+        self.scene_cloud_contract = scene_cloud_contract(env.cfg.obs_cfg)
         self.shared_pcd_terms = [
             term for term in ("object_pcd", "hand_pcd") if term in self.selected_terms
         ]
@@ -337,6 +342,46 @@ class ObservationProcessor(nn.Module):
     @property
     def obs_dim(self) -> int:
         return self.embed_dim
+
+    def get_extra_state(self) -> dict:
+        """Persist semantics as well as shapes; equal shapes need not mean equal inputs."""
+        return {
+            "scene_cloud": self.scene_cloud_contract,
+            "selected_terms": self.selected_terms,
+            "full_terms": self.full_obs_terms,
+            "full_dims": self.full_obs_term_dims,
+        }
+
+    def set_extra_state(self, state: dict) -> None:
+        expected = self.get_extra_state()
+        if state != expected:
+            raise ValueError(
+                f"Observation checkpoint contract mismatch: expected {expected}, received {state}."
+            )
+
+    def _load_from_state_dict(
+        self,
+        state_dict,
+        prefix,
+        local_metadata,
+        strict,
+        missing_keys,
+        unexpected_keys,
+        error_msgs,
+    ) -> None:
+        key = prefix + "_extra_state"
+        if key not in state_dict and self.scene_cloud_contract is None:
+            # Metadata-free historical checkpoints are valid only in explicit legacy mode.
+            state_dict[key] = self.get_extra_state()
+        super()._load_from_state_dict(
+            state_dict,
+            prefix,
+            local_metadata,
+            strict,
+            missing_keys,
+            unexpected_keys,
+            error_msgs,
+        )
 
     def _split_raw_terms(self, obs: torch.Tensor) -> dict[str, torch.Tensor]:
         if obs.shape[-1] != self.true_obs_dim:
@@ -417,9 +462,12 @@ class TrajectoryWeightedPolicyNetwork(PolicyNetwork):
         last_activation=None,
         action_residuals: bool = False,
     ):
-        if env.cfg.env_class != "multi_object":
+        from dexlink.src.rl.multi_object.env import MultiObjectEnv
+
+        if not isinstance(env, MultiObjectEnv):
             raise ValueError(
-                "trajectory_weighted_v2 policy requires env.env_class='multi_object'."
+                "Trajectory-weighted policies require MultiObjectEnv or a derived environment; "
+                f"received {type(env).__name__}."
             )
         if not env.cfg.obs_cfg.task_command or not env.cfg.obs_cfg.use_command_timestep:
             raise ValueError(
@@ -954,6 +1002,7 @@ class PolicyModel(nn.Module):
         aux_hidden_dims: tuple[int, ...] = (256,),
     ):
         super().__init__()
+        validate_scene_cloud_actor_inputs(env.cfg.obs_cfg, selected_terms)
         self.variant = variant
         self.history_len = history_len
         self.obs_processor = ObservationProcessor(

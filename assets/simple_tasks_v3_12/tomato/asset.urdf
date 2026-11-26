@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="tomato">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0004188067008201533" />
+      <mass value="0.1" />
+      <inertia ixx="5.069994604229889e-05" iyy="5.2958474727160465e-05" izz="5.780350898743083e-05" ixy="-8.631804107155013e-22" ixz="-2.6974387834859414e-23" iyz="5.394877566971883e-23" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

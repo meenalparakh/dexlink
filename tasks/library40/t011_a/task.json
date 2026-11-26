@@ -1,0 +1,36 @@
+{
+  "id": "t011_a",
+  "group": "library40",
+  "description": "Insert and twist a keyed part: pause halfway through engagement before completing the task",
+  "name": "Insert-and-twist lock (quarter-turn lock): pause midway through engagement",
+  "object": "Key lock 4",
+  "success_check": "Hold the intermediate engagement pose for a declared dwell, then finish.",
+  "criterion": "original_deployed_insertion_success",
+  "reference": "tasks/library40/t011_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t011_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t011_a",
+    "timestep": 28000,
+    "seed": 42,
+    "policy_sha256": "d221e9dae7c0b21d1165eab414903d65c1878b74cc629d4a993e3b0242c9bc7e",
+    "files": {
+      "policy.pt": "d221e9dae7c0b21d1165eab414903d65c1878b74cc629d4a993e3b0242c9bc7e",
+      "policy_obs_processor.pt": "31e75b2db35d6de590b1b2ff22fcb745e027e6fa639052a2b62bb16a282ccf4c",
+      "value.pt": "5890142a3a63f22dcb2e8964a1af5cc06a60b4f99ab18f2072ca95b4c4655a9e",
+      "value_obs_processor.pt": "e9f5ab858dacacd9b1b0d28f0e27f879a13c547db0edf59a817fd1929b61a5ad",
+      "optimizer.pt": "d27be77a846efb7ffe9df0b377d3ec2d20c6583f51c0ddb6e69d912d64fdad02"
+    }
+  },
+  "reference_sha256": "fa74d6383aa93585eb05250c979b40829662bcd931298f27c6e288bedfea1927",
+  "source_reference_sha256": "dcdadc8d32626911f1c4245dfd312854ade97920385c178c6942e17b97215f41",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

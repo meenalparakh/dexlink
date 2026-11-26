@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="crank_wheel">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.006056691450721367 -0.0013321092571618065 2.1448583114028594e-18" />
+      <mass value="0.2" />
+      <inertia ixx="0.00020825711009517904" iyy="0.0004639065671420379" izz="0.0002935739529920494" ixy="2.236433167905679e-05" ixz="-1.1093992347894215e-21" iyz="-4.076084340402343e-20" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="part_02.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

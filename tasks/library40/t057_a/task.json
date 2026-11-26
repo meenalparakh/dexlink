@@ -1,0 +1,38 @@
+{
+  "id": "t057_a",
+  "group": "library40",
+  "description": "Present a tilted plate toward the viewer",
+  "name": "Plate (bimanual): presentation",
+  "object": "Plate 2",
+  "success_check": "Reach the requested presentation tilt and hold.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t057_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t057_a/goal.json",
+  "hands": "bimanual",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t057_a",
+    "timestep": 2000,
+    "seed": 42,
+    "policy_sha256": "fe22538db596cf9710b8f0d877b22d56ed5b0f57c9327b0efd6e9b322618999d",
+    "files": {
+      "policy.pt": "fe22538db596cf9710b8f0d877b22d56ed5b0f57c9327b0efd6e9b322618999d",
+      "policy_obs_processor.pt": "b62c2389262f79c218b6c363b57c89f254535448ba34a134e7a03523fb188eed",
+      "value.pt": "e968415d07f9df892042ec1689db1a84ac2bbe1e31e47b91a51e4b8036157e5a",
+      "value_obs_processor.pt": "d034fa85c6284d1f13b8d15ad85639eaa50ff00f23e13027638e4d39fb9347ae",
+      "optimizer.pt": "b32dd18943a0df7b21c9e730fcf02c3a4aaa6d3c75d869d98d3c74863fa40c42"
+    }
+  },
+  "reference_sha256": "04ee9b996e8c0ee572d91685f39911f5ff2bf4e112973d3c82813488203b1c0c",
+  "source_reference_sha256": "e6edee353ddca24be3afd04dc4ab00f5d6b7abf6c009c2171a790430c3963905",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "left",
+    "right"
+  ]
+}

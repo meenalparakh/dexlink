@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="kitchen_counter">
+  <material name="kitchen_counter_color">
+    <color rgba="0.55 0.57 0.60 1" />
+  </material>
+  <link name="kitchen_counter">
+    <inertial>
+      <origin xyz="0 0 -0.03" rpy="0 0 0" />
+      <mass value="80" />
+      <inertia ixx="17.0907" iyy="13.0907" izz="30.1333" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 -0.03" rpy="0 0 0" />
+      <geometry>
+        <box size="1.4 1.6 0.06" />
+      </geometry>
+      <material name="kitchen_counter_color" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.03" rpy="0 0 0" />
+      <geometry>
+        <box size="1.4 1.6 0.06" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

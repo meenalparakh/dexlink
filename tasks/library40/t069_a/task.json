@@ -1,0 +1,37 @@
+{
+  "id": "t069_a",
+  "group": "library40",
+  "description": "Lift the mouse for inspection and replace it",
+  "name": "Mouse: inspect then replace",
+  "object": "Mouse 1",
+  "success_check": "Retain the lift/reorientation peak before supported release.",
+  "criterion": "per_episode_progress90_and_final_pose",
+  "reference": "tasks/library40/t069_a/reference_motion.npz",
+  "reference_format": "native_xhand",
+  "reference_regeneration": "exported_reference_only",
+  "goal": "tasks/library40/t069_a/goal.json",
+  "hands": "single",
+  "checkpoint": {
+    "run_directory": "checkpoints/library40/t069_a",
+    "timestep": 4000,
+    "seed": 42,
+    "policy_sha256": "89b0fb441d736d781ef3c788ff599485f4d06ef6e6cbd8b2f10cce905d0ec9f5",
+    "files": {
+      "policy.pt": "89b0fb441d736d781ef3c788ff599485f4d06ef6e6cbd8b2f10cce905d0ec9f5",
+      "policy_obs_processor.pt": "48637a282fe4abb4be0f8dddf5ffe8aaf2be3b60929ec9a7c9caeda07202df2b",
+      "value.pt": "c9aa156f25531f3d76ea781eced199ab48804e9908af3caab7eba15d4b538470",
+      "value_obs_processor.pt": "acb19683a4c27b7f107a34447afbffa86c40021439bafeaa1bee8a9b6e05b987",
+      "optimizer.pt": "56c97f487996d365df8d13a424fa0d96915d0a6b3b6928f683fef58f4dd6cfe2"
+    }
+  },
+  "reference_sha256": "6605502600d02a51e3d93b0cff6ba0d488359783d03efa4f8d21f00b2f218441",
+  "source_reference_sha256": "7dd2572a9134df9e85a85496099a89c4f2c539431f0399febcfb38aa8f512e9e",
+  "reference_changes": [
+    "scene_object_urdf_paths",
+    "traj_object_urdf_path",
+    "removed obsolete source_mano_reference provenance path"
+  ],
+  "active_sides": [
+    "right"
+  ]
+}

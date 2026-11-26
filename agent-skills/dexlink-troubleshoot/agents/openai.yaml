@@ -1,0 +1,4 @@
+interface:
+  display_name: "Diagnose DexLink workflows"
+  short_description: "Diagnose DexLink workflows with the public workflow"
+  default_prompt: "Use $dexlink-troubleshoot to help me with this DexLink workflow."

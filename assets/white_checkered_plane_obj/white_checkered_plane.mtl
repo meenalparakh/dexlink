@@ -1,0 +1,14 @@
+# Materials for white checkered plane
+newmtl white
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+d 1.0
+illum 1
+
+newmtl very_light_gray
+Ka 0.850 0.850 0.850
+Kd 0.850 0.850 0.850
+Ks 0.000 0.000 0.000
+d 1.0
+illum 1

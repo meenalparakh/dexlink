@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "model_type": "hinged_lid_rollover_mailer",
+  "units": "m, kg, rad, s",
+  "parameters": {
+    "width": 0.29366271477564326,
+    "depth": 0.13414596367536605,
+    "height": 0.049656249178821846,
+    "thickness": 0.0013625438949956882,
+    "face_clearance": 0.00040876316849870645,
+    "lateral_clearance": 0.0013625438949956882,
+    "lock_width": 0.016097515641043926,
+    "lid_wing_depth": 0.029793749507293105,
+    "front_tab_width": 0.20556390034295027,
+    "front_tab_length": 0.02445282349871239,
+    "density": 450.0
+  },
+  "requested_parameters": {
+    "width": 0.29366271477564326,
+    "depth": 0.13414596367536605,
+    "height": 0.049656249178821846,
+    "thickness": 0.0013625438949956882,
+    "face_clearance": null,
+    "lateral_clearance": null,
+    "lock_width": null,
+    "lid_wing_depth": null,
+    "front_tab_width": null,
+    "front_tab_length": null,
+    "density": 450.0
+  },
+  "derived": {
+    "slot_clear_gap": 0.002180070231993101,
+    "rollover_spacing": 0.003542614126988789,
+    "lid_lift": 0.003542614126988789,
+    "lid_front_margin": 0.003542614126988789,
+    "foot_margin": 0.006267701916980166,
+    "hinge_relief": 0.0008856535317471973,
+    "foot_relief": 0.0013625438949956882,
+    "side_end_inset": 0.0017713070634943946,
+    "end_wall_width": 0.29012010064865446,
+    "liner_length": 0.04693116138883047,
+    "lock_axis_height": 0.0027250877899913763,
+    "lock_tab_length": 0.004087631684987065,
+    "lock_tip_entry_height": 0.0014987982844952572,
+    "dust_length": 0.02146335418805857,
+    "side_mouth_end": 0.024188441978049945,
+    "lid_length": 0.13237465661187164,
+    "wing_start": 0.026913529768041324,
+    "wing_end": 0.10170868141468122,
+    "front_keeper_width": 0.2830348723946769,
+    "front_keeper_length": 0.02990299907869514,
+    "front_mouth_width": 0.20828898813294164,
+    "front_ear_width": 0.013214822164903946,
+    "front_entry_tip_height": 0.0013625438949956882,
+    "slot_x": 0.13702104134385268,
+    "lock_y_positions": [
+      0.04024378910260981,
+      0.09390217457275622
+    ],
+    "lid_open_angle": 1.7453292519943295
+  },
+  "base_holes": [
+    [
+      -0.13811107645984924,
+      -0.13593100622785612,
+      0.030832487387092163,
+      0.04965509081812746
+    ],
+    [
+      -0.13811107645984924,
+      -0.13593100622785612,
+      0.08449087285723857,
+      0.10331347628827388
+    ],
+    [
+      0.13593100622785612,
+      0.13811107645984924,
+      0.030832487387092163,
+      0.04965509081812746
+    ],
+    [
+      0.13593100622785612,
+      0.13811107645984924,
+      0.08449087285723857,
+      0.10331347628827388
+    ]
+  ],
+  "joint_names": [
+    "rear_rise",
+    "rear_corner_a_fold",
+    "rear_corner_b_fold",
+    "front_rise",
+    "front_corner_a_fold",
+    "front_corner_b_fold",
+    "left_rise",
+    "left_roll_base",
+    "left_roll_return",
+    "left_foot_fold",
+    "left_lock_0_fold",
+    "left_lock_1_fold",
+    "right_rise",
+    "right_roll_base",
+    "right_roll_return",
+    "right_foot_fold",
+    "right_lock_0_fold",
+    "right_lock_1_fold",
+    "front_socket_base",
+    "front_socket_return",
+    "lid_spine_fold",
+    "lid_fold",
+    "lid_left_wing_fold",
+    "lid_right_wing_fold",
+    "lid_front_margin_fold",
+    "lid_front_tab_fold"
+  ],
+  "links": [
+    "base",
+    "rear_wall",
+    "rear_corner_a",
+    "rear_corner_b",
+    "front_wall",
+    "front_corner_a",
+    "front_corner_b",
+    "left_outer",
+    "left_roll_margin",
+    "left_liner",
+    "left_foot_margin",
+    "left_lock_0",
+    "left_lock_1",
+    "right_outer",
+    "right_roll_margin",
+    "right_liner",
+    "right_foot_margin",
+    "right_lock_0",
+    "right_lock_1",
+    "front_socket_margin",
+    "front_keeper",
+    "lid_spine_margin",
+    "lid",
+    "lid_left_wing",
+    "lid_right_wing",
+    "lid_front_margin",
+    "lid_front_tab"
+  ],
+  "joints": {
+    "rear_rise": {
+      "parent": "base",
+      "child": "rear_wall",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "rear_corner_a_fold": {
+      "parent": "rear_wall",
+      "child": "rear_corner_a",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "rear_corner_b_fold": {
+      "parent": "rear_wall",
+      "child": "rear_corner_b",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "front_rise": {
+      "parent": "base",
+      "child": "front_wall",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "front_corner_a_fold": {
+      "parent": "front_wall",
+      "child": "front_corner_a",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "front_corner_b_fold": {
+      "parent": "front_wall",
+      "child": "front_corner_b",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "left_rise": {
+      "parent": "base",
+      "child": "left_outer",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "left_roll_base": {
+      "parent": "left_outer",
+      "child": "left_roll_margin",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "left_roll_return": {
+      "parent": "left_roll_margin",
+      "child": "left_liner",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "left_foot_fold": {
+      "parent": "left_liner",
+      "child": "left_foot_margin",
+      "lower": -3.141592653589793,
+      "upper": 0
+    },
+    "left_lock_0_fold": {
+      "parent": "left_foot_margin",
+      "child": "left_lock_0",
+      "lower": 0.0,
+      "upper": 3.141592653589793
+    },
+    "left_lock_1_fold": {
+      "parent": "left_foot_margin",
+      "child": "left_lock_1",
+      "lower": 0.0,
+      "upper": 3.141592653589793
+    },
+    "right_rise": {
+      "parent": "base",
+      "child": "right_outer",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "right_roll_base": {
+      "parent": "right_outer",
+      "child": "right_roll_margin",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "right_roll_return": {
+      "parent": "right_roll_margin",
+      "child": "right_liner",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "right_foot_fold": {
+      "parent": "right_liner",
+      "child": "right_foot_margin",
+      "lower": -3.141592653589793,
+      "upper": 0
+    },
+    "right_lock_0_fold": {
+      "parent": "right_foot_margin",
+      "child": "right_lock_0",
+      "lower": 0.0,
+      "upper": 3.141592653589793
+    },
+    "right_lock_1_fold": {
+      "parent": "right_foot_margin",
+      "child": "right_lock_1",
+      "lower": 0.0,
+      "upper": 3.141592653589793
+    },
+    "front_socket_base": {
+      "parent": "front_wall",
+      "child": "front_socket_margin",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "front_socket_return": {
+      "parent": "front_socket_margin",
+      "child": "front_keeper",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "lid_spine_fold": {
+      "parent": "rear_wall",
+      "child": "lid_spine_margin",
+      "lower": -0.3,
+      "upper": 0.3
+    },
+    "lid_fold": {
+      "parent": "lid_spine_margin",
+      "child": "lid",
+      "lower": -0.4,
+      "upper": 1.5707963267948966
+    },
+    "lid_left_wing_fold": {
+      "parent": "lid",
+      "child": "lid_left_wing",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "lid_right_wing_fold": {
+      "parent": "lid",
+      "child": "lid_right_wing",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    },
+    "lid_front_margin_fold": {
+      "parent": "lid",
+      "child": "lid_front_margin",
+      "lower": 0.0,
+      "upper": 2.2
+    },
+    "lid_front_tab_fold": {
+      "parent": "lid_front_margin",
+      "child": "lid_front_tab",
+      "lower": 0.0,
+      "upper": 1.5707963267948966
+    }
+  },
+  "dimension_convention": "W and D are outer-wall hinge-midplane spans; H is outer-wall fold-line height. Not exact external or clear internal dimensions.",
+  "approximation": "Rectangularized simulation net inspired by the photo; no manufacturer or FEFCO identity claimed. Not a fabrication die line."
+}

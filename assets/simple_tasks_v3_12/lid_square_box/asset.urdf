@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="lid_square_box">
+  <link name="body">
+    <inertial>
+      <origin xyz="1.3954464827426036e-19 1.488476248258776e-19 0.004155531314232675" />
+      <mass value="0.06" />
+      <inertia ixx="6.562913469191416e-05" iyy="6.562913469191413e-05" izz="0.0001219172070900981" ixy="-5.1325054005140834e-21" ixz="1.2549695071650562e-22" iyz="-1.8615897927803094e-22" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

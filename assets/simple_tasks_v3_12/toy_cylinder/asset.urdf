@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="toy_cylinder">
+  <link name="body">
+    <inertial>
+      <origin xyz="1.658890469482875e-19 2.6542247511726e-18 3.31778093896575e-19" />
+      <mass value="0.1" />
+      <inertia ixx="0.00010004417787460185" iyy="0.00010004417787460185" izz="7.967168908253703e-05" ixy="-8.683254801199427e-22" ixz="-6.220839260560784e-22" iyz="8.806136287171564e-38" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

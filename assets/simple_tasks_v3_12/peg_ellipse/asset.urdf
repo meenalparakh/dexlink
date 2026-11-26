@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="peg_ellipse">
+  <link name="body">
+    <inertial>
+      <origin xyz="7.429894633284283e-19 -6.381504593004909e-20 0.08955785292062923" />
+      <mass value="0.12" />
+      <inertia ixx="0.00018479277485683985" iyy="0.0001869519505264242" izz="8.719331432735871e-05" ixy="1.3674652699296228e-21" ixz="1.4658095446657917e-20" iyz="1.3426424965970523e-20" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="part_01.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="apple">
+  <link name="body">
+    <inertial>
+      <origin xyz="0.0 0.0 0.0004487214651644493" />
+      <mass value="0.1" />
+      <inertia ixx="5.409227369964283e-05" iyy="5.6350802384504394e-05" izz="5.780350898743084e-05" ixy="-1.611270100002269e-21" ixz="1.2588047656267725e-22" iyz="3.7764142968803186e-23" />
+    </inertial>
+    <collision>
+      <geometry>
+        <mesh filename="part_00.obj" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <mesh filename="visual.obj" />
+      </geometry>
+    </visual>
+  </link>
+</robot>
