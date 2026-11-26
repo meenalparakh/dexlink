@@ -1,5 +1,7 @@
 # DexLink
 
+[Paper](https://arxiv.org/abs/2611.34936) | [Project website](https://dex-link.github.io/)
+
 DexLink turns sparse hand–object interaction templates and object-motion
 specifications into robot reference trajectories, then learns residual policies
 that make those references physically executable in simulation.
@@ -157,3 +159,17 @@ the data and simulator assets described under `external_data/`.
 - [ ] Repeat the full CUDA/retargeting installation on another clean machine.
 - [x] Repeat positive-checkpoint rollout, observation/action collection, saved
   episode rendering and finite PPO optimizer smoke on the public layout.
+
+If you use the code, consider citing:
+
+```bibtex
+@misc{parakh2026dexlinksynthesizingdexterousbehaviors,
+      title={DexLink: Synthesizing Dexterous Behaviors from Chained Hand-object Poses},
+      author={Meenal Parakh and Deep Patel and Beining Han and Jia Deng},
+      year={2026},
+      eprint={2611.34936},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2611.34936},
+}
+```
