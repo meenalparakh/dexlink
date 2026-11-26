@@ -384,7 +384,7 @@ def _load_hand_models(
     robot_model = _resolve_robot_model(None, motion, "auto")
     if robot_model != "xhand":
         raise ValueError(
-            f"Clean revision videos require robot_model='xhand', got {robot_model!r}."
+            f"Policy rollout rendering requires robot_model='xhand', got {robot_model!r}."
         )
     hand_config_source = _hand_config_source_by_side(motion)
     models = []

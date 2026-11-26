@@ -24,6 +24,8 @@ datasets, authoring, training, evaluation, data collection and separate renderin
   representative profile can qualify equivalent tasks; retest material changes.
 - Keep datasets, models, archives, generated data and caches out of Git, on
   storage sized for them. Set DEXLINK_EXTERNAL_DATA and DEXLINK_OUTPUTS.
+- Keep reusable baseline and ablation configurations with the framework. Store
+  collected run data, result tables and comparison plots under ignored `outputs/`.
 - Collection and rendering are separate operations; see
   [docs/data-generation.md](docs/data-generation.md). Preserve episode lengths,
   failures, pre-step observations/actions and post-step physical-state timing.
