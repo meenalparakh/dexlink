@@ -46,6 +46,5 @@ Add `--record_policy_inputs` for observation/action trajectories, then use
 The catalog `rollout`/`collect` commands select the bundled policies;
 they do not automatically replace them with your newly trained run.
 
-The frozen 40-task library includes native references and goals for direct
-training/rollout. Its separate ongoing reference generator is not part of the
-distribution. The optional task-specification UI is a separate repository.
+The 40-task library provides native references and goals for training and
+rollout. Use the YAML workflow above to author additional tasks.

@@ -9,10 +9,6 @@ trajectories, procedural task assets and robot descriptions. Dataset and
 model dependencies that are not distributed with DexLink are installed under
 `external_data/`; see [external_data/README.md](external_data/README.md).
 
-The task-specification web interface is maintained in a separate repository.
-DexLink consumes the YAML files exported by that interface but does not contain
-the interface itself.
-
 Start an agent at [AGENTS.md](AGENTS.md), which links to all workflow skills.
 
 ## Try a trained policy and generate data
@@ -143,8 +139,8 @@ the data and simulator assets described under `external_data/`.
   positive-checkpoint rollout, data collection/rendering and finite PPO-update tests,
   then update the installation pin. The current tested pin is
   `65883d3e9ad1c6704dc5217be742ba63e0275a73`.
-- [x] Port the task library, training/evaluation, collection/rendering, multi-task
-  code and agent skills from the tested internal package.
+- [x] Provide task specifications, training/evaluation, data collection/rendering,
+  multi-task learning and agent skills.
 - [x] Publish the project asset archive and checksum, add their download URLs,
   and verify anonymous download against the pinned SHA-256.
 - [x] Download and install hosted assets into an empty destination; verify all

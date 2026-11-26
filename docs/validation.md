@@ -1,8 +1,7 @@
-# Public port validation
+# Validation
 
-The public port was checked on 2026-11-25 using the existing `genesis` and
-`hpart` environments. This records the checks performed, separately from the
-internal package's prior policy-learning/rollout qualifications.
+The following checks were run on 2026-11-25 using Python 3.10 in the
+`genesis` and `hpart` environments.
 
 | Check | Outcome |
 |---|---|
@@ -25,16 +24,9 @@ internal package's prior policy-learning/rollout qualifications.
 | Slurm examples and whitespace checks | Shell syntax and git diff checks passed |
 | Genesis source | Tested public pin matches fork HEAD; no local runtime source modifications |
 
-The public XHand URDF has the same robot tree, attributes and mesh bytes as
-the internal copy; serialization/path formatting differs. The public cup
-manifest records the public file's hash. Native library references preserve
-all numeric arrays; obsolete source-machine provenance strings were removed
-and their public reference hashes updated.
-
-The new renderer supports native NPZ references as well as exported NPY
-sequences and saved policy episodes. Two obsolete wrappers whose imports
-required the excluded paper-figure implementation were removed from this
-public export. The supported renderer is `python -m dexlink render`.
+The renderer supports native NPZ references, exported NPY sequences and saved
+policy episodes. Run it with `python -m dexlink render`. The task catalog
+records reference and checkpoint hashes for input validation.
 
 The asset archive also supplies the project's SAM3D target geometry and
 ShapeNet alignment JSONs used by authoring. Official provider instructions
@@ -53,7 +45,7 @@ model parameters are included.
 - Training needs an online W&B account/entity/project; evaluation, collection
   and offline mesh rendering do not need W&B authentication by default.
 - Conditional multi-task bank construction and policy/learner regression tests
-  passed. Full multi-task GPU retraining was not repeated for this export.
+  passed. Full multi-task GPU training has not been validated by these checks.
 - Revalidate after any future Genesis pin update. The current tested pin
   already matched the public fork HEAD when checked.
 
@@ -61,6 +53,3 @@ Two clean-install blockers were fixed by shipping small attributed URDFpy and
 Pyrender wheels: the tested parser's NumPy/NetworkX fixes and compatible OpenGL
 metadata. Follow the documented `--find-links third_party/wheels` option;
 see [dependency details](../third_party/wheels/README.md).
-
-Validation used the separate public checkout. The source-of-truth and internal
-repositories were left unchanged.

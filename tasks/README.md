@@ -5,8 +5,8 @@ YAML file is a declarative input to `dexlink-reference`; generated
 retargetings, reference trajectories, and policy artifacts are written under
 `outputs/` and are not stored beside the specification.
 
-Task directories preserve the experiment group names used in the paper. A
-typical specification defines:
+Tasks are grouped into directories by task family and experiment. A typical
+specification defines:
 
 - the source hand-object interaction template;
 - the target object mesh or URDF and its alignment to the template;
@@ -34,17 +34,12 @@ dexlink-reference tasks/v3_03_reusability/v3_03_reuse_bottle_side_scale_070.yaml
   --refine-collisions
 ```
 
-The browser-based task authoring interface is intentionally maintained in a
-separate repository. DexLink only defines and consumes the exported YAML
-format.
-
 ## Packaged task library and policies
 
 The frozen catalog provides 40 native XHand tasks and three tutorials, with
-42 selected positive policy checkpoints. Success varies across tasks. These
-are the same task/reference/weight selections as the tested internal package.
-The frozen library authoring generator is outside this distribution; new
-tasks use the YAML pipeline described in [new-task authoring](../docs/new-task.md).
+42 selected positive policy checkpoints. Success varies across tasks. Use the
+included references for training and rollout, and follow the YAML pipeline in
+[new-task authoring](../docs/new-task.md) to create a task.
 
 ```bash
 python -m dexlink list

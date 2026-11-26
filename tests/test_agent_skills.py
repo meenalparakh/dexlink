@@ -84,7 +84,7 @@ def test_agent_skills_reference_public_entry_points() -> None:
         assert entry_point in skill_text
 
 
-def test_agent_skills_are_portable_and_leave_ui_separate() -> None:
+def test_agent_skills_are_portable() -> None:
     forbidden = (
         "/" + "home/",
         "/" + "mnt/",
@@ -97,8 +97,3 @@ def test_agent_skills_are_portable_and_leave_ui_separate() -> None:
         text = path.read_text(encoding="utf-8")
         for token in forbidden:
             assert token not in text, (path, token)
-
-    create_task = (SKILLS_ROOT / "dexlink-create-task/SKILL.md").read_text(
-        encoding="utf-8"
-    )
-    assert "separate repository" in create_task

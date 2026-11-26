@@ -1,7 +1,7 @@
 # Runtime asset pack
 
-The archive supplies the exported geometry used by the frozen internal task
-catalog and cup programs, together with project-created SAM3D targets and
+The archive supplies the geometry used by the packaged task catalog and cup
+programs, together with project-created SAM3D targets and
 ShapeNet alignment metadata. It is installed into ignored local directories,
 not included in the source MIT grant as one uniformly licensed dataset.
 

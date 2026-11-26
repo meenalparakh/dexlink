@@ -14,8 +14,7 @@ in the wheels and in `third_party_licenses/URDFPY-MIT.txt` and
 `third_party_licenses/PYRENDER-MIT.txt`. `SHA256SUMS` records the shipped wheels.
 The local version suffix identifies these explicit patches.
 
-The URDFpy runtime files match the lab's working parser. A maintainer can
-rebuild from checksum-pinned public source with Python 3.10,
+A maintainer can rebuild these wheels from checksum-pinned source with Python 3.10,
 `setuptools==80.9.0` and `wheel==0.45.1`:
 
 ```bash

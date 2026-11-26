@@ -29,7 +29,3 @@ datasets, authoring, training, evaluation, data collection and separate renderin
   failures, pre-step observations/actions and post-step physical-state timing.
 - Cluster scripts are examples. Set your site's account/resources and persistent
   paths explicitly; never submit duplicate fresh run identities.
-
-The task-authoring UI is in a separate repository. This checkout consumes its
-YAML exports. Paper planning, result aggregation, figures and ongoing research
-generators are outside the framework distribution.

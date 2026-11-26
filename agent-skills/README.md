@@ -15,9 +15,6 @@ Each directory is a self-contained agent skill with a `SKILL.md` entry point
 and product metadata under `agents/`. Install or link only the skills needed by
 your agent runtime.
 
-The task-specification UI and its usage skill belong to the separate UI
-repository. DexLink only consumes the YAML exported by that interface.
-
 Additional workflow skills:
 
 - [dexlink-datasets](dexlink-datasets/SKILL.md): provider data and runtime geometry.

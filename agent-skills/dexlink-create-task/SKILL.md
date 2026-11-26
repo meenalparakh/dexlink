@@ -4,16 +4,13 @@ description: >-
   Author or modify a portable DexLink task YAML, including source interaction
   templates, target objects, alignment transforms, scene placement, ordered
   keyframes, multi-stage trajectories, and task-conditioned metrics. Use when
-  adding a task to the public catalog or adapting an existing task family. This
-  skill covers the YAML/code workflow, not the separately hosted
-  task-specification UI.
+  adding a task to the public catalog or adapting an existing task family.
 ---
 
 # Create a DexLink Task
 
-The browser task-specification UI is maintained in a separate repository. In
-this repository, author the YAML and the smallest task-specific integration
-needed to consume it.
+Author the task YAML and the task-specific integration needed to run it with
+the reference-generation and training pipelines.
 
 ## 1. Start from the nearest semantic template
 

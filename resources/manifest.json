@@ -1543,7 +1543,7 @@
       "external_data/shapenet/transforms/mug/1ae1ba5dfb2a085247df6165146d5bbd.rotation.json": "53a324d5c42ccbdcc1fd9a7c4646ba6094a09a458f70860cfbbdcea8049d2fbd",
       "external_data/shapenet/transforms/mug/1ae1ba5dfb2a085247df6165146d5bbd.scale.txt": "ea752796e259dd086c5dde3519ab239a199b43e97a43f4cd4a8a06c6477a631c"
     },
-    "notice": "Prepared runtime geometry from the tested internal package. Dataset-derived meshes retain provider terms; this archive is not covered in its entirety by the source MIT license.",
+    "notice": "Runtime geometry for the packaged task library and tutorials. Dataset-derived meshes retain provider terms; this archive is not covered in its entirety by the source MIT license.",
     "checksum_url": "https://drive.google.com/file/d/1NjfltcXXbDj-YF9b2ty1FYVsMMfGjQVh/view?usp=sharing"
   },
   "checkpoints": {

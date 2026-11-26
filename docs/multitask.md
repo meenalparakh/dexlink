@@ -40,11 +40,10 @@ including `--architecture.program_layers 2`. `storage_root` and
 `run_directory` must identify persistent project storage. Fresh run identities
 are exclusive; `--resume` validates the original data/configuration lineage.
 Task evaluation requires positive saved checkpoints and complete 50-episode
-cohorts. The multi-task training run itself has not been repeated as part of
-the initial export; bank construction and the policy/learner tests are separate
-validation steps.
+cohorts. Validation covers bank construction and policy/learner tests;
+full multi-task GPU training still needs validation.
 
 For cluster runs, follow [cluster examples](../cluster/README.md) and your
 site's account, queue and persistent-storage rules. Data preparation submits
-no jobs. The provided checkpoint ZIP contains single-task policies; it does
-not contain a conditional multi-task policy checkpoint.
+no jobs. The checkpoint ZIP provides single-task policies. Use the commands
+above to train a conditional cup policy.

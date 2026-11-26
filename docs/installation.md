@@ -25,11 +25,10 @@ pip install -e '.[retargeting,visualization,test]' -c environments/hpart-constra
 The `--find-links third_party/wheels` option is required: the repository
 includes small, attributed URDFpy/Pyrender wheels matching the tested parser
 source and resolving their outdated NetworkX/NumPy/OpenGL dependencies.
-They prevent clean installs from inheriting the lab environment's manual
-dependency edits. Their exact patches, upstream hashes, licenses and rebuild
-command are in [the wheelhouse guide](../third_party/wheels/README.md).
+Their exact patches, upstream hashes, licenses and rebuild command are in
+[the wheelhouse guide](../third_party/wheels/README.md).
 
-The RL extra installs the public [lab Genesis fork](https://github.com/meenalparakh/Genesis)
+The RL extra installs the public [Genesis fork](https://github.com/meenalparakh/Genesis)
 at `65883d3e9ad1c6704dc5217be742ba63e0275a73`. This commit is required by the
 tested runtime, including its solver/contact diagnostics. Do not substitute a
 PyPI release or a newer commit without validation. Updating this pin is an
@@ -37,12 +36,12 @@ explicit item in the root README release checklist.
 
 Install a compatible [PyTorch3D source build](https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md)
 against the installed Torch/CUDA in each environment that imports it. The
-tested internal environment used PyTorch3D 0.7.9. Retargeting also uses MANO and
+tested build uses PyTorch3D 0.7.9. Retargeting also uses MANO and
 SMPL-X; obtain the licensed models separately using the dataset guide.
 
-The constraints record the tested internal package versions, not proof of a
-fresh public install. In particular Torch 2.6.0, NumPy 2.2.6, SciPy 1.15.3 and
-URDFpy 0.0.22 are the tested runtime families. Headless rendering uses EGL:
+The constraints record the tested dependency versions, including Torch 2.6.0,
+NumPy 2.2.6, SciPy 1.15.3 and the URDFpy/Pyrender wheels described above.
+Headless rendering uses EGL:
 
 ```bash
 export PYOPENGL_PLATFORM=egl

@@ -20,10 +20,9 @@ needs the source human demo/MANO. New objects or source interactions require
 their explicit registrations, geometry and alignments. Use `--refine-collisions`
 when desired and use its `_refined.npy` downstream.
 
-The 40 library tasks already include frozen NPZ references, geometry, goals and
-task metadata; they can be trained, executed and rendered directly. Their
-separate ongoing authoring generator is excluded. New task authoring uses the
-included portable YAML pipeline rather than regenerating library40's source.
+The 40 library tasks include frozen NPZ references, geometry, goals and task
+metadata for training, execution and rendering. Use the portable YAML pipeline
+described above to author new tasks.
 
 ## Collect policy demonstrations
 
@@ -55,10 +54,7 @@ as `lift_mug`, must be trained first. Collection creates:
 | `TASK/episode_metrics.csv`, `summary_metrics.json` | Per-episode results and aggregate success/errors |
 | `TASK/reference_trajectory.npz` | Numerical target trajectory used in evaluation |
 
-These runtime metrics are normal framework outputs; paper result ledgers and
-figure/table assembly workflows are excluded from the distribution.
-
-Chunks use time-major arrays `(T, N, ...)`. The new collection route saves:
+Chunks use time-major arrays `(T, N, ...)`. Collection saves:
 
 - `policy_observation`: pre-step raw observation passed to the evaluator's policy,
   before its saved observation preprocessor; `(T,N,D_obs)`.
