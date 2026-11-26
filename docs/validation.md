@@ -9,8 +9,9 @@ The following checks were run on 2026-11-25 using Python 3.10 in the
 | Catalog references and selected positive checkpoint hashes | 43 tasks; 42 policies verified |
 | Native task full-method configurations | 40 resolved successfully |
 | Downloaded learned-state tensors | 209 policy/value/preprocessor/optimizer files checked finite |
-| Anonymous Google Drive downloads | Checkpoint and asset ZIPs match their pinned SHA-256 values; hosted asset checksum matches too |
+| Anonymous Google Drive downloads | Checkpoint and asset ZIPs match their pinned SHA-256 values; both hosted checksum files match too |
 | Hosted asset installer | Downloaded anonymously into an empty destination; all 1,536 installed files verified |
+| Hosted checkpoint installer | Downloaded archive matches the prepared public bundle; 251 files and all 42 configurations verified in an empty destination |
 | Resource and setup-skill checks after connecting Drive assets | Eight targeted tests passed; all six updated skills passed the skill validator |
 | Cached lift tutorial reference build using locally installed licensed source data | Native NPZ, RL NPY and build manifest produced |
 | Standalone reference and saved-policy rendering | Native stirring reference and saved cup-policy episode MP4s/metadata produced |

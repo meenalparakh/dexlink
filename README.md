@@ -14,7 +14,8 @@ Start an agent at [AGENTS.md](AGENTS.md), which links to all workflow skills.
 ## Try a trained policy and generate data
 
 Install [runtime assets and checkpoints](docs/resources.md). Checkpoints are
-available at [this Google Drive link](https://drive.google.com/file/d/1eBwPPSprh8zNtIJUVWrqJyna6K07ZqTb/view?usp=sharing).
+available from [Google Drive](https://drive.google.com/file/d/15qyIG4-DUaonUXvSKro91IieNQNhp7-5/view?usp=sharing)
+with a [SHA-256 checksum file](https://drive.google.com/file/d/1y1XayQjV8_cw5ZhA3vUpaJLsk7_tdAia/view?usp=sharing).
 Runtime assets are available from [Google Drive](https://drive.google.com/file/d/1O4BduFPzy9-XJU65-MPxcDxnaM-Q5mgr/view?usp=sharing),
 with a separate [checksum file](https://drive.google.com/file/d/1NjfltcXXbDj-YF9b2ty1FYVsMMfGjQVh/view?usp=sharing).
 

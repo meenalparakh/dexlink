@@ -8,8 +8,9 @@ Dataset-derived runtime meshes retain their provider terms; see THIRD_PARTY.md.
 
 ## Checkpoints
 
-Download [the checkpoint ZIP from Google Drive](https://drive.google.com/file/d/1eBwPPSprh8zNtIJUVWrqJyna6K07ZqTb/view?usp=sharing).
-It contains 42 selected positive checkpoint sets: 40 library policies plus
+Download [the checkpoint ZIP](https://drive.google.com/file/d/15qyIG4-DUaonUXvSKro91IieNQNhp7-5/view?usp=sharing) and its
+[SHA-256 checksum file](https://drive.google.com/file/d/1y1XayQjV8_cw5ZhA3vUpaJLsk7_tdAia/view?usp=sharing) from Google Drive.
+The archive contains 42 selected positive checkpoint sets: 40 library policies plus
 notebook-open and cup-inversion policies. The lift tutorial provides a
 reference for training, without pretrained weights.
 
@@ -22,9 +23,13 @@ dexlink-resources checkpoints --archive /path/to/dexlink-checkpoints.zip
 ```
 
 Archive SHA-256:
-`733121a1a549d5863248666d5f43d4d0ecd68f671e06548249d803879cb19920`.
+`bae5b16ed7f2fb27f009fda8a6b86656ad63eeab2366dbd9617d0bab7ee6d57a`.
 The installer also validates each file and the task catalog's trained-state
 hashes. It accepts identical existing files and refuses conflicting content.
+
+When updating an existing installation, use a fresh checkout or move the
+previously downloaded run folders and cached checkpoint ZIP aside before
+reinstalling. Preserve those files until the new installation is verified.
 
 ## Runtime geometry
 
